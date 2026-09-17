@@ -1,0 +1,38 @@
+# Publikacja strony fundacji (website/) na GitHub Pages.
+# Aktywacja (jednorazowo, w przeglądarce): Settings → Pages → Source: "GitHub Actions".
+# Po każdej zmianie w website/ strona odświeża się sama.
+name: Deploy strony na GitHub Pages
+
+on:
+  push:
+    branches:
+      - claude/szansa-ai-operational-plan-ccet8b
+      - main
+    paths:
+      - "website/**"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: website
+      - id: deployment
+        uses: actions/deploy-pages@v4

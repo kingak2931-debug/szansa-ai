@@ -1,5 +1,6 @@
 """Testy mini-CRM (jarvis/crm/crm.py) na backendzie SQLite."""
 
+import gc
 import io
 import os
 import sys
@@ -23,6 +24,9 @@ class CrmTestCase(unittest.TestCase):
         os.environ.pop("DATABASE_URL", None)
 
     def tearDown(self):
+        # Windows: plik SQLite musi być zwolniony przed usunięciem katalogu;
+        # połączenia otwierane wewnątrz komend CRM zwalnia dopiero GC.
+        gc.collect()
         self.tmp.cleanup()
 
     def _conn(self):

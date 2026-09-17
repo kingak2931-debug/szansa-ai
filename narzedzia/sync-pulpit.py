@@ -31,6 +31,10 @@ import shutil
 import sys
 from pathlib import Path
 
+# Konsola Windows z kodowaniem cp1250 nie zna znaków ✔/⚠ — wymuszamy UTF-8
+if sys.stdout.encoding and sys.stdout.encoding.lower() not in ("utf-8", "utf8"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 MAPPING = [

@@ -28,6 +28,17 @@
   }
 }
 
+:root[data-theme="dark"] {
+  --bg: #0e1420;
+  --bg-alt: #171f2f;
+  --text: #e7ecf5;
+  --text-muted: #9aa6b8;
+  --border: #2a3548;
+  --primary: #6d9bff;
+  --primary-dark: #a9c3ff;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {

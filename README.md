@@ -15,6 +15,8 @@ bezpiecznego i efektywnego wykorzystywania sztucznej inteligencji.
 | [`fundraising/`](fundraising/) | **Moduł 3** — produkty cegiełkowe: e-book dla rodziców (pełny rękopis), kurs dla nauczycieli, certyfikaty, gadżety |
 | [`legal/`](legal/) | **Moduł 4** — wzory dokumentów: statut, polityka prywatności (RODO), standardy ochrony małoletnich (ustawa Kamilka), umowa darowizny B2B, regulamin zbiórki |
 | [`jarvis/`](jarvis/) | **ETAP 3** — system zarządzania (CLI, Python): darowizny, pipeline B2B, granty, raporty, propozycje treści — każda akcja za zgodą operatora `[T/N]` |
+| [`jarvis/crm/`](jarvis/crm/) | **Mini-CRM** — szanse sprzedażowe B2B, baza szkół/GOK, wysyłka sekwencji outreach (`[T/N]`); backend SQLite lub Vercel Postgres |
+| [`execution/`](execution/) | **Moduł 6** — plan startowy Go-To-Market: rolki TikTok/Reels, strategia IG, wpisy LinkedIn B2B, kalendarz FB 30 dni, oferta sponsorska, cold outreach, scenariusz warsztatów pilotażowych, harmonogram 30-dniowy |
 
 ## Zasady nadrzędne
 

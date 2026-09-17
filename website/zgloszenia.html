@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zgłoś szkołę lub dziecko — Fundacja Szansa AI</title>
+  <meta name="description" content="Formularz zgłoszeniowy do programu edukacji AI — dla szkół, domów kultury i rodziców z miejscowości do 20 tys. mieszkańców." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="Nawigacja główna">
+      <a class="logo" href="index.html"><span class="mark">AI</span> Szansa&nbsp;AI</a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="misja.html">Misja</a></li>
+        <li><a href="sponsorzy.html">Dla sponsorów</a></li>
+        <li><a href="zgloszenia.html" aria-current="page">Zgłoś szkołę</a></li>
+        <li><a class="btn btn-accent" href="wsparcie.html">Wesprzyj nas ❤</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Zgłoś <em>swoją miejscowość</em> do programu</h1>
+        <p class="lead">
+          Jesteś dyrektorem szkoły, nauczycielem, pracownikiem domu kultury albo rodzicem
+          z miejscowości do 20 tys. mieszkańców? Zgłoś się — udział w programie jest bezpłatny.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="grid grid-2">
+          <div>
+            <h2>Jak wygląda współpraca?</h2>
+            <div class="steps">
+              <div class="step"><div><p><strong>Zgłoszenie</strong> — wypełniasz formularz obok. Potrzebujemy tylko podstawowych informacji.</p></div></div>
+              <div class="step"><div><p><strong>Rozmowa</strong> — kontaktujemy się w ciągu 7 dni, ustalamy potrzeby, salę i terminy. Sprzęt przywozimy my.</p></div></div>
+              <div class="step"><div><p><strong>Zgody rodziców</strong> — przekazujemy komplet dokumentów (zgody RODO, informacje o programie i standardach ochrony małoletnich).</p></div></div>
+              <div class="step"><div><p><strong>Zajęcia</strong> — semestr warsztatów (12 spotkań) w Waszej miejscowości, zakończony pokazem projektów dla rodziców.</p></div></div>
+            </div>
+            <p class="notice" style="margin-top:20px">Liczba miejsc w pilotażu jest ograniczona — o kolejności decyduje
+            dopasowanie do misji (wielkość miejscowości, dostęp dzieci do zajęć dodatkowych), nie kolejność zgłoszeń.</p>
+          </div>
+
+          <div class="card">
+            <h2>Formularz zgłoszeniowy</h2>
+            <form data-form="school">
+              <div class="field"><label for="z-typ">Zgłaszam jako *</label>
+                <select id="z-typ" name="Typ zgłoszenia" required>
+                  <option value="">— wybierz —</option>
+                  <option>Szkoła (dyrekcja / nauczyciel)</option>
+                  <option>Dom kultury / biblioteka / GOK</option>
+                  <option>Gmina / samorząd</option>
+                  <option>Rodzic / opiekun</option>
+                </select></div>
+              <div class="field"><label for="z-miejscowosc">Miejscowość i gmina *</label>
+                <input id="z-miejscowosc" name="Miejscowosc" required placeholder="np. Radzymin, gm. Radzymin" /></div>
+              <div class="field"><label for="z-ludnosc">Przybliżona liczba mieszkańców *</label>
+                <select id="z-ludnosc" name="Liczba mieszkancow" required>
+                  <option value="">— wybierz —</option>
+                  <option>do 5 tys.</option>
+                  <option>5–10 tys.</option>
+                  <option>10–20 tys.</option>
+                  <option>powyżej 20 tys. (poza kryterium programu)</option>
+                </select></div>
+              <div class="field"><label for="z-instytucja">Nazwa szkoły / instytucji (jeśli dotyczy)</label>
+                <input id="z-instytucja" name="Instytucja" /></div>
+              <div class="grid grid-2">
+                <div class="field"><label for="z-osoba">Imię i nazwisko *</label><input id="z-osoba" name="Osoba" required /></div>
+                <div class="field"><label for="z-email">E-mail *</label><input id="z-email" name="Email" type="email" required /></div>
+              </div>
+              <div class="field"><label for="z-grupa">Szacowana liczba i wiek dzieci</label>
+                <input id="z-grupa" name="Grupa" placeholder="np. 25 dzieci, klasy 5–7" /></div>
+              <div class="field"><label for="z-msg">Dodatkowe informacje</label>
+                <textarea id="z-msg" name="Wiadomosc" rows="3" placeholder="Sala, sprzęt, dostęp do internetu, terminy..."></textarea></div>
+              <label class="checkbox-field"><input type="checkbox" name="consent" required />
+                <span>Wyrażam zgodę na przetwarzanie podanych danych w celu obsługi zgłoszenia, zgodnie z <a href="polityka-prywatnosci.html">polityką prywatności</a>. *</span></label>
+              <p class="form-note">Nie podawaj w formularzu danych dzieci — na tym etapie ich nie potrzebujemy i nie chcemy ich przetwarzać.</p>
+              <button class="btn btn-primary" type="submit">Wyślij zgłoszenie</button>
+              <p class="form-success" hidden>Dziękujemy! Skontaktujemy się w ciągu 7 dni.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">© 2026 Fundacja Szansa AI · <a href="polityka-prywatnosci.html">Polityka prywatności</a></div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

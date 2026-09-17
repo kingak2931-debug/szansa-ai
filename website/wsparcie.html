@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wesprzyj nas — Fundacja Szansa AI</title>
+  <meta name="description" content="Przekaż darowiznę na edukację AI dzieci z małych miejscowości — jednorazowo lub cyklicznie." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="Nawigacja główna">
+      <a class="logo" href="index.html"><span class="mark">AI</span> Szansa&nbsp;AI</a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="misja.html">Misja</a></li>
+        <li><a href="sponsorzy.html">Dla sponsorów</a></li>
+        <li><a href="zgloszenia.html">Zgłoś szkołę</a></li>
+        <li><a class="btn btn-accent" href="wsparcie.html" aria-current="page">Wesprzyj nas ❤</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Twoje wsparcie = czyjaś <em>szansa</em></h1>
+        <p class="lead">Każda wpłata finansuje bezpłatne warsztaty AI dla dzieci z małych miejscowości.
+        Darowiznę możesz odliczyć od podatku (do 6% dochodu w PIT, do 10% w CIT).</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="grid grid-2">
+          <div class="card" data-donation-widget>
+            <h2>Przekaż darowiznę</h2>
+            <p style="margin-bottom:16px">
+              <span class="freq-toggle" role="group" aria-label="Częstotliwość wpłaty">
+                <button type="button" class="active" data-freq="once">Jednorazowo</button>
+                <button type="button" data-freq="monthly">Co miesiąc</button>
+              </span>
+            </p>
+            <div class="amounts" style="margin-bottom:14px">
+              <button type="button" class="amount" data-amount="30">30 zł</button>
+              <button type="button" class="amount selected" data-amount="100">100 zł</button>
+              <button type="button" class="amount" data-amount="200">200 zł</button>
+              <button type="button" class="amount" data-amount="500">500 zł</button>
+            </div>
+            <div class="field"><label for="custom-amount">Inna kwota (zł)</label>
+              <input id="custom-amount" type="number" min="1" step="1" placeholder="np. 75" /></div>
+            <p class="impact-line" aria-live="polite"></p>
+            <button class="btn btn-accent" id="donate-btn" type="button">Przekaż 100 zł</button>
+            <p class="form-note" style="margin-top:12px">
+              Płatności online (BLIK, karta, przelew) obsługuje licencjonowany operator płatności.
+              Administratorem danych darczyńców jest Fundacja Szansa AI —
+              <a href="polityka-prywatnosci.html">polityka prywatności</a>.
+            </p>
+          </div>
+
+          <div>
+            <div class="card" id="przelew" style="margin-bottom:22px">
+              <h3>🏦 Przelew tradycyjny</h3>
+              <p>Fundacja Szansa AI<br />
+              Nr konta: <strong>PL00 0000 0000 0000 0000 0000 0000</strong><br />
+              Tytuł: <strong>„Darowizna na cele statutowe”</strong></p>
+              <p class="form-note" style="margin-top:8px">Tytuł przelewu jest ważny — umożliwia Ci odliczenie darowizny od podatku.</p>
+            </div>
+            <div class="card">
+              <h3>❤ Inne formy wsparcia</h3>
+              <p>• <strong>Cegiełki i e-produkty</strong> — kup e-book „Bezpieczny AI-Guide dla Rodzica” lub certyfikat-cegiełkę.<br />
+                 • <strong>Firmy</strong> — zobacz <a href="sponsorzy.html">pakiety sponsorskie</a> i darowizny sprzętu.<br />
+                 • <strong>Wolontariat</strong> — napisz do nas, szukamy trenerów i mentorów.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Najczęstsze pytania</h2>
+        <details><summary>Czy mogę odliczyć darowiznę od podatku?</summary>
+          <p>Tak. Osoby fizyczne odliczają darowizny na cele pożytku publicznego do 6% dochodu (art. 26 ust. 1 pkt 9 ustawy o PIT), firmy — do 10% dochodu (art. 18 ust. 1 pkt 1 ustawy o CIT). Zachowaj potwierdzenie przelewu.</p></details>
+        <details><summary>Na co konkretnie idą pieniądze?</summary>
+          <p>Na bezpłatne warsztaty AI: wynagrodzenia trenerów, mobilne pracownie komputerowe, dojazdy do gmin, materiały dla dzieci. Publikujemy roczne sprawozdania finansowe — koszty administracyjne utrzymujemy poniżej 25%.</p></details>
+        <details><summary>Jak zrezygnować z wpłaty cyklicznej?</summary>
+          <p>W każdej chwili, jednym mailem na adres fundacji lub przez panel operatora płatności. Bez okresu wypowiedzenia.</p></details>
+        <details><summary>Czy prowadzicie zbiórki publiczne?</summary>
+          <p>Wpłaty na konto nie są zbiórką publiczną w rozumieniu ustawy. Ewentualne zbiórki gotówkowe (puszki na wydarzeniach) każdorazowo zgłaszamy na zbiorki.gov.pl i publikujemy sprawozdania.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">© 2026 Fundacja Szansa AI · <a href="polityka-prywatnosci.html">Polityka prywatności</a></div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

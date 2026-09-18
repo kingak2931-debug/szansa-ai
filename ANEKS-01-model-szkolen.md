@@ -15,23 +15,25 @@ Decyzja fundatorki. Ten aneks ma pierwszeństwo przed PLAN.md tam, gdzie są spr
   ciekawostki — strona i materiały mają prezentować wysoki poziom ekspertyzy AI
   (to fundament przyszłego produktu subskrypcyjnego).
 
-## 2. Przeliczniki (do ofert, cegiełek i komunikacji)
+## 2. Model liczbowy — założenia fundatorki (2026-09-18, obowiązujące)
 
-Koszt jednego szkolenia (trener × 2 dni, przygotowanie, dojazd, materiały, koszty
-pośrednie): **ok. 3 000–3 500 zł**. Zakładana grupa: **ok. 30 dzieci** (1–2 klasy).
+- **Skala szkolenia:** jedna szkoła = **ok. 100 uczniów** na szkoleniu
+  (kilka klas w grupach w ciągu 1–2 dni).
+- **Rok 1 (12 mies.):** **ok. 50 szkół** → **ok. 5 000 przeszkolonych dzieci**.
+- **Konwersja na subskrypcję „Szkoła AI":** ok. **10% uczestników**, cena
+  **maks. 19 zł/mies.** → z roku 1: ~500 subskrybentów ≈ **9 500 zł/mies.**
+  (~114 tys. zł/rok przychodu powtarzalnego, przed uwzględnieniem rezygnacji).
+- **Format online:** część szkoleń zdalnie dla kilku szkół jednocześnie —
+  do przetestowania jako mnożnik zasięgu (1 termin = 3–5 szkół).
 
-| Pakiet | Kwota | Finansuje |
-|---|---|---|
-| Brązowy / Przyjaciel | 10 000 zł | ok. 3 szkolenia (~90 dzieci) |
-| Srebrny / Partner Regionalny | 50 000 zł | ok. 15 szkoleń (~450 dzieci) w regionie |
-| Złoty / Mecenas | 100 000 zł | ok. 30 szkoleń (~900 dzieci) + webinary dla rodziców |
+**Rynek docelowy (dane GUS, rok szkolny 2024/25):** w Polsce działa ~14,0 tys.
+szkół podstawowych: **8,0 tys. na wsi** (wszystkie w kryterium misji) i 6,0 tys.
+w miastach, z czego w miastach do 20 tys. mieszkańców szacunkowo 1,5–2 tys.
+→ **łącznie ok. 9,5–10 tys. szkół podstawowych w zasięgu programu** (plus szkoły
+średnie w małych miastach). 50 szkół w roku 1 = ~0,5% rynku — ogromny zapas skali.
 
-Cele 18-miesięczne (propozycja — do zatwierdzenia): **100 szkół, 3 000+ dzieci**,
-cel finansowy bez zmian: 2 mln PLN (nadwyżka względem kosztów szkoleń finansuje
-zakup mobilnych pracowni i rozwój programu).
-
-Cegiełki: 100 zł = godzina szkolenia dla klasy · 250 zł = moduł dla całej klasy ·
-500 zł = pół dnia szkoleniowego w szkole.
+Przeliczniki pakietów sponsorskich i cegiełek: **do ponownego ustalenia z fundatorką**
+przy przebudowie strony (obecne zapisy na stronie/ofercie traktować jako robocze).
 
 ## 3. Perspektywa długoterminowa — „Szkoła AI" (subskrypcja)
 

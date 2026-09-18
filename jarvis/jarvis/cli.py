@@ -18,7 +18,7 @@ import sys
 from . import db, proposals, reports
 from .approval import ApprovalDenied, NonInteractiveError, Proposal, confirm
 
-TIERS = {100: "godzinę warsztatów AI", 250: "dzień warsztatów AI", 500: "semestr zajęć jednego dziecka"}
+TIERS = {100: "godzinę szkolenia AI dla klasy", 250: "moduł szkoleniowy dla całej klasy", 500: "pół dnia szkoleniowego w jednej szkole"}
 
 
 def _conn(args):

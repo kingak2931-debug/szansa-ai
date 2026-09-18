@@ -15,7 +15,7 @@ możliwość rezygnacji („odpisz NIE"); rezygnacje natychmiast do CRM (status:
 
 ## Wiadomość 1 — Otwarcie (problem + konkret)
 
-**Temat:** `[Firma] × 60 dzieci z [region] — jedna decyzja`
+**Temat:** `[Firma] × 450 dzieci z [region] — jedna decyzja`
 **Temat wariant B (test):** `Pytanie o CSR [Firmy] na [rok]`
 
 > Dzień dobru Panie/Pani [imię],
@@ -25,10 +25,11 @@ możliwość rezygnacji („odpisz NIE"); rezygnacje natychmiast do CRM (status:
 > rekrutacja."]
 >
 > Fundacja Szansa AI uczy dzieci z miejscowości do 20 tys. mieszkańców bezpiecznego
-> i mądrego korzystania ze sztucznej inteligencji. Przywozimy mobilne pracownie tam,
-> gdzie nie ma żadnych zajęć z technologii — bezpłatnie dla rodzin.
+> i mądrego korzystania ze sztucznej inteligencji. Prowadzimy intensywne szkolenia
+> (maks. 2 dni) w szkołach, do których nie dociera żadna oferta zajęć z technologii —
+> bezpłatnie dla rodzin.
 >
-> 50 000 zł finansuje pełny semestr dla 60 dzieci w jednej gminie — z imiennym
+> 50 000 zł finansuje ok. 15 szkoleń dla ~450 dzieci w regionie — z imiennym
 > raportem wpływu do Państwa raportu ESG i odliczeniem darowizny od CIT.
 >
 > Czy znajdzie Pan/Pani 20 minut w przyszłym tygodniu na rozmowę online?
@@ -48,8 +49,8 @@ możliwość rezygnacji („odpisz NIE"); rezygnacje natychmiast do CRM (status:
 
 > Dzień dobry Panie/Pani [imię],
 >
-> wracam z jednym konkretem zamiast przypominajki: [DOWÓD — np. „w zeszłym semestrze
-> w gminie X dzieci poprawiły rozpoznawanie treści generowanych przez AI z 34% do 71%
+> wracam z jednym konkretem zamiast przypominajki: [DOWÓD — np. „podczas ostatnich
+> szkoleń w gminie X dzieci poprawiły rozpoznawanie treści generowanych przez AI z 34% do 71%
 > (ewaluacja przed/po)" — dane rzeczywiste z pilotażu; przed pilotażem: „12 gmin czeka
 > na liście z gotowymi salami i zgłoszeniami — brakuje wyłącznie finansowania"].
 >
@@ -74,7 +75,7 @@ link do kalendarza: [link]".
 > tak bywa i to w porządku.
 >
 > Zostawiam trzy rzeczy na przyszłość:
-> 1. Nasz raport roczny i cennik „ile kosztuje semestr w gminie": [link]
+> 1. Nasz raport roczny i cennik „ile kosztuje szkolenie w szkole": [link]
 > 2. Bezpłatny poradnik o dzieciach i AI — przydaje się też pracownikom-rodzicom: [link]
 > 3. Obietnicę, że jak wrócicie za pół roku, gminy nadal będą czekać.
 >

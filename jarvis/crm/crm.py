@@ -37,8 +37,8 @@ CREATE TABLE IF NOT EXISTS schools (
     population_band TEXT CHECK (population_band IN ('<5k', '5-10k', '10-20k', '>20k')),
     contact_name TEXT,
     contact_email TEXT,
-    status TEXT NOT NULL DEFAULT 'zgloszenie'  -- zgloszenie | rozmowa | porozumienie | pilotaz | semestr | odrzucone
-        CHECK (status IN ('zgloszenie', 'rozmowa', 'porozumienie', 'pilotaz', 'semestr', 'odrzucone')),
+    status TEXT NOT NULL DEFAULT 'zgloszenie'  -- zgloszenie | rozmowa | porozumienie | pilotaz | wspolpraca | odrzucone
+        CHECK (status IN ('zgloszenie', 'rozmowa', 'porozumienie', 'pilotaz', 'wspolpraca', 'odrzucone')),
     children_estimate INTEGER,
     notes TEXT,
     created_at TEXT NOT NULL,
@@ -259,17 +259,17 @@ def cmd_donations(args):
 # ------------------------------------------------------------------
 
 SEQUENCE = {
-    1: ("{company} × 60 dzieci z {region} — jedna decyzja",
+    1: ("{company} × 450 dzieci z {region} — jedna decyzja",
         """Dzień dobry {contact},
 
 {hook}
 
 Fundacja Szansa AI uczy dzieci z miejscowości do 20 tys. mieszkańców
-bezpiecznego i mądrego korzystania ze sztucznej inteligencji. Przywozimy
-mobilne pracownie tam, gdzie nie ma żadnych zajęć z technologii —
-bezpłatnie dla rodzin.
+bezpiecznego i mądrego korzystania ze sztucznej inteligencji. Prowadzimy
+intensywne szkolenia stacjonarne (maks. 2 dni) w szkołach, do których
+nie dociera żadna oferta zajęć z technologii — bezpłatnie dla rodzin.
 
-50 000 zł finansuje pełny semestr dla 60 dzieci w jednej gminie — z imiennym
+50 000 zł finansuje ok. 15 szkoleń dla ~450 dzieci w regionie — z imiennym
 raportem wpływu do Państwa raportu ESG i odliczeniem darowizny od CIT
 (do 10% dochodu).
 
@@ -298,8 +298,8 @@ PS Jeśli temat nietrafiony — odpowiedź „nie" wystarczy, nie będę wracał
 
 to moja ostatnia wiadomość w tej sprawie — rozumiem, że teraz to nie priorytet.
 
-Zostawiam na przyszłość: nasz raport i jawny cennik „ile kosztuje semestr
-w gminie" oraz bezpłatny poradnik o dzieciach i AI dla pracowników-rodziców.
+Zostawiam na przyszłość: nasz raport i jawny cennik „ile kosztuje szkolenie
+w szkole" oraz bezpłatny poradnik o dzieciach i AI dla pracowników-rodziców.
 Gminy nadal będą czekać, gdyby temat wrócił.
 
 Wszystkiego dobrego,
@@ -447,7 +447,7 @@ def build_parser():
     ss = scs.add_parser("set")
     ss.add_argument("--id", type=int, required=True)
     ss.add_argument("--status", required=True,
-                    choices=["zgloszenie", "rozmowa", "porozumienie", "pilotaz", "semestr", "odrzucone"])
+                    choices=["zgloszenie", "rozmowa", "porozumienie", "pilotaz", "wspolpraca", "odrzucone"])
     ss.add_argument("--note")
     ss.set_defaults(func=cmd_school_set)
     scs.add_parser("list").set_defaults(func=cmd_school_list)

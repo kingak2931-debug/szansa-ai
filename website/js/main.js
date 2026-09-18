@@ -23,10 +23,10 @@ const PAYMENT_CONFIG = {
 
 /* Co daje dana kwota — komunikaty wpływu przy module wpłat */
 const IMPACT = [
-  [500, "500 zł = pełny udział jednego dziecka w semestrze zajęć AI"],
-  [200, "200 zł = miesiąc licencji i narzędzi AI dla całej grupy warsztatowej"],
-  [100, "100 zł = jedna godzina warsztatów dla grupy dzieci w małej gminie"],
-  [50, "50 zł = materiały edukacyjne dla trójki dzieci"],
+  [500, "500 zł = pół dnia szkoleniowego w jednej szkole"],
+  [200, "200 zł = udział całej klasy w module o bezpieczeństwie AI"],
+  [100, "100 zł = godzina szkolenia dla klasy z małej miejscowości"],
+  [50, "50 zł = materiały edukacyjne dla całej klasy"],
   [30, "30 zł = wydrukowany „Bezpieczny AI-Guide” dla jednej rodziny"],
 ];
 

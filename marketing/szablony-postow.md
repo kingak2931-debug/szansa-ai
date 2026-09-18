@@ -15,12 +15,12 @@ na LinkedIn, swobodniej na FB/IG.
 > tylko w formie TikToka. Bez przygotowania do oceny treści, ochrony prywatności,
 > rozpoznania deepfake'a.
 >
-> Fundacja Szansa AI przywozi mobilne pracownie do miejscowości poniżej 20 tys.
-> mieszkańców i uczy dzieci bezpiecznego, krytycznego i twórczego korzystania z AI.
+> Fundacja Szansa AI dociera z intensywnymi szkoleniami do miejscowości poniżej
+> 20 tys. mieszkańców i uczy dzieci bezpiecznego, krytycznego i twórczego korzystania z AI.
 > Bezpłatnie dla dzieci. Mierzalnie dla partnerów.
 >
-> Szukamy firm, które chcą to zrobić z nami. 50 000 zł = pełny semestr zajęć dla
-> 60 dzieci w jednej gminie — z raportem wpływu do Waszego raportu ESG.
+> Szukamy firm, które chcą to zrobić z nami. 50 000 zł = ok. 15 szkoleń dla
+> ~450 dzieci w regionie — z raportem wpływu do Waszego raportu ESG.
 >
 > 👉 [link do sponsorzy.html] | #CSR #ESG #EdukacjaCyfrowa #AI
 
@@ -28,12 +28,12 @@ na LinkedIn, swobodniej na FB/IG.
 > [Liczba] dzieci. [Liczba] godzin warsztatów. 1 gmina, w której wcześniej nie było
 > żadnych zajęć z nowych technologii.
 >
-> Za nami semestr programu Szansa AI w [gmina]. Trzy rzeczy, które nas zaskoczyły:
+> Za nami pierwsze szkolenia programu Szansa AI w [gmina]. Trzy rzeczy, które nas zaskoczyły:
 > 1. [obserwacja z zajęć, np. „dzieci świetnie wyłapują fałszywe obrazy — gorzej z fałszywym tekstem"]
 > 2. [obserwacja]
 > 3. [obserwacja]
 >
-> Ten semestr sfinansował [Partner]. Dziękujemy — to jest dokładnie ten rodzaj
+> Te szkolenia sfinansował [Partner]. Dziękujemy — to jest dokładnie ten rodzaj
 > partnerstwa, który zmienia mapę cyfrowej Polski.
 >
 > Chcesz zaadoptować kolejną gminę? → [link]
@@ -47,7 +47,7 @@ na LinkedIn, swobodniej na FB/IG.
 > trenera fundacji. [CTA]
 
 ### A4. Outreach e-mail B2B (szablon do CRM/Jarvis)
-> **Temat:** [Firma] × Szansa AI — semestr edukacji AI dla 60 dzieci z [region]
+> **Temat:** [Firma] × Szansa AI — szkolenia AI dla ~450 dzieci z [region]
 >
 > Dzień dobry, Panie/Pani [nazwisko],
 >
@@ -56,9 +56,9 @@ na LinkedIn, swobodniej na FB/IG.
 > po stronie „S" w ESG.
 >
 > Fundacja Szansa AI uczy dzieci z miejscowości do 20 tys. mieszkańców bezpiecznego
-> i efektywnego korzystania z AI. Mobilne pracownie, semestralny program, mierzalne
-> wskaźniki. Pakiet Partnera Regionalnego (50 000 zł) finansuje pełny semestr dla
-> 60 dzieci w konkretnej gminie — z lokalnym raportem wpływu i materiałami do Waszej
+> i efektywnego korzystania z AI. Intensywne szkolenia stacjonarne (maks. 2 dni),
+> mierzalne wskaźniki. Pakiet Partnera Regionalnego (50 000 zł) finansuje ok. 15
+> szkoleń dla ~450 dzieci w regionie — z lokalnym raportem wpływu i materiałami do Waszej
 > komunikacji. Darowizna podlega odliczeniu od CIT (do 10% dochodu).
 >
 > Czy znajdzie Pan/Pani 20 minut w przyszłym tygodniu na krótką rozmowę?
@@ -73,13 +73,13 @@ na LinkedIn, swobodniej na FB/IG.
 > 📢 [Miejscowość], szukamy Was!
 >
 > Bezpłatne warsztaty ze sztucznej inteligencji dla dzieci z klas 4–8 i szkół
-> średnich — u Was, w [nazwa szkoły/GOK]. Przywozimy laptopy, internet i trenerów.
-> Wy dajecie salę i… dzieciaki 🙂
+> średnich — u Was, w [nazwa szkoły/GOK]. Przyjeżdżamy z gotowym programem
+> i trenerami. Wy dajecie salę i… dzieciaki 🙂
 >
 > Czego uczymy? Jak korzystać z AI mądrze i bezpiecznie: co to deepfake, czemu
 > chatbot czasem zmyśla, jak AI może pomóc w nauce — i kiedy lepiej mu nie ufać.
 >
-> ✅ 12 spotkań, całkowicie bezpłatnie
+> ✅ Intensywne szkolenie (maks. 2 dni), całkowicie bezpłatnie
 > ✅ trenerzy zweryfikowani zgodnie ze standardami ochrony małoletnich
 > ✅ na koniec: pokaz projektów dzieci dla rodziców
 >

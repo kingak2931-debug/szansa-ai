@@ -10,6 +10,15 @@ Kompletny plan operacyjny i zasoby polskiej fundacji uczącej dzieci z miejscowo
 do 20 tys. mieszkańców odpowiedzialnego, bezpiecznego i efektywnego korzystania z AI.
 Cel finansowy: 2 mln PLN w 18 miesięcy. Fundacja jest zarejestrowana formalnie.
 
+**Model szkoleniowy (ANEKS-01, ma pierwszeństwo przed starszymi zapisami):**
+jedna szkoła = jedno szkolenie, maks. 2 dni po 2–3 h; BEZ obietnicy przywożenia
+sprzętu (sala/pracownia szkoły lub wariant bez komputerów; mobilne pracownie to CEL
+zbiórek); przeliczniki pakietów: 10k ≈ 3 szkolenia, 50k ≈ 15, 100k ≈ 30 (~30 dzieci
+na szkolenie). Długoterminowo fundacja powoła spółkę „Szkoła AI" (subskrypcja) —
+strona na razie tego nie sprzedaje. Statut w legal/ to WZÓR — obowiązuje statut
+złożony w sądzie (do podmiany, gdy użytkowniczka go dostarczy). Przebudowa strony
+w stylu awwwards (animacje/3D/scrub scroll) = faza 2, po starcie.
+
 ## Mapa repozytorium
 
 | Ścieżka | Zawartość |

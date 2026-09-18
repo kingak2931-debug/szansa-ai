@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS schools (
     contact_name TEXT,
     contact_email TEXT,
     status TEXT NOT NULL DEFAULT 'zgloszenie'
-        CHECK (status IN ('zgloszenie', 'rozmowa', 'porozumienie', 'pilotaz', 'semestr', 'odrzucone')),
+        CHECK (status IN ('zgloszenie', 'rozmowa', 'porozumienie', 'pilotaz', 'wspolpraca', 'odrzucone')),
     children_estimate INTEGER,
     notes TEXT,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),

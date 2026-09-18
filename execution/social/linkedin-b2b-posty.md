@@ -14,10 +14,10 @@ osoby" w pierwszej osobie). Placeholdery `[…]` uzupełnić danymi przed publik
 > W gminie do 20 tys. mieszkańców: często ani jednej godziny zajęć z nowych technologii.
 > A przecież te dzieci już używają AI — tylko nikt ich nie uczy, jak robić to bezpiecznie.
 >
-> Dlatego powstała Fundacja Szansa AI. Przywozimy mobilne pracownie tam, gdzie nie
-> dociera nikt inny. Semestr warsztatów, zweryfikowana kadra, zero kosztów dla rodzin.
+> Dlatego powstała Fundacja Szansa AI. Docieramy ze szkoleniami tam, gdzie nie
+> dociera nikt inny. Intensywny format (maks. 2 dni), zweryfikowana kadra, zero kosztów dla rodzin.
 >
-> Przez najbliższe 18 miesięcy chcemy dotrzeć do 20 gmin i 1000 dzieci.
+> Przez najbliższe 18 miesięcy chcemy dotrzeć do 100 szkół i 3000 dzieci.
 > Jeśli prowadzisz firmę, która mówi poważnie o „S" w ESG — porozmawiajmy.
 
 ### Wpis 2 — Dla dyrektora CSR (konkret zamiast obietnic)
@@ -25,12 +25,12 @@ osoby" w pierwszej osobie). Placeholdery `[…]` uzupełnić danymi przed publik
 > po których dostajemy tylko fakturę i logo na plakacie".
 >
 > Rozumiemy. Dlatego nasz model partnerstwa wygląda inaczej:
-> • 50 000 zł = pełny semestr zajęć AI dla 60 dzieci w JEDNEJ, konkretnej gminie
+> • 50 000 zł = ok. 15 szkoleń AI dla ~450 dzieci w Waszym regionie
 > • co kwartał: raport z liczbami (dzieci, godziny, ewaluacja umiejętności)
 > • materiał gotowy do raportu ESG (CSRD) i komunikacji wewnętrznej
 > • możliwość wizyty Waszego zespołu na zajęciach — zobaczycie, co sfinansowaliście
 >
-> To nie darowizna „w eter". To adopcja gminy. [link do oferty]
+> To nie darowizna „w eter". To adopcja regionu. [link do oferty]
 
 ### Wpis 3 — Dla prezesa firmy IT (argument talentowy)
 > Pytanie do CEO firm technologicznych: skąd weźmiecie programistów za 10 lat?
@@ -55,14 +55,14 @@ osoby" w pierwszej osobie). Placeholdery `[…]` uzupełnić danymi przed publik
 
 ### Wpis 5 — Case study gminy (po pilotażu)
 > [Gmina], [liczba] mieszkańców. Do września: zero zajęć z nowych technologii.
-> Dziś: [N] dzieci po pełnym semestrze warsztatów AI.
+> Dziś: [N] dzieci po intensywnym szkoleniu AI.
 >
 > Co się zmieniło (dane z ewaluacji przed/po):
 > • rozpoznawanie treści generowanych: [x]% → [y]%
 > • znajomość zasad ochrony danych: [x]% → [y]%
 > • [wskaźnik 3]
 >
-> Ten semestr sfinansował [Partner]. W kolejce czekają [N] gmin. Każda z nich potrzebuje
+> Te szkolenia sfinansował [Partner]. W kolejce czekają [N] szkół. Każda z nich potrzebuje
 > jednego partnera. Może Waszej firmy? [link]
 
 ### Wpis 6 — Edukacyjny ekspercki (budowa autorytetu)
@@ -82,7 +82,7 @@ osoby" w pierwszej osobie). Placeholdery `[…]` uzupełnić danymi przed publik
 > [grafika: struktura kosztów]
 >
 > Wierzymy, że NGO-sy powinny raportować jak spółki giełdowe. Nasze sprawozdania,
-> budżety programów i cenniki „co kosztuje semestr w gminie" — publicznie: [link].
+> budżety programów i cenniki „co kosztuje szkolenie w szkole" — publicznie: [link].
 > Tak wygląda partnerstwo, w którym wiesz, za co płacisz.
 
 ### Wpis 8 — Darowizna rzeczowa (sprzęt)
@@ -96,7 +96,7 @@ osoby" w pierwszej osobie). Placeholdery `[…]` uzupełnić danymi przed publik
 > Jeden mail = pracownia dla całej gminy: [kontakt]
 
 ### Wpis 9 — Ludzie fundacji (storytelling)
-> [Imię], nasz trener, przejechał w tym semestrze [N] km po drogach powiatowych.
+> [Imię], nasz trener, przejechał w tym kwartale [N] km po drogach powiatowych.
 >
 > [3–4 zdania historii: dlaczego uczy, moment z zajęć, który zapamiętał]
 >
@@ -108,7 +108,7 @@ osoby" w pierwszej osobie). Placeholdery `[…]` uzupełnić danymi przed publik
 > Do końca kwartału szukamy 3 firm, które zaadoptują gminy: [gmina 1], [gmina 2], [gmina 3].
 >
 > Dzieci i sale już czekają — zgłoszenia od szkół mamy. Brakuje ostatniego elementu:
-> 50 000 zł na semestr w każdej z nich. Co dostaje partner: [3 punkty — raport, ESG,
+> 50 000 zł na cykl szkoleń w każdej z nich. Co dostaje partner: [3 punkty — raport, ESG,
 > wolontariat]. Darowizna z odliczeniem do 10% dochodu CIT.
 >
 > Pierwsza rozmowa: 20 minut online. Napisz do [osoba] albo umów się: [link].

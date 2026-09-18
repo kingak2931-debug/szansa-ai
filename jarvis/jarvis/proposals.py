@@ -11,8 +11,8 @@ from datetime import date
 
 PACKAGES = {
     "przyjaciel": ("Przyjaciel Fundacji", "od 10 000 zł"),
-    "regionalny": ("Partner Regionalny", "50 000 zł — pełny semestr zajęć dla 60 dzieci w jednej gminie"),
-    "mecenas": ("Mecenas Edukacji", "100 000 zł — dwie gminy + roczny raport wpływu"),
+    "regionalny": ("Partner Regionalny", "50 000 zł — ok. 15 szkoleń dla ~450 dzieci w Waszym regionie"),
+    "mecenas": ("Mecenas Edukacji", "100 000 zł — ok. 30 szkoleń (~900 dzieci) + webinary dla rodziców"),
     "strategiczny": ("Partner Strategiczny", "od 250 000 zł — naming rights programu regionalnego"),
 }
 
@@ -32,9 +32,9 @@ def sponsor_outreach_email(company: str, contact_name: str, package: str = "regi
 
 Fundacja Szansa AI uczy dzieci z miejscowości do 20 tys. mieszkańców
 odpowiedzialnego, bezpiecznego i efektywnego korzystania ze sztucznej
-inteligencji. Przywozimy mobilne pracownie komputerowe tam, gdzie nie
-dociera żadna oferta zajęć z nowych technologii — udział dzieci jest
-zawsze bezpłatny.
+inteligencji. Prowadzimy intensywne szkolenia stacjonarne (maks. 2 dni)
+w szkołach, do których nie dociera żadna oferta zajęć z nowych
+technologii — udział dzieci jest zawsze bezpłatny.
 
 Proponujemy współpracę w formule „{pkg_name}" ({pkg_desc}).
 Partner otrzymuje mierzalny raport wpływu (liczba dzieci, gmin, godzin,
@@ -61,8 +61,8 @@ def donor_thankyou_email(donor_name: str, amount_pln: float,
 z całego serca dziękujemy za darowiznę {amount_pln:,.2f} zł na rzecz
 edukacji AI dzieci z małych miejscowości.{cert}
 
-Co dalej z Twoją wpłatą? Finansuje ona bezpłatne warsztaty: wynagrodzenia
-trenerów, mobilne pracownie i materiały dla dzieci. Relacje z zajęć
+Co dalej z Twoją wpłatą? Finansuje ona bezpłatne szkolenia w szkołach: wynagrodzenia
+trenerów, dojazdy i materiały dla dzieci. Relacje ze szkoleń
 publikujemy na naszych profilach — zobacz, co dzieje się dzięki Tobie.
 
 Pamiętaj: darowiznę możesz odliczyć od podatku (do 6% dochodu w PIT).
@@ -86,8 +86,8 @@ def social_post(kind: str, **kw) -> str:
         return (
             f"📢 {kw.get('place', '[Miejscowość]')}, szukamy Was!\n\n"
             "Bezpłatne warsztaty ze sztucznej inteligencji dla dzieci — u Was.\n"
-            "Przywozimy laptopy, internet i trenerów. Wy dajecie salę i dzieciaki 🙂\n\n"
-            "✅ 12 spotkań, całkowicie bezpłatnie\n"
+            "Przyjeżdżamy z gotowym programem i trenerami — Wy dajecie salę i dzieciaki 🙂\n\n"
+            "✅ Intensywne szkolenie (maks. 2 dni), całkowicie bezpłatnie\n"
             "✅ kadra zweryfikowana zgodnie ze standardami ochrony małoletnich\n\n"
             "Zgłoszenia: [link]"
         )

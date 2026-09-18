@@ -22,17 +22,21 @@ Zmieniamy to — gmina po gminie. Z Wami.
 
 ## Slajd 3 — Rozwiązanie (co robimy)
 
-**Mobilne pracownie AI + semestralny program warsztatów, bezpłatnie dla dzieci.**
-- 12 spotkań × 2 h, trzy ścieżki wiekowe (kl. 4–6, 7–8, szkoły średnie)
-- Program: bezpieczeństwo → krytyczne myślenie → praktyczne wykorzystanie → własny projekt
+**Intensywne szkolenia AI w szkołach — bezpłatnie dla dzieci.**
+- Jedna szkoła = jedno szkolenie: maks. 2 dni po 2–3 h dziennie — zwarty format
+  maksymalizuje liczbę przeszkolonych dzieci
+- Trzy ścieżki wiekowe (kl. 4–6, 7–8, szkoły średnie); program: bezpieczeństwo →
+  krytyczne myślenie → praktyka → finałowe wyzwanie
+- Prowadzimy w salach szkół (pracownia komputerowa szkoły lub wariant bez komputerów);
+  zakup mobilnych pracowni to cel rozwojowy finansowany ze środków programu
 - Kadra zweryfikowana wg standardów ochrony małoletnich (ustawa Kamilka), pełna zgodność RODO
 - Dodatkowo: webinary i poradniki dla rodziców i nauczycieli
 
 ## Slajd 4 — Dlaczego my (wiarygodność)
 
-- Przejrzystość jak w spółce: publiczne sprawozdania, koszt semestru w gminie jawny,
+- Przejrzystość jak w spółce: publiczne sprawozdania, koszt pojedynczego szkolenia jawny,
   koszty administracyjne ≤ 25%
-- Mierzalność: ewaluacja umiejętności przed/po każdym semestrze
+- Mierzalność: ewaluacja umiejętności przed/po każdym szkoleniu
 - Zgodność prawna wbudowana w DNA: statut, SOM, RODO — dokumenty publiczne
 
 ## Slajd 5 — Pakiety partnerskie
@@ -40,7 +44,7 @@ Zmieniamy to — gmina po gminie. Z Wami.
 | | 🥉 **BRĄZOWY** | 🥈 **SREBRNY** | 🥇 **ZŁOTY** |
 |---|---|---|---|
 | **Kwota rocznie** | **10 000 zł** | **50 000 zł** | **100 000 zł** |
-| Co finansuje | 100 godzin warsztatów | pełny semestr w 1 gminie (60 dzieci) | 2 gminy + webinary dla rodziców |
+| Co finansuje | ok. 3 szkolenia (~90 dzieci) | ok. 15 szkoleń w regionie (~450 dzieci) | ok. 30 szkoleń (~900 dzieci) + webinary dla rodziców |
 | Logo na stronie fundacji | ✔ | ✔ | ✔ |
 | Certyfikat + podziękowania w social media | ✔ | ✔ | ✔ |
 | Logo na materiałach i rollupach w regionie | — | ✔ | ✔ |
@@ -73,9 +77,9 @@ rynkowa, certyfikowane czyszczenie danych po naszej stronie.
 
 1. Rozmowa wstępna (20 min online) → dobór pakietu i gminy
 2. Umowa (darowizna lub sponsoring) — wzory gotowe, 1 tydzień
-3. Start semestru w „Waszej" gminie (najbliższy cykl rekrutacyjny)
+3. Start szkoleń w wybranym regionie (najbliższe wolne terminy)
 4. Relacja z otwarcia + materiały do komunikacji wewnętrznej
-5. Raport wpływu po semestrze + zaproszenie na pokaz projektów dzieci
+5. Raport wpływu po każdej turze szkoleń + relacje dla Waszej komunikacji
 
 ## Slajd 8 — Kontakt
 
@@ -91,8 +95,8 @@ KRS: [nr] · Konto: [IBAN] · Dokumenty fundacji: [link]
   pytać wprost w rozmowie).
 - **Obiekcja „mamy już fundację, którą wspieramy":** nie konkurujemy o cały budżet —
   pakiet Brązowy to koszt jednej konferencji; wejście testowe z raportem po pół roku.
-- **Obiekcja „skąd wiemy, że pieniądze dojdą":** koszt semestru jawny, raport
-  z ewaluacją, wizyta na zajęciach w cenie każdego pakietu od Srebrnego.
+- **Obiekcja „skąd wiemy, że pieniądze dojdą":** koszt szkolenia jawny, raport
+  z ewaluacją, wizyta na szkoleniu w cenie każdego pakietu od Srebrnego.
 - **Obiekcja „wolimy przekazać sprzęt":** świetnie — pakiet sprzętowy + Brązowy na
   koszty operacyjne pracowni to naturalny bundle.
 - **Zasada cenowa:** nie negocjujemy kwot pakietów w dół; negocjujemy zakres (liczbę

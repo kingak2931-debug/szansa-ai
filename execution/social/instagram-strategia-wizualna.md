@@ -39,7 +39,7 @@
 ## Posty graficzne (pojedyncze)
 
 - **Liczniki wpływu:** „347 dzieci przeszkolonych" — duża liczba, mały kontekst;
-  publikowane po każdym zakończonym semestrze (dane ze sprawozdań, nigdy „okrągłe" szacunki).
+  publikowane po każdej turze szkoleń (dane ze sprawozdań, nigdy „okrągłe" szacunki).
 - **Cytaty:** wypowiedzi rodziców/nauczycieli/dzieci (za zgodą, inicjały) na brand-tle.
 - **Podziękowania sponsorskie:** szablon z logo partnera (za zgodą; oznaczone jako współpraca).
 - **Zapowiedzi naborów:** mapa województwa z zaznaczonymi gminami rekrutacji.

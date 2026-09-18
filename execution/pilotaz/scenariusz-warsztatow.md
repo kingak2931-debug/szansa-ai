@@ -2,19 +2,26 @@
 
 **Czas:** 2 godziny (2 × 55 min + przerwa 10 min) · **Grupa:** 12–20 dzieci,
 kl. 5–8 (wariant dostosowań dla szkół średnich na końcu) · **Kadra:** 2 osoby
-(trener + ko-trener — wymóg SOM) · **Sprzęt:** laptopy fundacji (1 na dwoje dzieci —
-praca w parach jest celowa), rzutnik, internet z routera fundacji (filtrowany),
-konta warsztatowe (dzieci NIE logują się na prywatne konta).
+(trener + ko-trener — wymóg SOM) · **Sprzęt:** pracownia
+komputerowa szkoły, jeśli jest dostępna (praca w parach; konta warsztatowe — dzieci
+NIE logują się na prywatne); bez pracowni — wariant warsztatowy: rzutnik, materiały
+drukowane i ćwiczenia pokazowe na komputerze trenera.
 
 **Cel pilotażu:** (1) dzieci wychodzą z 3 konkretnymi umiejętnościami, (2) my
-wychodzimy z danymi ewaluacyjnymi i materiałem do relacji, (3) gmina chce semestru.
+wychodzimy z danymi ewaluacyjnymi i materiałem do relacji, (3) szkoła chce kolejnych
+szkoleń i poleca nas sąsiednim placówkom.
+
+**Format:** zgodnie z modelem fundacji — jedno szkolenie na szkołę, maksymalnie 2 dni
+po 2–3 h. Ten scenariusz to dzień 1 (2 h); opcjonalny dzień 2 pogłębia blok praktyczny
+i finałowy projekt.
 
 ## Przygotowanie (checklista przed wejściem na salę)
 
 - [ ] Zgody rodziców zebrane (udział + odrębnie wizerunek); lista obecności
 - [ ] Kadra zweryfikowana (RSPTS + KRK), identyfikatory
 - [ ] Plakat „Twoje bezpieczeństwo" (wersja SOM dla dzieci) na ścianie
-- [ ] Laptopy: konta warsztatowe zalogowane, historia czatów czyszczona po zajęciach
+- [ ] Sprzęt: potwierdzony wariant (pracownia szkoły / bez komputerów); na sprzęcie
+      szkolnym konta warsztatowe, historia czatów czyszczona po zajęciach
 - [ ] Ankieta „przed" wydrukowana (5 pytań, 3 minuty)
 
 ## Przebieg — blok 1 (55 min): „AI zgaduje. My sprawdzamy."
@@ -35,7 +42,7 @@ wychodzimy z danymi ewaluacyjnymi i materiałem do relacji, (3) gmina chce semes
 | 0–15 | **Quiz drużynowy „Człowiek czy AI?"** — 8 rund na rzutniku (zdjęcia, teksty, głosy). Punkty, emocje, dyskusja po każdej rundzie: „po czym poznaliście?". Kończymy twistem: dwóch ostatnich NIE dało się poznać → *dlatego pytamy o źródło, nie o wygląd*. |
 | 15–40 | **Warsztat: „AI jako pomocnik, nie wyręczacz".** Pary wybierają mini-projekt z menu: (a) plan komiksu o swojej miejscowości, (b) quiz o swojej szkole, (c) plakat wydarzenia w GOK. Reguła: AI pomaga (pomysły, poprawki), dziecko decyduje i podpisuje się jako autor. Trenerzy krążą, najciekawsze przykłady na rzutnik. |
 | 40–50 | **Pokaz projektów** — każda chętna para 30 sekund. Brawa obowiązkowe. |
-| 50–55 | **Zamknięcie:** 3 rzeczy do zapamiętania (dzieci mówią same — utrwalenie), ankieta „po", informacja o semestrze i ulotka dla rodziców (z QR do poradnika i formularza). |
+| 50–55 | **Zamknięcie:** 3 rzeczy do zapamiętania (dzieci mówią same — utrwalenie), ankieta „po", zapowiedź dnia 2 (jeśli zaplanowany) i ulotka dla rodziców (z QR do poradnika i formularza). |
 
 ## Ewaluacja (dane do raportów i sprzedaży)
 

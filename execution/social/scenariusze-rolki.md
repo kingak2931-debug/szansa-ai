@@ -60,11 +60,11 @@ pokazywane narzędzia sprawdzamy pod kątem wieku (13+) i RODO.
   „Różnica? Po pierwszym jesteś głupszy, po drugim mądrzejszy."
 - **CTA:** „Zapisz sobie tę rolkę przed sprawdzianem."
 
-### Rolka 8 [R/M] — „Dlaczego przyjeżdżamy z laptopami do wsi 800 km od Warszawy"
+### Rolka 8 [R/M] — „Dlaczego jeździmy uczyć AI do wsi 800 km od Warszawy"
 - **Hook:** „W tej gminie nie ma ani jednego kółka informatycznego. Zmieniamy to dziś."
-- **Treść:** dokumentalna: rozpakowanie mobilnej pracowni z auta, sala w GOK-u, ujęcia
-  zajęć (zgodne z polityką wizerunku), 1 cytat nauczyciela/rodzica; liczby na ekranie:
-  „60 laptopów · 20 gmin · 0 zł od rodziców".
+- **Treść:** dokumentalna: przygotowanie sali w GOK-u (rzutnik, materiały), ujęcia
+  szkolenia (zgodne z polityką wizerunku), 1 cytat nauczyciela/rodzica; liczby na ekranie:
+  „maks. 2 dni · cała szkoła · 0 zł od rodziców".
 - **CTA:** „Chcesz takie zajęcia u siebie? Zgłoś swoją gminę — link w bio."
 
 ### Rolka 9 [M] — „Quiz: człowiek czy AI?" (format angażujący, seria)

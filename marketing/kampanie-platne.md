@@ -14,8 +14,8 @@ od M3 + Google Ad Grants (bezpłatne 10 000 USD/mies. w Google Search dla NGO �
   edukacyjne). **Wykluczamy targetowanie dzieci — reklamy kierujemy wyłącznie do dorosłych.**
 - **Budżet:** 1 000 PLN/mies. w fazie naboru.
 - **Kreacje (A/B):**
-  - Wariant A (szansa): „Bezpłatne warsztaty AI w [powiat]. Przywozimy laptopy,
-    trenerów i internet. Zgłoś szkołę swojego dziecka." + zdjęcie pracowni.
+  - Wariant A (szansa): „Bezpłatne szkolenie AI w [powiat]. Przyjeżdżamy z gotowym
+    programem i trenerami. Zgłoś szkołę swojego dziecka." + zdjęcie pracowni.
   - Wariant B (bezpieczeństwo): „Twoje dziecko już używa AI. Nauczymy je robić to
     bezpiecznie — bezpłatnie, w Waszej gminie." + grafika deepfake-quiz.
 - **KPI:** koszt zgłoszenia < 25 PLN; CTR > 1,5%.
@@ -27,8 +27,8 @@ od M3 + Google Ad Grants (bezpłatne 10 000 USD/mies. w Google Search dla NGO �
 - **Kreacje:**
   - „100 zł = godzina warsztatów AI dla grupy dzieci z małej gminy. Zobacz relacje
     z zajęć, które opłacili darczyńcy." (wideo 15 s z warsztatów)
-  - „30 zł miesięcznie — mniej niż jedna pizza. Dla dziecka z małej gminy: semestr
-    z technologią, która zdecyduje o jego przyszłości."
+  - „30 zł miesięcznie — mniej niż jedna pizza. Dla dziecka z małej gminy: solidna dawka
+    wiedzy o technologii, która zdecyduje o jego przyszłości."
 - **KPI:** koszt pozyskania darczyńcy cyklicznego < 60 PLN; ROAS kampanii jednorazowych > 2,5.
 
 ### Kampania M-3: „E-book / cegiełki" (cel: sprzedaż)

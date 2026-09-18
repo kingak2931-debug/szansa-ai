@@ -9,9 +9,9 @@ Certyfikat stanowi symboliczne podziękowanie."
 
 | Próg | Nazwa | Treść symboliczna |
 |---|---|---|
-| 100 zł | Cegiełka „Godzina Szansy" | Godzina warsztatów dla grupy dzieci |
-| 250 zł | Cegiełka „Dzień Odkrywców" | Całodniowe warsztaty w jednej gminie |
-| 500 zł | Cegiełka „Semestr dla Ucznia" | Pełny semestr zajęć jednego dziecka |
+| 100 zł | Cegiełka „Godzina Szansy" | Godzina szkolenia dla całej klasy |
+| 250 zł | Cegiełka „Moduł Odkrywców" | Moduł szkoleniowy dla całej klasy |
+| 500 zł | Cegiełka „Pół Dnia Szansy" | Pół dnia szkoleniowego w jednej szkole |
 
 ## Wzór 1: Certyfikat indywidualny (PDF A4 poziomo)
 
@@ -22,7 +22,7 @@ Certyfikat stanowi symboliczne podziękowanie."
 > **[Imię i Nazwisko]**
 >
 > przekazał(a) darowiznę, która ufundowała
-> **[godzinę warsztatów AI / dzień warsztatów / semestr zajęć]**
+> **[godzinę szkolenia AI / moduł dla całej klasy / pół dnia szkoleniowego]**
 > dla dzieci z małych miejscowości.
 >
 > Dzięki Tobie sztuczna inteligencja staje się szansą — nie przywilejem.

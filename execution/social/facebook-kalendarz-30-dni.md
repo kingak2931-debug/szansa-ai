@@ -10,7 +10,7 @@ z adminem grupy, max 2×/mies. na grupę. Budujemy listę 40 grup z powiatów do
 | Dzień | Typ | Post |
 |---|---|---|
 | 1 | [E] | Post powitalny cyklu: „Przez 30 dni — jedna praktyczna rzecz o dzieciach i AI dziennie. Zapisz profil." |
-| 2 | [G] | Nabór pilotażu: mapa 3 gmin + „przywozimy laptopy, wy dajecie salę" → grupy gminne (za zgodą adminów) |
+| 2 | [G] | Nabór pilotażu: mapa 3 gmin + „przyjeżdżamy z gotowym szkoleniem, wy dajecie salę" → grupy gminne (za zgodą adminów) |
 | 3 | [E] | Rolka 2: „Jak sprawdzić, czy dziecko nie podaje AI danych osobowych" |
 | 4 | [W] | „Co się dzieje z Twoimi 100 zł" — grafika przejrzystości + link do wpłat |
 | 5 | [E] | Karuzela: „5 rzeczy, których dziecko nie powinno mówić AI" |
@@ -32,7 +32,7 @@ z adminem grupy, max 2×/mies. na grupę. Budujemy listę 40 grup z powiatów do
 | 23 | [E] | Karuzela: „Deepfake w 60 sekund" |
 | 24 | [W] | Apel z konkretem: „100 zł = godzina zajęć. W [gmina] czeka lista rezerwowa [N] dzieci" |
 | 25 | [E] | Cytat dziecka/nauczyciela z pierwszych zajęć (za zgodą) na brand-grafice |
-| 26 | [G] | Ogłoszenie naboru na semestr letni: formularz zgłoszeniowy gmin → grupy gminne, strony GOK-ów |
+| 26 | [G] | Ogłoszenie naboru na letnią turę szkoleń: formularz zgłoszeniowy gmin → grupy gminne, strony GOK-ów |
 | 27–28 | — | (weekend — Stories: „dzień z życia trenera") |
 | 29 | [W] | Podziękowanie imiennie darczyńcom cyklicznym (tylko za zgodą) + zaproszenie do programu „30 zł/mies." |
 | 30 | [E/W] | Podsumowanie miesiąca liczbami: posty, webinar, pierwsze zajęcia, zebrane środki + plan na kolejny miesiąc |

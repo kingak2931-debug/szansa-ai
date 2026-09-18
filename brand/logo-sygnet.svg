@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <title>Fundacja Szansa AI — sygnet</title>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a56db"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <!-- tło: zaokrąglony kwadrat w gradiencie granat→bursztyn -->
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#g)"/>
+  <!-- iskra: symbol AI i „szansy", która rozbłyska -->
+  <path fill="#ffffff" d="M256 88
+    C268 196 316 244 424 256
+    C316 268 268 316 256 424
+    C244 316 196 268 88 256
+    C196 244 244 196 256 88 Z"/>
+  <!-- mała iskierka-satelita: dziecko, które łapie szansę -->
+  <path fill="#ffffff" opacity="0.9" d="M388 100
+    C392 128 404 140 432 144
+    C404 148 392 160 388 188
+    C384 160 372 148 344 144
+    C372 140 384 128 388 100 Z"/>
+</svg>

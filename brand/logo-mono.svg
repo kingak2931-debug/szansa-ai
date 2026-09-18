@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" width="760" height="180">
+  <title>Fundacja Szansa AI — wersja jednokolorowa (dokumenty, pieczątki, grawer)</title>
+  <rect x="14" y="26" width="128" height="128" rx="32" fill="#10389c"/>
+  <path fill="#ffffff" d="M78 44
+    C81.2 72.8 94 85.6 122.8 88.8
+    C94 92 81.2 104.8 78 133.6
+    C74.8 104.8 62 92 33.2 88.8
+    C62 85.6 74.8 72.8 78 44 Z"/>
+  <path fill="#ffffff" opacity="0.9" d="M113 47
+    C114.1 54.5 117.3 57.7 124.8 58.8
+    C117.3 59.9 114.1 63.1 113 70.6
+    C111.9 63.1 108.7 59.9 101.2 58.8
+    C108.7 57.7 111.9 54.5 113 47 Z"/>
+  <text x="170" y="72" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="600"
+        letter-spacing="10" fill="#10389c">FUNDACJA</text>
+  <text x="168" y="138" font-family="Segoe UI, Arial, sans-serif" font-size="66" font-weight="800"
+        fill="#10389c">Szansa AI</text>
+</svg>

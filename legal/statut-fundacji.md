@@ -1,145 +1,175 @@
-# STATUT FUNDACJI „SZANSA AI" — wzór
+# STATUT FUNDACJI „SZANSA AI"
 
-> ⚠️ **Wzór do weryfikacji przez radcę prawnego/notariusza przed złożeniem do KRS.**
-> Podstawa: ustawa z dnia 6 kwietnia 1984 r. o fundacjach. Pola `[…]` uzupełnia fundator.
+> ✅ **TO JEST STATUT OBOWIĄZUJĄCY** — tekst jednolity 1.2, złożony do Krajowego
+> Rejestru Sądowego i wpisany. Oryginał (PDF, podpisany podpisem zaufanym przez
+> Kingę Kotulę 21.01.2026): [`zrodla/STATUT_FUNDACJI_tekst_jednolity_1.2.pdf`](zrodla/STATUT_FUNDACJI_tekst_jednolity_1.2.pdf).
+> Ten plik `.md` to wierny odpis tekstu do łatwego przeszukiwania i cytowania —
+> **w razie jakiejkolwiek rozbieżności rozstrzyga PDF**.
+>
+> Poprzedni plik pod tą samą nazwą był **wzorem roboczym sprzed rejestracji** —
+> został w pełni zastąpiony niniejszym tekstem.
 
-## Rozdział I. Postanowienia ogólne
+## Dane rejestrowe
 
-**§ 1.** 1. Fundacja pod nazwą „Fundacja Szansa AI", zwana dalej „Fundacją", ustanowiona
-przez [imię i nazwisko fundatora], zwanego dalej „Fundatorem", aktem notarialnym
-sporządzonym przez notariusza [imię i nazwisko] w kancelarii w [miejscowość]
-w dniu [data], Rep. A nr [numer], działa na podstawie przepisów ustawy z dnia
-6 kwietnia 1984 r. o fundacjach oraz niniejszego statutu.
-2. Fundacja posiada osobowość prawną.
-3. Nadzór nad Fundacją sprawuje minister właściwy do spraw oświaty i wychowania.
-
-**§ 2.** 1. Siedzibą Fundacji jest [miejscowość].
-2. Fundacja działa na terytorium Rzeczypospolitej Polskiej oraz poza jej granicami.
-3. Czas trwania Fundacji jest nieoznaczony.
-4. Fundacja może używać wyróżniającego ją znaku graficznego oraz nazwy skróconej „Szansa AI".
-
-## Rozdział II. Cele i zasady działania
-
-**§ 3.** Celami Fundacji są:
-1. edukacja dzieci i młodzieży, w szczególności z miejscowości do 20 000 mieszkańców,
-   w zakresie odpowiedzialnego, bezpiecznego i efektywnego wykorzystywania sztucznej
-   inteligencji i innych nowych technologii;
-2. wyrównywanie szans edukacyjnych i przeciwdziałanie wykluczeniu cyfrowemu dzieci
-   i młodzieży z terenów wiejskich i małych miast;
-3. wspieranie rodziców, opiekunów i nauczycieli w edukacji cyfrowej dzieci;
-4. działalność na rzecz bezpieczeństwa dzieci i młodzieży w środowisku cyfrowym,
-   w tym przeciwdziałanie dezinformacji i zagrożeniom związanym z technologiami;
-5. promowanie etycznego rozwoju i wykorzystania technologii sztucznej inteligencji.
-
-**§ 4.** Fundacja realizuje swoje cele poprzez:
-1. organizowanie i prowadzenie nieodpłatnych warsztatów, szkoleń, kursów i zajęć
-   edukacyjnych dla dzieci i młodzieży;
-2. tworzenie i prowadzenie mobilnych oraz stacjonarnych pracowni komputerowych;
-3. opracowywanie i udostępnianie programów nauczania, materiałów edukacyjnych
-   i publikacji, w tym cyfrowych;
-4. organizowanie szkoleń, webinarów i konferencji dla rodziców i nauczycieli;
-5. współpracę ze szkołami, jednostkami samorządu terytorialnego, instytucjami kultury,
-   organizacjami pozarządowymi i przedsiębiorcami;
-6. prowadzenie kampanii społecznych i informacyjnych;
-7. przyznawanie stypendiów i nagród dla dzieci i młodzieży;
-8. pozyskiwanie środków na cele statutowe, w tym organizowanie zbiórek publicznych
-   zgodnie z obowiązującymi przepisami.
-
-**§ 5.** 1. Działalność statutowa Fundacji może być prowadzona jako działalność
-nieodpłatna lub odpłatna w rozumieniu ustawy z dnia 24 kwietnia 2003 r. o działalności
-pożytku publicznego i o wolontariacie; obie formy są rachunkowo wyodrębnione.
-2. Przedmiotem działalności odpłatnej pożytku publicznego może być w szczególności
-sprzedaż publikacji i materiałów edukacyjnych oraz prowadzenie odpłatnych szkoleń
-dla dorosłych, z których przychód służy wyłącznie realizacji celów statutowych.
-
-## Rozdział III. Majątek i dochody
-
-**§ 6.** 1. Majątek Fundacji stanowi fundusz założycielski w kwocie [5 000] zł
-przyznany przez Fundatora, z czego kwota [1 000] zł przeznaczona jest na prowadzenie
-działalności gospodarczej, oraz inne mienie nabyte przez Fundację w toku działania.
-
-**§ 7.** Dochody Fundacji pochodzą w szczególności z:
-1. darowizn, spadków i zapisów;
-2. dotacji, subwencji i grantów;
-3. zbiórek publicznych;
-4. majątku Fundacji oraz odsetek i lokat bankowych;
-5. odpłatnej działalności pożytku publicznego;
-6. działalności gospodarczej — o ile zostanie podjęta.
-
-**§ 8.** 1. Dochody Fundacji przeznaczane są wyłącznie na realizację celów statutowych
-oraz pokrycie kosztów działalności Fundacji.
-2. Zabrania się:
-   1) udzielania pożyczek lub zabezpieczania zobowiązań majątkiem Fundacji w stosunku
-      do członków organów, pracowników oraz osób im bliskich;
-   2) przekazywania majątku Fundacji na rzecz członków organów lub pracowników oraz
-      ich osób bliskich na zasadach innych niż w stosunku do osób trzecich,
-      w szczególności bezpłatnie lub na warunkach preferencyjnych;
-   3) wykorzystywania majątku na rzecz członków organów lub pracowników oraz ich osób
-      bliskich na zasadach innych niż w stosunku do osób trzecich, chyba że to
-      wykorzystanie wynika bezpośrednio z celu statutowego;
-   4) zakupu towarów lub usług od podmiotów, w których uczestniczą członkowie organów
-      lub pracownicy oraz ich osoby bliskie, na zasadach innych niż w stosunku do osób
-      trzecich lub po cenach wyższych niż rynkowe.
-
-**§ 9.** 1. Fundacja może prowadzić działalność gospodarczą wyłącznie w rozmiarach
-służących realizacji celów statutowych, po uzyskaniu wpisu do rejestru przedsiębiorców,
-w zakresie: sprzedaży detalicznej prowadzonej przez internet (PKD 47.91.Z), wydawania
-książek i publikacji (PKD 58.1), pozaszkolnych form edukacji (PKD 85.59.B), działalności
-związanej z organizacją targów, wystaw i kongresów (PKD 82.30.Z).
-2. Cały dochód z działalności gospodarczej przeznaczany jest na działalność statutową.
-
-## Rozdział IV. Organy Fundacji
-
-**§ 10.** Organami Fundacji są: Zarząd Fundacji oraz Rada Fundacji.
-
-**§ 11. Zarząd.** 1. Zarząd składa się z 2 do 3 osób, w tym Prezesa, powoływanych
-przez Fundatora (a po jego śmierci — przez Radę Fundacji) na trzyletnią kadencję;
-funkcję można pełnić przez więcej niż jedną kadencję.
-2. Zarząd kieruje działalnością Fundacji i reprezentuje ją na zewnątrz; do jego zadań
-należy w szczególności: uchwalanie planów działania i budżetu, zarządzanie majątkiem,
-zatrudnianie pracowników, przyjmowanie darowizn, spadków i zapisów, sporządzanie
-sprawozdań oraz przyjęcie i nadzór nad realizacją standardów ochrony małoletnich.
-3. Oświadczenia woli w imieniu Fundacji składają: przy zobowiązaniach do 10 000 zł —
-każdy członek Zarządu samodzielnie; powyżej tej kwoty — dwaj członkowie Zarządu łącznie.
-4. Członkiem Zarządu nie może być osoba skazana prawomocnym wyrokiem za przestępstwo
-umyślne ścigane z oskarżenia publicznego lub przestępstwo skarbowe.
-5. Uchwały Zarządu zapadają zwykłą większością głosów; przy równości rozstrzyga głos Prezesa.
-
-**§ 12. Rada Fundacji.** 1. Rada Fundacji jest organem nadzoru, odrębnym od Zarządu
-i niepodlegającym mu w zakresie wykonywania nadzoru; składa się z 2 do 5 osób
-powoływanych przez Fundatora na trzyletnią kadencję.
-2. Członkowie Rady: nie mogą być członkami Zarządu ani pozostawać z nimi w związku
-małżeńskim, we wspólnym pożyciu, w stosunku pokrewieństwa, powinowactwa lub podległości
-służbowej; nie mogą być skazani za przestępstwo umyślne ścigane z oskarżenia publicznego
-lub przestępstwo skarbowe; mogą otrzymywać z tytułu pełnienia funkcji zwrot
-uzasadnionych kosztów lub wynagrodzenie w wysokości nie wyższej niż przeciętne
-miesięczne wynagrodzenie w sektorze przedsiębiorstw ogłoszone przez Prezesa GUS
-za rok poprzedni.
-3. Do zadań Rady należy: ocena rocznych sprawozdań Zarządu, kontrola stanu majątkowego
-Fundacji, wyrażanie opinii o zobowiązaniach powyżej 50 000 zł, ustalanie zasad
-wynagradzania członków Zarządu.
-
-## Rozdział V. Postanowienia końcowe
-
-**§ 13.** 1. Zmiany statutu, w tym celów Fundacji, dokonuje Fundator, a po jego
-śmierci — Rada Fundacji jednomyślnie na wniosek Zarządu.
-
-**§ 14.** 1. Fundacja może połączyć się z inną fundacją o zbieżnych celach; decyzję
-podejmuje Fundator po zasięgnięciu opinii Zarządu i Rady.
-
-**§ 15.** 1. Fundacja ulega likwidacji w razie wyczerpania środków finansowych
-i majątku lub osiągnięcia celów. 2. Likwidatora wyznacza Zarząd. 3. Majątek pozostały
-po likwidacji przekazuje się organizacji pozarządowej o celach zbieżnych z celami
-Fundacji, wskazanej przez Fundatora lub Radę Fundacji.
+| | |
+|---|---|
+| Nazwa | Fundacja „Szansa AI" |
+| KRS | 0001221999 |
+| NIP | 6040267132 |
+| REGON | 543905350 |
+| Adres siedziby | ul. Świerkowa 3, 83-042 Ełganowo |
+| Nadzór | minister właściwy do spraw edukacji oraz Prezydent Miasta Gdańska |
 
 ---
 
-## Checklista rejestracyjna (poza statutem)
+## ROZDZIAŁ I. POSTANOWIENIA OGÓLNE
 
-- [ ] Akt fundacyjny (oświadczenie o ustanowieniu fundacji) — u notariusza
-- [ ] Wniosek do KRS przez Portal Rejestrów Sądowych (elektronicznie), opłata 250 zł
-      (bez DG) / 600 zł (z wpisem do rejestru przedsiębiorców: 500 zł + 100 zł MSiG)
-- [ ] Oświadczenie o adresie do doręczeń członków Zarządu
-- [ ] Po wpisie: zgłoszenie do CRBR w terminie 14 dni (beneficjenci rzeczywiści),
-      NIP-8 do urzędu skarbowego (dane uzupełniające) w 21 dni, rachunek bankowy
-- [ ] Przyjęcie uchwałą: polityki rachunkowości, RODO, standardów ochrony małoletnich
+**§ 1. Nazwa i podstawa prawna**
+1. Fundacja pod nazwą „Szansa AI", zwana dalej „Fundacją", została ustanowiona przez jedną osobę fizyczną – Fundatora, aktem notarialnym.
+2. Fundacja działa na podstawie ustawy z dnia 6 kwietnia 1984 r. o fundacjach (Dz.U. 2020 poz. 2167 z późn. zm.) oraz niniejszego statutu.
+
+**§ 2. Siedziba i obszar działania**
+1. Siedzibą Fundacji jest terytorium Rzeczypospolitej Polskiej.
+2. Fundacja działa na terytorium Rzeczypospolitej Polskiej oraz poza jej granicami, zgodnie z obowiązującymi przepisami prawa.
+3. Fundacja może tworzyć oddziały, filie, przedstawicielstwa oraz przystępować do organizacji krajowych i zagranicznych.
+
+**§ 3. Osobowość prawna** — Fundacja posiada osobowość prawną.
+
+**§ 4. Czas trwania** — Czas trwania Fundacji jest nieoznaczony.
+
+**§ 5. Znak Fundacji i własność intelektualna**
+1. Fundacja może posługiwać się nazwą, logotypem, znakami graficznymi oraz innymi elementami identyfikacji wizualnej.
+2. Fundacji przysługują prawa do wytworów intelektualnych powstałych w ramach jej działalności, o ile umowy szczególne nie stanowią inaczej.
+3. Fundacja może ustanawiać certyfikaty, odznaki, nagrody oraz tytuły honorowe związane z realizacją celów statutowych.
+4. Zasady korzystania z nazwy i znaków Fundacji określa Zarząd.
+
+## ROZDZIAŁ II. CELE I ZASADY DZIAŁANIA FUNDACJI
+
+**§ 6. Cele Fundacji**
+1. Wspieranie rozwoju kompetencji cyfrowych, edukacji technologicznej oraz sztucznej inteligencji wśród dzieci, młodzieży i dorosłych.
+2. Wyrównywanie szans edukacyjnych w obszarze nauk technicznych i programowania, cyberbezpieczeństwa oraz bezpieczeństwa dzieci i młodzieży w sieci, w szczególności na obszarach wiejskich i w małych miastach.
+3. Promowanie etycznego, odpowiedzialnego i bezpiecznego wykorzystania sztucznej inteligencji.
+4. Wspieranie innowacyjnych projektów społecznych i technologicznych rozwijających kompetencje przyszłości.
+5. Integracja sektora edukacji, nauki, biznesu i organizacji społecznych.
+6. Prowadzenie działalności badawczej, szkoleniowej i doradczej w obszarze nowych technologii i AI.
+7. Aktywizacja zawodowa młodzieży i dorosłych w branżach technologicznych.
+8. Tworzenie i finansowanie programów stypendialnych, mentoringowych i grantowych.
+
+**§ 7. Sposoby realizacji celów**
+1. Organizowanie szkoleń, warsztatów, konferencji oraz projektów edukacyjnych.
+2. Tworzenie i dystrybucja materiałów dydaktycznych oraz platform cyfrowych.
+3. Prowadzenie działalności informacyjnej, promocyjnej i wydawniczej.
+4. Realizacja partnerstw krajowych i międzynarodowych.
+5. Prowadzenie badań naukowych, pilotaży technologicznych i wdrożeń edukacyjnych.
+6. Pozyskiwanie środków z grantów, dotacji, darowizn publicznych i prywatnych, zbiórek społecznych, zapisów i spadków.
+7. Finansowanie i współfinansowanie inicjatyw zgodnych z celami Fundacji.
+
+**§ 7¹. Działalność odpłatna pożytku publicznego**
+1. Fundacja może prowadzić działalność odpłatną pożytku publicznego w zakresie realizacji celów statutowych.
+2. Działalność odpłatna może obejmować w szczególności: a) odpłatne szkolenia, kursy i warsztaty edukacyjne, b) programy mentoringowe i rozwojowe, c) realizację projektów edukacyjnych na zlecenie, d) odpłatne tworzenie materiałów edukacyjnych, e) inne działania odpłatne zgodne z celami statutowymi Fundacji.
+3. Dochód z działalności odpłatnej przeznaczany jest wyłącznie na realizację celów statutowych Fundacji.
+
+**§ 7². Programy i jednostki organizacyjne**
+1. Fundacja może tworzyć programy, projekty, centra kompetencji, akademie oraz inne wyodrębnione inicjatywy.
+2. Programy i jednostki organizacyjne tworzone są oraz zatwierdzane uchwałą lub zarządzeniem Zarządu.
+3. Programy mogą posiadać regulaminy zatwierdzane przez Zarząd.
+4. Programy mogą być finansowane ze środków własnych oraz zewnętrznych.
+
+## ROZDZIAŁ III. MAJĄTEK I DOCHODY FUNDACJI
+
+**§ 8. Majątek Fundacji**
+1. Majątek Fundacji stanowi fundusz założycielski oraz inne składniki majątkowe nabyte w toku działalności.
+2. Dochody Fundacji pochodzą w szczególności z: a) darowizn, zapisów i spadków, b) dotacji i grantów krajowych i zagranicznych, c) działalności odpłatnej pożytku publicznego, d) działalności gospodarczej, e) dochodów z majątku Fundacji, f) partnerstw publiczno-prywatnych i sponsoringu.
+
+**§ 9. Zakaz udzielania świadczeń**
+1. Fundacja nie udziela pożyczek, poręczeń ani zabezpieczeń na rzecz jakichkolwiek podmiotów.
+2. Fundacja nie udziela pożyczek, poręczeń ani zabezpieczeń na rzecz Fundatora, członków organów Fundacji oraz osób im bliskich.
+3. Fundacja nie przekazuje majątku ani nie umożliwia korzystania z niego na zasadach preferencyjnych.
+4. Zakazane jest nabywanie towarów i usług od podmiotów powiązanych na warunkach nierynkowych.
+
+**§ 10. Przeznaczenie dochodów**
+1. Całość dochodów Fundacji przeznaczana jest na realizację celów statutowych.
+2. Fundacja prowadzi rachunkowość zgodnie z obowiązującymi przepisami.
+
+## ROZDZIAŁ IV. ORGANY FUNDACJI
+
+**§ 11. Organy Fundacji** — Organami Fundacji są: 1. Fundator, 2. Zarząd Fundacji, 3. Rada Fundacji.
+
+**§ 12. Fundator**
+1. Fundator sprawuje nadzór właścicielski nad Fundacją.
+2. Do kompetencji Fundatora należy w szczególności: a) powoływanie i odwoływanie Prezesa Zarządu, b) powoływanie i odwoływanie pozostałych członków Zarządu, c) powoływanie i odwoływanie członków Rady Fundacji, d) zatwierdzanie kierunków strategicznych Fundacji, e) podejmowanie decyzji o połączeniu Fundacji z inną fundacją.
+3. Fundator może pełnić funkcję Prezesa Zarządu.
+4. Po śmierci Fundatora jego kompetencje przejmuje Rada Fundacji.
+
+**§ 13. Zarząd Fundacji**
+1. Zarząd Fundacji jest jednoosobowy lub wieloosobowy.
+2. W przypadku zarządu jednoosobowego Fundację reprezentuje Prezes Zarządu samodzielnie.
+3. W przypadku zarządu wieloosobowego Fundację reprezentuje dwóch członków Zarządu działających łącznie.
+4. Kadencja Zarządu trwa 4 lata.
+5. Zarząd kieruje działalnością Fundacji i reprezentuje ją na zewnątrz.
+6. Do kompetencji Zarządu należy w szczególności: a) realizacja celów statutowych, b) zarządzanie majątkiem Fundacji, c) zatrudnianie pracowników i współpracowników, d) realizacja projektów grantowych.
+7. Oświadczenia woli składane są samodzielnie przez Prezesa Zarządu, w tym z użyciem podpisu elektronicznego.
+8. Członkowie Zarządu mogą otrzymywać wynagrodzenie z tytułu realizacji zadań projektowych i eksperckich.
+
+**§ 14. Reprezentacja przy umowach z Zarządem**
+1. W umowach pomiędzy Fundacją a członkiem Zarządu Fundację reprezentuje Rada Fundacji lub pełnomocnik powołany uchwałą Rady Fundacji.
+
+**§ 15. Rada Fundacji**
+1. Rada Fundacji jest organem nadzoru i kontroli.
+2. Rada Fundacji składa się z 2 do 5 członków.
+3. Rada Fundacji zbiera się nie rzadziej niż dwa razy w roku.
+4. Posiedzenia Rady Fundacji mogą odbywać się stacjonarnie lub z wykorzystaniem środków komunikacji elektronicznej.
+5. Posiedzenie Rady Fundacji zwoływane jest mailowo lub telefonicznie, z obowiązkowym mailowym potwierdzeniem.
+6. Uchwały Rady Fundacji zapadają zwykłą większością głosów przy obecności co najmniej połowy składu.
+
+**§ 16. Zespół Ekspercki**
+1. Zarząd może powołać Zespół Ekspercki jako ciało doradcze Fundacji.
+2. Zadaniem Zespołu Eksperckiego jest opiniowanie kierunków działań, programów oraz standardów etycznych.
+3. Zespół Ekspercki nie jest organem Fundacji.
+
+## ROZDZIAŁ V. ZMIANA STATUTU I LIKWIDACJA FUNDACJI
+
+**§ 17. Zmiana statutu** — Zmiana statutu wymaga uchwały Zarządu oraz zgody Rady Fundacji.
+
+**§ 18. Likwidacja Fundacji**
+1. Fundacja ulega likwidacji w przypadku wyczerpania środków finansowych lub realizacji celów statutowych.
+2. Decyzję o likwidacji podejmuje Zarząd za zgodą Rady Fundacji.
+
+## ROZDZIAŁ VI. POSTANOWIENIA KOŃCOWE
+
+**§ 19. Nadzór nad Fundacją** — Nadzór nad Fundacją sprawuje minister właściwy do spraw edukacji oraz Prezydent Miasta Gdańska.
+
+**§ 20. Działalność gospodarcza**
+1. Fundacja może prowadzić działalność gospodarczą, z której dochód przeznaczany jest w całości na realizację celów statutowych.
+2. Fundacja może tworzyć i obejmować udziały w spółkach prawa handlowego.
+
+**§ 21. Wejście w życie statutu** — Statut wchodzi w życie z dniem wpisania Fundacji do Krajowego Rejestru Sądowego.
+
+---
+
+## Notatki operacyjne dla zespołu (nie część statutu — wnioski praktyczne)
+
+Te zapisy statutu mają bezpośrednie znaczenie dla reszty projektu:
+
+1. **§ 20 ust. 2 daje podstawę prawną spółce „Szkoła AI"** (subskrypcja) wprost —
+   fundacja może obejmować udziały w spółce prawa handlowego bez zmiany statutu.
+2. **§ 7¹ dopuszcza odpłatne szkolenia i kursy** — model cegiełek i e-booka (odpłatna
+   DPP) ma pełne pokrycie w statucie.
+3. **§ 5 ust. 3 wprost dopuszcza certyfikaty i odznaki** — cegiełki-certyfikaty
+   sponsorskie są zgodne ze statutem.
+4. **§ 13 ust. 8: członkowie Zarządu mogą być wynagradzani za zadania projektowe
+   i eksperckie** — inaczej niż w moim wcześniejszym wzorze (który ograniczał to
+   do stawek rynkowych GUS) — statut jest tu bardziej liberalny; przy wypłatach
+   i tak stosować zasadę rynkowości z § 9 ust. 4 (zakaz warunków nierynkowych).
+5. **Nadzór:** minister ds. edukacji **i** Prezydent Miasta Gdańska — sprawozdania
+   roczne trafiają do obu.
+6. **Reprezentacja przy zarządzie jednoosobowym:** Prezes działa samodzielnie —
+   upraszcza to podpisywanie umów sponsorskich i darowizn (bez wymogu dwóch
+   podpisów, inaczej niż zakładał mój wcześniejszy wzór budżetowy w PLAN.md —
+   PLAN.md do skorygowania w tym zakresie przy najbliższej aktualizacji).
+7. Statut **nie zawiera** rozdziału o standardach ochrony małoletnich (SOM) ani
+   szczegółowej polityki RODO — to prawidłowe, te dokumenty przyjmuje się uchwałą
+   Zarządu jako odrębne regulaminy wewnętrzne (na podstawie § 7² i ogólnych
+   kompetencji Zarządu), nie jako część statutu. `standardy-ochrony-maloletnich.md`
+   i `polityka-prywatnosci.md` w tym katalogu pozostają aktualne jako wzory do
+   przyjęcia taką uchwałą.

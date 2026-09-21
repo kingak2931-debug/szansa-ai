@@ -11,8 +11,8 @@
 
 ## Część A. Regulamin zbiórki publicznej (gotówkowej)
 
-**§ 1. Organizator.** Organizatorem zbiórki jest Fundacja Szansa AI z siedzibą
-w [adres], KRS [nr], NIP [nr], uprawniona do prowadzenia zbiórek publicznych jako
+**§ 1. Organizator.** Organizatorem zbiórki jest Fundacja „Szansa AI" z siedzibą
+przy ul. Świerkowa 3, 83-042 Ełganowo, KRS 0001221999, NIP 6040267132, uprawniona do prowadzenia zbiórek publicznych jako
 organizacja pozarządowa w rozumieniu art. 3 ust. 1 ustawy o zasadach prowadzenia
 zbiórek publicznych.
 
@@ -36,7 +36,7 @@ weryfikacji zgodnie ze Standardami Ochrony Małoletnich.
 
 **§ 6. Otwarcie puszek i rozliczenie.** Puszki otwierane są komisyjnie (min. 2 osoby),
 z każdego otwarcia sporządza się protokół (nr puszki, kwota, podpisy). Środki wpłacane
-są na rachunek Fundacji nr [IBAN] w terminie [3] dni roboczych.
+są na rachunek Fundacji nr PL48 1020 1909 0000 3702 0328 7976 w terminie [3] dni roboczych.
 
 **§ 7. Sprawozdawczość.** Fundacja publikuje na zbiorki.gov.pl:
 1) sprawozdanie z przeprowadzonej zbiórki (zebrana kwota) — w terminie 30 dni od jej
@@ -51,12 +51,12 @@ przekroczą [10]% zebranej kwoty i zostaną wykazane w sprawozdaniu.
 ## Część B. Regulamin wpłat online (nie-zbiórka)
 
 **§ 1.** Regulamin określa zasady przekazywania darowizn pieniężnych na rzecz Fundacji
-Szansa AI za pośrednictwem strony [adres] oraz przelewem na rachunek [IBAN].
+Szansa AI za pośrednictwem strony [adres] oraz przelewem na rachunek PL48 1020 1909 0000 3702 0328 7976.
 
 **§ 2.** Wpłaty stanowią darowizny w rozumieniu art. 888 k.c. na cele statutowe
 Fundacji. Umowa darowizny zostaje zawarta z chwilą wpłaty (art. 890 § 1 zd. 2 k.c.).
 
-**§ 3.** Płatności online obsługuje [nazwa operatora] na podstawie własnego regulaminu;
+**§ 3.** Płatności online obsługuje PayU S.A. na podstawie własnego regulaminu;
 Fundacja nie przechowuje danych kart płatniczych.
 
 **§ 4. Wpłaty cykliczne.** Darczyńca może w każdej chwili zrezygnować z wpłat

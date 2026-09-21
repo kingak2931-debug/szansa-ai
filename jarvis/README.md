@@ -68,5 +68,5 @@ Katalog `data/` zawiera dane osobowe — jest w `.gitignore` i nigdy nie trafia 
 1. SMTP/IMAP (wysyłka po `outbox send` zamiast eksportu do pliku) — po skonfigurowaniu
    skrzynki fundacji; bramka [T/N] pozostaje.
 2. Import wyciągów bankowych (MT940/CSV) → propozycje księgowań darowizn (każda [T/N]).
-3. Webhook operatora płatności (Stripe/PayU) → automatyczne PROPOZYCJE wpisów, nigdy zapisy.
+3. Webhook operatora płatności (PayU) → automatyczne PROPOZYCJE wpisów, nigdy zapisy.
 4. Generator PDF certyfikatów z szablonu HTML.

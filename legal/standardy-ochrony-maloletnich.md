@@ -12,7 +12,7 @@
    i wolontariuszy Fundacji („personel") mających kontakt z małoletnimi.
 2. Naczelną zasadą działań Fundacji jest dobro dziecka. Personel traktuje każde dziecko
    z szacunkiem, uwzględnia jego godność i potrzeby, działa w ramach prawa i kompetencji.
-3. **Osoba odpowiedzialna za Standardy:** [imię i nazwisko, funkcja, kontakt] —
+3. **Osoba odpowiedzialna za Standardy:** Kinga Kotula, Prezes Zarządu, kontakt@szansaai.pl —
    odpowiada za wdrożenie, szkolenia, przyjmowanie zgłoszeń i przegląd Standardów.
 
 ## Rozdział 2. Weryfikacja personelu

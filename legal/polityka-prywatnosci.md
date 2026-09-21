@@ -6,9 +6,9 @@
 
 ## 1. Administrator danych
 
-Administratorem danych osobowych jest **Fundacja Szansa AI** z siedzibą w [adres],
-wpisana do KRS pod nr [nr], NIP [nr], REGON [nr] („Fundacja").
-Kontakt: [e-mail], [adres korespondencyjny].
+Administratorem danych osobowych jest **Fundacja „Szansa AI"** z siedzibą przy
+ul. Świerkowa 3, 83-042 Ełganowo, wpisana do KRS pod nr 0001221999, NIP 6040267132,
+REGON 543905350 („Fundacja"). Kontakt: kontakt@szansaai.pl.
 [Jeżeli wyznaczono IOD: Inspektor Ochrony Danych: [imię, nazwisko], [e-mail IOD].]
 
 ## 2. Jakie dane przetwarzamy, po co i na jakiej podstawie
@@ -31,7 +31,7 @@ na możliwość udziału dziecka w zajęciach.
 ## 3. Odbiorcy danych
 
 Dane powierzamy wyłącznie podmiotom niezbędnym do działania Fundacji, na podstawie
-umów powierzenia (art. 28 RODO): operator płatności [nazwa], dostawca hostingu [nazwa],
+umów powierzenia (art. 28 RODO): operator płatności PayU S.A., dostawca hostingu [nazwa],
 biuro rachunkowe [nazwa], dostawca narzędzia mailingowego [nazwa], ubezpieczyciel NNW.
 Dane mogą być udostępnione organom publicznym na podstawie przepisów prawa. Nie
 sprzedajemy danych osobowych. Nie przekazujemy danych poza EOG, chyba że dostawca

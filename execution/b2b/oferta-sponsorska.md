@@ -83,8 +83,8 @@ rynkowa, certyfikowane czyszczenie danych po naszej stronie.
 
 ## Slajd 8 — Kontakt
 
-**[Imię i nazwisko], [funkcja]** · [telefon] · [e-mail] · [www]
-KRS: [nr] · Konto: [IBAN] · Dokumenty fundacji: [link]
+**Kinga Kotula, Prezes Zarządu** · [telefon] · kontakt@szansaai.pl · szansaai.pl
+KRS 0001221999 · Konto: PL48 1020 1909 0000 3702 0328 7976 · Dokumenty fundacji: [link]
 
 ---
 

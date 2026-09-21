@@ -15,14 +15,14 @@ zawarta w [miejscowość], dnia [data], pomiędzy:
 
 a
 
-**Fundacją Szansa AI** z siedzibą w [adres], KRS [nr], NIP [nr], reprezentowaną przez
-[imię, nazwisko, funkcja], zwaną dalej **„Obdarowaną"**.
+**Fundacją „Szansa AI"** z siedzibą przy ul. Świerkowa 3, 83-042 Ełganowo, KRS 0001221999, NIP 6040267132, reprezentowaną przez
+Kinga Kotula, Prezesa Zarządu, zwaną dalej **„Obdarowaną"**.
 
 **§ 1. Przedmiot umowy**
 1. Darczyńca daruje Obdarowanej kwotę **[kwota] zł** (słownie: [słownie])
    [wariant rzeczowy: rzeczy ruchome wymienione w załączniku nr 1 o łącznej wartości
    rynkowej [kwota] zł], a Obdarowana darowiznę przyjmuje.
-2. Darowizna zostanie przekazana przelewem na rachunek Obdarowanej nr [IBAN]
+2. Darowizna zostanie przekazana przelewem na rachunek Obdarowanej nr PL48 1020 1909 0000 3702 0328 7976
    w terminie [14] dni od zawarcia umowy, z tytułem „Darowizna na cele statutowe —
    umowa [nr]" [wariant rzeczowy: wydanie rzeczy nastąpi na podstawie protokołu
    przekazania w terminie [14] dni].

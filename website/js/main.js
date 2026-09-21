@@ -16,7 +16,7 @@ const PAYMENT_CONFIG = {
   bankAccount: {
     name: "Fundacja Szansa AI",
     // Uzupełnić po otwarciu rachunku:
-    iban: "PL00 0000 0000 0000 0000 0000 0000",
+    iban: "PL48 1020 1909 0000 3702 0328 7976",
     title: "Darowizna na cele statutowe",
   },
 };
@@ -103,7 +103,7 @@ function initDonationWidget() {
     // Tryb demonstracyjny: pokazujemy dane do przelewu tradycyjnego.
     const { name, iban, title } = PAYMENT_CONFIG.bankAccount;
     alert(
-      "Moduł płatności online zostanie aktywowany po podpisaniu umowy z operatorem (Stripe/PayU).\n\n" +
+      "Moduł płatności online zostanie aktywowany po podpisaniu umowy z operatorem (PayU).\n\n" +
         `Do tego czasu prosimy o przelew tradycyjny:\n${name}\n${iban}\nTytuł: ${title} — ${amount} zł` +
         (frequency === "monthly" ? " (zlecenie stałe)" : "")
     );
@@ -131,7 +131,7 @@ function initForms() {
       const subject = encodeURIComponent(
         kind === "sponsor" ? "Zapytanie sponsorskie — Szansa AI" : "Zgłoszenie do programu — Szansa AI"
       );
-      window.location.href = `mailto:kontakt@szansa-ai.example.pl?subject=${subject}&body=${encodeURIComponent(lines)}`;
+      window.location.href = `mailto:kontakt@szansaai.pl?subject=${subject}&body=${encodeURIComponent(lines)}`;
 
       const ok = form.querySelector(".form-success");
       if (ok) ok.hidden = false;

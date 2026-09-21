@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zgłoś szkołę — Fundacja Szansa AI</title>
+  <meta name="description" content="Formularz zgłoszeniowy do programu edukacji AI — dla szkół, domów kultury i rodziców z miejscowości do 20 tys. mieszkańców." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+  <canvas id="webgl"></canvas>
+  <div class="noise"></div>
+
+  <header class="header">
+    <nav class="nav">
+      <a class="brand" href="index.html" aria-label="Fundacja Szansa AI">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 400 400" width="26" height="26">
+            <defs><radialGradient id="ng1" cx="0.32" cy="0.28" r="0.85"><stop offset="0" stop-color="#fffdf5"/><stop offset="0.25" stop-color="#ffe9ab"/><stop offset="0.5" stop-color="#eeb43e"/><stop offset="0.75" stop-color="#b3791c"/><stop offset="1" stop-color="#6b4610"/></radialGradient></defs>
+            <g stroke="#f0c14b" stroke-width="4" fill="none" opacity="0.95"><line x1="250" y1="120" x2="255" y2="55"/><line x1="250" y1="120" x2="210" y2="80"/><line x1="250" y1="120" x2="300" y2="95"/><line x1="250" y1="120" x2="195" y2="135"/><line x1="250" y1="120" x2="310" y2="150"/><line x1="250" y1="120" x2="215" y2="175"/><line x1="250" y1="120" x2="280" y2="185"/></g>
+            <g fill="url(#ng1)"><circle cx="250" cy="120" r="26"/><circle cx="255" cy="55" r="15"/><circle cx="210" cy="80" r="11"/><circle cx="300" cy="95" r="13"/><circle cx="195" cy="135" r="10"/><circle cx="310" cy="150" r="10"/><circle cx="215" cy="175" r="14"/><circle cx="280" cy="185" r="9"/></g>
+          </svg>
+        </div>
+        <span>Fundacja Szansa AI</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Start</a>
+        <a href="misja.html">Misja</a>
+        <a href="sponsorzy.html">Dla sponsorów</a>
+        <a href="zgloszenia.html" aria-current="page">Zgłoś szkołę</a>
+      </div>
+      <div class="nav-actions">
+        <a href="wsparcie.html" class="btn primary"><i class="fa-solid fa-heart"></i><span>Wesprzyj nas</span></a>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page" id="top">
+    <section class="section" style="padding-top: 170px;">
+      <div class="container">
+        <div class="eyebrow">Zgłoszenia</div>
+        <h1 style="font-size: clamp(38px, 6vw, 78px);">Zgłoś <span class="gradient-text">swoją szkołę</span> do programu.</h1>
+        <p class="lead" style="margin-top: 26px;">
+          Jesteś dyrektorem szkoły, nauczycielem, pracownikiem domu kultury albo rodzicem
+          z miejscowości do 20 tys. mieszkańców? Zgłoś się — udział w programie jest bezpłatny.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container contact-grid">
+        <div>
+          <h2 style="font-size: 30px;">Jak wygląda współpraca?</h2>
+          <div class="steps" style="margin-top: 32px;">
+            <div class="step"><div><h3>Zgłoszenie</h3>
+              <p>Wypełniasz formularz obok. Potrzebujemy tylko podstawowych informacji.</p></div></div>
+            <div class="step"><div><h3>Rozmowa</h3>
+              <p>Kontaktujemy się w ciągu 7 dni, ustalamy potrzeby, salę i termin. Jeśli szkoła ma pracownię komputerową, korzystamy z niej; jeśli nie — prowadzimy wariant warsztatowy bez komputerów.</p></div></div>
+            <div class="step"><div><h3>Zgody rodziców</h3>
+              <p>Przekazujemy komplet dokumentów (zgody RODO, informacje o programie i standardach ochrony małoletnich).</p></div></div>
+            <div class="step"><div><h3>Szkolenie</h3>
+              <p>Jedno intensywne szkolenie: maksymalnie 2 dni po 2–3 godziny dziennie, zakończone finałowym wyzwaniem dla dzieci.</p></div></div>
+          </div>
+          <div class="notice-box" style="margin-top: 28px;">
+            Liczba miejsc w pierwszej turze jest ograniczona — o kolejności decyduje
+            dopasowanie do misji (wielkość miejscowości, dostęp dzieci do zajęć dodatkowych),
+            nie kolejność zgłoszeń.
+          </div>
+        </div>
+
+        <div class="contact-card glass">
+          <h2 style="font-size: 24px; margin-bottom: 6px;">Formularz zgłoszeniowy</h2>
+          <form onsubmit="return szansaFormDemo(event)" style="margin-top: 18px;">
+            <div class="field"><label for="z-typ">Zgłaszam jako *</label>
+              <select id="z-typ" name="Typ" required>
+                <option value="">— wybierz —</option>
+                <option>Szkoła (dyrekcja / nauczyciel)</option>
+                <option>Dom kultury / biblioteka / GOK</option>
+                <option>Gmina / samorząd</option>
+                <option>Rodzic / opiekun</option>
+              </select>
+            </div>
+            <div class="field"><label for="z-miejscowosc">Miejscowość i gmina *</label>
+              <input id="z-miejscowosc" name="Miejscowosc" required placeholder="np. Radzymin, gm. Radzymin" /></div>
+            <div class="field"><label for="z-ludnosc">Przybliżona liczba mieszkańców *</label>
+              <select id="z-ludnosc" name="Ludnosc" required>
+                <option value="">— wybierz —</option>
+                <option>do 5 tys.</option>
+                <option>5–10 tys.</option>
+                <option>10–20 tys.</option>
+                <option>powyżej 20 tys. (poza kryterium programu)</option>
+              </select>
+            </div>
+            <div class="field"><label for="z-instytucja">Nazwa szkoły / instytucji</label>
+              <input id="z-instytucja" name="Instytucja" /></div>
+            <div class="field"><label for="z-osoba">Imię i nazwisko *</label><input id="z-osoba" name="Osoba" required /></div>
+            <div class="field"><label for="z-email">E-mail *</label><input id="z-email" name="Email" type="email" required /></div>
+            <div class="field"><label for="z-grupa">Szacowana liczba i wiek dzieci</label>
+              <input id="z-grupa" name="Grupa" placeholder="np. 90 dzieci, klasy 5–7" /></div>
+            <div class="field"><label for="z-msg">Dodatkowe informacje</label>
+              <textarea id="z-msg" name="Wiadomosc" rows="3" placeholder="Czy szkoła ma pracownię komputerową? Sala, terminy..."></textarea></div>
+            <label class="checkbox-field"><input type="checkbox" required />
+              <span>Wyrażam zgodę na przetwarzanie podanych danych w celu obsługi zgłoszenia, zgodnie z <a href="polityka-prywatnosci.html">polityką prywatności</a>. *</span>
+            </label>
+            <p class="form-note">Nie podawaj w formularzu danych dzieci — na tym etapie ich nie potrzebujemy.</p>
+            <button class="btn primary" type="submit" style="margin-top: 14px; width: 100%;"><i class="fa-solid fa-paper-plane"></i><span>Wyślij zgłoszenie</span></button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 400 400" width="28" height="28">
+              <defs><radialGradient id="ng2" cx="0.32" cy="0.28" r="0.85"><stop offset="0" stop-color="#fffdf5"/><stop offset="0.25" stop-color="#ffe9ab"/><stop offset="0.5" stop-color="#eeb43e"/><stop offset="0.75" stop-color="#b3791c"/><stop offset="1" stop-color="#6b4610"/></radialGradient></defs>
+              <g stroke="#f0c14b" stroke-width="4" fill="none" opacity="0.95"><line x1="250" y1="120" x2="255" y2="55"/><line x1="250" y1="120" x2="210" y2="80"/><line x1="250" y1="120" x2="300" y2="95"/><line x1="250" y1="120" x2="195" y2="135"/><line x1="250" y1="120" x2="310" y2="150"/><line x1="250" y1="120" x2="215" y2="175"/><line x1="250" y1="120" x2="280" y2="185"/></g>
+              <g fill="url(#ng2)"><circle cx="250" cy="120" r="26"/><circle cx="255" cy="55" r="15"/><circle cx="210" cy="80" r="11"/><circle cx="300" cy="95" r="13"/><circle cx="195" cy="135" r="10"/><circle cx="310" cy="150" r="10"/><circle cx="215" cy="175" r="14"/><circle cx="280" cy="185" r="9"/></g>
+            </svg>
+          </div>
+          <span>Fundacja Szansa AI</span>
+        </div>
+        <p style="margin-top: 18px; max-width: 480px;">Uczymy dzieci z małych miejscowości odpowiedzialnego, bezpiecznego i efektywnego korzystania ze sztucznej inteligencji.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 20px; margin-bottom: 16px;">Fundacja</h3>
+        <div class="footer-links">
+          <a href="misja.html">Misja i program</a>
+          <a href="sponsorzy.html">Dla sponsorów</a>
+          <a href="zgloszenia.html">Zgłoś szkołę</a>
+          <a href="wsparcie.html">Wesprzyj nas</a>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size: 20px; margin-bottom: 16px;">Dane formalne</h3>
+        <div class="footer-links">
+          <span>KRS: 0001221999</span>
+          <span>NIP: 6040267132</span>
+          <span>REGON: 543905350</span>
+          <span>ul. Świerkowa 3, 83-042 Ełganowo</span>
+          <span>kontakt@szansaai.pl</span>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright">
+      © <span id="year"></span> Fundacja „Szansa AI". Wszystkie prawa zastrzeżone. ·
+      <a href="polityka-prywatnosci.html" style="text-decoration: underline;">Polityka prywatności</a>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

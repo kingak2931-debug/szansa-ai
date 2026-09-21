@@ -36,15 +36,19 @@ edukacji + Prezydent Miasta Gdańska (§19).
 zamiast płaskiego mózgu, dziecko-piktogram sięgające po iskrę) — pliki w `brand/`.
 Stara wersja (płaski niebiesko-bursztynowy sygnet) zastąpiona.
 
-**Redesign strony:** fundatorka przesłała własny szablon w stylu awwwards
-(GSAP + Three.js, ciemny motyw) — zapisany w `website-premium/index.html`
-z naniesionymi prawdziwymi danymi/logo/liczbami, ale to WCIĄŻ TYLKO PUNKT
-WYJŚCIA (jednostronicowy, bez modułu wpłat/formularza zgłoszeń/pakietów
-sponsorskich) — pełne połączenie z treściami i strukturą wielostronicową to
-ŚWIADOMIE ODŁOŻONE zadanie na dedykowaną turę (decyzja fundatorki). Szczegóły
-i lista brakujących elementów: `website-premium/README.md`. Obecna `website/`
-(wielostronicowa) NIE jest zastąpiona i nadal jest tym, co idzie do publikacji
-w pierwszej kolejności.
+**Redesign strony — UKOŃCZONY (2026-09-21):** `website-premium/` to teraz pełna,
+wielostronicowa wersja w stylu awwwards (GSAP + Three.js, ciemny motyw, nowe
+logo), ze wspólnymi `assets/style.css` i `assets/app.js` (nie duplikować stylu
+w każdym pliku HTML — dopisywać do wspólnych plików). Zawiera: index, misja,
+sponsorzy (z cennikiem), wsparcie (moduł wpłat PayU), zgłoszenia (formularz),
+politykę prywatności. Wszystko zweryfikowane wizualnie w Chromium (desktop +
+mobile), zero błędów JS, z fallbackiem gdyby CDN GSAP/Three.js nie odpowiedział
+(nav/formularze/wpłaty działają niezależnie od animacji). Szczegóły:
+`website-premium/README.md`. **Nadal NIE opublikowana** — fundatorka jeszcze
+nie zdecydowała, czy `website/` (klasyczna, jasna) czy `website-premium/`
+(ciemna, animowana) idzie do publikacji; obie są teraz kompletne funkcjonalnie
+i mają identyczne, spójne liczby (patrz ANEKS-01). Nigdy nie publikuj żadnej
+bez wyraźnej prośby fundatorki.
 
 **Status domeny i poczty (2026-09-21, później tego samego dnia):** DNS
 skonfigurowany — 4× rekord A (@) na IP GitHub Pages (185.199.108/109/110/111.153)

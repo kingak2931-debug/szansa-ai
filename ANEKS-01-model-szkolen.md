@@ -32,8 +32,20 @@ w miastach, z czego w miastach do 20 tys. mieszkańców szacunkowo 1,5–2 tys.
 → **łącznie ok. 9,5–10 tys. szkół podstawowych w zasięgu programu** (plus szkoły
 średnie w małych miastach). 50 szkół w roku 1 = ~0,5% rynku — ogromny zapas skali.
 
-Przeliczniki pakietów sponsorskich i cegiełek: **do ponownego ustalenia z fundatorką**
-przy przebudowie strony (obecne zapisy na stronie/ofercie traktować jako robocze).
+**Przeliczniki pakietów sponsorskich (zaktualizowane 2026-09-21, model 100 uczniów/szkolenie,
+koszt jednostkowy ~4 500 zł/szkolenie — 2 trenerów × 2 dni + materiały + dojazd):**
+
+| Pakiet | Kwota | Finansuje |
+|---|---|---|
+| Brązowy | 10 000 zł | ok. 2 szkolenia (~200 dzieci) |
+| Srebrny | 50 000 zł | ok. 11 szkoleń (~1 100 dzieci) |
+| Złoty | 100 000 zł | ok. 22 szkolenia (~2 200 dzieci) |
+| Partner Strategiczny | od 250 000 zł | oferta indywidualna |
+
+Te liczby są spójne we wszystkich dokumentach (oferta sponsorska, strony www,
+CRM, szablony maili/postów) po aktualizacji z 2026-09-21. Wciąż robocze w sensie
+biznesowym — do weryfikacji przez fundatorkę po pierwszych realnych kosztach
+pilotażu, ale już nie ma rozjazdu między dokumentami.
 
 ## 3. Perspektywa długoterminowa — „Szkoła AI" (subskrypcja)
 

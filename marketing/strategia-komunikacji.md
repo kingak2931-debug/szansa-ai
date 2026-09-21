@@ -9,7 +9,7 @@
 | **Motywacja** | Mierzalny wpływ do raportu ESG, employer branding, autentyczna historia | Bezpieczeństwo dziecka, wyrównanie szans, bezpłatność, prestiż („moje dziecko w programie AI") |
 | **Obawy** | „NGO nie rozliczy się z pieniędzy", „PR-owy greenwashing" | „AI jest groźne", „to nie dla nas, to dla miastowych", „ukryte koszty" |
 | **Nasz ton** | Konkretny, liczbowy, partnerski. Zero patosu. | Ciepły, prosty, bez technożargonu. Zero straszenia. |
-| **Kluczowy przekaz** | „Kupujesz mierzalny wpływ: 50 tys. zł = ok. 15 szkoleń dla ~450 dzieci w regionie, z raportem" | „Bezpłatne szkolenie w Waszej szkole — intensywnie, maks. 2 dni. AI bez tajemnic i bez zagrożeń" |
+| **Kluczowy przekaz** | „Kupujesz mierzalny wpływ: 50 tys. zł = ok. 11 szkoleń dla ~1 100 dzieci w regionie, z raportem" | „Bezpłatne szkolenie w Waszej szkole — intensywnie, maks. 2 dni. AI bez tajemnic i bez zagrożeń" |
 
 ## 2. Filary treści (content pillars)
 

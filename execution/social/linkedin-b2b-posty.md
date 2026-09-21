@@ -25,7 +25,7 @@ osoby" w pierwszej osobie). Placeholdery `[…]` uzupełnić danymi przed publik
 > po których dostajemy tylko fakturę i logo na plakacie".
 >
 > Rozumiemy. Dlatego nasz model partnerstwa wygląda inaczej:
-> • 50 000 zł = ok. 15 szkoleń AI dla ~450 dzieci w Waszym regionie
+> • 50 000 zł = ok. 11 szkoleń AI dla ~1 100 dzieci w Waszym regionie
 > • co kwartał: raport z liczbami (dzieci, godziny, ewaluacja umiejętności)
 > • materiał gotowy do raportu ESG (CSRD) i komunikacji wewnętrznej
 > • możliwość wizyty Waszego zespołu na zajęciach — zobaczycie, co sfinansowaliście

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polityka prywatności — Fundacja Szansa AI</title>
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+  <canvas id="webgl"></canvas>
+  <div class="noise"></div>
+
+  <header class="header">
+    <nav class="nav">
+      <a class="brand" href="index.html" aria-label="Fundacja Szansa AI">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 400 400" width="26" height="26">
+            <defs><radialGradient id="ng1" cx="0.32" cy="0.28" r="0.85"><stop offset="0" stop-color="#fffdf5"/><stop offset="0.25" stop-color="#ffe9ab"/><stop offset="0.5" stop-color="#eeb43e"/><stop offset="0.75" stop-color="#b3791c"/><stop offset="1" stop-color="#6b4610"/></radialGradient></defs>
+            <g stroke="#f0c14b" stroke-width="4" fill="none" opacity="0.95"><line x1="250" y1="120" x2="255" y2="55"/><line x1="250" y1="120" x2="210" y2="80"/><line x1="250" y1="120" x2="300" y2="95"/><line x1="250" y1="120" x2="195" y2="135"/><line x1="250" y1="120" x2="310" y2="150"/><line x1="250" y1="120" x2="215" y2="175"/><line x1="250" y1="120" x2="280" y2="185"/></g>
+            <g fill="url(#ng1)"><circle cx="250" cy="120" r="26"/><circle cx="255" cy="55" r="15"/><circle cx="210" cy="80" r="11"/><circle cx="300" cy="95" r="13"/><circle cx="195" cy="135" r="10"/><circle cx="310" cy="150" r="10"/><circle cx="215" cy="175" r="14"/><circle cx="280" cy="185" r="9"/></g>
+          </svg>
+        </div>
+        <span>Fundacja Szansa AI</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Start</a>
+        <a href="misja.html">Misja</a>
+        <a href="sponsorzy.html">Dla sponsorów</a>
+        <a href="zgloszenia.html">Zgłoś szkołę</a>
+      </div>
+      <div class="nav-actions">
+        <a href="wsparcie.html" class="btn primary"><i class="fa-solid fa-heart"></i><span>Wesprzyj nas</span></a>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page" id="top">
+    <section class="section" style="padding-top: 170px;">
+      <div class="container legal-content" style="max-width: 820px;">
+        <div class="eyebrow">Dokument prawny</div>
+        <h1 style="font-size: clamp(32px, 5vw, 54px);">Polityka prywatności</h1>
+        <p style="margin: 14px 0 10px;">Obowiązuje od 21.09.2026 · wersja 1.0</p>
+
+        <h2>1. Administrator danych</h2>
+        <p>Administratorem danych osobowych jest <strong>Fundacja „Szansa AI"</strong>
+        z siedzibą przy ul. Świerkowa 3, 83-042 Ełganowo, wpisana do KRS pod nr
+        0001221999, NIP 6040267132, REGON 543905350 („Fundacja"). Kontakt:
+        kontakt@szansaai.pl. Fundacja nie wyznaczyła odrębnego Inspektora Ochrony
+        Danych — funkcję administratora pełni Zarząd Fundacji.</p>
+
+        <h2>2. Jakie dane przetwarzamy, po co i na jakiej podstawie</h2>
+        <table>
+          <thead><tr><th>Kategoria osób</th><th>Zakres danych</th><th>Cel</th><th>Podstawa (RODO)</th><th>Okres</th></tr></thead>
+          <tbody>
+            <tr><td>Darczyńcy</td><td>imię, nazwisko, e-mail, kwota i data wpłaty</td><td>obsługa darowizny, rozliczenia</td><td>art. 6 ust. 1 lit. b, c</td><td>5 lat od końca roku podatkowego</td></tr>
+            <tr><td>Sponsorzy / kontrahenci</td><td>dane firmowe i osób kontaktowych</td><td>zawarcie i wykonanie umowy</td><td>art. 6 ust. 1 lit. b, f</td><td>czas umowy + przedawnienie</td></tr>
+            <tr><td>Osoby zgłaszające szkoły</td><td>imię, nazwisko, e-mail, instytucja</td><td>obsługa zgłoszenia</td><td>art. 6 ust. 1 lit. f</td><td>obsługa + 1 rok</td></tr>
+            <tr><td>Rodzice / opiekunowie</td><td>imię, nazwisko, kontakt, zgody</td><td>organizacja zajęć</td><td>art. 6 ust. 1 lit. b, a</td><td>czas udziału + roszczenia</td></tr>
+            <tr><td><strong>Dzieci — uczestnicy</strong></td><td>imię, nazwisko, wiek/klasa</td><td>organizacja zajęć, bezpieczeństwo</td><td>art. 6 ust. 1 lit. a</td><td>czas udziału</td></tr>
+            <tr><td>Wizerunek uczestników</td><td>zdjęcia / nagrania</td><td>dokumentacja i promocja</td><td>art. 6 ust. 1 lit. a — odrębna zgoda</td><td>do cofnięcia zgody</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Zasady szczególne dot. dzieci:</strong> przetwarzamy wyłącznie minimum danych
+        niezbędne do udziału w zajęciach; nie profilujemy dzieci, nie kierujemy do nich
+        marketingu. Odmowa zgody na wizerunek nie wpływa na możliwość udziału w zajęciach.</p>
+
+        <h2>3. Odbiorcy danych</h2>
+        <p>Dane powierzamy podmiotom niezbędnym do działania Fundacji, na podstawie umów
+        powierzenia (art. 28 RODO): operator płatności PayU S.A., dostawca hostingu
+        (GitHub Pages — GitHub, Inc.), a docelowo biuro rachunkowe i ubezpieczyciel NNW.
+        Nie sprzedajemy danych. Część dostawców ma siedzibę poza EOG — przekazanie na
+        podstawie standardowych klauzul umownych (art. 46 RODO).</p>
+
+        <h2>4. Prawa osób, których dane dotyczą</h2>
+        <p>Każdej osobie (w przypadku dzieci — rodzicom/opiekunom) przysługuje prawo dostępu,
+        sprostowania, usunięcia, ograniczenia, przenoszenia, sprzeciwu, cofnięcia zgody oraz
+        skargi do Prezesa UODO (ul. Stawki 2, Warszawa). Wnioski realizujemy do miesiąca.</p>
+
+        <h2>5. Bezpieczeństwo</h2>
+        <p>Szyfrowanie transmisji (TLS), kontrola dostępu wg zasady minimalnych uprawnień,
+        rejestr czynności przetwarzania. Naruszenia zgłaszamy UODO w ciągu 72 godzin.</p>
+
+        <h2>6. Pliki cookies</h2>
+        <p>Strona w wersji podstawowej <strong>nie używa plików cookies</strong> ani narzędzi
+        analitycznych. Jeżeli zostaną wdrożone, nastąpi to wyłącznie po zgodzie użytkownika.</p>
+
+        <h2>7. Zmiany polityki</h2>
+        <p>O istotnych zmianach informujemy na stronie Fundacji.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container copyright">
+      © <span id="year"></span> Fundacja „Szansa AI". Wszystkie prawa zastrzeżone.
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

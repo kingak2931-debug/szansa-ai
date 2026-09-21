@@ -15,7 +15,7 @@ możliwość rezygnacji („odpisz NIE"); rezygnacje natychmiast do CRM (status:
 
 ## Wiadomość 1 — Otwarcie (problem + konkret)
 
-**Temat:** `[Firma] × 450 dzieci z [region] — jedna decyzja`
+**Temat:** `[Firma] × 1 100 dzieci z [region] — jedna decyzja`
 **Temat wariant B (test):** `Pytanie o CSR [Firmy] na [rok]`
 
 > Dzień dobru Panie/Pani [imię],
@@ -29,7 +29,7 @@ możliwość rezygnacji („odpisz NIE"); rezygnacje natychmiast do CRM (status:
 > (maks. 2 dni) w szkołach, do których nie dociera żadna oferta zajęć z technologii —
 > bezpłatnie dla rodzin.
 >
-> 50 000 zł finansuje ok. 15 szkoleń dla ~450 dzieci w regionie — z imiennym
+> 50 000 zł finansuje ok. 11 szkoleń dla ~1 100 dzieci w regionie — z imiennym
 > raportem wpływu do Państwa raportu ESG i odliczeniem darowizny od CIT.
 >
 > Czy znajdzie Pan/Pani 20 minut w przyszłym tygodniu na rozmowę online?

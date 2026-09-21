@@ -11,8 +11,8 @@ from datetime import date
 
 PACKAGES = {
     "przyjaciel": ("Przyjaciel Fundacji", "od 10 000 zł"),
-    "regionalny": ("Partner Regionalny", "50 000 zł — ok. 15 szkoleń dla ~450 dzieci w Waszym regionie"),
-    "mecenas": ("Mecenas Edukacji", "100 000 zł — ok. 30 szkoleń (~900 dzieci) + webinary dla rodziców"),
+    "regionalny": ("Partner Regionalny", "50 000 zł — ok. 11 szkoleń dla ~1 100 dzieci w Waszym regionie"),
+    "mecenas": ("Mecenas Edukacji", "100 000 zł — ok. 22 szkolenia (~2 200 dzieci) + webinary dla rodziców"),
     "strategiczny": ("Partner Strategiczny", "od 250 000 zł — naming rights programu regionalnego"),
 }
 

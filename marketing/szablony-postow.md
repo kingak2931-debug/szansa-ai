@@ -19,8 +19,8 @@ na LinkedIn, swobodniej na FB/IG.
 > 20 tys. mieszkańców i uczy dzieci bezpiecznego, krytycznego i twórczego korzystania z AI.
 > Bezpłatnie dla dzieci. Mierzalnie dla partnerów.
 >
-> Szukamy firm, które chcą to zrobić z nami. 50 000 zł = ok. 15 szkoleń dla
-> ~450 dzieci w regionie — z raportem wpływu do Waszego raportu ESG.
+> Szukamy firm, które chcą to zrobić z nami. 50 000 zł = ok. 11 szkoleń dla
+> ~1 100 dzieci w regionie — z raportem wpływu do Waszego raportu ESG.
 >
 > 👉 [link do sponsorzy.html] | #CSR #ESG #EdukacjaCyfrowa #AI
 
@@ -47,7 +47,7 @@ na LinkedIn, swobodniej na FB/IG.
 > trenera fundacji. [CTA]
 
 ### A4. Outreach e-mail B2B (szablon do CRM/Jarvis)
-> **Temat:** [Firma] × Szansa AI — szkolenia AI dla ~450 dzieci z [region]
+> **Temat:** [Firma] × Szansa AI — szkolenia AI dla ~1 100 dzieci z [region]
 >
 > Dzień dobry, Panie/Pani [nazwisko],
 >
@@ -58,7 +58,7 @@ na LinkedIn, swobodniej na FB/IG.
 > Fundacja Szansa AI uczy dzieci z miejscowości do 20 tys. mieszkańców bezpiecznego
 > i efektywnego korzystania z AI. Intensywne szkolenia stacjonarne (maks. 2 dni),
 > mierzalne wskaźniki. Pakiet Partnera Regionalnego (50 000 zł) finansuje ok. 15
-> szkoleń dla ~450 dzieci w regionie — z lokalnym raportem wpływu i materiałami do Waszej
+> szkoleń dla ~1 100 dzieci w regionie — z lokalnym raportem wpływu i materiałami do Waszej
 > komunikacji. Darowizna podlega odliczeniu od CIT (do 10% dochodu).
 >
 > Czy znajdzie Pan/Pani 20 minut w przyszłym tygodniu na krótką rozmowę?

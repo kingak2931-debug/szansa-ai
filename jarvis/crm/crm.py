@@ -259,7 +259,7 @@ def cmd_donations(args):
 # ------------------------------------------------------------------
 
 SEQUENCE = {
-    1: ("{company} × 450 dzieci z {region} — jedna decyzja",
+    1: ("{company} × 1 100 dzieci z {region} — jedna decyzja",
         """Dzień dobry {contact},
 
 {hook}
@@ -269,7 +269,7 @@ bezpiecznego i mądrego korzystania ze sztucznej inteligencji. Prowadzimy
 intensywne szkolenia stacjonarne (maks. 2 dni) w szkołach, do których
 nie dociera żadna oferta zajęć z technologii — bezpłatnie dla rodzin.
 
-50 000 zł finansuje ok. 15 szkoleń dla ~450 dzieci w regionie — z imiennym
+50 000 zł finansuje ok. 11 szkoleń dla ~1 100 dzieci w regionie — z imiennym
 raportem wpływu do Państwa raportu ESG i odliczeniem darowizny od CIT
 (do 10% dochodu).
 

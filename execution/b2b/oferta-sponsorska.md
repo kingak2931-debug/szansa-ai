@@ -44,7 +44,7 @@ Zmieniamy to — gmina po gminie. Z Wami.
 | | 🥉 **BRĄZOWY** | 🥈 **SREBRNY** | 🥇 **ZŁOTY** |
 |---|---|---|---|
 | **Kwota rocznie** | **10 000 zł** | **50 000 zł** | **100 000 zł** |
-| Co finansuje | ok. 3 szkolenia (~90 dzieci) | ok. 15 szkoleń w regionie (~450 dzieci) | ok. 30 szkoleń (~900 dzieci) + webinary dla rodziców |
+| Co finansuje | ok. 2 szkolenia (~200 dzieci) | ok. 11 szkoleń w regionie (~1 100 dzieci) | ok. 22 szkolenia (~2 200 dzieci) + webinary dla rodziców |
 | Logo na stronie fundacji | ✔ | ✔ | ✔ |
 | Certyfikat + podziękowania w social media | ✔ | ✔ | ✔ |
 | Logo na materiałach i rollupach w regionie | — | ✔ | ✔ |

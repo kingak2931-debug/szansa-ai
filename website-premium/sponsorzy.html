@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dla sponsorów — Fundacja Szansa AI</title>
+  <meta name="description" content="Pakiety sponsorskie CSR/ESG Fundacji Szansa AI — zainwestuj w kompetencje AI dzieci z małych miejscowości." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+  <canvas id="webgl"></canvas>
+  <div class="noise"></div>
+
+  <header class="header">
+    <nav class="nav">
+      <a class="brand" href="index.html" aria-label="Fundacja Szansa AI">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 400 400" width="26" height="26">
+            <defs><radialGradient id="ng1" cx="0.32" cy="0.28" r="0.85"><stop offset="0" stop-color="#fffdf5"/><stop offset="0.25" stop-color="#ffe9ab"/><stop offset="0.5" stop-color="#eeb43e"/><stop offset="0.75" stop-color="#b3791c"/><stop offset="1" stop-color="#6b4610"/></radialGradient></defs>
+            <g stroke="#f0c14b" stroke-width="4" fill="none" opacity="0.95"><line x1="250" y1="120" x2="255" y2="55"/><line x1="250" y1="120" x2="210" y2="80"/><line x1="250" y1="120" x2="300" y2="95"/><line x1="250" y1="120" x2="195" y2="135"/><line x1="250" y1="120" x2="310" y2="150"/><line x1="250" y1="120" x2="215" y2="175"/><line x1="250" y1="120" x2="280" y2="185"/></g>
+            <g fill="url(#ng1)"><circle cx="250" cy="120" r="26"/><circle cx="255" cy="55" r="15"/><circle cx="210" cy="80" r="11"/><circle cx="300" cy="95" r="13"/><circle cx="195" cy="135" r="10"/><circle cx="310" cy="150" r="10"/><circle cx="215" cy="175" r="14"/><circle cx="280" cy="185" r="9"/></g>
+          </svg>
+        </div>
+        <span>Fundacja Szansa AI</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Start</a>
+        <a href="misja.html">Misja</a>
+        <a href="sponsorzy.html" aria-current="page">Dla sponsorów</a>
+        <a href="zgloszenia.html">Zgłoś szkołę</a>
+      </div>
+      <div class="nav-actions">
+        <a href="wsparcie.html" class="btn primary"><i class="fa-solid fa-heart"></i><span>Wesprzyj nas</span></a>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page" id="top">
+    <section class="section" style="padding-top: 170px;">
+      <div class="container">
+        <div class="eyebrow">Partnerstwo B2B</div>
+        <h1 style="font-size: clamp(38px, 6vw, 78px);">Twoja firma może dać dzieciom <span class="gradient-text">szansę</span>.</h1>
+        <p class="lead" style="margin-top: 26px;">
+          Mierzalny wpływ społeczny, gotowe dane do raportu ESG, autentyczna historia dla
+          Twojej marki i pracowników. Współpraca z nami to inwestycja w przyszłych
+          użytkowników i twórców technologii — także Waszych przyszłych pracowników.
+        </p>
+        <div class="hero-actions">
+          <a href="#kontakt" class="btn primary"><i class="fa-solid fa-comments"></i><span>Porozmawiajmy o partnerstwie</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- KORZYŚCI -->
+    <section class="section">
+      <div class="container">
+        <div class="eyebrow">Co zyskuje sponsor</div>
+        <h2>Trzy rzeczy, które naprawdę dostajecie.</h2>
+        <div class="cards" style="grid-template-columns: repeat(3, 1fr); margin-top: 48px;">
+          <article class="feature-card glass reveal-card">
+            <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>Raport wpływu</h3>
+            <p>Liczba dzieci, szkół i godzin, wyniki ewaluacji, zdjęcia i historie — gotowy materiał do raportowania CSR/ESG (CSRD) i komunikacji zewnętrznej.</p>
+          </article>
+          <article class="feature-card glass reveal-card">
+            <div class="icon"><i class="fa-solid fa-people-group"></i></div>
+            <h3>Wolontariat pracowniczy</h3>
+            <p>Wasi eksperci jako goście specjalni szkoleń — sprawdzony format employee engagement o realnym znaczeniu.</p>
+          </article>
+          <article class="feature-card glass reveal-card">
+            <div class="icon"><i class="fa-solid fa-receipt"></i></div>
+            <h3>Korzyść podatkowa</h3>
+            <p>Darowizna na cele statutowe podlega odliczeniu od podstawy opodatkowania CIT do 10% dochodu (art. 18 ust. 1 pkt 1 ustawy o CIT).</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CENNIK -->
+    <section class="section">
+      <div class="container">
+        <div class="eyebrow">Pakiety partnerskie</div>
+        <h2>Kwoty roczne. Każda finansuje konkretną liczbę szkoleń.</h2>
+        <p class="lead" style="margin-top: 20px;">Możliwa też darowizna rzeczowa (sprzęt komputerowy pod przyszłe mobilne pracownie) oraz pakiety indywidualne powyżej 250 000 zł.</p>
+
+        <div class="pricing">
+          <div class="glass tier reveal-card">
+            <h3>Brązowy</h3>
+            <div class="price">10 000 zł</div>
+            <div class="price-sub">ok. 2 szkolenia (~200 dzieci)</div>
+            <ul>
+              <li><i class="fa-solid fa-check"></i>Logo na stronie fundacji</li>
+              <li><i class="fa-solid fa-check"></i>Certyfikat sponsorski</li>
+              <li><i class="fa-solid fa-check"></i>Podziękowania w social media</li>
+            </ul>
+            <a href="#kontakt" class="btn ghost">Wybieram</a>
+          </div>
+          <div class="glass tier featured reveal-card">
+            <span class="badge">Najczęściej wybierany</span>
+            <h3>Srebrny</h3>
+            <div class="price">50 000 zł</div>
+            <div class="price-sub">ok. 11 szkoleń (~1 100 dzieci)</div>
+            <ul>
+              <li><i class="fa-solid fa-check"></i>Wszystko z pakietu Brązowego</li>
+              <li><i class="fa-solid fa-check"></i>Logo na materiałach szkoleniowych</li>
+              <li><i class="fa-solid fa-check"></i>Kwartalny raport z liczbami</li>
+              <li><i class="fa-solid fa-check"></i>1 wizyta Waszego zespołu na szkoleniu</li>
+            </ul>
+            <a href="#kontakt" class="btn primary">Wybieram</a>
+          </div>
+          <div class="glass tier reveal-card">
+            <h3>Złoty</h3>
+            <div class="price">100 000 zł</div>
+            <div class="price-sub">ok. 22 szkolenia (~2 200 dzieci)</div>
+            <ul>
+              <li><i class="fa-solid fa-check"></i>Wszystko z pakietu Srebrnego</li>
+              <li><i class="fa-solid fa-check"></i>Roczny raport wpływu z ewaluacją</li>
+              <li><i class="fa-solid fa-check"></i>Priorytet wolontariatu pracowniczego</li>
+              <li><i class="fa-solid fa-check"></i>Udział w evencie podsumowującym</li>
+            </ul>
+            <a href="#kontakt" class="btn ghost">Wybieram</a>
+          </div>
+          <div class="glass tier reveal-card">
+            <h3>Partner Strategiczny</h3>
+            <div class="price">od 250 000 zł</div>
+            <div class="price-sub">oferta indywidualna</div>
+            <ul>
+              <li><i class="fa-solid fa-check"></i>Naming rights programu regionalnego</li>
+              <li><i class="fa-solid fa-check"></i>Logo w całej komunikacji fundacji</li>
+              <li><i class="fa-solid fa-check"></i>Wspólne planowanie rozwoju programu</li>
+            </ul>
+            <a href="#kontakt" class="btn ghost">Porozmawiajmy</a>
+          </div>
+        </div>
+
+        <div class="notice-box" style="margin-top: 32px;">
+          <strong>Formy współpracy:</strong> darowizna pieniężna lub rzeczowa (umowa darowizny —
+          świadczenia wizerunkowe mają charakter podziękowania) albo sponsoring właściwy z fakturą
+          VAT. Dobierzemy formę optymalną podatkowo dla Państwa firmy.
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section class="section" id="kontakt">
+      <div class="container">
+        <div class="eyebrow">Kontakt</div>
+        <h2>Skontaktuj się z nami.</h2>
+        <p class="lead" style="margin-top: 20px;">Odpowiadamy w ciągu 2 dni roboczych. Chętnie przyjedziemy z prezentacją programu.</p>
+
+        <div class="contact-grid" style="grid-template-columns: 1fr; max-width: 640px; margin-top: 40px;">
+          <div class="contact-card glass">
+            <form onsubmit="return szansaFormDemo(event)">
+              <div class="field"><label for="s-firma">Nazwa firmy *</label><input id="s-firma" name="Firma" required /></div>
+              <div class="field"><label for="s-osoba">Osoba kontaktowa *</label><input id="s-osoba" name="Osoba" required /></div>
+              <div class="field"><label for="s-email">E-mail służbowy *</label><input id="s-email" name="Email" type="email" required /></div>
+              <div class="field"><label for="s-pakiet">Interesujący pakiet</label>
+                <select id="s-pakiet" name="Pakiet">
+                  <option>Jeszcze nie wiem — chcę porozmawiać</option>
+                  <option>Brązowy (10 000 zł)</option>
+                  <option>Srebrny (50 000 zł)</option>
+                  <option>Złoty (100 000 zł)</option>
+                  <option>Partner Strategiczny (od 250 000 zł)</option>
+                  <option>Darowizna rzeczowa (sprzęt)</option>
+                </select>
+              </div>
+              <div class="field"><label for="s-msg">Wiadomość</label><textarea id="s-msg" name="Wiadomosc" rows="4"></textarea></div>
+              <label class="checkbox-field"><input type="checkbox" required />
+                <span>Wyrażam zgodę na przetwarzanie podanych danych w celu obsługi zapytania, zgodnie z <a href="polityka-prywatnosci.html">polityką prywatności</a>. *</span>
+              </label>
+              <button class="btn primary" type="submit" style="margin-top: 18px;"><i class="fa-solid fa-paper-plane"></i><span>Wyślij zapytanie</span></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 400 400" width="28" height="28">
+              <defs><radialGradient id="ng2" cx="0.32" cy="0.28" r="0.85"><stop offset="0" stop-color="#fffdf5"/><stop offset="0.25" stop-color="#ffe9ab"/><stop offset="0.5" stop-color="#eeb43e"/><stop offset="0.75" stop-color="#b3791c"/><stop offset="1" stop-color="#6b4610"/></radialGradient></defs>
+              <g stroke="#f0c14b" stroke-width="4" fill="none" opacity="0.95"><line x1="250" y1="120" x2="255" y2="55"/><line x1="250" y1="120" x2="210" y2="80"/><line x1="250" y1="120" x2="300" y2="95"/><line x1="250" y1="120" x2="195" y2="135"/><line x1="250" y1="120" x2="310" y2="150"/><line x1="250" y1="120" x2="215" y2="175"/><line x1="250" y1="120" x2="280" y2="185"/></g>
+              <g fill="url(#ng2)"><circle cx="250" cy="120" r="26"/><circle cx="255" cy="55" r="15"/><circle cx="210" cy="80" r="11"/><circle cx="300" cy="95" r="13"/><circle cx="195" cy="135" r="10"/><circle cx="310" cy="150" r="10"/><circle cx="215" cy="175" r="14"/><circle cx="280" cy="185" r="9"/></g>
+            </svg>
+          </div>
+          <span>Fundacja Szansa AI</span>
+        </div>
+        <p style="margin-top: 18px; max-width: 480px;">Uczymy dzieci z małych miejscowości odpowiedzialnego, bezpiecznego i efektywnego korzystania ze sztucznej inteligencji.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 20px; margin-bottom: 16px;">Fundacja</h3>
+        <div class="footer-links">
+          <a href="misja.html">Misja i program</a>
+          <a href="sponsorzy.html">Dla sponsorów</a>
+          <a href="zgloszenia.html">Zgłoś szkołę</a>
+          <a href="wsparcie.html">Wesprzyj nas</a>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size: 20px; margin-bottom: 16px;">Dane formalne</h3>
+        <div class="footer-links">
+          <span>KRS: 0001221999</span>
+          <span>NIP: 6040267132</span>
+          <span>REGON: 543905350</span>
+          <span>ul. Świerkowa 3, 83-042 Ełganowo</span>
+          <span>kontakt@szansaai.pl</span>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright">
+      © <span id="year"></span> Fundacja „Szansa AI". Wszystkie prawa zastrzeżone. ·
+      <a href="polityka-prywatnosci.html" style="text-decoration: underline;">Polityka prywatności</a>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

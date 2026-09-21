@@ -46,8 +46,22 @@ i lista brakujących elementów: `website-premium/README.md`. Obecna `website/`
 (wielostronicowa) NIE jest zastąpiona i nadal jest tym, co idzie do publikacji
 w pierwszej kolejności.
 
-**Brakujące od fundatorki:** polityka prywatności (zapowiedziała wysyłkę, nie
-dotarła — dopytać), numer telefonu kontaktowego.
+**Status domeny i poczty (2026-09-21, później tego samego dnia):** DNS
+skonfigurowany — 4× rekord A (@) na IP GitHub Pages (185.199.108/109/110/111.153)
++ CNAME www → kingak2931-debug.github.io., stare rekordy cyberFolks (185.208.164.78)
+usunięte, MX/SPF/DKIM/DMARC nietknięte. Skrzynka **kontakt@szansaai.pl już założona
+i działa** (webmail w panelu DirectAdmin cyberFolks, dostępny przez „Poczta" w menu
+panelu). Propagacja DNS w toku (do 24h). Plik `website/CNAME` z `szansaai.pl` już
+w repo. **Publikacja strony nadal wyłącznie ręczna** — fundatorka wyraźnie nie chce
+publikować, dopóki wszystko nie jest gotowe; nigdy nie uruchamiaj workflow Pages
+bez jej wyraźnej prośby, nawet gdy DNS jest już poprawny.
+
+**Kwestie zamknięte:** polityka prywatności dopracowana i opublikowana na stronie
+(fundatorka nie miała własnej — użyty mój wzór, uzupełniony realnymi danymi, bez
+blokowania na braku prawnika). Numer telefonu — fundatorka świadomie NIE chce go
+podawać, tylko e-mail; nie dodawać z powrotem bez pytania. Nazwisko fundatorki
+(Kinga Kotula) NIE ma występować na stronie publicznej — tylko w wewnętrznych
+dokumentach prawnych (umowy, SOM), gdzie jest wymagane.
 
 ## Mapa repozytorium
 

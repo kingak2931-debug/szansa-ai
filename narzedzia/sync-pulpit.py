@@ -39,13 +39,15 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 
 MAPPING = [
     # (źródło w repo, folder docelowy, lista plików | None = cały katalog)
-    (".", "01_Plan_i_Strategia", ["PLAN.md", "README.md"]),
+    (".", "01_Plan_i_Strategia", ["PLAN.md", "README.md", "ANEKS-01-model-szkolen.md"]),
     ("website", "02_Strona_WWW", None),
+    ("website-premium", "02b_Strona_WWW_Premium_wersja_robocza", None),
     ("marketing", "03_Marketing_i_SocialMedia", None),
     ("fundraising", "04_Produkty_Cegielkowe_i_Ebook", None),
     ("legal", "05_Dokumenty_Prawne", None),
     ("jarvis", "06_System_Jarvis", None),
     ("execution", "07_Plan_Startowy_Social_i_CRM", None),
+    ("brand", "08_Logo_i_Identyfikacja", None),
 ]
 
 # Nie kopiujemy na Pulpit: śmieci technicznych ani danych osobowych (RODO!)

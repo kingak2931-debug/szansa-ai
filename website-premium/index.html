@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fundacja Szansa AI — przyszłość zaczyna się dziś</title>
+  <meta name="description" content="Fundacja Szansa AI wspiera dzieci i młodzież w rozwoju kompetencji przyszłości: AI, edukacji cyfrowej i odpowiedzialnego korzystania z technologii." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Animation libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #030711;
+      --bg2: #07111f;
+      --panel: rgba(255, 255, 255, 0.075);
+      --panel2: rgba(255, 255, 255, 0.11);
+      --line: rgba(255, 255, 255, 0.14);
+      --text: #f5fbff;
+      --muted: #9fb2c5;
+      --blue: #49d8ff;
+      --blue2: #2563ff;
+      --gold: #f5c971;
+      --cyan: #8df4ff;
+      --danger: #ff7ad9;
+      --radius: 28px;
+      --shadow: 0 30px 100px rgba(0, 0, 0, 0.45);
+      --max: 1220px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(37, 99, 255, 0.22), transparent 34%),
+        radial-gradient(circle at 78% 18%, rgba(245, 201, 113, 0.12), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(73, 216, 255, 0.12), transparent 38%),
+        var(--bg);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(circle at center, black, transparent 75%);
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.045) 45%, transparent 60%);
+      transform: translateX(-120%);
+      animation: globalLight 10s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    @keyframes globalLight {
+      0%, 22% { transform: translateX(-130%) skewX(-15deg); opacity: 0; }
+      38% { opacity: 1; }
+      58%, 100% { transform: translateX(130%) skewX(-15deg); opacity: 0; }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      z-index: 2;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    #webgl {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.75;
+    }
+
+    .page {
+      position: relative;
+      z-index: 3;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 42px));
+      margin: 0 auto;
+    }
+
+    .section {
+      position: relative;
+      padding: 120px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding: 9px 14px;
+      border: 1px solid rgba(141,244,255,0.24);
+      border-radius: 999px;
+      background: rgba(141,244,255,0.06);
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(16px);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--cyan);
+      box-shadow: 0 0 22px var(--cyan);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.055em;
+      line-height: 1.02;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 118px);
+      max-width: 1000px;
+    }
+
+    h2 {
+      font-size: clamp(38px, 5.5vw, 76px);
+      max-width: 940px;
+    }
+
+    h3 {
+      font-size: clamp(23px, 2.4vw, 34px);
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .lead {
+      font-size: clamp(18px, 2.1vw, 24px);
+      max-width: 770px;
+      color: #d8eaff;
+    }
+
+    .gradient-text {
+      background: linear-gradient(95deg, #fff 0%, #8df4ff 40%, #f5c971 85%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-weight: 800;
+      backdrop-filter: blur(18px);
+      transition: 0.35s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      border-color: rgba(141,244,255,0.52);
+      box-shadow: 0 20px 60px rgba(73,216,255,0.16);
+    }
+
+    .btn.primary {
+      color: #03111d;
+      background: linear-gradient(135deg, #8df4ff, #49d8ff 45%, #f5c971);
+      box-shadow: 0 18px 70px rgba(73,216,255,0.28);
+    }
+
+    .btn.ghost {
+      background: rgba(255,255,255,0.05);
+    }
+
+    .glass {
+      border: 1px solid var(--line);
+      background: linear-gradient(150deg, rgba(255,255,255,0.12), rgba(255,255,255,0.035));
+      backdrop-filter: blur(26px);
+      box-shadow: var(--shadow);
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 18px;
+      left: 0;
+      right: 0;
+      z-index: 20;
+    }
+
+    .nav {
+      width: min(1240px, calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px 12px 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      background: rgba(3,7,17,0.62);
+      backdrop-filter: blur(28px);
+      box-shadow: 0 18px 70px rgba(0,0,0,0.28);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: rgba(245, 201, 113, 0.08);
+      border: 1px solid rgba(245, 201, 113, 0.22);
+      box-shadow: 0 0 34px rgba(245,201,113,0.18);
+      display: grid;
+      place-items: center;
+    }
+    footer .logo {
+      width: 44px;
+      height: 44px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      font-size: 14px;
+      color: #c8d9e7;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+      text-shadow: 0 0 18px rgba(141,244,255,0.6);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang {
+      display: flex;
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .lang button {
+      border: 0;
+      color: #b9c9d8;
+      background: transparent;
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .lang button.active {
+      background: rgba(141,244,255,0.18);
+      color: #fff;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(255,255,255,0.06);
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      padding: 170px 0 80px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero .lead {
+      margin-top: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 42px;
+    }
+
+    .trust-chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.11);
+      background: rgba(255,255,255,0.055);
+      color: #d6e6f4;
+      font-size: 13px;
+      font-weight: 800;
+      backdrop-filter: blur(20px);
+    }
+
+    .hero-stage {
+      position: relative;
+      height: 680px;
+      perspective: 1200px;
+      transform-style: preserve-3d;
+    }
+
+    .orb {
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      left: 50%;
+      top: 46%;
+      transform: translate(-50%, -50%);
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255,255,255,0.95), transparent 11%),
+        radial-gradient(circle at 40% 38%, rgba(141,244,255,0.55), transparent 23%),
+        radial-gradient(circle at 70% 70%, rgba(245,201,113,0.28), transparent 30%),
+        radial-gradient(circle, rgba(37,99,255,0.42), rgba(3,7,17,0.08) 63%);
+      filter: drop-shadow(0 0 90px rgba(73,216,255,0.35));
+      animation: orbFloat 7s ease-in-out infinite;
+    }
+
+    .orb::before {
+      content: "";
+      position: absolute;
+      inset: -42px;
+      border-radius: 50%;
+      border: 1px solid rgba(141,244,255,0.24);
+      animation: spin 14s linear infinite;
+    }
+
+    .orb::after {
+      content: "";
+      position: absolute;
+      inset: 35px;
+      border-radius: 50%;
+      border: 1px dashed rgba(245,201,113,0.32);
+      animation: spin 11s linear infinite reverse;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(-50%, -50%) translateY(0) scale(1); }
+      50% { transform: translate(-50%, -50%) translateY(-22px) scale(1.035); }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .floating-card {
+      position: absolute;
+      width: 240px;
+      min-height: 134px;
+      padding: 20px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: linear-gradient(150deg, rgba(255,255,255,0.13), rgba(255,255,255,0.04));
+      backdrop-filter: blur(26px);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.35);
+      transform-style: preserve-3d;
+      overflow: hidden;
+    }
+
+    .floating-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.13), transparent);
+      transform: translateX(-110%);
+      animation: cardSheen 6s ease-in-out infinite;
+    }
+
+    @keyframes cardSheen {
+      0%, 30% { transform: translateX(-120%); }
+      55% { transform: translateX(120%); }
+      100% { transform: translateX(120%); }
+    }
+
+    .floating-card i {
+      color: var(--cyan);
+      font-size: 22px;
+      margin-bottom: 16px;
+      text-shadow: 0 0 20px rgba(141,244,255,0.5);
+    }
+
+    .floating-card strong {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+    }
+
+    .floating-card span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .card-a { top: 58px; left: 14px; animation: floatA 6.4s ease-in-out infinite; }
+    .card-b { top: 135px; right: 2px; animation: floatB 7.2s ease-in-out infinite; }
+    .card-c { bottom: 115px; left: 72px; animation: floatC 7.8s ease-in-out infinite; }
+    .card-d { bottom: 42px; right: 42px; animation: floatD 6.8s ease-in-out infinite; }
+
+    @keyframes floatA {
+      0%,100% { transform: translate3d(0,0,80px) rotate(-7deg); }
+      50% { transform: translate3d(18px,-22px,110px) rotate(-2deg); }
+    }
+    @keyframes floatB {
+      0%,100% { transform: translate3d(0,0,120px) rotate(8deg); }
+      50% { transform: translate3d(-22px,24px,90px) rotate(3deg); }
+    }
+    @keyframes floatC {
+      0%,100% { transform: translate3d(0,0,95px) rotate(6deg); }
+      50% { transform: translate3d(24px,18px,125px) rotate(1deg); }
+    }
+    @keyframes floatD {
+      0%,100% { transform: translate3d(0,0,130px) rotate(-3deg); }
+      50% { transform: translate3d(-18px,-18px,100px) rotate(-9deg); }
+    }
+
+    .scan-line {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 620px;
+      height: 620px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: conic-gradient(from 180deg, transparent, rgba(141,244,255,0.12), transparent 26%);
+      animation: spin 10s linear infinite;
+      filter: blur(0.4px);
+    }
+
+    /* Marquee */
+    .marquee-wrap {
+      position: relative;
+      margin-top: -20px;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.035);
+      backdrop-filter: blur(16px);
+    }
+
+    .marquee {
+      display: flex;
+      gap: 18px;
+      padding: 22px 0;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+
+    .marquee.reverse {
+      animation-direction: reverse;
+      animation-duration: 34s;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      opacity: 0.78;
+    }
+
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      font-weight: 900;
+      color: #eaf7ff;
+      white-space: nowrap;
+    }
+
+    .marquee-item i {
+      color: var(--gold);
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* Split section */
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .mission-panel {
+      position: relative;
+      min-height: 530px;
+      border-radius: 42px;
+      padding: 30px;
+      overflow: hidden;
+    }
+
+    .mission-panel::before {
+      content: "";
+      position: absolute;
+      inset: -70px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(73,216,255,0.25), transparent 26%),
+        radial-gradient(circle at 80% 65%, rgba(245,201,113,0.18), transparent 26%);
+      animation: slowShift 9s ease-in-out infinite;
+    }
+
+    @keyframes slowShift {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(30px,-20px) scale(1.05); }
+    }
+
+    .mission-inner {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      z-index: 1;
+    }
+
+    .mini-tile {
+      border-radius: 28px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(3,7,17,0.45);
+      backdrop-filter: blur(20px);
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.35s ease;
+    }
+
+    .mini-tile:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: rgba(141,244,255,0.42);
+    }
+
+    .mini-tile .num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 44px;
+      line-height: 1;
+      letter-spacing: -0.07em;
+      background: linear-gradient(90deg, #fff, var(--cyan));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .mini-tile span {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 48px;
+    }
+
+    .feature-card {
+      position: relative;
+      min-height: 285px;
+      padding: 26px;
+      border-radius: 30px;
+      overflow: hidden;
+      transition: 0.35s ease;
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(141,244,255,0.18), transparent 26%),
+        linear-gradient(140deg, rgba(255,255,255,0.12), rgba(255,255,255,0.035));
+      opacity: 0.8;
+    }
+
+    .feature-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-12px);
+      border-color: rgba(245,201,113,0.34);
+      box-shadow: 0 34px 110px rgba(73,216,255,0.12);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 42px;
+      color: #06111d;
+      background: linear-gradient(135deg, var(--cyan), var(--gold));
+      box-shadow: 0 20px 50px rgba(73,216,255,0.2);
+      font-size: 20px;
+    }
+
+    .feature-card p {
+      margin-top: 14px;
+      font-size: 15px;
+    }
+
+    /* Horizontal gallery */
+    .horizontal-section {
+      overflow: hidden;
+      padding-bottom: 160px;
+    }
+
+    .h-track {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+      padding-top: 52px;
+    }
+
+    .h-card {
+      width: min(460px, 82vw);
+      height: 530px;
+      border-radius: 38px;
+      overflow: hidden;
+      position: relative;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.13);
+      box-shadow: var(--shadow);
+    }
+
+    .h-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--img) center/cover;
+      opacity: 0.32;
+      transform: scale(1.05);
+      transition: 0.5s ease;
+    }
+
+    .h-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(3,7,17,0.1), rgba(3,7,17,0.92));
+    }
+
+    .h-card:hover::before {
+      transform: scale(1.12);
+      opacity: 0.46;
+    }
+
+    .h-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .h-card .tag {
+      width: fit-content;
+      margin-bottom: 16px;
+      color: var(--cyan);
+      font-weight: 900;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .h-card p {
+      margin-top: 12px;
+    }
+
+    /* Impact */
+    .impact {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 52px;
+    }
+
+    .impact-card {
+      padding: 28px;
+      border-radius: 30px;
+      min-height: 190px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .impact-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(130deg, rgba(141,244,255,0.13), transparent 55%);
+    }
+
+    .impact-card .big {
+      position: relative;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(46px, 5vw, 76px);
+      font-weight: 800;
+      letter-spacing: -0.08em;
+      line-height: 1;
+      background: linear-gradient(90deg, #fff, var(--gold));
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 14px;
+    }
+
+    .impact-card span {
+      position: relative;
+      color: #d6e6f4;
+      font-weight: 800;
+    }
+
+    /* Partner section */
+    .partner-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 46px;
+    }
+
+    .partner-box {
+      padding: 34px;
+      border-radius: 34px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.35s ease;
+    }
+
+    .partner-box:hover {
+      transform: translateY(-8px);
+      border-color: rgba(141,244,255,0.38);
+    }
+
+    .partner-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .partner-list li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #d9e8f5;
+      font-weight: 700;
+    }
+
+    .partner-list i {
+      color: var(--cyan);
+    }
+
+    /* CTA Banner */
+    .cta-banner {
+      position: relative;
+      border-radius: 44px;
+      padding: clamp(36px, 6vw, 78px);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .cta-banner::before {
+      content: "";
+      position: absolute;
+      inset: -90px;
+      background:
+        radial-gradient(circle at 25% 30%, rgba(141,244,255,0.25), transparent 30%),
+        radial-gradient(circle at 72% 60%, rgba(245,201,113,0.18), transparent 28%);
+      animation: slowShift 8s ease-in-out infinite;
+    }
+
+    .cta-banner > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-banner h2 {
+      margin: 0 auto;
+    }
+
+    .cta-banner p {
+      max-width: 760px;
+      margin: 24px auto 32px;
+      color: #d9e9f7;
+      font-size: 20px;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .contact-card {
+      padding: 34px;
+      border-radius: 34px;
+    }
+
+    .contact-line {
+      display: flex;
+      gap: 14px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .contact-line i {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: #06111d;
+      background: linear-gradient(135deg, var(--cyan), var(--gold));
+    }
+
+    .contact-line strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 17px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.13);
+      background: rgba(255,255,255,0.07);
+      color: #fff;
+      outline: none;
+      font: inherit;
+      transition: 0.25s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: rgba(141,244,255,0.55);
+      box-shadow: 0 0 0 4px rgba(141,244,255,0.08);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    ::placeholder {
+      color: #8397a9;
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .socials a {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      transition: 0.25s ease;
+    }
+
+    .socials a:hover {
+      transform: translateY(-5px);
+      color: var(--cyan);
+      border-color: rgba(141,244,255,0.4);
+    }
+
+    /* Footer */
+    footer {
+      padding: 52px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.2);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.7fr 0.7fr;
+      gap: 30px;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      color: #b9cad9;
+      font-weight: 700;
+    }
+
+    .copyright {
+      margin-top: 34px;
+      color: #6f8091;
+      font-size: 14px;
+    }
+
+    /* Mobile */
+    @media (max-width: 1020px) {
+      .hero-grid, .split, .contact-grid, .partner-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stage {
+        height: 560px;
+      }
+
+      .cards, .impact {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 84px;
+        left: 16px;
+        right: 16px;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px;
+        border-radius: 26px;
+        background: rgba(3,7,17,0.9);
+        border: 1px solid rgba(255,255,255,0.12);
+        backdrop-filter: blur(24px);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: grid;
+        place-items: center;
+      }
+
+      .nav .btn {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .section {
+        padding: 82px 0;
+      }
+
+      .hero {
+        padding-top: 130px;
+      }
+
+      .container {
+        width: min(100% - 26px, var(--max));
+      }
+
+      .brand span {
+        font-size: 14px;
+      }
+
+      .cards, .impact, .mission-inner, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stage {
+        height: 530px;
+      }
+
+      .orb {
+        width: 250px;
+        height: 250px;
+      }
+
+      .scan-line {
+        width: 430px;
+        height: 430px;
+      }
+
+      .floating-card {
+        width: 205px;
+        padding: 16px;
+      }
+
+      .card-a { left: 0; top: 46px; }
+      .card-b { right: 0; top: 112px; }
+      .card-c { left: 16px; bottom: 120px; }
+      .card-d { right: 12px; bottom: 38px; }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .nav {
+        width: calc(100% - 20px);
+      }
+
+      .lang {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="webgl"></canvas>
+  <div class="noise"></div>
+
+  <header class="header">
+    <nav class="nav">
+      <a class="brand" href="#top" aria-label="Fundacja Szansa AI">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 400 400" width="26" height="26">
+            <defs>
+              <radialGradient id="navNodeGlow" cx="0.35" cy="0.3" r="0.8">
+                <stop offset="0" stop-color="#fff8e6"/><stop offset="0.5" stop-color="#f0c14b"/><stop offset="1" stop-color="#b8791f"/>
+              </radialGradient>
+            </defs>
+            <g stroke="#f0c14b" stroke-width="4" fill="none" opacity="0.9">
+              <line x1="250" y1="120" x2="255" y2="55"/><line x1="250" y1="120" x2="210" y2="80"/>
+              <line x1="250" y1="120" x2="300" y2="95"/><line x1="250" y1="120" x2="195" y2="135"/>
+              <line x1="250" y1="120" x2="310" y2="150"/><line x1="250" y1="120" x2="215" y2="175"/>
+              <line x1="250" y1="120" x2="280" y2="185"/>
+            </g>
+            <g fill="url(#navNodeGlow)">
+              <circle cx="250" cy="120" r="26"/><circle cx="255" cy="55" r="15"/><circle cx="210" cy="80" r="11"/>
+              <circle cx="300" cy="95" r="13"/><circle cx="195" cy="135" r="10"/><circle cx="310" cy="150" r="10"/>
+              <circle cx="215" cy="175" r="14"/><circle cx="280" cy="185" r="9"/>
+            </g>
+          </svg>
+        </div>
+        <span>Fundacja Szansa AI</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#mission" data-i18n="navMission">Misja</a>
+        <a href="#programs" data-i18n="navPrograms">Programy</a>
+        <a href="#impact" data-i18n="navImpact">Wpływ</a>
+        <a href="#partners" data-i18n="navPartners">Partnerzy</a>
+        <a href="#contact" data-i18n="navContact">Kontakt</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang" aria-label="Przełącznik języka">
+          <button class="active" data-lang="pl">PL</button>
+          <button data-lang="en">EN</button>
+        </div>
+        <a href="#contact" class="btn primary" data-i18n="navCta">Zostań partnerem</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page" id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow" data-i18n="heroEyebrow">Fundacja przyszłości</div>
+          <h1>
+            <span data-i18n="heroTitle1">Przyszłość</span>
+            <span class="gradient-text" data-i18n="heroTitle2">zaczyna się dziś.</span>
+          </h1>
+          <p class="lead" data-i18n="heroLead">
+            Fundacja Szansa AI wspiera dzieci i młodzież w rozwoju kompetencji przyszłości — od sztucznej inteligencji, przez kreatywność cyfrową, po świadome i odpowiedzialne korzystanie z technologii.
+          </p>
+          <div class="hero-actions">
+            <a href="#mission" class="btn primary"><i class="fa-solid fa-sparkles"></i><span data-i18n="heroBtn1">Poznaj naszą misję</span></a>
+            <a href="#contact" class="btn ghost"><i class="fa-solid fa-handshake-angle"></i><span data-i18n="heroBtn2">Zostań partnerem</span></a>
+          </div>
+          <div class="trust-row">
+            <div class="trust-chip" data-i18n="chip1">AI dla młodego pokolenia</div>
+            <div class="trust-chip" data-i18n="chip2">Edukacja cyfrowa</div>
+            <div class="trust-chip" data-i18n="chip3">Bezpieczna technologia</div>
+          </div>
+        </div>
+
+        <div class="hero-stage" id="heroStage" aria-hidden="true">
+          <div class="scan-line"></div>
+          <div class="orb"></div>
+
+          <div class="floating-card card-a glass tilt-card">
+            <i class="fa-solid fa-brain"></i>
+            <strong data-i18n="float1Title">AI Literacy</strong>
+            <span data-i18n="float1Text">Zrozumienie narzędzi, które zmieniają świat.</span>
+          </div>
+
+          <div class="floating-card card-b glass tilt-card">
+            <i class="fa-solid fa-shield-halved"></i>
+            <strong data-i18n="float2Title">Digital Safety</strong>
+            <span data-i18n="float2Text">Świadome i odpowiedzialne korzystanie z technologii.</span>
+          </div>
+
+          <div class="floating-card card-c glass tilt-card">
+            <i class="fa-solid fa-lightbulb"></i>
+            <strong data-i18n="float3Title">Creative Tech</strong>
+            <span data-i18n="float3Text">Twórcze projekty, eksperymenty i pomysły.</span>
+          </div>
+
+          <div class="floating-card card-d glass tilt-card">
+            <i class="fa-solid fa-network-wired"></i>
+            <strong data-i18n="float4Title">Future Skills</strong>
+            <span data-i18n="float4Text">Kompetencje, które będą miały znaczenie.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOVING TILES -->
+    <div class="marquee-wrap">
+      <div class="marquee">
+        <div class="marquee-item"><i class="fa-solid fa-atom"></i> AI</div>
+        <div class="marquee-item"><i class="fa-solid fa-child-reaching"></i> Młode pokolenie</div>
+        <div class="marquee-item"><i class="fa-solid fa-laptop-code"></i> Kompetencje cyfrowe</div>
+        <div class="marquee-item"><i class="fa-solid fa-wand-magic-sparkles"></i> Kreatywność</div>
+        <div class="marquee-item"><i class="fa-solid fa-shield"></i> Bezpieczeństwo</div>
+        <div class="marquee-item"><i class="fa-solid fa-rocket"></i> Przyszłość</div>
+        <div class="marquee-item"><i class="fa-solid fa-atom"></i> AI</div>
+        <div class="marquee-item"><i class="fa-solid fa-child-reaching"></i> Młode pokolenie</div>
+        <div class="marquee-item"><i class="fa-solid fa-laptop-code"></i> Kompetencje cyfrowe</div>
+        <div class="marquee-item"><i class="fa-solid fa-wand-magic-sparkles"></i> Kreatywność</div>
+        <div class="marquee-item"><i class="fa-solid fa-shield"></i> Bezpieczeństwo</div>
+        <div class="marquee-item"><i class="fa-solid fa-rocket"></i> Przyszłość</div>
+      </div>
+      <div class="marquee reverse">
+        <div class="marquee-item">Warsztaty AI</div>
+        <div class="marquee-item">Szkoły</div>
+        <div class="marquee-item">Partnerzy</div>
+        <div class="marquee-item">Instytucje</div>
+        <div class="marquee-item">Projekty edukacyjne</div>
+        <div class="marquee-item">Fundacja technologiczna</div>
+        <div class="marquee-item">Warsztaty AI</div>
+        <div class="marquee-item">Szkoły</div>
+        <div class="marquee-item">Partnerzy</div>
+        <div class="marquee-item">Instytucje</div>
+        <div class="marquee-item">Projekty edukacyjne</div>
+        <div class="marquee-item">Fundacja technologiczna</div>
+      </div>
+    </div>
+
+    <!-- MISSION -->
+    <section class="section" id="mission">
+      <div class="container split">
+        <div>
+          <div class="eyebrow" data-i18n="missionEyebrow">Nasza misja</div>
+          <h2 data-i18n="missionTitle">Technologia ma służyć przyszłości dzieci.</h2>
+          <p class="lead" style="margin-top: 26px;" data-i18n="missionLead">
+            Tworzymy nowoczesne projekty edukacyjne, które pomagają dzieciom i młodzieży lepiej rozumieć świat technologii, rozwijać kreatywność i zdobywać kompetencje, które będą miały znaczenie w przyszłości.
+          </p>
+          <p style="margin-top: 18px;" data-i18n="missionText">
+            Szansa AI to fundacja, która łączy edukację, technologię i społeczną odpowiedzialność. Chcemy, aby młode pokolenie nie tylko korzystało z narzędzi AI, ale rozumiało je, tworzyło z ich pomocą i potrafiło używać ich mądrze.
+          </p>
+        </div>
+
+        <div class="mission-panel glass">
+          <div class="mission-inner">
+            <div class="mini-tile parallax-tile">
+              <div class="num">01</div>
+              <span data-i18n="mini1">Edukacja AI bez technicznego żargonu</span>
+            </div>
+            <div class="mini-tile parallax-tile">
+              <div class="num">02</div>
+              <span data-i18n="mini2">Warsztaty praktyczne i inspirujące</span>
+            </div>
+            <div class="mini-tile parallax-tile">
+              <div class="num">03</div>
+              <span data-i18n="mini3">Świadome korzystanie z technologii</span>
+            </div>
+            <div class="mini-tile parallax-tile">
+              <div class="num">04</div>
+              <span data-i18n="mini4">Projekty budujące sprawczość dzieci</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="section">
+      <div class="container">
+        <div class="eyebrow" data-i18n="whyEyebrow">Dlaczego to ważne</div>
+        <h2 data-i18n="whyTitle">AI zmienia świat. Dzieci powinny rozumieć tę zmianę.</h2>
+
+        <div class="cards">
+          <article class="feature-card glass reveal-card">
+            <div class="icon"><i class="fa-solid fa-microchip"></i></div>
+            <h3 data-i18n="why1Title">Kompetencje przyszłości</h3>
+            <p data-i18n="why1Text">Uczymy umiejętności, które będą potrzebne w edukacji, pracy i codziennym życiu.</p>
+          </article>
+
+          <article class="feature-card glass reveal-card">
+            <div class="icon"><i class="fa-solid fa-robot"></i></div>
+            <h3 data-i18n="why2Title">Edukacja AI</h3>
+            <p data-i18n="why2Text">Pokazujemy sztuczną inteligencję w praktyce — prosto, ciekawie i bez strachu.</p>
+          </article>
+
+          <article class="feature-card glass reveal-card">
+            <div class="icon"><i class="fa-solid fa-user-shield"></i></div>
+            <h3 data-i18n="why3Title">Świadomość cyfrowa</h3>
+            <p data-i18n="why3Text">Rozwijamy mądre nawyki, krytyczne myślenie i odpowiedzialność w internecie.</p>
+          </article>
+
+          <article class="feature-card glass reveal-card">
+            <div class="icon"><i class="fa-solid fa-palette"></i></div>
+            <h3 data-i18n="why4Title">Kreatywność</h3>
+            <p data-i18n="why4Text">Zamieniamy technologię w narzędzie tworzenia, eksperymentowania i wyrażania pomysłów.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HORIZONTAL PROGRAMS -->
+    <section class="section horizontal-section" id="programs">
+      <div class="container">
+        <div class="eyebrow" data-i18n="programsEyebrow">Co robimy</div>
+        <h2 data-i18n="programsTitle">Programy, które poruszają wyobraźnię i budują kompetencje.</h2>
+      </div>
+
+      <div class="container">
+        <div class="h-track" id="hTrack">
+          <article class="h-card" style="--img: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80');">
+            <div class="tag">01 / AI</div>
+            <h3 data-i18n="program1Title">Szkolenia AI w szkołach</h3>
+            <p data-i18n="program1Text">Intensywne, maksymalnie dwudniowe szkolenia pokazujące, jak działa AI i jak można korzystać z niej mądrze, twórczo i odpowiedzialnie — bezpłatnie dla całej szkoły.</p>
+          </article>
+
+          <article class="h-card" style="--img: url('https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=1200&q=80');">
+            <div class="tag">02 / DIGITAL</div>
+            <h3 data-i18n="program2Title">Edukacja cyfrowa</h3>
+            <p data-i18n="program2Text">Budowanie pewności, samodzielności i zrozumienia narzędzi cyfrowych w codziennym życiu.</p>
+          </article>
+
+          <article class="h-card" style="--img: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80');">
+            <div class="tag">03 / SAFETY</div>
+            <h3 data-i18n="program3Title">Bezpieczeństwo cyfrowe</h3>
+            <p data-i18n="program3Text">Rozmowy o prywatności, fake newsach, cyberprzemocy, danych i odpowiedzialności w sieci.</p>
+          </article>
+
+          <article class="h-card" style="--img: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80');">
+            <div class="tag">04 / CREATE</div>
+            <h3 data-i18n="program4Title">Kreatywne projekty</h3>
+            <p data-i18n="program4Text">Tworzenie grafik, historii, prezentacji, prostych aplikacji i pomysłów z wykorzystaniem nowoczesnych narzędzi.</p>
+          </article>
+
+          <article class="h-card" style="--img: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80');">
+            <div class="tag">05 / PARTNERS</div>
+            <h3 data-i18n="program5Title">Współpraca ze szkołami</h3>
+            <p data-i18n="program5Text">Programy dla szkół, instytucji, organizacji i partnerów, którzy chcą edukować nowocześnie.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section class="section" id="impact">
+      <div class="container">
+        <div class="eyebrow" data-i18n="impactEyebrow">Efekt społeczny</div>
+        <h2 data-i18n="impactTitle">Mierzymy wpływ, nie tylko zasięg.</h2>
+        <p class="lead" style="margin-top: 24px;" data-i18n="impactLead">
+          Każdy projekt fundacji może być raportowany przez konkretne działania: liczbę warsztatów, uczestników, partnerów i nowych umiejętności.
+        </p>
+
+        <div class="impact">
+          <div class="impact-card glass reveal-card">
+            <div class="big counter" data-target="9500">0</div>
+            <span data-i18n="impact1">szkół w zasięgu misji (dane GUS, miejscowości do 20 tys. mieszkańców)</span>
+          </div>
+          <div class="impact-card glass reveal-card">
+            <div class="big counter" data-target="50">0</div>
+            <span data-i18n="impact2">szkół w planie na pierwszy rok działania</span>
+          </div>
+          <div class="impact-card glass reveal-card">
+            <div class="big counter" data-target="5000">0</div>
+            <span data-i18n="impact3">dzieci objętych szkoleniem w roku 1</span>
+          </div>
+          <div class="impact-card glass reveal-card">
+            <div class="big counter" data-target="100">0</div>
+            <span data-i18n="impact4">procent bezpłatnego udziału dla dzieci</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="section" id="partners">
+      <div class="container">
+        <div class="eyebrow" data-i18n="partnersEyebrow">Współpraca</div>
+        <h2 data-i18n="partnersTitle">Wspólnie możemy budować mądrą przyszłość.</h2>
+
+        <div class="partner-grid">
+          <div class="partner-box glass reveal-card">
+            <div>
+              <h3 data-i18n="partners1Title">Dla szkół i instytucji</h3>
+              <p style="margin-top: 14px;" data-i18n="partners1Text">Zapraszamy szkoły, organizacje i instytucje do tworzenia działań rozwijających kompetencje przyszłości u dzieci i młodzieży.</p>
+              <ul class="partner-list">
+                <li><i class="fa-solid fa-check"></i><span data-i18n="partners1Li1">warsztaty i programy edukacyjne</span></li>
+                <li><i class="fa-solid fa-check"></i><span data-i18n="partners1Li2">scenariusze zajęć i inspiracje</span></li>
+                <li><i class="fa-solid fa-check"></i><span data-i18n="partners1Li3">projekty dla dzieci, młodzieży i opiekunów</span></li>
+              </ul>
+            </div>
+            <a href="#contact" class="btn ghost" style="margin-top: 30px;"><span data-i18n="partners1Btn">Nawiąż współpracę</span></a>
+          </div>
+
+          <div class="partner-box glass reveal-card">
+            <div>
+              <h3 data-i18n="partners2Title">Dla partnerów i sponsorów</h3>
+              <p style="margin-top: 14px;" data-i18n="partners2Text">Szukamy partnerów, którzy chcą wspierać edukację przyszłości i realnie wpływać na rozwój młodego pokolenia.</p>
+              <ul class="partner-list">
+                <li><i class="fa-solid fa-check"></i><span data-i18n="partners2Li1">widoczność partnerów projektu</span></li>
+                <li><i class="fa-solid fa-check"></i><span data-i18n="partners2Li2">przejrzyste raportowanie działań</span></li>
+                <li><i class="fa-solid fa-check"></i><span data-i18n="partners2Li3">realny wpływ społeczny</span></li>
+              </ul>
+            </div>
+            <a href="#contact" class="btn primary" style="margin-top: 30px;"><span data-i18n="partners2Btn">Zostań partnerem</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner glass">
+          <div class="eyebrow" data-i18n="ctaEyebrow">Szansa zaczyna się od decyzji</div>
+          <h2 data-i18n="ctaTitle">Pomóż nam tworzyć edukację przyszłości.</h2>
+          <p data-i18n="ctaText">Możesz wesprzeć projekt, zaprosić fundację do współpracy, zostać partnerem lub pomóc nam dotrzeć do osób, które wierzą w mądrą technologię.</p>
+          <a href="#contact" class="btn primary"><i class="fa-solid fa-paper-plane"></i><span data-i18n="ctaBtn">Skontaktuj się z nami</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="eyebrow" data-i18n="contactEyebrow">Kontakt</div>
+        <h2 data-i18n="contactTitle">Porozmawiajmy o przyszłości.</h2>
+
+        <div class="contact-grid">
+          <div class="contact-card glass">
+            <h3 data-i18n="contactCardTitle">Fundacja Szansa AI</h3>
+            <p style="margin-top: 12px;" data-i18n="contactCardText">KRS 0001221999 · NIP 6040267132 · REGON 543905350</p>
+
+            <div class="contact-line">
+              <i class="fa-solid fa-envelope"></i>
+              <div>
+                <strong>E-mail</strong>
+                <p>kontakt@szansaai.pl</p>
+              </div>
+            </div>
+
+            <div class="contact-line">
+              <i class="fa-solid fa-phone"></i>
+              <div>
+                <strong>Telefon</strong>
+                <p>[uzupełnić — numer kontaktowy]</p>
+              </div>
+            </div>
+
+            <div class="contact-line">
+              <i class="fa-solid fa-location-dot"></i>
+              <div>
+                <strong>Adres</strong>
+                <p>ul. Świerkowa 3, 83-042 Ełganowo</p>
+              </div>
+            </div>
+
+            <div class="socials">
+              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="contact-card glass">
+            <form onsubmit="event.preventDefault(); alert(currentLang === 'pl' ? 'Dziękujemy! To formularz demonstracyjny — podłącz go później do maila lub backendu.' : 'Thank you! This is a demo form — connect it later to email or backend.');">
+              <input type="text" data-i18n-placeholder="formName" placeholder="Imię i nazwisko" required>
+              <input type="text" data-i18n-placeholder="formOrg" placeholder="Organizacja / szkoła / firma">
+              <input type="email" placeholder="E-mail" required>
+              <select>
+                <option data-i18n="formTopic1">Chcę nawiązać współpracę</option>
+                <option data-i18n="formTopic2">Chcę wesprzeć projekt</option>
+                <option data-i18n="formTopic3">Chcę zaprosić fundację do szkoły / instytucji</option>
+                <option data-i18n="formTopic4">Inny temat</option>
+              </select>
+              <textarea data-i18n-placeholder="formMsg" placeholder="Wiadomość"></textarea>
+              <button class="btn primary" type="submit"><i class="fa-solid fa-arrow-right"></i><span data-i18n="formBtn">Wyślij wiadomość</span></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 400 400" width="28" height="28">
+              <defs>
+                <radialGradient id="footNodeGlow" cx="0.35" cy="0.3" r="0.8">
+                  <stop offset="0" stop-color="#fff8e6"/><stop offset="0.5" stop-color="#f0c14b"/><stop offset="1" stop-color="#b8791f"/>
+                </radialGradient>
+              </defs>
+              <g stroke="#f0c14b" stroke-width="4" fill="none" opacity="0.9">
+                <line x1="250" y1="120" x2="255" y2="55"/><line x1="250" y1="120" x2="210" y2="80"/>
+                <line x1="250" y1="120" x2="300" y2="95"/><line x1="250" y1="120" x2="195" y2="135"/>
+                <line x1="250" y1="120" x2="310" y2="150"/><line x1="250" y1="120" x2="215" y2="175"/>
+                <line x1="250" y1="120" x2="280" y2="185"/>
+              </g>
+              <g fill="url(#footNodeGlow)">
+                <circle cx="250" cy="120" r="26"/><circle cx="255" cy="55" r="15"/><circle cx="210" cy="80" r="11"/>
+                <circle cx="300" cy="95" r="13"/><circle cx="195" cy="135" r="10"/><circle cx="310" cy="150" r="10"/>
+                <circle cx="215" cy="175" r="14"/><circle cx="280" cy="185" r="9"/>
+              </g>
+            </svg>
+          </div>
+          <span>Fundacja Szansa AI</span>
+        </div>
+        <p style="margin-top: 18px; max-width: 520px;" data-i18n="footerText">Wspieramy dzieci i młodzież w rozwoju kompetencji przyszłości poprzez edukację AI, technologię i odpowiedzialność cyfrową.</p>
+      </div>
+
+      <div>
+        <h3 style="font-size: 20px; margin-bottom: 16px;" data-i18n="footerLinks">Szybkie linki</h3>
+        <div class="footer-links">
+          <a href="#mission" data-i18n="navMission">Misja</a>
+          <a href="#programs" data-i18n="navPrograms">Programy</a>
+          <a href="#partners" data-i18n="navPartners">Partnerzy</a>
+          <a href="#contact" data-i18n="navContact">Kontakt</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size: 20px; margin-bottom: 16px;" data-i18n="footerFormal">Dane formalne</h3>
+        <div class="footer-links">
+          <span>KRS: 0001221999</span>
+          <span>NIP: 6040267132</span>
+          <span>REGON: 543905350</span>
+          <span>ul. Świerkowa 3, 83-042 Ełganowo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright">
+      © <span id="year"></span> Fundacja „Szansa AI". Wszystkie prawa zastrzeżone. ·
+      <a href="../website/polityka-prywatnosci.html" style="text-decoration: underline;">Polityka prywatności</a>
+    </div>
+  </footer>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    let currentLang = "pl";
+
+    const translations = {
+      en: {
+        navMission: "Mission",
+        navPrograms: "Programs",
+        navImpact: "Impact",
+        navPartners: "Partners",
+        navContact: "Contact",
+        navCta: "Become a partner",
+
+        heroEyebrow: "Foundation for the future",
+        heroTitle1: "The future",
+        heroTitle2: "starts today.",
+        heroLead: "Szansa AI Foundation supports children and young people in developing future-ready skills — from artificial intelligence and digital creativity to conscious and responsible use of technology.",
+        heroBtn1: "Explore our mission",
+        heroBtn2: "Become a partner",
+        chip1: "AI for the young generation",
+        chip2: "Digital education",
+        chip3: "Safe technology",
+
+        float1Title: "AI Literacy",
+        float1Text: "Understanding tools that are changing the world.",
+        float2Title: "Digital Safety",
+        float2Text: "Conscious and responsible use of technology.",
+        float3Title: "Creative Tech",
+        float3Text: "Creative projects, experiments and ideas.",
+        float4Title: "Future Skills",
+        float4Text: "Skills that will matter tomorrow.",
+
+        missionEyebrow: "Our mission",
+        missionTitle: "Technology should serve children’s future.",
+        missionLead: "We create modern educational projects that help children and young people understand technology, develop creativity and gain skills that will matter in the future.",
+        missionText: "Szansa AI combines education, technology and social responsibility. We want young people not only to use AI tools, but to understand them, create with them and use them wisely.",
+        mini1: "AI education without technical jargon",
+        mini2: "Practical and inspiring workshops",
+        mini3: "Responsible use of technology",
+        mini4: "Projects that build children’s agency",
+
+        whyEyebrow: "Why it matters",
+        whyTitle: "AI is changing the world. Children should understand that change.",
+        why1Title: "Future skills",
+        why1Text: "We teach skills needed in education, work and everyday life.",
+        why2Title: "AI education",
+        why2Text: "We show AI in practice — simply, curiously and without fear.",
+        why3Title: "Digital awareness",
+        why3Text: "We develop smart habits, critical thinking and online responsibility.",
+        why4Title: "Creativity",
+        why4Text: "We turn technology into a tool for creation, experimentation and self-expression.",
+
+        programsEyebrow: "What we do",
+        programsTitle: "Programs that move imagination and build skills.",
+        program1Title: "AI workshops",
+        program1Text: "Practical classes showing how AI works and how to use it wisely, creatively and responsibly.",
+        program2Title: "Digital education",
+        program2Text: "Building confidence, independence and understanding of digital tools in everyday life.",
+        program3Title: "Digital safety",
+        program3Text: "Conversations about privacy, fake news, cyberbullying, data and online responsibility.",
+        program4Title: "Creative projects",
+        program4Text: "Creating graphics, stories, presentations, simple apps and ideas with modern tools.",
+        program5Title: "School cooperation",
+        program5Text: "Programs for schools, institutions, organizations and partners who want to educate in a modern way.",
+
+        impactEyebrow: "Social impact",
+        impactTitle: "We measure impact, not just reach.",
+        impactLead: "Each project can be reported through specific actions: workshops, participants, partners and new skills.",
+        impact1: "potential activity locations",
+        impact2: "months of pilot program",
+        impact3: "participants in the growth plan",
+        impact4: "percent focus on education",
+
+        partnersEyebrow: "Cooperation",
+        partnersTitle: "Together we can build a wise future.",
+        partners1Title: "For schools and institutions",
+        partners1Text: "We invite schools, organizations and institutions to co-create activities that develop future skills in children and young people.",
+        partners1Li1: "workshops and educational programs",
+        partners1Li2: "lesson scenarios and inspiration",
+        partners1Li3: "projects for children, youth and guardians",
+        partners1Btn: "Start cooperation",
+        partners2Title: "For partners and sponsors",
+        partners2Text: "We are looking for partners who want to support future education and genuinely influence the development of the young generation.",
+        partners2Li1: "project partner visibility",
+        partners2Li2: "transparent activity reporting",
+        partners2Li3: "real social impact",
+        partners2Btn: "Become a partner",
+
+        ctaEyebrow: "Opportunity starts with a decision",
+        ctaTitle: "Help us create the education of the future.",
+        ctaText: "You can support the project, invite the foundation to cooperate, become a partner or help us reach people who believe in wise technology.",
+        ctaBtn: "Contact us",
+
+        contactEyebrow: "Contact",
+        contactTitle: "Let’s talk about the future.",
+        contactCardTitle: "Szansa AI Foundation",
+        contactCardText: "Place for the foundation’s formal details. Fill it in after registration or when you are ready to publish the website.",
+        formName: "Full name",
+        formOrg: "Organization / school / company",
+        formTopic1: "I want to cooperate",
+        formTopic2: "I want to support the project",
+        formTopic3: "I want to invite the foundation to a school / institution",
+        formTopic4: "Other topic",
+        formMsg: "Message",
+        formBtn: "Send message",
+
+        footerText: "We support children and young people in developing future-ready skills through AI education, technology and digital responsibility.",
+        footerLinks: "Quick links",
+        footerFormal: "Formal details"
+      },
+      pl: {}
+    };
+
+    document.querySelectorAll(".lang button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        currentLang = btn.dataset.lang;
+        document.querySelectorAll(".lang button").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        setLanguage(currentLang);
+      });
+    });
+
+    function setLanguage(lang) {
+      if (lang === "pl") {
+        location.reload();
+        return;
+      }
+
+      Object.entries(translations[lang]).forEach(([key, value]) => {
+        document.querySelectorAll(`[data-i18n="${key}"]`).forEach(el => {
+          el.textContent = value;
+        });
+        document.querySelectorAll(`[data-i18n-placeholder="${key}"]`).forEach(el => {
+          el.setAttribute("placeholder", value);
+        });
+      });
+    }
+
+    // Mobile menu
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => navLinks.classList.remove("open"));
+    });
+
+    // Current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Hero animations
+    gsap.from(".hero-copy > *", {
+      y: 36,
+      opacity: 0,
+      duration: 1.1,
+      stagger: 0.12,
+      ease: "power3.out"
+    });
+
+    gsap.from(".floating-card", {
+      scale: 0.72,
+      opacity: 0,
+      rotate: 18,
+      duration: 1.2,
+      stagger: 0.13,
+      ease: "elastic.out(1,0.6)",
+      delay: 0.3
+    });
+
+    // Scroll reveal
+    gsap.utils.toArray(".reveal-card").forEach((card) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 82%"
+        },
+        y: 70,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out"
+      });
+    });
+
+    gsap.utils.toArray(".parallax-tile").forEach((tile, index) => {
+      gsap.to(tile, {
+        y: index % 2 === 0 ? -34 : 34,
+        scrollTrigger: {
+          trigger: tile,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+    });
+
+    // Horizontal scroll cards
+    const hTrack = document.getElementById("hTrack");
+    if (window.innerWidth > 760) {
+      gsap.to(hTrack, {
+        x: () => -(hTrack.scrollWidth - window.innerWidth + 80),
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".horizontal-section",
+          start: "top top",
+          end: () => "+=" + (hTrack.scrollWidth - window.innerWidth + 500),
+          pin: true,
+          scrub: 1,
+          invalidateOnRefresh: true
+        }
+      });
+    }
+
+    // Counters
+    gsap.utils.toArray(".counter").forEach(counter => {
+      const target = +counter.dataset.target;
+      gsap.fromTo(counter, { innerText: 0 }, {
+        innerText: target,
+        duration: 1.7,
+        ease: "power2.out",
+        snap: { innerText: 1 },
+        scrollTrigger: {
+          trigger: counter,
+          start: "top 85%",
+          once: true
+        },
+        onUpdate: function () {
+          const val = Math.floor(counter.innerText);
+          counter.innerText = target >= 1000 ? val.toLocaleString("pl-PL") + "+" : val;
+        }
+      });
+    });
+
+    // Mouse tilt for hero cards
+    const stage = document.getElementById("heroStage");
+    stage.addEventListener("mousemove", (e) => {
+      const rect = stage.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      gsap.to(".hero-stage", {
+        rotateY: x * 6,
+        rotateX: -y * 6,
+        duration: 0.6,
+        ease: "power2.out"
+      });
+    });
+
+    stage.addEventListener("mouseleave", () => {
+      gsap.to(".hero-stage", {
+        rotateY: 0,
+        rotateX: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+    });
+
+    // Three.js futuristic particle background
+    const canvas = document.getElementById("webgl");
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 42;
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: true,
+      alpha: true
+    });
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const particlesCount = 1400;
+    const positions = new Float32Array(particlesCount * 3);
+
+    for (let i = 0; i < particlesCount; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 120;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 70;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 70;
+    }
+
+    const particlesGeometry = new THREE.BufferGeometry();
+    particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+
+    const particlesMaterial = new THREE.PointsMaterial({
+      size: 0.075,
+      color: 0x8df4ff,
+      transparent: true,
+      opacity: 0.8,
+      blending: THREE.AdditiveBlending
+    });
+
+    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particles);
+
+    const ringGeometry = new THREE.TorusGeometry(16, 0.018, 16, 160);
+    const ringMaterial = new THREE.MeshBasicMaterial({
+      color: 0xf5c971,
+      transparent: true,
+      opacity: 0.18
+    });
+    const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+    ring.rotation.x = 1.15;
+    ring.rotation.y = 0.35;
+    scene.add(ring);
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    window.addEventListener("mousemove", (e) => {
+      mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+      mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+
+    function animate() {
+      requestAnimationFrame(animate);
+      particles.rotation.y += 0.0009;
+      particles.rotation.x += 0.0003;
+      ring.rotation.z += 0.002;
+      camera.position.x += (mouseX * 1.6 - camera.position.x) * 0.025;
+      camera.position.y += (-mouseY * 1.2 - camera.position.y) * 0.025;
+      camera.lookAt(scene.position);
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      ScrollTrigger.refresh();
+    });
+  </script>
+</body>
+</html>

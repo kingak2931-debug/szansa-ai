@@ -18,9 +18,36 @@ część szkoleń możliwa online dla kilku szkół naraz. BEZ obietnicy przywo�
 sprzętu (sala/pracownia szkoły lub wariant bez komputerów; mobilne pracownie to CEL
 zbiórek). Przeliczniki pakietów sponsorskich = ROBOCZE, do ustalenia z fundatorką
 przy przebudowie strony. Długoterminowo fundacja powoła spółkę „Szkoła AI" (subskrypcja) —
-strona na razie tego nie sprzedaje. Statut w legal/ to WZÓR — obowiązuje statut
-złożony w sądzie (do podmiany, gdy użytkowniczka go dostarczy). Przebudowa strony
-w stylu awwwards (animacje/3D/scrub scroll) = faza 2, po starcie.
+strona na razie tego nie sprzedaje.
+
+**Dane formalne (od 2026-09-21, prawdziwe — używaj wszędzie, nie placeholderów):**
+Fundacja „Szansa AI", KRS 0001221999, NIP 6040267132, REGON 543905350,
+ul. Świerkowa 3, 83-042 Ełganowo. Konto: PKO BP PL48 1020 1909 0000 3702 0328 7976.
+E-mail: kontakt@szansaai.pl. Domena: szansaai.pl (kupiona na cyberFolks — DNS do
+skonfigurowania, `website/CNAME` już gotowy pod GitHub Pages). Osoba kontaktowa
+i odpowiedzialna za SOM: **Kinga Kotula** (Prezes Zarządu/Fundator — z podpisu na
+statucie). Operator płatności: **PayU** (zdecydowane, nie Stripe). Statut w
+`legal/statut-fundacji.md` to TERAZ prawdziwy tekst złożony do KRS (nie wzór!) —
+oryginalny PDF w `legal/zrodla/`. Statut dopuszcza wprost działalność gospodarczą
+i udziały w spółkach (§20) — podstawa dla spółki „Szkoła AI"; nadzór: minister ds.
+edukacji + Prezydent Miasta Gdańska (§19).
+
+**Logo:** przeprojektowane w stylu premium/Axonise (złoty gradient, sieć neuronów
+zamiast płaskiego mózgu, dziecko-piktogram sięgające po iskrę) — pliki w `brand/`.
+Stara wersja (płaski niebiesko-bursztynowy sygnet) zastąpiona.
+
+**Redesign strony:** fundatorka przesłała własny szablon w stylu awwwards
+(GSAP + Three.js, ciemny motyw) — zapisany w `website-premium/index.html`
+z naniesionymi prawdziwymi danymi/logo/liczbami, ale to WCIĄŻ TYLKO PUNKT
+WYJŚCIA (jednostronicowy, bez modułu wpłat/formularza zgłoszeń/pakietów
+sponsorskich) — pełne połączenie z treściami i strukturą wielostronicową to
+ŚWIADOMIE ODŁOŻONE zadanie na dedykowaną turę (decyzja fundatorki). Szczegóły
+i lista brakujących elementów: `website-premium/README.md`. Obecna `website/`
+(wielostronicowa) NIE jest zastąpiona i nadal jest tym, co idzie do publikacji
+w pierwszej kolejności.
+
+**Brakujące od fundatorki:** polityka prywatności (zapowiedziała wysyłkę, nie
+dotarła — dopytać), numer telefonu kontaktowego.
 
 ## Mapa repozytorium
 

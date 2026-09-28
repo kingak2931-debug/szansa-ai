@@ -19,7 +19,15 @@ export function CookieConsent() {
       <div className="cookie-copy">
         <h2 id="cookie-title">{t.cookie.title}</h2>
         <p id="cookie-desc">{t.cookie.body}</p>
-        <button type="button" className="linkish" onClick={openPrivacy}>
+        <button
+          type="button"
+          className="linkish cookie-privacy-link"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openPrivacy();
+          }}
+        >
           {t.cookie.privacy}
         </button>
       </div>

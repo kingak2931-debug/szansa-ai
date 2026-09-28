@@ -24,8 +24,14 @@ export function PanelScroll() {
     const cards = gsap.utils.toArray<HTMLElement>(".panel-card", track);
 
     if (prefersReduced) {
-      cards.forEach((card) => {
-        gsap.set(card, { clearProps: "all", opacity: 1, x: 0, rotateY: 0 });
+      cards.forEach((card, i) => {
+        gsap.set(card, {
+          clearProps: "transform",
+          autoAlpha: i === 0 ? 1 : 0,
+          xPercent: 0,
+          rotateY: 0,
+          zIndex: i === 0 ? 10 : 1,
+        });
       });
       return;
     }
@@ -38,11 +44,22 @@ export function PanelScroll() {
 
       cards.forEach((card, i) => {
         const fromLeft = i % 2 === 0;
+        if (i === 0) {
+          gsap.set(card, {
+            xPercent: 0,
+            rotateY: 0,
+            autoAlpha: 1,
+            z: 0,
+            zIndex: 20,
+          });
+          return;
+        }
         gsap.set(card, {
-          xPercent: fromLeft ? -120 : 120,
-          rotateY: fromLeft ? 28 : -28,
-          opacity: 0.15,
-          z: -80,
+          xPercent: fromLeft ? -130 : 130,
+          rotateY: fromLeft ? 32 : -32,
+          autoAlpha: 0,
+          z: -120,
+          zIndex: i + 1,
         });
       });
 
@@ -50,42 +67,57 @@ export function PanelScroll() {
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: () => `+=${cards.length * window.innerHeight * 0.85}`,
+          end: () => `+=${Math.max(cards.length - 1, 1) * window.innerHeight}`,
           pin: true,
-          scrub: 0.85,
+          scrub: 0.7,
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },
       });
 
       cards.forEach((card, i) => {
+        if (i === 0) return;
+
         const fromLeft = i % 2 === 0;
+        const prev = cards[i - 1];
+        const prevFromLeft = (i - 1) % 2 === 0;
+        const slot = i - 1;
+
+        // Previous card fully exits (autoAlpha → 0) so text never overlaps
         tl.to(
-          card,
+          prev,
           {
-            xPercent: 0,
-            rotateY: 0,
-            opacity: 1,
-            z: 0,
+            xPercent: prevFromLeft ? 115 : -115,
+            rotateY: prevFromLeft ? -24 : 24,
+            autoAlpha: 0,
+            z: -80,
+            zIndex: 1,
             duration: 1,
             ease: "none",
           },
-          i,
+          slot,
         );
-        if (i < cards.length - 1) {
-          tl.to(
-            card,
-            {
-              xPercent: fromLeft ? 40 : -40,
-              rotateY: fromLeft ? -12 : 12,
-              opacity: 0.35,
-              z: -40,
-              duration: 1,
-              ease: "none",
-            },
-            i + 0.85,
-          );
-        }
+
+        tl.fromTo(
+          card,
+          {
+            xPercent: fromLeft ? -130 : 130,
+            rotateY: fromLeft ? 32 : -32,
+            autoAlpha: 0,
+            z: -120,
+            zIndex: 10 + i,
+          },
+          {
+            xPercent: 0,
+            rotateY: 0,
+            autoAlpha: 1,
+            z: 0,
+            zIndex: 30 + i,
+            duration: 1,
+            ease: "none",
+          },
+          slot,
+        );
       });
     }, section);
 
@@ -105,6 +137,7 @@ export function PanelScroll() {
           <article
             key={`${locale}-${item.title}`}
             className={`panel-card side-${index % 2 === 0 ? "left" : "right"}`}
+            data-panel-index={index}
           >
             <span className="panel-tag">{item.tag}</span>
             <h2>{item.title}</h2>

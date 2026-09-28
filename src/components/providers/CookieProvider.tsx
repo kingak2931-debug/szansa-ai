@@ -47,16 +47,24 @@ export function CookieProvider({ children }: { children: ReactNode }) {
     window.localStorage.setItem(STORAGE_KEY, "rejected");
   }, []);
 
+  const openPrivacy = useCallback(() => {
+    setPrivacyOpen(true);
+  }, []);
+
+  const closePrivacy = useCallback(() => {
+    setPrivacyOpen(false);
+  }, []);
+
   const value = useMemo(
     () => ({
       consent: hydrated ? consent : "pending",
       accept,
       reject,
       privacyOpen,
-      openPrivacy: () => setPrivacyOpen(true),
-      closePrivacy: () => setPrivacyOpen(false),
+      openPrivacy,
+      closePrivacy,
     }),
-    [accept, consent, hydrated, privacyOpen, reject],
+    [accept, closePrivacy, consent, hydrated, openPrivacy, privacyOpen, reject],
   );
 
   return (

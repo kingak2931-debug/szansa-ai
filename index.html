@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fundacja Szansa AI</title>
+  <meta name="description" content="Fundacja Szansa AI – zajęcia z komputerów i sztucznej inteligencji dla dzieci z małych miejscowości.">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/logo-icon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:title" content="Fundacja Szansa AI">
+  <meta property="og:image" content="assets/logo.png">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Fundacja Szansa AI – strona główna">
+      <img src="assets/logo-on-dark.png" alt="Fundacja Szansa AI" width="290" height="109">
+    </a>
+    <nav>
+      <a href="#o-nas">O nas</a>
+      <a href="#zajecia">Zajęcia</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/intro-poster.jpg">
+      <source src="assets/intro.mp4" type="video/mp4">
+    </video>
+    <div class="hero-shade"></div>
+    <div class="hero-content">
+      <h1>Każde dziecko zasługuje na&nbsp;swoją szansę</h1>
+      <p>Codziennie o&nbsp;16:00 dzieci z&nbsp;wiosek przychodzą na zajęcia z&nbsp;komputerów i&nbsp;sztucznej inteligencji.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#zajecia">Zobacz zajęcia</a>
+        <button class="btn btn-ghost" type="button" id="sound-toggle" aria-pressed="false">🔈 Włącz dźwięk</button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="o-nas" class="section">
+      <h2>O nas</h2>
+      <p>Fundacja Szansa AI przybliża nowe technologie dzieciom z&nbsp;małych miejscowości. Uczymy obsługi komputera, programowania i&nbsp;mądrego korzystania ze sztucznej inteligencji.</p>
+    </section>
+    <section id="zajecia" class="section alt">
+      <h2>Zajęcia</h2>
+      <p>Spotykamy się w&nbsp;świetlicach wiejskich, gdzie czekają na dzieci komputery i&nbsp;nasi prowadzący.</p>
+    </section>
+  </main>
+
+  <footer id="kontakt" class="site-footer">
+    <img src="assets/logo.png" alt="Fundacja Szansa AI" width="220" height="73">
+    <p>&copy; <span id="year">2026</span> Fundacja Szansa AI</p>
+  </footer>
+
+  <script>
+    const v = document.querySelector('.hero-video');
+    const b = document.getElementById('sound-toggle');
+    b.addEventListener('click', () => {
+      v.muted = !v.muted;
+      if (!v.muted) v.play();
+      b.setAttribute('aria-pressed', String(!v.muted));
+      b.textContent = v.muted ? '🔈 Włącz dźwięk' : '🔇 Wycisz';
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

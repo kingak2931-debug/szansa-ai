@@ -1,0 +1,108 @@
+/* Fundacja Szansa AI – wspólne kolory marki (złoto z logo) */
+:root {
+  --gold-light: #f3d9a0;
+  --gold: #c8953f;
+  --gold-dark: #8a5a1c;
+  --ink: #1d1a16;
+  --cream: #fbf6ec;
+  --white: #ffffff;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+}
+
+/* Logo zawsze w lewym górnym rogu */
+.site-header {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px clamp(16px, 4vw, 48px);
+}
+.brand img { display: block; width: clamp(150px, 20vw, 290px); height: auto; }
+.site-header nav { display: flex; gap: clamp(12px, 3vw, 32px); }
+.site-header nav a {
+  color: var(--gold-light);
+  text-decoration: none;
+  font-family: var(--font-serif);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: .85rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,.6);
+}
+.site-header nav a:hover { color: var(--white); }
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--ink);
+}
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-shade {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 30%),
+    linear-gradient(0deg, rgba(20,14,6,.85) 0%, rgba(20,14,6,0) 55%);
+}
+.hero-content {
+  position: relative;
+  max-width: 760px;
+  padding: 0 clamp(16px, 4vw, 48px) clamp(40px, 8vh, 96px);
+  color: var(--white);
+}
+.hero h1 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1.15;
+  margin: 0 0 .5em;
+  background: linear-gradient(100deg, var(--gold-light), var(--gold) 60%, var(--gold-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero p { font-size: clamp(1rem, 2vw, 1.2rem); margin: 0 0 1.5em; opacity: .92; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.btn {
+  display: inline-block;
+  padding: .8em 1.6em;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--gold);
+}
+.btn-gold { background: linear-gradient(135deg, var(--gold-light), var(--gold)); color: var(--ink); }
+.btn-ghost { background: rgba(0,0,0,.25); color: var(--gold-light); }
+
+.section { max-width: 860px; margin: 0 auto; padding: 72px clamp(16px, 4vw, 48px); }
+.section.alt { background: var(--white); max-width: none; }
+.section.alt > * { max-width: 860px; margin-left: auto; margin-right: auto; }
+.section h2 { font-family: var(--font-serif); color: var(--gold-dark); font-size: 2rem; margin-top: 0; }
+
+.site-footer {
+  text-align: center;
+  padding: 48px 16px;
+  background: var(--white);
+  border-top: 1px solid var(--gold-light);
+}
+.site-footer img { width: 220px; height: auto; }
+.site-footer p { margin: .5em 0 0; color: var(--gold-dark); font-size: .9rem; }

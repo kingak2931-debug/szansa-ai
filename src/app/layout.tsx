@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Syne, Plus_Jakarta_Sans } from "next/font/google";
-import { LanguageProvider } from "@/components/providers/LanguageProvider";
-import { CookieProvider } from "@/components/providers/CookieProvider";
-import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
-import { dictionaries } from "@/lib/i18n";
+import { LanguageProvider } from "../components/providers/LanguageProvider";
+import { CookieProvider } from "../components/providers/CookieProvider";
+import { SmoothScrollProvider } from "../components/providers/SmoothScrollProvider";
+import { dictionaries } from "../lib/i18n";
 import "./globals.css";
 
 const syne = Syne({

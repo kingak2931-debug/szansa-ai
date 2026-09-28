@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLanguage } from "@/components/providers/LanguageProvider";
+import { useLanguage } from "../providers/LanguageProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 

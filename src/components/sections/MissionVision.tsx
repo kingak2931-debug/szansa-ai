@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Compass, Eye, HeartHandshake } from "lucide-react";
-import { useLanguage } from "@/components/providers/LanguageProvider";
+import { useLanguage } from "../providers/LanguageProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { foundationLegal } from "@/lib/legal";
-import { useLanguage } from "@/components/providers/LanguageProvider";
-import { useCookie } from "@/components/providers/CookieProvider";
+import { foundationLegal } from "../../lib/legal";
+import { useLanguage } from "../providers/LanguageProvider";
+import { useCookie } from "../providers/CookieProvider";
 
 export function Footer() {
   const { t } = useLanguage();

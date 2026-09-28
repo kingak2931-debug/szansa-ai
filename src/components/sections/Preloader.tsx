@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { useLanguage } from "@/components/providers/LanguageProvider";
+import { useLanguage } from "../providers/LanguageProvider";
 
 type PreloaderProps = {
   onComplete: () => void;

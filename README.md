@@ -7,9 +7,10 @@ Premiumowa strona Fundacji „Szansa AI”: edukacja AI dla dzieci z małych mie
 - Next.js (App Router) + TypeScript
 - Tailwind CSS v4
 - GSAP + ScrollTrigger (panele 3D)
-- Lenis (smooth scroll)
-- Lucide React
+- `@studio-freight/lenis` (smooth scroll)
+- Lucide React, `clsx`, `tailwind-merge`
 - i18n: PL (domyślny) | EN
+- Bez aliasu importów (`@/`) — ścieżki względne
 
 ## Uruchomienie
 
@@ -35,15 +36,13 @@ src/
     sections/           # Preloader, Hero, PanelScroll, MissionVision, Donate, Contact
     ui/                 # CookieConsent, PrivacyModal
     providers/          # Language, Cookie, SmoothScroll
-  lib/                  # i18n, legal
+  lib/                  # i18n, legal, utils (cn)
 public/
   brand/                # logo SVG
   legal/                # statut, RODO, SOM, regulamin
 ```
 
 ## Dane rejestrowe
-
-Zgodnie ze statutem (KRS):
 
 | Pole | Wartość |
 |------|---------|
@@ -53,11 +52,13 @@ Zgodnie ze statutem (KRS):
 | Adres | ul. Świerkowa 3, 83-042 Ełganowo |
 | E-mail | kontakt@szansaai.pl |
 
-**Do uzupełnienia przed produkcją:** numer rachunku IBAN, nazwa banku oraz BLIK / operator płatności (oznaczone w UI jako PLACEHOLDER).
+**Do uzupełnienia przed produkcją:** IBAN, nazwa banku, BLIK / operator płatności (PLACEHOLDER w UI).
 
 ## Zgodność
 
-- Cookie consent: akceptacja / odrzucenie cookies opcjonalnych (RODO/GDPR)
-- Polityka prywatności (modal + pełny dokument w `/public/legal`)
-- Linki: Statut, Standardy Ochrony Małoletnich (Ustawa Kamilka), sprawozdania (po pierwszym roku)
-- WCAG 2.1 AA: kontrast, focus, skip-link, etykiety, `prefers-reduced-motion`
+- Cookie consent Accept / Reject (RODO/GDPR)
+- Polityka prywatności (modal + `/public/legal`)
+- Statut, Standardy Ochrony Małoletnich (Ustawa Kamilka), sprawozdania
+- WCAG 2.1 AA: kontrast, focus, skip-link, `prefers-reduced-motion`
+
+> Uwaga: pakiet `@studio-freight/lenis` jest oznaczony jako deprecated na rzecz `lenis` — używamy wersji wskazanej w wymaganiach projektu.

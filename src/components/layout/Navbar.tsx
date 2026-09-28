@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
-import { useLanguage } from "@/components/providers/LanguageProvider";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useLanguage } from "../providers/LanguageProvider";
+import { cn } from "../../lib/utils";
 
 const links = [
   { href: "#mission", key: "mission" as const },
@@ -33,7 +34,7 @@ export function Navbar() {
   }, [open]);
 
   return (
-    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
+    <header className={cn("site-header", scrolled && "is-scrolled")}>
       <a href="#main" className="skip-link">
         {t.nav.skip}
       </a>

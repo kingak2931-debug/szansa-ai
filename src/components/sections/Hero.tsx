@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ArrowDown } from "lucide-react";
-import { useLanguage } from "@/components/providers/LanguageProvider";
+import { useLanguage } from "../providers/LanguageProvider";
 
 type HeroProps = {
   introReady: boolean;

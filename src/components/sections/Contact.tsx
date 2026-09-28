@@ -2,9 +2,9 @@
 
 import { useState, type FormEvent } from "react";
 import { Send } from "lucide-react";
-import { foundationLegal } from "@/lib/legal";
-import { useCookie } from "@/components/providers/CookieProvider";
-import { useLanguage } from "@/components/providers/LanguageProvider";
+import { foundationLegal } from "../../lib/legal";
+import { useCookie } from "../providers/CookieProvider";
+import { useLanguage } from "../providers/LanguageProvider";
 
 type FormState = {
   name: string;

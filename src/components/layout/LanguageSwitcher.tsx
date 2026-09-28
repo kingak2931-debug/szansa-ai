@@ -1,7 +1,7 @@
 "use client";
 
-import { useLanguage } from "@/components/providers/LanguageProvider";
-import type { Locale } from "@/lib/i18n";
+import { useLanguage } from "../providers/LanguageProvider";
+import type { Locale } from "../../lib/i18n";
 
 export function LanguageSwitcher() {
   const { locale, setLocale, t } = useLanguage();

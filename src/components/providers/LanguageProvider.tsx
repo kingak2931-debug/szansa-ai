@@ -9,7 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { dictionaries, type Dictionary, type Locale } from "@/lib/i18n";
+import { dictionaries, type Dictionary, type Locale } from "../../lib/i18n";
 
 type LanguageContextValue = {
   locale: Locale;

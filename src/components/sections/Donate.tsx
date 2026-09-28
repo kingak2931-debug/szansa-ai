@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { Building2, Copy, Check, Smartphone, BarChart3 } from "lucide-react";
-import { foundationLegal } from "@/lib/legal";
-import { useLanguage } from "@/components/providers/LanguageProvider";
+import { foundationLegal } from "../../lib/legal";
+import { useLanguage } from "../providers/LanguageProvider";
 
 async function copyText(value: string) {
   try {

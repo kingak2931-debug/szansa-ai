@@ -1,16 +1,16 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { Preloader } from "@/components/sections/Preloader";
-import { Hero } from "@/components/sections/Hero";
-import { PanelScroll } from "@/components/sections/PanelScroll";
-import { MissionVision } from "@/components/sections/MissionVision";
-import { Donate } from "@/components/sections/Donate";
-import { Contact } from "@/components/sections/Contact";
-import { CookieConsent } from "@/components/ui/CookieConsent";
-import { PrivacyModal } from "@/components/ui/PrivacyModal";
+import { Navbar } from "./layout/Navbar";
+import { Footer } from "./layout/Footer";
+import { Preloader } from "./sections/Preloader";
+import { Hero } from "./sections/Hero";
+import { PanelScroll } from "./sections/PanelScroll";
+import { MissionVision } from "./sections/MissionVision";
+import { Donate } from "./sections/Donate";
+import { Contact } from "./sections/Contact";
+import { CookieConsent } from "./ui/CookieConsent";
+import { PrivacyModal } from "./ui/PrivacyModal";
 
 export function HomePage() {
   const [introReady, setIntroReady] = useState(false);

@@ -1,7 +1,7 @@
 "use client";
 
-import { useCookie } from "@/components/providers/CookieProvider";
-import { useLanguage } from "@/components/providers/LanguageProvider";
+import { useCookie } from "../providers/CookieProvider";
+import { useLanguage } from "../providers/LanguageProvider";
 
 export function CookieConsent() {
   const { consent, accept, reject, openPrivacy } = useCookie();

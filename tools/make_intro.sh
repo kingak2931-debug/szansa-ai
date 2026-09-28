@@ -48,7 +48,7 @@ LW="(420+(860-420)*${E})"
      colorbalance=rh=0.06:bh=-0.06,vignette=PI/4,trim=end_frame=1[herobg];
 
 color=c=black:s=1920x1080:r=24:d=0.042,format=rgba,
-     geq=r=0:g=0:b=0:a='170*max(0\,1-hypot(X/760\,Y/330))',
+     geq=r=0:g=0:b=0:a='215*clip((1-hypot(X/1000\,Y/420))/0.6\,0\,1)',
      loop=loop=-1:size=1,trim=0:${TOTAL},setpts=N/24/TB,
      fade=out:st=${MOVE_START}:d=${MOVE_DUR}:alpha=1[shade];
 

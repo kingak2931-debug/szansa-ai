@@ -11,13 +11,35 @@
   <meta property="og:title" content="Fundacja Szansa AI">
   <meta property="og:image" content="assets/logo.png">
   <link rel="stylesheet" href="assets/style.css">
+  <script>
+    // Intro pokazujemy raz na wizytę; pomijamy przy "ogranicz ruch".
+    try {
+      if (sessionStorage.getItem('szansa-intro-seen') ||
+          matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('no-intro');
+      }
+    } catch (e) {}
+  </script>
 </head>
 <body>
+  <!-- Film intro: kończy się logo na środku, z którego płynnie wyłania się sekcja hero -->
+  <div id="intro" class="intro" aria-label="Film intro Fundacji Szansa AI">
+    <video id="intro-video" class="intro-video" autoplay muted playsinline preload="auto"
+           poster="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/96192278-7e79-492e-b849-3d6db4170e90.jpg">
+      <source src="assets/intro.mp4" type="video/mp4">
+      <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/e100489b-2265-4bda-ae94-1af46b6b8689.mp4" type="video/mp4">
+    </video>
+    <div class="intro-controls">
+      <button type="button" id="intro-sound" class="btn btn-ghost btn-small" aria-pressed="false">🔈 Włącz dźwięk</button>
+      <button type="button" id="intro-skip" class="btn btn-ghost btn-small">Pomiń intro ›</button>
+    </div>
+  </div>
+
   <header class="site-header">
     <a class="brand" href="./" aria-label="Fundacja Szansa AI – strona główna">
-      <img src="assets/logo-on-dark.png" alt="Fundacja Szansa AI" width="290" height="109">
+      <img id="brand-logo" src="assets/logo-on-dark.png" alt="Fundacja Szansa AI" width="290" height="109">
     </a>
-    <nav>
+    <nav class="reveal">
       <a href="#o-nas">O nas</a>
       <a href="#zajecia">Zajęcia</a>
       <a href="#kontakt">Kontakt</a>
@@ -25,19 +47,12 @@
   </header>
 
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline preload="metadata"
-           poster="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/aca3ae52-ad22-4fea-b314-47ecbb2f47c4.jpg">
-      <!-- Film intro z logo w lewym górnym rogu. Po wgraniu pliku do assets/ strona użyje wersji lokalnej. -->
-      <source src="assets/intro.mp4" type="video/mp4">
-      <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/86ca6bbc-6747-4478-81cb-0e006b1ba10e.mp4" type="video/mp4">
-    </video>
-    <div class="hero-shade"></div>
-    <div class="hero-content">
+    <div class="hero-content reveal">
       <h1>Każde dziecko zasługuje na&nbsp;swoją szansę</h1>
       <p>Codziennie o&nbsp;16:00 dzieci z&nbsp;wiosek przychodzą na zajęcia z&nbsp;komputerów i&nbsp;sztucznej inteligencji.</p>
       <div class="hero-actions">
         <a class="btn btn-gold" href="#zajecia">Zobacz zajęcia</a>
-        <button class="btn btn-ghost" type="button" id="sound-toggle" aria-pressed="false">🔈 Włącz dźwięk</button>
+        <button class="btn btn-ghost" type="button" id="intro-replay">▶ Obejrzyj intro</button>
       </div>
     </div>
   </section>
@@ -58,16 +73,6 @@
     <p>&copy; <span id="year">2026</span> Fundacja Szansa AI</p>
   </footer>
 
-  <script>
-    const v = document.querySelector('.hero-video');
-    const b = document.getElementById('sound-toggle');
-    b.addEventListener('click', () => {
-      v.muted = !v.muted;
-      if (!v.muted) v.play();
-      b.setAttribute('aria-pressed', String(!v.muted));
-      b.textContent = v.muted ? '🔈 Włącz dźwięk' : '🔇 Wycisz';
-    });
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="assets/intro.js"></script>
 </body>
 </html>

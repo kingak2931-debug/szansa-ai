@@ -18,10 +18,19 @@ LOGO="$(dirname "$0")/../assets/logo-on-dark.png"
 FFMPEG="${FFMPEG:-$(command -v ffmpeg || python3 -c 'import imageio_ffmpeg;print(imageio_ffmpeg.get_ffmpeg_exe())')}"
 
 TOTAL=15          # długość gotowego filmu (s)
-MOVE_START=11.9   # start przejazdu logo na środek
-MOVE_DUR=1.6      # czas przejazdu
-BLUR_START=11.5   # start rozmycia tła
-BLUR_DUR=1.6
+MOVE_START=10.2   # start przejazdu logo na środek (logo ląduje, zanim muzyka ucichnie)
+MOVE_DUR=1.3      # czas przejazdu
+BLUR_START=10.0   # start rozmycia tła
+BLUR_DUR=1.2
+REVERB_START=10.3 # od tej chwili muzyka dostaje pogłos, który wybrzmiewa już przy logo
+AUDIO_FADE=13.2   # start wyciszenia; muzyka milknie ok. 14.8 s
+
+# Pogłos: gęsta seria wygasających ech (ok. 3 s), dzięki której ostatnie dźwięki
+# muzyki wybrzmiewają już przy logo, zamiast urwać się razem z materiałem.
+read -r ECHO_DELAYS ECHO_DECAYS < <(awk 'BEGIN{srand(3); t=37
+  for(i=0;i<60;i++){ t+=35+rand()*60; if(t>3000)break
+    d=d (i?"|":"") int(t); g=g (i?"|":"") sprintf("%.3f",0.5*exp(-t/1000*1.5)) }
+  print d, g}')
 
 # Długość materiału – brakujące sekundy do 15 s wypełnia zamrożona ostatnia klatka.
 DUR=$( ("$FFMPEG" -i "$IN" 2>&1 || true) | grep -m1 -oE 'Duration: [0-9:.]+' | awk -F'[: ]' '{print $3*3600+$4*60+$5}')
@@ -60,8 +69,13 @@ color=c=black:s=1920x1080:r=24:d=0.042,format=rgba,
 [b1][shade]overlay=0:0[b2];
 [b2][logo]overlay=eval=frame:
      x='36+((1920-w)/2-36)*${E}':
-     y='30+((1080*0.47-h/2)-30)*${E}':shortest=1,format=yuv420p[v]
-" -map "[v]" -map 0:a? -af "apad,atrim=0:${TOTAL},afade=t=out:st=$(awk -v t="$TOTAL" 'BEGIN{print t-2.5}'):d=2.5" \
+     y='30+((1080*0.47-h/2)-30)*${E}':shortest=1,format=yuv420p[v];
+
+[0:a]aformat=sample_rates=44100:channel_layouts=mono,apad,atrim=0:${TOTAL},asplit=2[dry][send];
+[dry]afade=t=out:st=${REVERB_START}:d=0.8[d];
+[send]afade=t=in:st=${REVERB_START}:d=0.8,aecho=1:0.62:${ECHO_DELAYS}:${ECHO_DECAYS}[wet];
+[d][wet]amix=inputs=2:normalize=0,afade=t=out:st=${AUDIO_FADE}:d=1.6,atrim=0:${TOTAL}[a]
+" -map "[v]" -map "[a]" \
   -t ${TOTAL} -c:v libx264 -crf 19 -preset slow -pix_fmt yuv420p -c:a aac -b:a 160k \
   -movflags +faststart "$OUT_DIR/intro.mp4" \
   -map "[herobg]" -frames:v 1 -update 1 -q:v 2 "$OUT_DIR/hero-bg.jpg"

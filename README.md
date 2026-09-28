@@ -24,5 +24,5 @@ a logo odpływa na swoje miejsce w nagłówku (`assets/intro.js`).
 Montaż: `tools/make_intro.sh materiał.mp4 assets` → `intro.mp4`, `intro-poster.jpg`, `hero-bg.jpg`.
 
 Aktualne pliki leżą na serwerze Higgsfield i strona pobiera je stamtąd, dopóki w `assets/` nie ma kopii lokalnych:
-- film: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/7d61dc05-dc5f-4e40-a13c-c866b5cdb056.mp4 → `assets/intro.mp4`
+- film: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/3be3e1ea-589b-4ed9-99f3-059df74fd826.mp4 → `assets/intro.mp4`
 - tło hero: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/86142dc1-a586-47ff-b3b1-a3292b330e32.jpg → `assets/hero-bg.jpg`

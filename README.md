@@ -15,9 +15,14 @@ Kolory marki (złoto z logo) są w `assets/style.css` (`--gold-light`, `--gold`,
 
 ## Film intro
 
-`assets/intro.mp4` odtwarza się w tle na górze strony (`index.html`), z logo w lewym górnym rogu.
-Aby nałożyć logo na nowy film: `tools/overlay_logo.sh nowy-film.mp4 assets/intro.mp4`.
+Intro (15 s) odtwarza się na pełnym ekranie przy pierwszym wejściu na stronę:
+zegar wybija 16:00 → dzieci biegną do świetlicy → siadają przed komputerami →
+obraz się rozmywa, a logo wyjeżdża z lewego górnego rogu na środek.
+Tło sekcji hero to dokładnie ostatnia klatka filmu, więc strona płynnie przejmuje obraz,
+a logo odpływa na swoje miejsce w nagłówku (`assets/intro.js`).
 
-Aktualny film (z logo) jest na serwerze Higgsfield i strona pobiera go stamtąd:
-https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/86ca6bbc-6747-4478-81cb-0e006b1ba10e.mp4
-Po zapisaniu go jako `assets/intro.mp4` strona automatycznie użyje wersji lokalnej.
+Montaż: `tools/make_intro.sh materiał.mp4 assets` → `intro.mp4`, `intro-poster.jpg`, `hero-bg.jpg`.
+
+Aktualne pliki leżą na serwerze Higgsfield i strona pobiera je stamtąd, dopóki w `assets/` nie ma kopii lokalnych:
+- film: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/7d61dc05-dc5f-4e40-a13c-c866b5cdb056.mp4 → `assets/intro.mp4`
+- tło hero: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/86142dc1-a586-47ff-b3b1-a3292b330e32.jpg → `assets/hero-bg.jpg`

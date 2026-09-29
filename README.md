@@ -21,6 +21,8 @@ obraz się rozmywa, a logo wyjeżdża z lewego górnego rogu na środek.
 Tło sekcji hero to dokładnie ostatnia klatka filmu, więc strona płynnie przejmuje obraz,
 a logo odpływa na swoje miejsce w nagłówku (`assets/intro.js`).
 
+Zatwierdzona wersja i wszystko, co potrzebne do jej odtworzenia: `tools/intro/README.md`.
+
 Montaż: `tools/make_intro.sh materiał.mp4 assets` → `intro.mp4`, `intro-poster.jpg`, `hero-bg.jpg`.
 
 Aktualne pliki leżą na serwerze Higgsfield i strona pobiera je stamtąd, dopóki w `assets/` nie ma kopii lokalnych:

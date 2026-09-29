@@ -1,7 +1,8 @@
 # Intro – zatwierdzona wersja (v4, 29.09.2026; v5 = to samo z ostrym logo)
 
 Gotowy film (15 s, 1920×1080, z dźwiękiem):
-https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/3be3e1ea-589b-4ed9-99f3-059df74fd826.mp4
+v4 (miękkie logo): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/3be3e1ea-589b-4ed9-99f3-059df74fd826.mp4
+v5 (ostre logo, używane na stronie): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/edfa27f2-f0ea-4ccf-add5-93cea86a11d2.mp4
 
 | Element | Wartość |
 |---|---|

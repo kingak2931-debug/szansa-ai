@@ -1,7 +1,7 @@
 // Intro → hero („Złota iskra” z żywym tłem).
 // Ostatnia klatka filmu to rozmyte tło (to samo co tło hero) z logo na środku.
 // Gdy film się kończy:
-//   1. logo z nagłówka staje dokładnie w miejscu logo z filmu, film znika (różnicy nie widać),
+//   1. logo staje dokładnie w miejscu logo z filmu, film znika (różnicy nie widać),
 //   2. z sieci w logo wylatują złote iskry i tworzą konstelację (assets/sparks.js),
 //   3. logo płynie do lewego górnego rogu,
 //   4. rozmyte tło wyostrza się w żywą pętlę z dziećmi przy komputerach,
@@ -14,6 +14,7 @@
   const soundBtn = document.getElementById('intro-sound');
   const hero = document.querySelector('.hero');
   const live = document.getElementById('hero-live');
+  const fly = document.getElementById('fly-logo');
 
   // Położenie logo w ostatniej klatce filmu 1920x1080 (patrz tools/make_intro.sh).
   const FRAME = { w: 1920, h: 1080 };
@@ -40,6 +41,12 @@
     };
   }
 
+  // Koniec przelotu: podmieniamy latające logo na logo w nagłówku.
+  function landed() {
+    logo.style.visibility = '';
+    fly.hidden = true;
+  }
+
   function playLive() {
     live.play().catch(() => {});
   }
@@ -54,14 +61,24 @@
     const to = logo.getBoundingClientRect();
     let from = { left: to.left, top: to.top, width: to.width };
     if (fromVideoEnd) {
-      // FLIP: logo startuje z pozycji z filmu i płynie na swoje miejsce.
+      // Logo „leci” jako osobny obrazek, któremu zmieniamy rozmiar (a nie skalujemy),
+      // więc przeglądarka w każdej klatce rysuje je w pełnej rozdzielczości – zostaje ostre.
       from = endLogoRect();
-      const k = from.width / to.width;
-      logo.style.transition = 'none';
-      logo.style.transformOrigin = '0 0';
-      logo.style.transform =
-        `translate(${from.left - to.left}px, ${from.top - to.top}px) scale(${k})`;
-      logo.getBoundingClientRect(); // wymuś zastosowanie stylu
+      fly.style.transition = 'none';
+      Object.assign(fly.style, {
+        left: from.left + 'px', top: from.top + 'px', width: from.width + 'px',
+      });
+      fly.hidden = false;
+      logo.style.visibility = 'hidden';
+      fly.getBoundingClientRect(); // wymuś zastosowanie stylu
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        const ease = '1.3s cubic-bezier(.65,0,.25,1) .35s';
+        fly.style.transition = `left ${ease}, top ${ease}, width ${ease}`;
+        Object.assign(fly.style, {
+          left: to.left + 'px', top: to.top + 'px', width: to.width + 'px',
+        });
+      }));
+      setTimeout(landed, 1750);
     }
 
     root.classList.add('intro-done');
@@ -70,10 +87,6 @@
     playLive();
     Sparks.burst(from);
 
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      logo.style.transition = 'transform 1.3s cubic-bezier(.65,0,.25,1) .35s';
-      logo.style.transform = '';
-    }));
     setTimeout(() => { intro.hidden = true; }, 900);
   }
 
@@ -84,8 +97,7 @@
     live.pause();
     intro.hidden = false;
     intro.classList.remove('is-hidden');
-    logo.style.transition = 'none';
-    logo.style.transform = '';
+    landed();
     scrollTo(0, 0);
     video.preload = 'auto';
     video.currentTime = 0;

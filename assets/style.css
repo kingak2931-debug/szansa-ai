@@ -163,7 +163,8 @@ html.intro-done .reveal {
   transform: none;
   transition: opacity .9s ease calc(var(--t0) + var(--d, 0s)), transform .9s ease calc(var(--t0) + var(--d, 0s));
 }
-.brand img { will-change: transform; }
+.fly-logo { position: fixed; z-index: 50; height: auto; pointer-events: none; }
+.fly-logo[hidden] { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-live, .hero-title .w, .reveal { transition: none !important; }

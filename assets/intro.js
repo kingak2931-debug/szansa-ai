@@ -1,19 +1,31 @@
-// Intro → hero.
+// Intro → hero („Złota iskra” z żywym tłem).
 // Ostatnia klatka filmu to rozmyte tło (to samo co tło hero) z logo na środku.
-// Gdy film się kończy, ustawiamy logo z nagłówka dokładnie w miejscu logo z filmu,
-// chowamy film (różnicy nie widać), a potem logo płynie do lewego górnego rogu.
+// Gdy film się kończy:
+//   1. logo z nagłówka staje dokładnie w miejscu logo z filmu, film znika (różnicy nie widać),
+//   2. z sieci w logo wylatują złote iskry i tworzą konstelację (assets/sparks.js),
+//   3. logo płynie do lewego górnego rogu,
+//   4. rozmyte tło wyostrza się w żywą pętlę z dziećmi przy komputerach,
+//   5. nagłówek pojawia się słowo po słowie, po „szansę” przechodzi złoty połysk.
 (function () {
   const root = document.documentElement;
   const intro = document.getElementById('intro');
   const video = document.getElementById('intro-video');
   const logo = document.getElementById('brand-logo');
   const soundBtn = document.getElementById('intro-sound');
+  const hero = document.querySelector('.hero');
+  const live = document.getElementById('hero-live');
 
   // Położenie logo w ostatniej klatce filmu 1920x1080 (patrz tools/make_intro.sh).
   const FRAME = { w: 1920, h: 1080 };
   const END_LOGO = { w: 860, cy: 1080 * 0.47 };
 
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Nagłówek: każde słowo osobno, z kolejnym opóźnieniem.
+  const title = document.querySelector('.hero-title');
+  title.querySelectorAll('.w').forEach((w, i) => w.style.setProperty('--i', i));
+
+  Sparks.init(document.getElementById('hero-sparks'), hero);
 
   function endLogoRect() {
     // Film jest wyświetlany jak object-fit: cover.
@@ -28,17 +40,22 @@
     };
   }
 
+  function playLive() {
+    live.play().catch(() => {});
+  }
+
   let finished = false;
-  function finish(animateLogo) {
+  function finish(fromVideoEnd) {
     if (finished) return;
     finished = true;
     try { sessionStorage.setItem('szansa-intro-seen', '1'); } catch (e) {}
     scrollTo(0, 0);
 
-    if (animateLogo) {
+    const to = logo.getBoundingClientRect();
+    let from = { left: to.left, top: to.top, width: to.width };
+    if (fromVideoEnd) {
       // FLIP: logo startuje z pozycji z filmu i płynie na swoje miejsce.
-      const to = logo.getBoundingClientRect();
-      const from = endLogoRect();
+      from = endLogoRect();
       const k = from.width / to.width;
       logo.style.transition = 'none';
       logo.style.transformOrigin = '0 0';
@@ -50,6 +67,8 @@
     root.classList.add('intro-done');
     intro.classList.add('is-hidden');
     video.pause();
+    playLive();
+    Sparks.burst(from);
 
     requestAnimationFrame(() => requestAnimationFrame(() => {
       logo.style.transition = 'transform 1.3s cubic-bezier(.65,0,.25,1) .35s';
@@ -61,6 +80,8 @@
   function start() {
     finished = false;
     root.classList.remove('intro-done', 'no-intro');
+    Sparks.clear();
+    live.pause();
     intro.hidden = false;
     intro.classList.remove('is-hidden');
     logo.style.transition = 'none';
@@ -77,6 +98,8 @@
     video.removeAttribute('autoplay');
     video.preload = 'none';
     root.classList.add('intro-done');
+    playLive();
+    Sparks.show();
   } else {
     // Błąd dopiero ostatniego źródła oznacza, że filmu nie da się odtworzyć.
     const sources = video.querySelectorAll('source');

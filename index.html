@@ -39,7 +39,7 @@
     <a class="brand" href="./" aria-label="Fundacja Szansa AI – strona główna">
       <img id="brand-logo" src="assets/logo-on-dark.png" alt="Fundacja Szansa AI" width="290" height="109">
     </a>
-    <nav class="reveal">
+    <nav class="reveal" style="--d: .5s">
       <a href="#o-nas">O nas</a>
       <a href="#zajecia">Zajęcia</a>
       <a href="#kontakt">Kontakt</a>
@@ -47,10 +47,18 @@
   </header>
 
   <section class="hero">
-    <div class="hero-content reveal">
-      <h1>Każde dziecko zasługuje na&nbsp;swoją szansę</h1>
-      <p>Codziennie o&nbsp;16:00 dzieci z&nbsp;wiosek przychodzą na zajęcia z&nbsp;komputerów i&nbsp;sztucznej inteligencji.</p>
-      <div class="hero-actions">
+    <!-- Żywe tło: zwolniona pętla z końcówki intro (tools/make_hero_loop.sh) -->
+    <video id="hero-live" class="hero-live" muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="assets/hero-loop.mp4" type="video/mp4">
+      <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/47ab909b-e615-4aca-afcf-b0c98034ac0e.mp4" type="video/mp4">
+    </video>
+    <div class="hero-shade" aria-hidden="true"></div>
+    <!-- Złote iskry z logo (assets/sparks.js) -->
+    <canvas id="hero-sparks" class="hero-sparks" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <h1 class="hero-title" aria-label="Każde dziecko zasługuje na swoją szansę"><span class="w">Każde</span> <span class="w">dziecko</span> <span class="w">zasługuje</span> <span class="w">na</span> <span class="w">swoją</span> <span class="w shimmer">szansę</span></h1>
+      <p class="reveal" style="--d: .9s">Codziennie o&nbsp;16:00 dzieci z&nbsp;wiosek przychodzą na zajęcia z&nbsp;komputerów i&nbsp;sztucznej inteligencji.</p>
+      <div class="hero-actions reveal" style="--d: 1.15s">
         <a class="btn btn-gold" href="#zajecia">Zobacz zajęcia</a>
         <button class="btn btn-ghost" type="button" id="intro-replay">▶ Obejrzyj intro</button>
       </div>
@@ -73,6 +81,7 @@
     <p>&copy; <span id="year">2026</span> Fundacja Szansa AI</p>
   </footer>
 
+  <script src="assets/sparks.js"></script>
   <script src="assets/intro.js"></script>
 </body>
 </html>

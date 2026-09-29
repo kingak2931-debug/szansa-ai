@@ -3,23 +3,20 @@ fundacja dla dzieci szansa ai
 
 ## Logo – używamy wszędzie tych samych plików
 
+Logo jest **wektorowe** (SVG), więc jest ostre w każdym rozmiarze i na każdym ekranie.
+Odtworzone wiernie z oryginału (`assets/logo-original.png`) skryptem `tools/make_logo_svg.py`:
+napisy to kształty liter (Noto Serif Italic – „Szansa”, Gelasio – „AI” i „FUNDACJA”),
+dopasowane do miejsc w oryginale; znak narysowany z geometrii zmierzonej na oryginale.
+
 | Plik | Do czego |
 |---|---|
-| `assets/logo.png` | logo na jasnym tle (przezroczyste tło) |
-| `assets/logo-on-dark.png` | logo na ciemnym tle / na zdjęciach i filmach |
-| `assets/logo-icon.png` | sam znak (postać + sieć), np. awatar w social media |
-| `favicon.ico`, `assets/apple-touch-icon.png` | ikonki strony |
+| `assets/logo.svg` | logo na jasne tło |
+| `assets/logo-on-dark.svg` | logo na ciemne tło / zdjęcia / filmy (cienka ciemna obwódka + cień) |
+| `assets/logo-icon.svg` | sam znak (postać + sieć), np. awatar |
+| `assets/*.png`, `favicon.ico` | wersje PNG z SVG (`node tools/render_logos.js`) – do filmu, ikonek, social media |
 | `assets/logo-original.png` | oryginał (białe tło) – nie edytować |
 
-Ostre wersje logo (1400 px) powstały z powiększenia AI oryginału (Higgsfield upscale, 5602×2160,
-zgodne z oryginałem: PSNR 37,6 dB) skryptem `tools/make_logos.py`. Na razie leżą na serwerze Higgsfield
-i strona używa ich stamtąd (lokalne pliki są zapasem) – najlepiej zapisać je w `assets/` pod tymi nazwami:
-- https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/f05a7caf-1a50-4aca-9c34-3acafabf9b41.png → `assets/logo-on-dark.png`
-- https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/87f86ac6-ff28-42dd-ade6-e0b324ba9c01.png → `assets/logo.png`
-- https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/3a210a72-f7ca-432e-b652-3fa718825fea.png → `assets/logo-icon.png`
-- https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/0562c2a8-c96e-4c31-8d6e-f8a75e10369c.png → `assets/apple-touch-icon.png`
-- powiększony oryginał: https://d8j0ntlcm91z4.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/hf_20260929_101049_bea72652-3138-40cf-be48-19a0e25d9391.png
-
+Zmiana logo: `python3 tools/make_logo_svg.py` → `node tools/render_logos.js` → ponowny montaż filmu.
 Kolory marki (złoto z logo) są w `assets/style.css` (`--gold-light`, `--gold`, `--gold-dark`).
 
 ## Film intro

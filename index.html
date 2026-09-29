@@ -6,10 +6,11 @@
   <title>Fundacja Szansa AI</title>
   <meta name="description" content="Fundacja Szansa AI – zajęcia z komputerów i sztucznej inteligencji dla dzieci z małych miejscowości.">
   <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/3a210a72-f7ca-432e-b652-3fa718825fea.png">
-  <link rel="apple-touch-icon" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/0562c2a8-c96e-4c31-8d6e-f8a75e10369c.png">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta property="og:title" content="Fundacja Szansa AI">
-  <meta property="og:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/87f86ac6-ff28-42dd-ade6-e0b324ba9c01.png">
+  <meta property="og:image" content="assets/logo.png">
   <link rel="stylesheet" href="assets/style.css">
   <script>
     // Intro pokazujemy raz na wizytę; pomijamy przy "ogranicz ruch".
@@ -35,14 +36,13 @@
     </div>
   </div>
 
-  <!-- Logo: ostre wersje (1400 px, z powiększenia AI – tools/make_logos.py) leżą na razie na serwerze
-       Higgsfield; gdy trafią do assets/, wystarczy podmienić adresy. Lokalne pliki są zapasem. -->
+  <!-- Logo jest wektorowe (assets/*.svg, tools/make_logo_svg.py) – ostre w każdym rozmiarze. -->
   <!-- Logo w locie: ze środka ostatniej klatki intro do nagłówka (assets/intro.js) -->
-  <img id="fly-logo" class="fly-logo" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/f05a7caf-1a50-4aca-9c34-3acafabf9b41.png" onerror="this.onerror=null;this.src='assets/logo-on-dark.png'" alt="" aria-hidden="true" hidden>
+  <img id="fly-logo" class="fly-logo" src="assets/logo-on-dark.svg" alt="" aria-hidden="true" hidden>
 
   <header class="site-header">
     <a class="brand" href="./" aria-label="Fundacja Szansa AI – strona główna">
-      <img id="brand-logo" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/f05a7caf-1a50-4aca-9c34-3acafabf9b41.png" onerror="this.onerror=null;this.src='assets/logo-on-dark.png'" alt="Fundacja Szansa AI" width="290" height="109">
+      <img id="brand-logo" src="assets/logo-on-dark.svg" alt="Fundacja Szansa AI" width="290" height="109">
     </a>
     <nav class="reveal" style="--d: .5s">
       <a href="#o-nas">O nas</a>
@@ -82,7 +82,7 @@
   </main>
 
   <footer id="kontakt" class="site-footer">
-    <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/87f86ac6-ff28-42dd-ade6-e0b324ba9c01.png" onerror="this.onerror=null;this.src='assets/logo.png'" alt="Fundacja Szansa AI" width="220" height="73">
+    <img src="assets/logo.svg" alt="Fundacja Szansa AI" width="220" height="73">
     <p>&copy; <span id="year">2026</span> Fundacja Szansa AI</p>
   </footer>
 

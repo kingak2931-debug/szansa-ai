@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 2 176 214" width="176" height="214" role="img" aria-label="Fundacja Szansa AI">
+<title>Fundacja Szansa AI</title>
+<defs>
+  <radialGradient id="head" cx=".5" cy=".5" r=".55" fx=".32" fy=".28">
+    <stop offset="0" stop-color="#fff4d4"/>
+    <stop offset=".38" stop-color="#f0c36a"/>
+    <stop offset="1" stop-color="#a8742e"/>
+  </radialGradient>
+  <linearGradient id="torso" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fffaf0"/>
+    <stop offset=".55" stop-color="#f4ddb0"/>
+    <stop offset="1" stop-color="#e2c07a"/>
+  </linearGradient>
+  <linearGradient id="arm" gradientUnits="userSpaceOnUse" x1="64" y1="146" x2="106" y2="104">
+    <stop offset="0" stop-color="#c8923e"/>
+    <stop offset=".45" stop-color="#f0cb78"/>
+    <stop offset="1" stop-color="#fff6df"/>
+  </linearGradient>
+  <linearGradient id="limb" gradientUnits="userSpaceOnUse" x1="0" y1="150" x2="0" y2="210">
+    <stop offset="0" stop-color="#f2d08a"/>
+    <stop offset="1" stop-color="#b8833a"/>
+  </linearGradient>
+  <radialGradient id="sphere" cx=".5" cy=".5" r=".5" fx=".32" fy=".30">
+    <stop offset="0" stop-color="#fffdf6"/>
+    <stop offset=".22" stop-color="#ffe3a4"/>
+    <stop offset=".62" stop-color="#e2ae4e"/>
+    <stop offset="1" stop-color="#a56d28"/>
+  </radialGradient>
+  <radialGradient id="coreglow" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#fff4d2" stop-opacity=".55"/>
+    <stop offset="1" stop-color="#fff4d2" stop-opacity="0"/>
+  </radialGradient>
+
+</defs>
+  <g class="mark">
+    
+<g class="figure">
+  <path d="M30,208 Q60,218 92,206" fill="none" stroke="url(#limb)" stroke-width="1.7" stroke-linecap="round" opacity=".8"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M54,170 Q46,190 38,206" stroke="url(#limb)" stroke-width="9"/>
+    <path d="M68,170 Q76,190 86,206" stroke="url(#limb)" stroke-width="9"/>
+    <path d="M64,146 Q88,124 106,104" stroke="url(#arm)" stroke-width="9.5"/>
+  </g>
+  <rect x="48" y="132" width="18" height="42" rx="9" fill="url(#torso)"/>
+  <circle cx="57" cy="120" r="14.5" fill="url(#head)"/>
+  <circle cx="52" cy="115" r="4.2" fill="#fff8e6" opacity=".82"/>
+</g>
+    <circle cx="132" cy="58" r="26.47" fill="url(#coreglow)"/>
+    <g stroke="#c4964a" stroke-width="1.85" stroke-linecap="round" fill="none"><line x1="132" y1="58" x2="134.85" y2="18.6"/><line x1="132" y1="58" x2="107.1" y2="33.83"/><line x1="132" y1="58" x2="98.09" y2="66.73"/><line x1="132" y1="58" x2="161.76" y2="42.63"/><line x1="132" y1="58" x2="167.26" y2="75.42"/><line x1="132" y1="58" x2="110.15" y2="91.86"/><line x1="132" y1="58" x2="148.68" y2="96.28"/><line x1="107.1" y1="33.83" x2="98.09" y2="66.73"/><line x1="161.76" y1="42.63" x2="167.26" y2="75.42"/><line x1="110.15" y1="91.86" x2="148.68" y2="96.28"/></g>
+    <g fill="url(#sphere)"><circle cx="132" cy="58" r="12.31"/><circle cx="134.85" cy="18.6" r="7.28"/><circle cx="107.1" cy="33.83" r="5.61"/><circle cx="98.09" cy="66.73" r="5.12"/><circle cx="161.76" cy="42.63" r="6.25"/><circle cx="167.26" cy="75.42" r="5.27"/><circle cx="110.15" cy="91.86" r="6.72"/><circle cx="148.68" cy="96.28" r="4.8"/></g>
+    <g><circle cx="127.81" cy="53.57" r="3.69" fill="#fff" opacity=".78"/><circle cx="132.38" cy="15.98" r="2.18" fill="#fff" opacity=".78"/><circle cx="105.2" cy="31.82" r="1.68" fill="#fff" opacity=".78"/><circle cx="96.35" cy="64.89" r="1.54" fill="#fff" opacity=".78"/><circle cx="159.64" cy="40.38" r="1.87" fill="#fff" opacity=".78"/><circle cx="165.47" cy="73.52" r="1.58" fill="#fff" opacity=".78"/><circle cx="107.87" cy="89.44" r="2.02" fill="#fff" opacity=".78"/><circle cx="147.05" cy="94.56" r="1.44" fill="#fff" opacity=".78"/></g>
+    <g fill="#e8c27a"><path d="M80.6,16.92 Q81.46,21.44 85.97,22.3 Q81.46,23.16 80.6,27.68 Q79.74,23.16 75.22,22.3 Q79.74,21.44 80.6,16.92Z"/><path d="M179.8,9.24 Q180.86,14.84 186.45,15.9 Q180.86,16.97 179.8,22.56 Q178.73,16.97 173.14,15.9 Q178.73,14.84 179.8,9.24Z"/></g>
+  </g>
+</svg>

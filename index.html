@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fundacja Szansa AI — edukacja AI dla dzieci z małych miejscowości</title>
+  <meta name="description" content="Uczymy dzieci z miejscowości do 20 tys. mieszkańców odpowiedzialnego, bezpiecznego i efektywnego korzystania ze sztucznej inteligencji.">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:title" content="Fundacja Szansa AI">
+  <meta property="og:image" content="assets/logo.png">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>
+    // Intro pokazujemy raz na wizytę; pomijamy przy "ogranicz ruch".
+    try {
+      if (sessionStorage.getItem('szansa-intro-seen') ||
+          matchMedia('(prefers-reduced-motion: reduce)').matches ||
+          /(?:^|[?&])skip-intro(?:[=&]|$)/.test(location.search)) {
+        document.documentElement.classList.add('no-intro');
+      }
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <!-- Film intro: kończy się logo na środku, z którego płynnie wyłania się sekcja hero -->
+  <div id="intro" class="intro" aria-label="Film intro Fundacji Szansa AI">
+    <video id="intro-video" class="intro-video" autoplay muted playsinline preload="auto"
+           poster="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/e2eaf87e-6001-43af-b8ed-b5d9be071a7d.jpg">
+      <source src="assets/intro.mp4" type="video/mp4">
+      <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/066752e0-ed92-4616-bfc1-0bf4977d9107.mp4" type="video/mp4">
+    </video>
+    <div class="intro-controls">
+      <button type="button" id="intro-sound" class="btn btn-ghost btn-small" aria-pressed="false">🔈 Włącz dźwięk</button>
+      <button type="button" id="intro-skip" class="btn btn-ghost btn-small">Pomiń intro ›</button>
+    </div>
+  </div>
+
+  <!-- Logo jest wektorowe (assets/*.svg, tools/make_logo_svg.py) – ostre w każdym rozmiarze. -->
+  <!-- Logo w locie: ze środka ostatniej klatki intro do nagłówka (assets/intro.js) -->
+  <img id="fly-logo" class="fly-logo" src="assets/logo-on-dark.svg" alt="" aria-hidden="true" hidden>
+
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Fundacja Szansa AI – strona główna">
+      <img id="brand-logo" src="assets/logo-on-dark.svg" alt="Fundacja Szansa AI" width="519" height="224">
+    </a>
+    <nav class="reveal" style="--d: .5s">
+      <a href="#misja">Misja</a>
+      <a href="#program">Program</a>
+      <a href="#sponsorzy">Dla sponsorów</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <!-- Żywe tło: zwolniona pętla z końcówki intro (tools/make_hero_loop.sh) -->
+    <video id="hero-live" class="hero-live" muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="assets/hero-loop.mp4" type="video/mp4">
+      <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/47ab909b-e615-4aca-afcf-b0c98034ac0e.mp4" type="video/mp4">
+    </video>
+    <div class="hero-shade" aria-hidden="true"></div>
+    <!-- Złote iskry z logo (assets/sparks.js) -->
+    <canvas id="hero-sparks" class="hero-sparks" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <h1 class="hero-title" aria-label="Każde dziecko zasługuje na swoją szansę"><span class="w">Każde</span> <span class="w">dziecko</span> <span class="w">zasługuje</span> <span class="w">na</span> <span class="w">swoją</span> <span class="w shimmer">szansę</span></h1>
+      <p class="reveal" style="--d: .9s">Uczymy dzieci z&nbsp;miejscowości do 20&nbsp;tys. mieszkańców, jak korzystać z&nbsp;AI odpowiedzialnie, bezpiecznie i&nbsp;efektywnie — wiedzą wyraźnie głębszą niż to, co zobaczą na YouTubie. Intensywne, bezpłatne szkolenia wprost w&nbsp;szkole.</p>
+      <ul class="trust-row reveal" style="--d: 1.05s">
+        <li>Bezpłatnie dla dzieci</li><li>Zweryfikowana kadra (SOM)</li><li>Zgodność z&nbsp;RODO</li>
+      </ul>
+      <div class="hero-actions reveal" style="--d: 1.15s">
+        <a class="btn btn-gold" href="#program">Zobacz program</a>
+        <button class="btn btn-ghost" type="button" id="intro-replay">▶ Obejrzyj intro</button>
+      </div>
+    </div>
+    <!-- Początek drogi: iskra zaprasza do przewinięcia, potem idzie dalej po mapie (assets/map.js) -->
+    <a class="hero-cue reveal" style="--d: 1.6s" href="#droga" aria-label="Przewiń – ruszamy w drogę">
+      <span class="hero-cue-text">Ruszamy w&nbsp;drogę</span>
+      <span class="hero-cue-road" aria-hidden="true"><span class="hero-cue-spark"></span></span>
+    </a>
+  </section>
+
+  <!-- Mapa drogi: od wsi, przez świetlicę, do przyszłości. Sekcje to przystanki na drodze;
+       droga rysuje się przy przewijaniu, a mapa (pola, domy, drzewa) pojawia się po drodze. -->
+  <!-- Mapa drogi: od wsi, przez szkołę, do przyszłości. Sekcje to przystanki na drodze;
+       droga rysuje się przy przewijaniu, a mapa (pola, domy, drzewa) pojawia się po drodze. -->
+  <main id="droga" class="journey">
+    <svg class="journey-map" aria-hidden="true"></svg>
+
+    <section id="dlaczego" class="stop" data-side="left" data-enter="right">
+      <div class="stop-card wide">
+        <p class="stop-label">Przystanek 1 · Dlaczego to ważne</p>
+        <h2>Rewolucja AI dzieje się teraz. Nie wszędzie dociera nauka, jak z&nbsp;niej korzystać.</h2>
+        <p>Dzieci z&nbsp;małych miejscowości rzadziej mają dostęp do kółek programistycznych, mentorów i&nbsp;nowoczesnego sprzętu — a&nbsp;AI już dziś jest częścią ich codzienności.</p>
+        <div class="points">
+          <div><h3>Bezpieczeństwo</h3><p>Deepfake, dezinformacja, prywatność, manipulacja — uczymy rozpoznawać zagrożenia, zanim dziecko spotka je samo.</p></div>
+          <div><h3>Krytyczne myślenie</h3><p>AI bywa pewna siebie i&nbsp;w&nbsp;błędzie. Uczymy weryfikować, zadawać pytania i&nbsp;nie oddawać maszynie własnego zdania.</p></div>
+          <div><h3>Efektywność</h3><p>Od promptów po własne projekty — pokazujemy, jak AI może być narzędziem nauki, twórczości i&nbsp;przyszłej pracy.</p></div>
+          <div><h3>Poziom eksperta</h3><p>Program przygotowany tak, by dać wiedzę wyraźnie głębszą niż internetowe ciekawostki z&nbsp;TikToka i&nbsp;YouTube’a.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="misja" class="stop" data-side="right" data-enter="bottom">
+      <div class="stop-card wide">
+        <p class="stop-label">Przystanek 2 · Nasza misja</p>
+        <h2>Nauka odpowiedzialnego korzystania z&nbsp;AI — tam, gdzie nikt inny nie dociera.</h2>
+        <p>Uczymy dzieci z&nbsp;miejscowości do 20&nbsp;tys. mieszkańców odpowiedzialnego, bezpiecznego i&nbsp;efektywnego wykorzystywania sztucznej inteligencji. Ponad 40% polskich uczniów mieszka poza dużymi miastami — tam najrzadziej docierają zajęcia z&nbsp;nowych technologii.</p>
+        <div class="points">
+          <div><h3>Gdzie działamy</h3><p>Wyłącznie miejscowości do 20&nbsp;tys. mieszkańców — wsie, miasteczka, gminy wiejsko-miejskie. Zaczynamy od szkół pilotażowych, docelowo setki szkoleń w&nbsp;całej Polsce.</p></div>
+          <div><h3>Dla kogo</h3><p>Uczniowie klas 4–8 szkół podstawowych i&nbsp;szkół średnich, w&nbsp;trzech ścieżkach wiekowych. Dodatkowo: bezpłatne webinary dla rodziców i&nbsp;nauczycieli.</p></div>
+          <div><h3>Za ile</h3><p>Udział dzieci jest bezpłatny. Program finansują sponsorzy, granty i&nbsp;darczyńcy indywidualni.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="program" class="stop" data-side="left" data-enter="right" data-place="swietlica">
+      <div class="stop-card wide">
+        <p class="stop-label">Przystanek 3 · Szkoła · Program szkolenia</p>
+        <h2>Jedno intensywne szkolenie. Maksymalnie dwa dni. Realna wiedza.</h2>
+        <p>Jedna szkoła = jedno szkolenie: maksymalnie 2&nbsp;dni po 2–3&nbsp;godziny dziennie. Zwarty format pozwala nam dotrzeć do jak największej liczby dzieci — a&nbsp;uczniom daje wiedzę wyraźnie głębszą niż internetowe ciekawostki.</p>
+        <div class="points">
+          <div><h3>Bezpieczny start</h3><p>Prywatność i&nbsp;dane osobowe, rozpoznawanie deepfake’ów i&nbsp;dezinformacji, higiena cyfrowa, do kogo zwrócić się o&nbsp;pomoc. Fundament każdej ścieżki wiekowej.</p></div>
+          <div><h3>Krytyczne myślenie</h3><p>Jak działa AI „od kuchni”, dlaczego halucynuje, jak weryfikować odpowiedzi, granice zaufania do maszyny, etyka korzystania z&nbsp;AI w&nbsp;szkole.</p></div>
+          <div><h3>AI w&nbsp;praktyce</h3><p>Skuteczne prompty, AI jako korepetytor i&nbsp;narzędzie twórcze — ćwiczenia dopasowane do sali: z&nbsp;pracownią komputerową szkoły albo w&nbsp;wariancie warsztatowym bez komputerów.</p></div>
+          <div><h3>Finał z&nbsp;efektem</h3><p>Szkolenie kończy wspólne wyzwanie — quiz „człowiek czy AI?” i&nbsp;mini-projekt zespołowy, z&nbsp;którego dziecko wychodzi z&nbsp;konkretną, sprawdzalną umiejętnością.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bezpieczenstwo" class="stop" data-side="right" data-enter="bottom">
+      <div class="stop-card wide">
+        <p class="stop-label">Przystanek 4 · Bezpieczeństwo dzieci</p>
+        <h2>Standardy ochrony małoletnich — przede wszystkim.</h2>
+        <p>Pracujemy z&nbsp;dziećmi, więc bezpieczeństwo jest warunkiem — nie dodatkiem. Fundacja stosuje Standardy Ochrony Małoletnich zgodne z&nbsp;ustawą z&nbsp;28&nbsp;lipca 2023&nbsp;r. (tzw. ustawą Kamilka).</p>
+        <ul class="checklist">
+          <li><strong>Weryfikacja kadry:</strong> każdy trener i&nbsp;wolontariusz przed dopuszczeniem do pracy z&nbsp;dziećmi jest sprawdzany w&nbsp;Rejestrze Sprawców Przestępstw na Tle Seksualnym i&nbsp;przedstawia zaświadczenie o&nbsp;niekaralności.</li>
+          <li><strong>Procedury interwencji:</strong> jasne zasady reagowania na krzywdzenie, wyznaczona osoba odpowiedzialna za standardy, ścieżka zgłoszeń dostępna także dla dzieci.</li>
+          <li><strong>Zasady bezpiecznych relacji:</strong> podwójna obsada na zajęciach, zakaz kontaktów prywatnymi kanałami, zasady publikacji wizerunku wyłącznie za zgodą rodziców.</li>
+          <li><strong>RODO dla najmłodszych:</strong> minimalizacja danych, zgody rodziców/opiekunów, brak profilowania, przejrzysta <a href="polityka-prywatnosci.html">polityka prywatności</a>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skala" class="stop" data-side="left" data-enter="right">
+      <div class="stop-card wide">
+        <p class="stop-label">Przystanek 5 · Skala misji</p>
+        <h2>Cel na pierwszy rok — i&nbsp;rynek, który wciąż czeka.</h2>
+        <div class="stats">
+          <div><strong data-count="9500">9&nbsp;500</strong><span>szkół podstawowych w&nbsp;zasięgu misji (dane GUS, miejscowości do 20&nbsp;tys. mieszkańców)</span></div>
+          <div><strong data-count="50">50</strong><span>szkół w&nbsp;planie na pierwszy rok działania</span></div>
+          <div><strong data-count="5000">5&nbsp;000</strong><span>dzieci objętych szkoleniem w&nbsp;roku 1</span></div>
+          <div><strong data-count="100" data-suffix="%">100%</strong><span>bezpłatnego udziału dla dzieci</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rozwoj" class="stop" data-side="right" data-enter="bottom">
+      <div class="stop-card wide">
+        <p class="stop-label">Przystanek 6 · Mapa rozwoju</p>
+        <h2>Od pierwszej szkoły do własnej platformy edukacyjnej.</h2>
+        <ol class="steps">
+          <li><h3>Dziś: intensywne szkolenia w&nbsp;szkołach</h3><p>Docieramy z&nbsp;wiedzą tam, gdzie nie ma żadnej oferty zajęć z&nbsp;technologii — wykorzystując sale i&nbsp;pracownie szkół, bez obietnicy własnego sprzętu na start.</p></li>
+          <li><h3>Cel zbiórek: mobilne pracownie AI</h3><p>Ze środków darczyńców i&nbsp;sponsorów kupimy zestawy laptopów, by prowadzić pełne warsztaty praktyczne także tam, gdzie szkoła nie ma własnej pracowni.</p></li>
+          <li><h3>W&nbsp;przygotowaniu: Szkoła AI online</h3><p>Cotygodniowe lekcje i&nbsp;aktualności ze świata AI dla uczniów, którzy chcą więcej — w&nbsp;formie subskrypcji prowadzonej przez spółkę powołaną przez fundację. Szczegóły wkrótce.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="sponsorzy" class="stop" data-side="left" data-enter="right">
+      <div class="stop-card">
+        <p class="stop-label">Przystanek 7 · Dla sponsorów</p>
+        <h2>Twoja firma może dać dzieciom szansę.</h2>
+        <p>Zapraszamy firmy i&nbsp;instytucje do współpracy. Dzięki sponsorom docieramy do kolejnych szkół, a&nbsp;udział dzieci pozostaje bezpłatny. Partnerom zapewniamy mierzalny wpływ społeczny z&nbsp;raportem do CSR/ESG, możliwość wolontariatu pracowniczego na szkoleniach oraz autentyczną historię dla marki. Chętnie przyjmiemy też darowiznę rzeczową — sprzęt pod przyszłe mobilne pracownie AI.</p>
+        <p>Formę współpracy dobierzemy wspólnie — porozmawiajmy.</p>
+        <a class="btn btn-gold" href="mailto:kontakt@szansaai.pl?subject=Partnerstwo%20z%20Fundacj%C4%85%20Szansa%20AI">Porozmawiajmy o&nbsp;partnerstwie</a>
+      </div>
+    </section>
+
+    <section id="kontakt" class="stop stop-final" data-side="right" data-enter="bottom" data-place="przyszlosc">
+      <div class="stop-card">
+        <p class="stop-label">Meta · Szansa zaczyna się od decyzji</p>
+        <h2>Pomóż nam dotrzeć do kolejnej szkoły.</h2>
+        <p>Możesz wesprzeć fundację, zaprosić nas do swojej szkoły albo zostać partnerem biznesowym z&nbsp;mierzalnym raportem wpływu. Odpowiadamy w&nbsp;ciągu 2&nbsp;dni roboczych i&nbsp;chętnie przyjedziemy z&nbsp;prezentacją programu.</p>
+        <div class="stop-actions">
+          <a class="btn btn-gold" href="mailto:kontakt@szansaai.pl?subject=Zg%C5%82oszenie%20szko%C5%82y">Zgłoś szkołę</a>
+          <a class="btn btn-outline" href="mailto:kontakt@szansaai.pl?subject=Wsparcie%20Fundacji%20Szansa%20AI">Wesprzyj nas</a>
+        </div>
+        <p class="stop-mail"><a href="mailto:kontakt@szansaai.pl">kontakt@szansaai.pl</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.svg" alt="Fundacja Szansa AI" width="220" height="95">
+        <p>Uczymy dzieci z&nbsp;małych miejscowości odpowiedzialnego, bezpiecznego i&nbsp;efektywnego korzystania ze sztucznej inteligencji.</p>
+      </div>
+      <div>
+        <h3>Fundacja</h3>
+        <a href="#misja">Misja</a>
+        <a href="#program">Program szkolenia</a>
+        <a href="#sponsorzy">Dla sponsorów</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+      <div>
+        <h3>Dane formalne</h3>
+        <span>KRS: 0001221999</span>
+        <span>NIP: 6040267132</span>
+        <span>REGON: 543905350</span>
+        <span>ul. Świerkowa 3, 83-042 Ełganowo</span>
+        <a href="mailto:kontakt@szansaai.pl">kontakt@szansaai.pl</a>
+      </div>
+    </div>
+    <p class="copyright">&copy; <span id="year">2026</span> Fundacja „Szansa AI”. Wszystkie prawa zastrzeżone. · <a href="polityka-prywatnosci.html">Polityka prywatności</a></p>
+  </footer>
+
+  <script src="assets/sparks.js"></script>
+  <script src="assets/intro.js"></script>
+  <script src="assets/map.js"></script>
+</body>
+</html>

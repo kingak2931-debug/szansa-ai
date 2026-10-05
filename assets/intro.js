@@ -21,7 +21,7 @@
   // Czasy w sekundach filmu: pojawienie się w rogu, przejazd na środek, koniec intro.
   const SHOW = [0.4, 0.8], MOVE = [10.2, 1.3];
   const END_AT = 12.4;  // od ~11,9 s film to już tylko nieruchome rozmyte tło – nie czekamy do 15 s
-  const LOGO_RATIO = 218 / 580;
+  const LOGO_RATIO = 948 / 2400;  // proporcje logo (tools/make_logo_gold.py)
   const shade = document.querySelector('.intro-shade');
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 

@@ -1,11 +1,12 @@
 // „Złota iskra”: złote punkty odrywają się od sieci w logo i rozlatują po sekcji hero,
 // gdzie tworzą delikatną, żywą konstelację (lekko dryfuje i odsuwa się od kursora).
 window.Sparks = (function () {
-  // Środki kul i gwiazdek sieci w pliku assets/logo-on-dark.png (580×218 px).
+  // Środki kul i gwiazdek sieci w logo przeskalowanym do 580 px szerokości
+  // (kule wykrywa tools/make_logo_gold.py, gwiazdki odczytane z obrazu).
   const LOGO_W = 580;
   const LOGO_NODES = [
-    [107.5, 61.3], [110, 30.8], [88.3, 42.5], [81.5, 68.8], [131.8, 49.5],
-    [135.8, 75.8], [90.8, 88], [121.8, 92.5], [68.3, 34.5], [145.8, 29.5],
+    [108, 58.8], [109.7, 18], [137.9, 42.8], [84.7, 33.7], [144.9, 77.1],
+    [126.9, 96.8], [90.2, 90.2], [76.4, 66.5], [59.7, 24.4], [155.4, 17.4],
   ];
   const GOLD = '243,217,160';      // --gold-light
   const GOLD_DEEP = '200,149,63';  // --gold

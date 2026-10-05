@@ -17,23 +17,25 @@ po intro; wybór w `localStorage` na 12 miesięcy; link „Ustawienia cookies”
 Strona nie ma dziś cookies analitycznych ani marketingowych – przy ich dodawaniu sprawdzaj
 `SzansaConsent.get().analytics` / `.marketing` lub nasłuchuj zdarzenia `szansa:consent`.
 
-## Logo – używamy wszędzie tych samych plików
+## Logo – „lustrzane złoto” (używamy wszędzie tych samych plików)
 
-Logo jest **wektorowe** (SVG), więc jest ostre w każdym rozmiarze i na każdym ekranie.
-Odtworzone wiernie z oryginału (`assets/logo-original.png`) skryptem `tools/make_logo_svg.py`:
-napisy to kształty liter (Noto Serif Italic – „Szansa”, Gelasio – „AI” i „FUNDACJA”),
-dopasowane do miejsc w oryginale; znak narysowany z geometrii zmierzonej na oryginale.
+Logo wygenerowane w Higgsfield (gpt_image_2_5, na podstawie oryginału `assets/logo-original.png`):
+polerowane, lustrzane złoto, cienkie i czytelne litery. Obraz powiększony do 4K, tło usunięte
+i pliki dla strony przygotowane skryptem `tools/make_logo_gold.py` (szerokość 2400 px – ostre także
+na ekranach Retina). Pliki leżą na serwerze Higgsfield:
 
 | Plik | Do czego |
 |---|---|
-| `assets/logo.svg` | logo na jasne tło |
-| `assets/logo-on-dark.svg` | logo na ciemne tło / zdjęcia / filmy (cienka ciemna obwódka + cień) |
-| `assets/logo-icon.svg` | sam znak (postać + sieć), np. awatar |
-| `assets/*.png`, `favicon.ico` | wersje PNG z SVG (`node tools/render_logos.js`) – do filmu, ikonek, social media |
+| [logo-gold.webp](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/4f08d59f-8716-446a-9f9c-e9d8dfd1bd4f.webp) ([png](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/c71fdb4a-9a78-4cd1-b744-55c78aa12da0.png)) | na ciemne tło: nagłówek, intro |
+| [logo-gold-light.webp](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/4537b7a3-6d57-46e7-b0d4-635fc613af53.webp) | na jasne tło: stopka, polityka prywatności |
+| [logo-icon.webp](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/3c5cd802-3fe2-4ea1-bb2b-ce4b34f1106e.webp) ([png](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/cdaf7a4b-b6c1-44b6-875d-ea38881c1194.png)) | sam znak (ludzik + sieć), 512 px – karta „Zgłoś szkołę”, awatar |
+| [favicon-32](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/551b0bff-486a-4b8e-ba06-815d9727fc1b.png), [favicon-16](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/bbb1055f-a657-42f0-9667-03efb1a17a4f.png), [apple-touch-icon](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/677a5a2d-31af-4cfa-b5d4-0b3c0618c86c.png) | ikonki przeglądarki i telefonu |
+| [og-image.jpg](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/db0cf79c-5643-4d27-a761-9525da20dd3e.jpg) | podgląd linku w social media (1200×630) |
 | `assets/logo-original.png` | oryginał (białe tło) – nie edytować |
 
-Zmiana logo: `python3 tools/make_logo_svg.py` → `node tools/render_logos.js` → ponowny montaż filmu.
+Obraz źródłowy: job `0a1a1fbf-c682-4aca-9c14-99fb2183e6bd`, powiększenie 4K: job `afc0237e-be46-42ea-b68b-d0499b968151`.
 Kolory marki (złoto z logo) są w `assets/style.css` (`--gold-light`, `--gold`, `--gold-dark`).
+Poprzednie logo wektorowe (SVG) jest w historii repozytorium.
 
 ## Film intro
 

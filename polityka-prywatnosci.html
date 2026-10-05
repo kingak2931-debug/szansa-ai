@@ -68,9 +68,14 @@
         <p>Szyfrowanie transmisji (TLS), kontrola dostępu wg zasady minimalnych uprawnień,
         rejestr czynności przetwarzania. Naruszenia zgłaszamy UODO w ciągu 72 godzin.</p>
 
-        <h2>6. Pliki cookies</h2>
-        <p>Strona w wersji podstawowej <strong>nie używa plików cookies</strong> ani narzędzi
-        analitycznych. Jeżeli zostaną wdrożone, nastąpi to wyłącznie po zgodzie użytkownika.</p>
+        <h2 id="cookies">6. Pliki cookies</h2>
+        <p>Strona w obecnej wersji <strong>nie używa plików cookies analitycznych ani marketingowych</strong>.
+        Korzystamy wyłącznie z niezbędnych mechanizmów przeglądarki: zapamiętujemy, że intro zostało
+        już obejrzane (do zamknięcia karty) oraz Twój wybór dotyczący cookies (przez 12 miesięcy).</p>
+        <p>Przy pierwszej wizycie pytamy o zgodę na cookies <strong>analityczne</strong> (anonimowe statystyki
+        odwiedzin) i <strong>marketingowe</strong>. Jeżeli takie narzędzia zostaną wdrożone, uruchomią się
+        wyłącznie po Twojej zgodzie. Zgodę możesz w każdej chwili zmienić lub wycofać:
+        <a href="#" data-cookie-settings>Ustawienia cookies</a>.</p>
 
         <h2>7. Zmiany polityki</h2>
         <p>O istotnych zmianach informujemy na stronie Fundacji.</p>
@@ -78,8 +83,9 @@
   </main>
 
   <footer class="site-footer">
-    <p class="copyright">&copy; <span id="year">2026</span> Fundacja „Szansa AI”. Wszystkie prawa zastrzeżone. · <a href="index.html">Strona główna</a></p>
+    <p class="copyright">&copy; <span id="year">2026</span> Fundacja „Szansa AI”. Wszystkie prawa zastrzeżone. · <a href="index.html">Strona główna</a> · <a href="#" data-cookie-settings>Ustawienia cookies</a></p>
   </footer>
+  <script src="assets/cookies.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

@@ -23,13 +23,14 @@
   </script>
 </head>
 <body>
-  <!-- Film intro: kończy się logo na środku, z którego płynnie wyłania się sekcja hero -->
+  <!-- Film intro (bez logo – logo to #fly-logo nad filmem); z jego końca płynnie wyłania się sekcja hero -->
   <div id="intro" class="intro" aria-label="Film intro Fundacji Szansa AI">
     <video id="intro-video" class="intro-video" autoplay muted playsinline preload="auto"
-           poster="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/e2eaf87e-6001-43af-b8ed-b5d9be071a7d.jpg">
+           poster="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/2442dca2-f005-4ee7-9ecb-2f756d6f2d48.jpg">
       <source src="assets/intro.mp4" type="video/mp4">
-      <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/066752e0-ed92-4616-bfc1-0bf4977d9107.mp4" type="video/mp4">
+      <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/73e3c367-e5e3-49ab-8aef-499c576ddf50.mp4" type="video/mp4">
     </video>
+    <div class="intro-shade" aria-hidden="true"></div>
     <div class="intro-controls">
       <button type="button" id="intro-sound" class="btn btn-ghost btn-small" aria-pressed="false">🔈 Włącz dźwięk</button>
       <button type="button" id="intro-skip" class="btn btn-ghost btn-small">Pomiń intro ›</button>
@@ -37,7 +38,7 @@
   </div>
 
   <!-- Logo jest wektorowe (assets/*.svg, tools/make_logo_svg.py) – ostre w każdym rozmiarze. -->
-  <!-- Logo w locie: ze środka ostatniej klatki intro do nagłówka (assets/intro.js) -->
+  <!-- Logo w intro: róg → środek → nagłówek (assets/intro.js) -->
   <img id="fly-logo" class="fly-logo" src="assets/logo-on-dark.svg" alt="" aria-hidden="true" hidden>
 
   <header class="site-header">
@@ -244,11 +245,12 @@
         <a href="mailto:kontakt@szansaai.pl">kontakt@szansaai.pl</a>
       </div>
     </div>
-    <p class="copyright">&copy; <span id="year">2026</span> Fundacja „Szansa AI”. Wszystkie prawa zastrzeżone. · <a href="polityka-prywatnosci.html">Polityka prywatności</a></p>
+    <p class="copyright">&copy; <span id="year">2026</span> Fundacja „Szansa AI”. Wszystkie prawa zastrzeżone. · <a href="polityka-prywatnosci.html">Polityka prywatności</a> · <a href="#" data-cookie-settings>Ustawienia cookies</a></p>
   </footer>
 
   <script src="assets/sparks.js"></script>
   <script src="assets/intro.js"></script>
   <script src="assets/poland.js"></script>
+  <script src="assets/cookies.js"></script>
 </body>
 </html>

@@ -16,7 +16,8 @@
     // Intro pokazujemy raz na wizytę; pomijamy przy "ogranicz ruch".
     try {
       if (sessionStorage.getItem('szansa-intro-seen') ||
-          matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          matchMedia('(prefers-reduced-motion: reduce)').matches ||
+          /(?:^|[?&])skip-intro(?:[=&]|$)/.test(location.search)) {
         document.documentElement.classList.add('no-intro');
       }
     } catch (e) {}
@@ -42,7 +43,7 @@
 
   <header class="site-header">
     <a class="brand" href="./" aria-label="Fundacja Szansa AI – strona główna">
-      <img id="brand-logo" src="assets/logo-on-dark.svg" alt="Fundacja Szansa AI" width="290" height="109">
+      <img id="brand-logo" src="assets/logo-on-dark.svg" alt="Fundacja Szansa AI" width="519" height="224">
     </a>
     <nav class="reveal" style="--d: .5s">
       <a href="#misja">Misja</a>
@@ -86,7 +87,7 @@
   <main id="droga" class="journey">
     <svg class="journey-map" aria-hidden="true"></svg>
 
-    <section id="dlaczego" class="stop" data-side="left">
+    <section id="dlaczego" class="stop" data-side="left" data-enter="right">
       <div class="stop-card wide">
         <p class="stop-label">Przystanek 1 · Dlaczego to ważne</p>
         <h2>Rewolucja AI dzieje się teraz. Nie wszędzie dociera nauka, jak z&nbsp;niej korzystać.</h2>
@@ -100,7 +101,7 @@
       </div>
     </section>
 
-    <section id="misja" class="stop" data-side="right">
+    <section id="misja" class="stop" data-side="right" data-enter="bottom">
       <div class="stop-card wide">
         <p class="stop-label">Przystanek 2 · Nasza misja</p>
         <h2>Nauka odpowiedzialnego korzystania z&nbsp;AI — tam, gdzie nikt inny nie dociera.</h2>
@@ -113,7 +114,7 @@
       </div>
     </section>
 
-    <section id="program" class="stop" data-side="left" data-place="swietlica">
+    <section id="program" class="stop" data-side="left" data-enter="right" data-place="swietlica">
       <div class="stop-card wide">
         <p class="stop-label">Przystanek 3 · Szkoła · Program szkolenia</p>
         <h2>Jedno intensywne szkolenie. Maksymalnie dwa dni. Realna wiedza.</h2>
@@ -127,7 +128,7 @@
       </div>
     </section>
 
-    <section id="bezpieczenstwo" class="stop" data-side="right">
+    <section id="bezpieczenstwo" class="stop" data-side="right" data-enter="bottom">
       <div class="stop-card wide">
         <p class="stop-label">Przystanek 4 · Bezpieczeństwo dzieci</p>
         <h2>Standardy ochrony małoletnich — przede wszystkim.</h2>
@@ -141,7 +142,7 @@
       </div>
     </section>
 
-    <section id="skala" class="stop" data-side="left">
+    <section id="skala" class="stop" data-side="left" data-enter="right">
       <div class="stop-card wide">
         <p class="stop-label">Przystanek 5 · Skala misji</p>
         <h2>Cel na pierwszy rok — i&nbsp;rynek, który wciąż czeka.</h2>
@@ -154,7 +155,7 @@
       </div>
     </section>
 
-    <section id="rozwoj" class="stop" data-side="right">
+    <section id="rozwoj" class="stop" data-side="right" data-enter="bottom">
       <div class="stop-card wide">
         <p class="stop-label">Przystanek 6 · Mapa rozwoju</p>
         <h2>Od pierwszej szkoły do własnej platformy edukacyjnej.</h2>
@@ -166,7 +167,7 @@
       </div>
     </section>
 
-    <section id="sponsorzy" class="stop" data-side="left">
+    <section id="sponsorzy" class="stop" data-side="left" data-enter="right">
       <div class="stop-card">
         <p class="stop-label">Przystanek 7 · Dla sponsorów</p>
         <h2>Twoja firma może dać dzieciom szansę.</h2>
@@ -176,7 +177,7 @@
       </div>
     </section>
 
-    <section id="kontakt" class="stop stop-final" data-side="right" data-place="przyszlosc">
+    <section id="kontakt" class="stop stop-final" data-side="right" data-enter="bottom" data-place="przyszlosc">
       <div class="stop-card">
         <p class="stop-label">Meta · Szansa zaczyna się od decyzji</p>
         <h2>Pomóż nam dotrzeć do kolejnej szkoły.</h2>
@@ -193,7 +194,7 @@
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo.svg" alt="Fundacja Szansa AI" width="220" height="73">
+        <img src="assets/logo.svg" alt="Fundacja Szansa AI" width="220" height="95">
         <p>Uczymy dzieci z&nbsp;małych miejscowości odpowiedzialnego, bezpiecznego i&nbsp;efektywnego korzystania ze sztucznej inteligencji.</p>
       </div>
       <div>

@@ -30,7 +30,7 @@ body {
   justify-content: space-between;
   padding: 16px clamp(16px, 4vw, 48px);
 }
-.brand img { display: block; width: clamp(150px, 20vw, 290px); height: auto; }
+.brand img { display: block; width: clamp(176px, 24vw, 320px); height: auto; }
 .site-header nav { display: flex; gap: clamp(12px, 3vw, 32px); }
 .site-header nav a {
   color: var(--gold-light);
@@ -278,12 +278,23 @@ html.intro-done .hero-cue.reveal { transform: translateX(-50%); }
   width: 100%; height: 100%;
   pointer-events: none;
   overflow: visible;
+  z-index: 0;
 }
 
-/* droga */
-.road-trail { fill: none; stroke: rgba(138,90,28,.35); stroke-width: 2; stroke-dasharray: 1 9; stroke-linecap: round; }
-.road-band  { fill: none; stroke: rgba(226,182,92,.22); stroke-width: 18; stroke-linecap: round; }
-.road-gold  { fill: none; stroke-width: 3.5; stroke-linecap: round; }
+/* droga: przed iskrą wąska ścieżka gruntowa, za iskrą asfalt z poboczem */
+.road-ahead, .road-ahead-rut, .road-shadow, .road-verge, .road-gravel,
+.road-paint, .road-asphalt, .road-tracks, .road-oil, .road-center { fill: none; }
+.road-ahead { stroke: #b7a58c; opacity: .7; }
+.road-ahead-rut { stroke: rgba(74, 56, 32, .45); }
+.road-shadow { stroke: rgba(36, 24, 10, .4); filter: url(#road-shadow); }
+.road-verge { stroke: url(#grass-pat); }
+.road-gravel { stroke: url(#gravel-pat); }
+.road-paint { stroke: #f4f0e6; }
+.road-asphalt { stroke: url(#asphalt-pat); }
+.road-tracks { stroke: rgba(255, 248, 236, .1); }
+.road-oil { stroke: rgba(12, 10, 8, .28); }
+.road-center { stroke: rgba(246, 242, 232, .86); }
+.road-crack { fill: none; stroke: rgba(22, 18, 14, .55); stroke-linecap: round; }
 
 /* rysunki mapy: kreska „rysuje się”, gdy iskra je mija */
 .decos { color: #b8873e; }
@@ -315,27 +326,42 @@ html.intro-done .hero-cue.reveal { transform: translateX(-50%); }
 .walker { transition: opacity .3s; }
 .walker.hidden { opacity: 0; }
 
-/* przystanki */
+/* przystanki – karty wjeżdżają na scroll: na zmianę z prawej i z dołu (--p ustawia assets/map.js) */
 .stop {
   position: relative;
+  z-index: 1;
   min-height: 72vh;
   display: flex; align-items: center;
   padding: 40px 7vw;
 }
 .stop[data-side="right"] { justify-content: flex-end; }
+.stop[data-enter="right"] { --dx: 200px; --dy: 0px; }
+.stop[data-enter="bottom"] { --dx: 0px; --dy: 150px; }
 .stop-card {
   position: relative;
   max-width: 440px;
   padding: 28px 32px;
-  background: rgba(251,246,236,.88);
+  background: #fbf6ec;
   border: 1px solid rgba(200,149,63,.35);
   border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(90,60,20,.10);
-  opacity: .35;
-  transform: translateY(18px);
-  transition: opacity .8s ease, transform .8s ease, box-shadow .8s ease;
+  box-shadow: 0 14px 40px rgba(90,60,20,.12);
 }
-.stop.reached .stop-card { opacity: 1; transform: none; box-shadow: 0 14px 40px rgba(90,60,20,.16); }
+html.js-map .stop-card {
+  --p: 0;
+  opacity: var(--p);
+  transform: translate3d(calc((1 - var(--p)) * var(--dx)), calc((1 - var(--p)) * var(--dy)), 0)
+    scale(calc(.97 + .03 * var(--p)));
+  filter: blur(calc((1 - var(--p)) * 5px));
+  box-shadow: 0 18px 44px rgba(90,60,20, calc(.05 + .14 * var(--p)));
+}
+html.js-map .stop.settled .stop-card { filter: none; }
+html.js-map .stop-card .points,
+html.js-map .stop-card .checklist,
+html.js-map .stop-card .stats,
+html.js-map .stop-card .steps,
+html.js-map .stop-card .stop-actions {
+  transform: translate3d(0, calc((1 - var(--p)) * 28px), 0);
+}
 .stop-label {
   margin: 0 0 .4em;
   font-family: var(--font-serif);
@@ -351,12 +377,21 @@ html.intro-done .hero-cue.reveal { transform: translateX(-50%); }
 @media (max-width: 760px) {
   .journey { padding-top: 260px; }
   .stop, .stop[data-side="right"] { justify-content: flex-start; min-height: auto; padding: 36px 16px 36px 64px; }
+  .stop[data-enter="right"] { --dx: 64px; }
+  .stop[data-enter="bottom"] { --dy: 72px; }
   .stop-card { padding: 22px 20px; }
   .stop-card h2 { font-size: 1.6rem; }
   .stop[data-place] { padding-top: 104px; }   /* miejsce na świetlicę / sieć nad kartą */
 }
 @media (prefers-reduced-motion: reduce) {
-  .stop-card { opacity: 1; transform: none; transition: none; }
+  html.js-map .stop-card,
+  html.js-map .stop-card .points,
+  html.js-map .stop-card .checklist,
+  html.js-map .stop-card .stats,
+  html.js-map .stop-card .steps,
+  html.js-map .stop-card .stop-actions {
+    opacity: 1 !important; transform: none !important; filter: none !important;
+  }
   .hero-cue-spark { animation: none; top: 30px; }
   .deco path, .deco circle, .deco rect { transition: none; }
 }

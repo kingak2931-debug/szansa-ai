@@ -1,7 +1,7 @@
 // „Mapa drogi” – tło strony pod sekcją hero.
 // Kreskowa, złota mapa okolicy (wieś z kościołem i zegarem na 16:00, pola, drzewa, gniazdo bociana,
 // świetlica, a na końcu sieć z logo – przyszłość). Przez mapę wije się droga od wsi do świetlicy:
-// rysuje się złotem w trakcie przewijania, a na jej czubku idzie iskra (ta sama, co w hero).
+// przed iskrą wąski trakt gruntowy, za iskrą asfalt z poboczem. Na czubku idzie iskra (ta sama, co w hero).
 // Sekcje strony (.stop) są przystankami – ich węzły zapalają się, gdy dotrze do nich iskra,
 // a elementy mapy „rysują się”, gdy iskra je mija. Wszystko liczone od układu strony,
 // więc mapa dopasowuje się do szerokości ekranu i długości treści.
@@ -13,6 +13,7 @@
   const NS = 'http://www.w3.org/2000/svg';
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const TOP = 300;          // wysokość pasa „horyzontu” nad pierwszym przystankiem (patrz CSS)
+  document.documentElement.classList.add('js-map');
 
   // ── rysunki (kreska, współrzędne względem punktu stania obiektu: (0,0) = środek podstawy) ──
   const ART = {
@@ -61,7 +62,7 @@
   let seed = 7;
   const rnd = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
 
-  let roadLen = 0, road, glowRoad, walker, samples = [], decos = [], nodes = [];
+  let roadLen = 0, road, revealPath, walker, samples = [], decos = [], nodes = [];
 
   function el(name, attrs, parent = svg) {
     const e = document.createElementNS(NS, name);
@@ -71,12 +72,12 @@
   }
 
   // gładka krzywa przez punkty (Catmull-Rom → Bézier)
-  function smoothPath(pts) {
+  function smoothPath(pts, tension = 6) {
     let d = `M${pts[0][0]},${pts[0][1]}`;
     for (let i = 0; i < pts.length - 1; i++) {
       const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
-      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
-      const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+      const c1 = [p1[0] + (p2[0] - p0[0]) / tension, p1[1] + (p2[1] - p0[1]) / tension];
+      const c2 = [p2[0] - (p3[0] - p1[0]) / tension, p2[1] - (p3[1] - p1[1]) / tension];
       d += ` C${c1[0].toFixed(1)},${c1[1].toFixed(1)} ${c2[0].toFixed(1)},${c2[1].toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`;
     }
     return d;
@@ -96,51 +97,192 @@
     const W = journey.clientWidth, H = journey.scrollHeight;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
     const mobile = W < 760;
-    const jr = journey.getBoundingClientRect();
+    const roadW = mobile ? 34 : Math.round(Math.min(84, Math.max(62, W * 0.058)));
 
     el('defs', {}).innerHTML = `
-      <linearGradient id="road-gold" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#f3d9a0"/><stop offset=".5" stop-color="#c8953f"/><stop offset="1" stop-color="#e2b65c"/>
-      </linearGradient>
       <radialGradient id="node-gold" fx=".35" fy=".3">
         <stop offset="0" stop-color="#fff8de"/><stop offset=".3" stop-color="#f5cd72"/>
         <stop offset=".75" stop-color="#cf922f"/><stop offset="1" stop-color="#94601a"/>
       </radialGradient>
       <filter id="spark-glow" x="-200%" y="-200%" width="500%" height="500%">
         <feGaussianBlur stdDeviation="5"/>
-      </filter>`;
+      </filter>
+      <filter id="road-shadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="3.2"/>
+      </filter>
+      <filter id="asphalt-grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="4" result="n"/>
+        <feColorMatrix in="n" type="matrix" values="0 0 0 0 .62  0 0 0 0 .6  0 0 0 0 .56  0 0 0 .7 0" result="g"/>
+        <feBlend in="SourceGraphic" in2="g" mode="multiply"/>
+      </filter>
+      <filter id="gravel-grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="3" seed="2" result="n"/>
+        <feColorMatrix in="n" type="matrix" values="0 0 0 0 .78  0 0 0 0 .7  0 0 0 0 .52  0 0 0 .72 0" result="g"/>
+        <feBlend in="SourceGraphic" in2="g" mode="multiply"/>
+      </filter>
+      <filter id="grass-grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="7" result="n"/>
+        <feColorMatrix in="n" type="matrix" values="0 0 0 0 .42  0 0 0 0 .5  0 0 0 0 .3  0 0 0 .55 0" result="g"/>
+        <feBlend in="SourceGraphic" in2="g" mode="multiply"/>
+      </filter>
+      <pattern id="asphalt-pat" width="140" height="140" patternUnits="userSpaceOnUse">
+        <rect width="140" height="140" fill="#3c3936" filter="url(#asphalt-grain)"/>
+      </pattern>
+      <pattern id="gravel-pat" width="96" height="96" patternUnits="userSpaceOnUse">
+        <rect width="96" height="96" fill="#cbb892" filter="url(#gravel-grain)"/>
+      </pattern>
+      <pattern id="grass-pat" width="120" height="120" patternUnits="userSpaceOnUse">
+        <rect width="120" height="120" fill="#8ea36a" filter="url(#grass-grain)"/>
+      </pattern>`;
 
-    // przystanki: węzeł drogi obok karty
+    // Pozycja karty bez transformacji (wjazd na scroll nie może przesuwać drogi).
+    const layoutBox = (elm) => {
+      let x = 0, y = 0, n = elm;
+      while (n && n !== journey) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; }
+      return { l: x, t: y, r: x + elm.offsetWidth, b: y + elm.offsetHeight, h: elm.offsetHeight };
+    };
+    const shoulder = roadW * 0.62 + 36;
+    // przystanki: węzeł drogi po pustej stronie karty
     const stops = [...journey.querySelectorAll('.stop')].map((s) => {
-      const c = s.querySelector('.stop-card').getBoundingClientRect();
+      const c = layoutBox(s.querySelector('.stop-card'));
       const left = s.dataset.side !== 'right';
-      const cy = c.top - jr.top + Math.min(70, c.height / 2);
-      const x = mobile ? 30 : (left ? Math.min(c.right - jr.left + 70, W * 0.62) : Math.max(c.left - jr.left - 70, W * 0.38));
-      return { s, card: { l: c.left - jr.left, r: c.right - jr.left, t: c.top - jr.top, b: c.bottom - jr.top },
-        left, x, y: cy, place: s.dataset.place };
+      const cy = c.t + Math.min(72, c.h * 0.2);
+      let x = mobile ? 30 : (left ? c.r + shoulder : c.l - shoulder);
+      x = Math.max(shoulder, Math.min(W - shoulder, x));
+      return { s, card: c, left, x, y: cy, place: s.dataset.place };
     });
-
-    // punkty drogi: start pod hero → meandry między przystankami → koniec
-    const pts = [[mobile ? 30 : W / 2, 0], [mobile ? 30 : W / 2, TOP * 0.55]];
+    // Droga idzie obok karty i przeskakuje na drugą stronę dopiero w luce między przystankami,
+    // żeby łuk nie ciął tekstu.
+    const pts = [[mobile ? 30 : W / 2, 0]];
     stops.forEach((st, i) => {
       const prev = pts[pts.length - 1];
-      const midY = (prev[1] + st.y) / 2;
-      const swing = mobile ? 30 + (i % 2 ? 10 : -6) : (st.left ? W * 0.8 : W * 0.2);
-      if (!mobile) pts.push([swing * 0.6 + prev[0] * 0.4, midY]);
+      const next = stops[i + 1];
+      const above = Math.max(prev[1] + 36, st.card.t - 70);
+      if (!mobile && above < st.y - 16 && Math.abs(st.x - prev[0]) > 12) {
+        pts.push([prev[0], above]);
+        pts.push([st.x, Math.min(above + 28, st.y)]);
+      }
       pts.push([st.x, st.y]);
+      const hold = Math.min(st.card.b + 28, next ? next.card.t - 48 : H - 50);
+      if (hold > st.y + 36) pts.push([st.x, hold]);
     });
     const last = stops[stops.length - 1];
-    pts.push([mobile ? 30 : W / 2, Math.min(H - 60, last.card.b + 120)]);
+    pts.push([mobile ? 30 : last.x, Math.min(H - 40, last.card.b + 110)]);
 
-    const d = smoothPath(pts);
-    // „wydrukowana” ścieżka (kropki) + szeroki pas drogi + złota droga rysowana przy przewijaniu
-    el('path', { d, class: 'road-trail' });
-    glowRoad = el('path', { d, class: 'road-band' });
-    road = el('path', { d, class: 'road-gold', stroke: 'url(#road-gold)' });
+    // Wypchnij łuk z kart (łagodna krzywa potrafi wejść w środek przystanku).
+    let d = smoothPath(pts);
+    if (!mobile) {
+      const tmp = el('path', { d, fill: 'none' });
+      const n = Math.ceil(tmp.getTotalLength() / 10);
+      const raw = [];
+      const total = tmp.getTotalLength();
+      for (let i = 0; i <= n; i++) raw.push(tmp.getPointAtLength(total * i / n));
+      tmp.remove();
+      stops.forEach((st, i) => {
+        const prevB = i ? stops[i - 1].card.b : -1e9;
+        const nextT = stops[i + 1] ? stops[i + 1].card.t : 1e9;
+        // Zakresy się stykają w połowie luki, więc sąsiednie karty nie ciągną drogi w dwie strony.
+        st.y0 = i ? (prevB + st.card.t) / 2 : st.card.t - roadW;
+        st.y1 = (st.card.b + nextT) / 2;
+      });
+      const pushed = raw.map((p) => {
+        let x = p.x;
+        for (const st of stops) {
+          if (p.y < st.y0 || p.y > st.y1) continue;
+          x = st.left ? Math.max(x, st.card.r + shoulder) : Math.min(x, st.card.l - shoulder);
+        }
+        return [Math.max(shoulder * 0.4, Math.min(W - shoulder * 0.4, x)), p.y];
+      });
+      // co ~28 px, żeby krzywa nie cięła wypchnięcia
+      const slim = [pushed[0]];
+      for (let i = 1; i < pushed.length; i++) {
+        const a = slim[slim.length - 1];
+        if (Math.hypot(pushed[i][0] - a[0], pushed[i][1] - a[1]) > 28 || i === pushed.length - 1) slim.push(pushed[i]);
+      }
+      // Chaikin zostaje po bezpiecznej stronie kart (w przeciwieństwie do krzywej Béziera).
+      let smooth = slim;
+      for (let k = 0; k < 2; k++) {
+        const next = [smooth[0]];
+        for (let i = 0; i < smooth.length - 1; i++) {
+          const a = smooth[i], b = smooth[i + 1];
+          next.push([a[0] * 0.75 + b[0] * 0.25, a[1] * 0.75 + b[1] * 0.25]);
+          next.push([a[0] * 0.25 + b[0] * 0.75, a[1] * 0.25 + b[1] * 0.75]);
+        }
+        next.push(smooth[smooth.length - 1]);
+        smooth = next;
+      }
+      const safe = smooth.map((p) => {
+        let x = p[0];
+        for (const st of stops) {
+          if (p[1] < st.y0 || p[1] > st.y1) continue;
+          x = st.left ? Math.max(x, st.card.r + shoulder) : Math.min(x, st.card.l - shoulder);
+        }
+        return [Math.max(16, Math.min(W - 16, x)), p[1]];
+      });
+      const line = [];
+      for (let i = 0; i < safe.length; i += 2) line.push(safe[i]);
+      if (line[line.length - 1] !== safe[safe.length - 1]) line.push(safe[safe.length - 1]);
+      d = line.map((p, i) => `${i ? 'L' : 'M'}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join('');
+    }
+    // Przed iskrą: wąska droga gruntowa. Za iskrą: asfalt, pobocze, trawa, linie.
+    const aheadW = Math.max(10, roadW * 0.62);
+    el('path', {
+      d, class: 'road-ahead', 'stroke-width': aheadW,
+      'stroke-linecap': 'round', 'stroke-linejoin': 'round',
+    });
+    el('path', {
+      d, class: 'road-ahead-rut', 'stroke-width': Math.max(1.4, aheadW * 0.09),
+      'stroke-dasharray': '7 11', 'stroke-linecap': 'butt',
+    });
+    const defs = svg.querySelector('defs');
+    const mask = el('mask', { id: 'road-reveal', maskUnits: 'userSpaceOnUse' }, defs);
+    revealPath = el('path', {
+      d, fill: 'none', stroke: '#fff', 'stroke-width': roadW + 64,
+      'stroke-linecap': 'round', 'stroke-linejoin': 'round',
+    }, mask);
+    road = revealPath;
     roadLen = road.getTotalLength();
-    [road, glowRoad].forEach((p) => { p.style.strokeDasharray = `${roadLen} ${roadLen}`; });
+    revealPath.style.strokeDasharray = `${roadLen} ${roadLen}`;
+    const real = el('g', { class: 'road-real', mask: 'url(#road-reveal)' });
+    const layer = (cls, width, extra = {}) => el('path', {
+      d, class: cls, 'stroke-width': width,
+      'stroke-linecap': 'round', 'stroke-linejoin': 'round', ...extra,
+    }, real);
+    const asphaltW = roadW - Math.max(4.5, roadW * 0.062);
+    const dash = Math.round(Math.max(16, roadW * 0.34));
+    const gapDash = Math.round(Math.max(14, roadW * 0.3));
+    layer('road-shadow', roadW + 26);
+    layer('road-verge', roadW + 20);
+    layer('road-gravel', roadW + 12);
+    layer('road-paint', roadW);
+    layer('road-asphalt', asphaltW);
+    layer('road-tracks', asphaltW * 0.62);
+    layer('road-oil', Math.max(3.5, roadW * 0.11));
+    layer('road-center', Math.max(1.8, roadW * 0.034), {
+      'stroke-dasharray': `${dash} ${gapDash}`, 'stroke-linecap': 'butt',
+    });
     samples = [];
     for (let l = 0; l <= roadLen; l += 6) samples.push([l, road.getPointAtLength(l)]);
+    // Drobne pęknięcia asfaltu – tylko na odcinku, który iskra już odkryła.
+    const cracks = el('g', { class: 'road-cracks', mask: 'url(#road-reveal)' });
+    for (let i = 12; i < samples.length - 8; i += 36) {
+      const p = samples[i][1];
+      const q = samples[Math.min(samples.length - 1, i + 2)][1];
+      const dx = q.x - p.x, dy = q.y - p.y;
+      const hyp = Math.hypot(dx, dy) || 1;
+      const nx = -dy / hyp, ny = dx / hyp;
+      const wobble = ((i * 13) % 17) / 17 - 0.5;
+      const len = 8 + ((i * 5) % 11);
+      const ox = p.x + nx * wobble * roadW * 0.34;
+      const oy = p.y + ny * wobble * roadW * 0.34;
+      const tx = dx / hyp * 0.75 + nx * 0.35;
+      const ty = dy / hyp * 0.75 + ny * 0.35;
+      const tn = Math.hypot(tx, ty) || 1;
+      el('path', {
+        d: `M${ox.toFixed(1)},${oy.toFixed(1)} l${(tx / tn * len).toFixed(1)},${(ty / tn * len).toFixed(1)}`,
+        class: 'road-crack', 'stroke-width': 0.85, 'stroke-linecap': 'round',
+      }, cracks);
+    }
 
     // ── mapa ──
     const deco = el('g', { class: 'decos' });
@@ -173,7 +315,7 @@
         const c = st.card;
         if (x > c.l - r - 20 && x < c.r + r + 20 && y > c.t - r - 30 && y < c.b + r + 30) return true;
       }
-      for (const [, p] of samples) if (Math.abs(p.x - x) < r + 34 && Math.abs(p.y - y) < r + 34) return true;
+      for (const [, p] of samples) if (Math.abs(p.x - x) < r + roadW * 0.72 && Math.abs(p.y - y) < r + roadW * 0.72) return true;
       for (const g of decos) {
         const t = g.g.transform.baseVal.consolidate().matrix;
         if (Math.hypot(t.e - x, t.f - y) < r + 40) return true;
@@ -245,9 +387,7 @@
     let len = 0;
     for (const [l, p] of samples) { if (p.y <= tipY) len = l; else break; }
     if (tipY >= samples[samples.length - 1][1].y) len = roadLen;
-    const off = roadLen - len;
-    road.style.strokeDashoffset = off;
-    glowRoad.style.strokeDashoffset = off;
+    revealPath.style.strokeDashoffset = roadLen - len;
     const p = road.getPointAtLength(len);
     walker.setAttribute('transform', `translate(${p.x.toFixed(1)},${p.y.toFixed(1)})`);
     walker.classList.toggle('hidden', len <= 0 || len >= roadLen - 1);
@@ -258,6 +398,26 @@
       if (on && !n.counted) { n.counted = true; n.stop.dataset.counted = '1'; countUp(n.stop); }
     }
     for (const dd of decos) dd.g.classList.toggle('on', reduceMotion || dd.y < tipY + 60);
+    setEnter();
+  }
+
+  // Karty: --p od 0 do 1 wiąże wjazd z pozycją scrolla (z prawej, potem z dołu).
+  function setEnter() {
+    journey.querySelectorAll('.stop').forEach((stop) => {
+      const card = stop.querySelector('.stop-card');
+      if (!card) return;
+      let p = 1;
+      if (!reduceMotion) {
+        const top = card.getBoundingClientRect().top;
+        const start = innerHeight * 1.02;
+        const end = innerHeight * 0.4;
+        let t = (start - top) / (start - end);
+        t = Math.max(0, Math.min(1, t));
+        p = t * t * (3 - 2 * t);
+      }
+      card.style.setProperty('--p', p.toFixed(4));
+      stop.classList.toggle('settled', p > 0.985);
+    });
   }
 
   // Liczniki (np. „Skala misji”): zliczają się od zera, gdy iskra dotrze do przystanku.

@@ -1,60 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="22 18 184 184" width="184" height="184" role="img" aria-label="Fundacja Szansa AI">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 2 176 214" width="176" height="214" role="img" aria-label="Fundacja Szansa AI">
 <title>Fundacja Szansa AI</title>
 <defs>
-  <linearGradient id="g-szansa" gradientUnits="userSpaceOnUse" x1="224" y1="0" x2="476" y2="0">
-    <stop offset="0" stop-color="#d09a3e"/><stop offset=".28" stop-color="#e2b65c"/>
-    <stop offset=".5" stop-color="#f6e4bb"/><stop offset=".66" stop-color="#d8ab62"/>
-    <stop offset="1" stop-color="#a5712e"/>
-  </linearGradient>
-  <linearGradient id="g-szansa-v" gradientUnits="userSpaceOnUse" x1="0" y1="104" x2="0" y2="161">
-    <stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/>
-    <stop offset="1" stop-color="#6b4312" stop-opacity=".18"/>
-  </linearGradient>
-  <linearGradient id="g-ai" gradientUnits="userSpaceOnUse" x1="0" y1="104" x2="0" y2="161">
-    <stop offset="0" stop-color="#dbb26d"/><stop offset=".45" stop-color="#bb7f26"/>
-    <stop offset="1" stop-color="#83561a"/>
-  </linearGradient>
-  <linearGradient id="g-fundacja" gradientUnits="userSpaceOnUse" x1="228" y1="0" x2="414" y2="0">
-    <stop offset="0" stop-color="#c49a55"/><stop offset=".3" stop-color="#dcb676"/>
-    <stop offset="1" stop-color="#c49a55"/>
-  </linearGradient>
-  <radialGradient id="g-sphere" cx=".5" cy=".5" r=".5" fx=".34" fy=".3">
-    <stop offset="0" stop-color="#fff8de"/><stop offset=".28" stop-color="#f5cd72"/>
-    <stop offset=".72" stop-color="#cf922f"/><stop offset="1" stop-color="#94601a"/>
+  <radialGradient id="head" cx=".5" cy=".5" r=".55" fx=".32" fy=".28">
+    <stop offset="0" stop-color="#fff4d4"/>
+    <stop offset=".38" stop-color="#f0c36a"/>
+    <stop offset="1" stop-color="#a8742e"/>
   </radialGradient>
-  <linearGradient id="g-head" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#cf9642"/><stop offset=".55" stop-color="#8a5a1e"/>
-    <stop offset="1" stop-color="#3f250b"/>
+  <linearGradient id="torso" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fffaf0"/>
+    <stop offset=".55" stop-color="#f4ddb0"/>
+    <stop offset="1" stop-color="#e2c07a"/>
   </linearGradient>
-  <linearGradient id="g-arm" gradientUnits="userSpaceOnUse" x1="49.5" y1="153.5" x2="97.5" y2="106.5">
-    <stop offset="0" stop-color="#3f250b"/><stop offset=".45" stop-color="#7a4c17"/>
-    <stop offset="1" stop-color="#c8903e"/>
+  <linearGradient id="arm" gradientUnits="userSpaceOnUse" x1="64" y1="146" x2="106" y2="104">
+    <stop offset="0" stop-color="#c8923e"/>
+    <stop offset=".45" stop-color="#f0cb78"/>
+    <stop offset="1" stop-color="#fff6df"/>
   </linearGradient>
-  <linearGradient id="g-leg" gradientUnits="userSpaceOnUse" x1="0" y1="159" x2="0" y2="190">
-    <stop offset="0" stop-color="#dea64e"/><stop offset=".45" stop-color="#8c5a1c"/>
-    <stop offset="1" stop-color="#3a2109"/>
+  <linearGradient id="limb" gradientUnits="userSpaceOnUse" x1="0" y1="150" x2="0" y2="210">
+    <stop offset="0" stop-color="#f2d08a"/>
+    <stop offset="1" stop-color="#b8833a"/>
   </linearGradient>
-  <linearGradient id="g-base" gradientUnits="userSpaceOnUse" x1="44" y1="0" x2="88" y2="0">
-    <stop offset="0" stop-color="#e9cf9c" stop-opacity=".4"/><stop offset=".5" stop-color="#9b6a24"/>
-    <stop offset="1" stop-color="#e9cf9c" stop-opacity=".4"/>
-  </linearGradient>
+  <radialGradient id="sphere" cx=".5" cy=".5" r=".5" fx=".32" fy=".30">
+    <stop offset="0" stop-color="#fffdf6"/>
+    <stop offset=".22" stop-color="#ffe3a4"/>
+    <stop offset=".62" stop-color="#e2ae4e"/>
+    <stop offset="1" stop-color="#a56d28"/>
+  </radialGradient>
+  <radialGradient id="coreglow" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#fff4d2" stop-opacity=".55"/>
+    <stop offset="1" stop-color="#fff4d2" stop-opacity="0"/>
+  </radialGradient>
+
 </defs>
   <g class="mark">
-    <g stroke="#f6e3bb" stroke-width="9.2" stroke-linecap="round" fill="none" opacity=".85">
-      <line x1="49.5" y1="153.5" x2="97.5" y2="106.5"/>
-      <line x1="65.6" y1="161" x2="54.5" y2="188.4"/><line x1="66.4" y1="161" x2="77.9" y2="188.4"/>
-    </g>
-    <rect x="61" y="130" width="10" height="33" rx="3" fill="#f8e8c4"/>
-    <circle cx="65.6" cy="124.3" r="9.1" fill="url(#g-head)" stroke="#e8b54a" stroke-width=".7"/>
-    <g stroke-linecap="round" fill="none" stroke-width="6.2">
-      <line x1="65.6" y1="161" x2="54.5" y2="188.4" stroke="url(#g-leg)"/>
-      <line x1="66.4" y1="161" x2="77.9" y2="188.4" stroke="url(#g-leg)"/>
-      <line x1="49.5" y1="153.5" x2="97.5" y2="106.5" stroke="url(#g-arm)" stroke-width="6.6"/>
-    </g>
-    <path d="M44.5,193.2 Q66,198.8 87.5,192.2" stroke="url(#g-base)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-    <g stroke="#d6b176" stroke-width="1.3" stroke-linecap="round"><line x1="128.46" y1="65.39" x2="130.69" y2="34.61"/><line x1="128.46" y1="65.39" x2="109.01" y2="46.51"/><line x1="128.46" y1="65.39" x2="101.97" y2="72.21"/><line x1="128.46" y1="65.39" x2="151.71" y2="53.38"/><line x1="128.46" y1="65.39" x2="156.01" y2="79"/><line x1="128.46" y1="65.39" x2="111.39" y2="91.84"/><line x1="128.46" y1="65.39" x2="141.49" y2="95.3"/><line x1="109.01" y1="46.51" x2="101.97" y2="72.21"/><line x1="151.71" y1="53.38" x2="156.01" y2="79"/><line x1="111.39" y1="91.84" x2="141.49" y2="95.3"/></g>
-    <g fill="url(#g-sphere)"><circle cx="128.46" cy="65.39" r="9.62"/><circle cx="130.69" cy="34.61" r="5.69"/><circle cx="109.01" cy="46.51" r="4.38"/><circle cx="101.97" cy="72.21" r="4"/><circle cx="151.71" cy="53.38" r="4.88"/><circle cx="156.01" cy="79" r="4.12"/><circle cx="111.39" cy="91.84" r="5.25"/><circle cx="141.49" cy="95.3" r="3.75"/></g>
-    <g fill="#f3dca8"><path d="M88.3,33.6 Q88.768,37.032 92.2,37.5 Q88.768,37.968 88.3,41.4 Q87.832,37.968 84.39999999999999,37.5 Q87.832,37.032 88.3,33.6Z"/><path d="M165.8,27.5 Q166.4,31.9 170.8,32.5 Q166.4,33.1 165.8,37.5 Q165.20000000000002,33.1 160.8,32.5 Q165.20000000000002,31.9 165.8,27.5Z"/></g>
+    
+<g class="figure">
+  <path d="M30,208 Q60,218 92,206" fill="none" stroke="url(#limb)" stroke-width="1.7" stroke-linecap="round" opacity=".8"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M54,170 Q46,190 38,206" stroke="url(#limb)" stroke-width="9"/>
+    <path d="M68,170 Q76,190 86,206" stroke="url(#limb)" stroke-width="9"/>
+    <path d="M64,146 Q88,124 106,104" stroke="url(#arm)" stroke-width="9.5"/>
   </g>
-  
+  <rect x="48" y="132" width="18" height="42" rx="9" fill="url(#torso)"/>
+  <circle cx="57" cy="120" r="14.5" fill="url(#head)"/>
+  <circle cx="52" cy="115" r="4.2" fill="#fff8e6" opacity=".82"/>
+</g>
+    <circle cx="132" cy="58" r="26.47" fill="url(#coreglow)"/>
+    <g stroke="#c4964a" stroke-width="1.85" stroke-linecap="round" fill="none"><line x1="132" y1="58" x2="134.85" y2="18.6"/><line x1="132" y1="58" x2="107.1" y2="33.83"/><line x1="132" y1="58" x2="98.09" y2="66.73"/><line x1="132" y1="58" x2="161.76" y2="42.63"/><line x1="132" y1="58" x2="167.26" y2="75.42"/><line x1="132" y1="58" x2="110.15" y2="91.86"/><line x1="132" y1="58" x2="148.68" y2="96.28"/><line x1="107.1" y1="33.83" x2="98.09" y2="66.73"/><line x1="161.76" y1="42.63" x2="167.26" y2="75.42"/><line x1="110.15" y1="91.86" x2="148.68" y2="96.28"/></g>
+    <g fill="url(#sphere)"><circle cx="132" cy="58" r="12.31"/><circle cx="134.85" cy="18.6" r="7.28"/><circle cx="107.1" cy="33.83" r="5.61"/><circle cx="98.09" cy="66.73" r="5.12"/><circle cx="161.76" cy="42.63" r="6.25"/><circle cx="167.26" cy="75.42" r="5.27"/><circle cx="110.15" cy="91.86" r="6.72"/><circle cx="148.68" cy="96.28" r="4.8"/></g>
+    <g><circle cx="127.81" cy="53.57" r="3.69" fill="#fff" opacity=".78"/><circle cx="132.38" cy="15.98" r="2.18" fill="#fff" opacity=".78"/><circle cx="105.2" cy="31.82" r="1.68" fill="#fff" opacity=".78"/><circle cx="96.35" cy="64.89" r="1.54" fill="#fff" opacity=".78"/><circle cx="159.64" cy="40.38" r="1.87" fill="#fff" opacity=".78"/><circle cx="165.47" cy="73.52" r="1.58" fill="#fff" opacity=".78"/><circle cx="107.87" cy="89.44" r="2.02" fill="#fff" opacity=".78"/><circle cx="147.05" cy="94.56" r="1.44" fill="#fff" opacity=".78"/></g>
+    <g fill="#e8c27a"><path d="M80.6,16.92 Q81.46,21.44 85.97,22.3 Q81.46,23.16 80.6,27.68 Q79.74,23.16 75.22,22.3 Q79.74,21.44 80.6,16.92Z"/><path d="M179.8,9.24 Q180.86,14.84 186.45,15.9 Q180.86,16.97 179.8,22.56 Q178.73,16.97 173.14,15.9 Q178.73,14.84 179.8,9.24Z"/></g>
+  </g>
 </svg>

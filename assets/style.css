@@ -81,7 +81,7 @@ body {
   display: flex;
   gap: 8px;
 }
-.btn-small { padding: .5em 1.1em; font-size: .85rem; }
+.btn-small { padding: .5em 1.1em; font-size: .85rem; white-space: nowrap; }
 html.no-intro .intro { display: none; }
 html:not(.intro-done) body { overflow: hidden; }
 

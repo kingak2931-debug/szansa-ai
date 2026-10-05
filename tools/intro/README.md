@@ -3,7 +3,8 @@
 Gotowy film (15 s, 1920×1080, z dźwiękiem):
 v4 (miękkie logo): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/3be3e1ea-589b-4ed9-99f3-059df74fd826.mp4
 v5 (logo z powiększenia AI): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/edfa27f2-f0ea-4ccf-add5-93cea86a11d2.mp4
-v6 (logo wektorowe z obwódką, używane na stronie): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/066752e0-ed92-4616-bfc1-0bf4977d9107.mp4
+v6 (logo wektorowe z obwódką, wtopione w film): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/066752e0-ed92-4616-bfc1-0bf4977d9107.mp4
+v7 (bez logo – logo rysuje strona nad filmem; używane na stronie): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/73e3c367-e5e3-49ab-8aef-499c576ddf50.mp4
 
 | Element | Wartość |
 |---|---|

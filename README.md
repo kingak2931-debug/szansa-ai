@@ -11,6 +11,12 @@ Treści pochodzą z wcześniejszej wersji strony (index/misja/sponsorzy/polityka
 (dane do przelewu, PayU) i „Zgłoś szkołę” (formularz) nie zostały jeszcze przeniesione – przyciski
 prowadzą na razie do e-maila kontakt@szansaai.pl z gotowym tematem.
 
+## Zgoda na cookies
+`assets/cookies.js` (na obu stronach): baner „Akceptuję wszystkie / Tylko niezbędne / Ustawienia”, pojawia się
+po intro; wybór w `localStorage` na 12 miesięcy; link „Ustawienia cookies” w stopce otwiera go ponownie.
+Strona nie ma dziś cookies analitycznych ani marketingowych – przy ich dodawaniu sprawdzaj
+`SzansaConsent.get().analytics` / `.marketing` lub nasłuchuj zdarzenia `szansa:consent`.
+
 ## Logo – używamy wszędzie tych samych plików
 
 Logo jest **wektorowe** (SVG), więc jest ostre w każdym rozmiarze i na każdym ekranie.
@@ -34,14 +40,18 @@ Kolory marki (złoto z logo) są w `assets/style.css` (`--gold-light`, `--gold`,
 Intro (15 s) odtwarza się na pełnym ekranie przy pierwszym wejściu na stronę:
 zegar wybija 16:00 → dzieci biegną do świetlicy → siadają przed komputerami →
 obraz się rozmywa, a logo wyjeżdża z lewego górnego rogu na środek.
-Tło sekcji hero to dokładnie ostatnia klatka filmu, więc strona płynnie przejmuje obraz,
-a logo odpływa na swoje miejsce w nagłówku (`assets/intro.js`).
+Logo nie jest wtopione w film: to wektorowe logo strony nad filmem (`assets/intro.js`), więc jest ostre
+i zawsze w całości widoczne – także na telefonie i ekranach 16:10, gdzie film jest przycięty po bokach.
+Tło sekcji hero to dokładnie ostatnia klatka filmu, więc strona płynnie przejmuje obraz (od 12,4 s,
+bez czekania na nieruchome zakończenie filmu; muzyka, jeśli włączona, wybrzmiewa do końca),
+a to samo logo odpływa na swoje miejsce w nagłówku.
 
 ### Przejście do hero – „Złota iskra” z żywym tłem
 1. z sieci w logo odrywają się złote iskry i rozlatują w konstelację w tle (`assets/sparks.js`,
    punkty lekko dryfują i odsuwają się od kursora),
 2. logo płynie do lewego górnego rogu,
-3. rozmyte tło wyostrza się w żywą pętlę z dziećmi przy komputerach (`tools/make_hero_loop.sh`),
+3. rozmyte tło wyostrza się w żywą pętlę z dziećmi przy komputerach (`tools/make_hero_loop.sh`; pętla
+   rusza już pod koniec intro, a przejście to tylko przenikanie – bez filtra rozmycia, więc się nie zacina),
 4. nagłówek pojawia się słowo po słowie, po „szansę” co kilka sekund przechodzi złoty połysk,
 5. potem opis, przyciski i menu.
 Przy ponownej wizycie (bez intro) konstelacja i treść po prostu łagodnie się pojawiają.
@@ -76,7 +86,8 @@ Zatwierdzona wersja intro i wszystko, co potrzebne do jej odtworzenia: `tools/in
 Montaż: `tools/make_intro.sh materiał.mp4 assets` → `intro.mp4`, `intro-poster.jpg`, `hero-bg.jpg`.
 
 Aktualne pliki leżą na serwerze Higgsfield i strona pobiera je stamtąd, dopóki w `assets/` nie ma kopii lokalnych:
-- film: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/066752e0-ed92-4616-bfc1-0bf4977d9107.mp4 → `assets/intro.mp4`
+- film (v7, bez logo): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/73e3c367-e5e3-49ab-8aef-499c576ddf50.mp4 → `assets/intro.mp4`
+- pierwsza klatka: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/2442dca2-f005-4ee7-9ecb-2f756d6f2d48.jpg → `assets/intro-poster.jpg`
 - tło hero: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/86142dc1-a586-47ff-b3b1-a3292b330e32.jpg → `assets/hero-bg.jpg`
 - żywe tło hero: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/47ab909b-e615-4aca-afcf-b0c98034ac0e.mp4 → `assets/hero-loop.mp4`
 - złoty neuron (Higgsfield: obraz gpt_image_2_5 + pętla Kling 3.0, ta sama klatka na początku i końcu): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/1883651d-7223-4e5f-881f-27d9a01fb32d.mp4 → `assets/neuron.mp4`

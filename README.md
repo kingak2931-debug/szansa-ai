@@ -46,15 +46,20 @@ a logo odpływa na swoje miejsce w nagłówku (`assets/intro.js`).
 5. potem opis, przyciski i menu.
 Przy ponownej wizycie (bez intro) konstelacja i treść po prostu łagodnie się pojawiają.
 
-### Mapa drogi – tło strony pod hero (`assets/map.js`)
-Pod hero zaczyna się kreskowa, złota mapa okolicy: na horyzoncie wieś z kościołem (zegar na 16:00),
-dalej pola, zagajniki, rzędy topoli, zagrody i bociany. Przez mapę wije się droga od wsi, przez
-świetlicę, do przyszłości (sieć z logo). Sekcje to przystanki (`<section class="stop">`):
-- droga rysuje się złotem przy przewijaniu, a na jej czubku idzie iskra (start: „Ruszamy w drogę” na dole hero),
-- węzeł przystanku zapala się, gdy dotrze do niego iskra, i wtedy karta przystanku się wyostrza,
-- elementy mapy „rysują się”, gdy iskra je mija.
-Mapa liczy się od układu strony – nowy przystanek wystarczy dodać w HTML (`data-side="left|right"`,
-opcjonalnie `data-place="swietlica|przyszlosc"`). Na telefonie droga biegnie wzdłuż lewej krawędzi.
+### Droga przez Polskę – tło strony pod hero (`assets/poland.js`)
+Prawdziwa mapa Polski (kontur, województwa, rzeki, jeziora, drogi) i 2 624 miejscowości do 20 tys.
+mieszkańców (powyżej 1000 – dane GeoNames). Przez mapę biegnie trasa po prawdziwych drogach:
+Ełganowo (siedziba fundacji) → Pelplin → Lidzbark Warmiński → Tykocin → Kazimierz Dolny → Chęciny →
+Myślenice → Paczków → Karpacz (ok. 1 600 km). Mapa jest przypięta do ekranu; przewijanie prowadzi iskrę:
+- start – zbliżenie na wieś z intro (kościół z zegarem na 16:00), potem oddalenie do regionu,
+- każdy przystanek (`<section class="stop">`) to kolejna miejscowość na trasie; mijane miejscowości się zapalają,
+- „Skala misji” i meta – widok całej Polski, zapalają się wszystkie miejscowości w zasięgu misji.
+Trasa jest **poglądowa** (droga, którą chcemy przejechać), a nie lista zrealizowanych szkoleń – mówi o tym
+podpis na mapie. Po pierwszych szkoleniach można dodać prawdziwe pinezki odwiedzonych szkół.
+
+Dane: `assets/poland-map.json` (152 KB) z `tools/make_poland_map.py` – źródła i licencje opisane w skrypcie
+(Natural Earth – domena publiczna; polska-geojson – MIT; GeoNames przez all-the-cities – CC BY 4.0 / MIT).
+Zmiana trasy: lista `STOPS` w skrypcie (kolejność = kolejność sekcji `.stop` na stronie).
 
 Zatwierdzona wersja intro i wszystko, co potrzebne do jej odtworzenia: `tools/intro/README.md`.
 

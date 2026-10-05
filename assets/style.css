@@ -262,7 +262,7 @@ html.intro-done .hero-cue.reveal { transform: translateX(-50%); }
 .journey {
   position: relative;
   padding: 300px 0 120px;        /* 300 px = pas „horyzontu” (TOP w assets/map.js) */
-  overflow: hidden;
+  overflow: clip;              /* „clip”, nie „hidden” – inaczej mapa nie przypnie się do ekranu */
   color: var(--ink);
   background-color: var(--cream);
   /* z ciemnego hero w ciepły papier + delikatne ziarno papieru */
@@ -479,3 +479,35 @@ html.intro-done .hero-cue.reveal { transform: translateX(-50%); }
 .legal-card table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: 1em 0; display: block; overflow-x: auto; }
 .legal-card th, .legal-card td { text-align: left; vertical-align: top; padding: .6em .7em; border-bottom: 1px solid rgba(200,149,63,.3); }
 .legal-card th { color: var(--gold-dark); font-weight: 600; white-space: nowrap; }
+
+/* ── Droga przez Polskę: mapa przypięta do ekranu za przystankami ─────── */
+.journey-sticky {
+  position: sticky; top: 0;
+  height: 100vh; height: 100svh;
+  margin-bottom: -100vh; margin-bottom: -100svh;
+  pointer-events: none;
+  z-index: 0;
+}
+.poland-map { display: block; width: 100%; height: 100%; }
+.map-caption {
+  position: absolute; right: 14px; bottom: 10px; margin: 0;
+  max-width: 60vw;
+  font-size: .68rem; letter-spacing: .02em; text-align: right;
+  color: rgba(122,78,23,.75);
+}
+.journey .stop { z-index: 1; }
+.journey { padding-top: 0; }
+/* mapa zajmuje początek sekcji (zbliżenie na wieś), pierwszy przystanek pojawia się po ~1,1 ekranu */
+.journey-sticky { margin-bottom: 10vh; margin-bottom: 10svh; }
+@media (max-width: 760px) {
+  .journey-sticky { margin-bottom: 0; }
+  .stop, .stop[data-side="right"] { padding-left: 16px; }   /* bez bocznej drogi – mapa jest w tle */
+  .map-caption { left: 12px; right: 12px; max-width: none; text-align: center; font-size: .6rem; }
+}
+
+/* ciemne przejście z hero leży nad mapą (inaczej mapa je wyszarza) */
+.journey::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 280px;
+  background: linear-gradient(180deg, #120d07 0, #3a2915 70px, rgba(200,149,63,.28) 170px, rgba(251,246,236,0) 280px);
+  z-index: 2; pointer-events: none;
+}

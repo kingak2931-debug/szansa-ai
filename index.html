@@ -81,10 +81,14 @@
 
   <!-- Mapa drogi: od wsi, przez świetlicę, do przyszłości. Sekcje to przystanki na drodze;
        droga rysuje się przy przewijaniu, a mapa (pola, domy, drzewa) pojawia się po drodze. -->
-  <!-- Mapa drogi: od wsi, przez szkołę, do przyszłości. Sekcje to przystanki na drodze;
-       droga rysuje się przy przewijaniu, a mapa (pola, domy, drzewa) pojawia się po drodze. -->
+  <!-- Droga przez Polskę: prawdziwa mapa i trasa po prawdziwych drogach z Ełganowa (siedziba fundacji)
+       aż w Karkonosze. Mapa jest przypięta do ekranu, a przewijanie prowadzi iskrę po trasie
+       (assets/poland.js, dane: assets/poland-map.json). Sekcje to przystanki na trasie. -->
   <main id="droga" class="journey">
-    <svg class="journey-map" aria-hidden="true"></svg>
+    <div class="journey-sticky" aria-hidden="true">
+      <canvas class="poland-map"></canvas>
+      <p class="map-caption">Trasa poglądowa po prawdziwych drogach · punkty: miejscowości do 20&nbsp;tys. mieszkańców (GeoNames) · mapa: Natural Earth, GUGiK</p>
+    </div>
 
     <section id="dlaczego" class="stop" data-side="left">
       <div class="stop-card wide">
@@ -217,6 +221,6 @@
 
   <script src="assets/sparks.js"></script>
   <script src="assets/intro.js"></script>
-  <script src="assets/map.js"></script>
+  <script src="assets/poland.js"></script>
 </body>
 </html>

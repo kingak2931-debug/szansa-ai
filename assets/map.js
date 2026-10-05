@@ -227,7 +227,7 @@
       g.innerHTML = '<circle class="ring" r="15"/><circle class="ball" r="9"/>';
       let best = 0, bd = 1e9;
       for (const [l, p] of samples) { const dd = Math.hypot(p.x - st.x, p.y - st.y); if (dd < bd) { bd = dd; best = l; } }
-      nodes.push({ g, len: best, stop: st.s });
+      nodes.push({ g, len: best, stop: st.s, counted: st.s.dataset.counted === '1' });
     });
 
     // iskra na czubku drogi
@@ -255,9 +255,29 @@
       const on = len >= n.len - 2;
       n.g.classList.toggle('on', on);
       n.stop.classList.toggle('reached', on);
+      if (on && !n.counted) { n.counted = true; n.stop.dataset.counted = '1'; countUp(n.stop); }
     }
     for (const dd of decos) dd.g.classList.toggle('on', reduceMotion || dd.y < tipY + 60);
   }
+
+  // Liczniki (np. „Skala misji”): zliczają się od zera, gdy iskra dotrze do przystanku.
+  function countUp(stop) {
+    stop.querySelectorAll('[data-count]').forEach((elm) => {
+      const target = +elm.dataset.count, suffix = elm.dataset.suffix || '';
+      const fmt = (v) => Math.round(v).toLocaleString('pl-PL') + suffix;
+      if (reduceMotion) { elm.textContent = fmt(target); return; }
+      const t0 = performance.now(), dur = 1600;
+      const step = (now) => {
+        const p = Math.min(1, (now - t0) / dur);
+        elm.textContent = fmt(target * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  }
+
+  // przed dotarciem iskry liczniki stoją na zerze (bez JS widać od razu pełne liczby)
+  if (!reduceMotion) journey.querySelectorAll('[data-count]').forEach((e) => { e.textContent = '0' + (e.dataset.suffix || ''); });
 
   let ticking = false;
   addEventListener('scroll', () => {

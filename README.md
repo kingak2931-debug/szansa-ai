@@ -1,6 +1,16 @@
 # szansa-ai
 fundacja dla dzieci szansa ai
 
+## Strony
+| Plik | Zawartość |
+|---|---|
+| `index.html` | intro → hero (slogan „Każde dziecko zasługuje na swoją szansę”) → mapa drogi z przystankami: Dlaczego to ważne, Misja, Program szkolenia, Bezpieczeństwo dzieci (SOM), Skala misji (liczniki), Mapa rozwoju, Dla sponsorów (zaproszenie, bez pakietów i kwot), Kontakt; stopka z danymi formalnymi |
+| `polityka-prywatnosci.html` | polityka prywatności (RODO) w stylu strony |
+
+Treści pochodzą z wcześniejszej wersji strony (index/misja/sponsorzy/polityka). Strony „Wesprzyj nas”
+(dane do przelewu, PayU) i „Zgłoś szkołę” (formularz) nie zostały jeszcze przeniesione – przyciski
+prowadzą na razie do e-maila kontakt@szansaai.pl z gotowym tematem.
+
 ## Logo – używamy wszędzie tych samych plików
 
 Logo jest **wektorowe** (SVG), więc jest ostre w każdym rozmiarze i na każdym ekranie.

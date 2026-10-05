@@ -26,8 +26,8 @@ na ekranach Retina). Pliki leżą na serwerze Higgsfield:
 
 | Plik | Do czego |
 |---|---|
-| [logo-gold.webp](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/4f08d59f-8716-446a-9f9c-e9d8dfd1bd4f.webp) ([png](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/c71fdb4a-9a78-4cd1-b744-55c78aa12da0.png)) | na ciemne tło: nagłówek, intro |
-| [logo-gold-light.webp](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/4537b7a3-6d57-46e7-b0d4-635fc613af53.webp) | na jasne tło: stopka, polityka prywatności |
+| [logo-gold.webp](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/4f08d59f-8716-446a-9f9c-e9d8dfd1bd4f.webp) ([png](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/c71fdb4a-9a78-4cd1-b744-55c78aa12da0.png)) | wszędzie: nagłówek, intro, stopka, polityka prywatności (czytelne na ciemnym i jasnym tle) |
+| [logo-gold-light.webp](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/4537b7a3-6d57-46e7-b0d4-635fc613af53.webp) | wersja zapasowa o łagodniejszych krawędziach (na jasnym tle w małym rozmiarze wychodzi zbyt blado) |
 | [logo-icon.webp](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/3c5cd802-3fe2-4ea1-bb2b-ce4b34f1106e.webp) ([png](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/cdaf7a4b-b6c1-44b6-875d-ea38881c1194.png)) | sam znak (ludzik + sieć), 512 px – karta „Zgłoś szkołę”, awatar |
 | [favicon-32](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/551b0bff-486a-4b8e-ba06-815d9727fc1b.png), [favicon-16](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/bbb1055f-a657-42f0-9667-03efb1a17a4f.png), [apple-touch-icon](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/677a5a2d-31af-4cfa-b5d4-0b3c0618c86c.png) | ikonki przeglądarki i telefonu |
 | [og-image.jpg](https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/db0cf79c-5643-4d27-a761-9525da20dd3e.jpg) | podgląd linku w social media (1200×630) |

@@ -170,7 +170,7 @@
       </div>
     </section>
 
-    <section id="sponsorzy" class="stop" data-side="left">
+    <section id="sponsorzy" class="stop stop-partners" data-side="left">
       <div class="stop-card">
         <p class="stop-label">Przystanek 7 · Dla sponsorów</p>
         <h2>Twoja firma może dać dzieciom szansę.</h2>
@@ -180,19 +180,28 @@
       </div>
     </section>
 
-    <section id="kontakt" class="stop stop-final" data-side="right" data-place="przyszlosc">
-      <div class="stop-card">
-        <p class="stop-label">Meta · Szansa zaczyna się od decyzji</p>
-        <h2>Pomóż nam dotrzeć do kolejnej szkoły.</h2>
-        <p>Możesz wesprzeć fundację, zaprosić nas do swojej szkoły albo zostać partnerem biznesowym z&nbsp;mierzalnym raportem wpływu. Odpowiadamy w&nbsp;ciągu 2&nbsp;dni roboczych i&nbsp;chętnie przyjedziemy z&nbsp;prezentacją programu.</p>
-        <div class="stop-actions">
-          <a class="btn btn-gold" href="mailto:kontakt@szansaai.pl?subject=Zg%C5%82oszenie%20szko%C5%82y">Zgłoś szkołę</a>
-          <a class="btn btn-outline" href="mailto:kontakt@szansaai.pl?subject=Wsparcie%20Fundacji%20Szansa%20AI">Wesprzyj nas</a>
-        </div>
-        <p class="stop-mail"><a href="mailto:kontakt@szansaai.pl">kontakt@szansaai.pl</a></p>
-      </div>
-    </section>
+    <!-- miejsce na „splot” i wejście finału (mapa musi być wtedy wciąż przypięta) -->
+    <div class="journey-tail" aria-hidden="true"></div>
   </main>
+
+  <!-- Finał: „Zgłoś szkołę” na cały ekran. Złote światło rozszerza się ze środkowej kuli sieci
+       (assets/poland.js → updateFinale), potem karta zostaje chwilę przypięta. -->
+  <section id="kontakt" class="finale" aria-labelledby="finale-title">
+    <div class="finale-panel">
+      <div class="finale-inner">
+        <img class="finale-mark" src="assets/logo-icon.svg" alt="" width="96" height="96">
+        <p class="finale-label">Szansa zaczyna się od decyzji</p>
+        <h2 id="finale-title">Pomóż nam dotrzeć do kolejnej szkoły.</h2>
+        <p class="finale-text">Zaproś nas do swojej szkoły, wesprzyj fundację albo zostań partnerem biznesowym z&nbsp;mierzalnym raportem wpływu. Odpowiadamy w&nbsp;ciągu 2&nbsp;dni roboczych i&nbsp;chętnie przyjedziemy z&nbsp;prezentacją programu.</p>
+        <div class="finale-actions">
+          <a class="btn btn-gold btn-big" href="mailto:kontakt@szansaai.pl?subject=Zg%C5%82oszenie%20szko%C5%82y">Zgłoś szkołę</a>
+          <a class="btn btn-ghost" href="mailto:kontakt@szansaai.pl?subject=Partnerstwo%20z%20Fundacj%C4%85%20Szansa%20AI">Zostań partnerem</a>
+          <a class="btn btn-ghost" href="mailto:kontakt@szansaai.pl?subject=Wsparcie%20Fundacji%20Szansa%20AI">Wesprzyj nas</a>
+        </div>
+        <p class="finale-mail"><a href="mailto:kontakt@szansaai.pl">kontakt@szansaai.pl</a></p>
+      </div>
+    </div>
+  </section>
 
   <footer class="site-footer">
     <div class="footer-grid">

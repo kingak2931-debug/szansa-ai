@@ -511,3 +511,61 @@ html.intro-done .hero-cue.reveal { transform: translateX(-50%); }
   background: linear-gradient(180deg, #120d07 0, #3a2915 70px, rgba(200,149,63,.28) 170px, rgba(251,246,236,0) 280px);
   z-index: 2; pointer-events: none;
 }
+
+/* ── Splot i finał „Zgłoś szkołę” ─────────────────────────────────────── */
+/* po karcie o partnerach mapa jeszcze chwilę zostaje (sieć z logo), a finał wjeżdża na nią od środka kuli */
+.journey { padding-bottom: 0; }
+.journey-tail { height: 200vh; height: 200svh; }   /* nie padding – przypięta mapa nie sięga w padding sekcji */
+.finale {
+  position: relative; z-index: 3;
+  height: 200vh; height: 200svh;
+  margin-top: -200vh; margin-top: -200svh;
+  scroll-margin-top: -90vh;            /* link „Kontakt” przewija od razu do otwartej karty */
+}
+.finale-panel {
+  position: sticky; top: 0;
+  height: 100vh; height: 100svh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px clamp(16px, 5vw, 64px);
+  clip-path: circle(var(--iris, 0px) at var(--ix, 70%) var(--iy, 50%));
+  color: var(--cream);
+  background:
+    radial-gradient(circle at var(--ix, 70%) var(--iy, 50%), rgba(226,182,92,.38) 0, rgba(226,182,92,0) 38%),
+    radial-gradient(1.5px 1.5px at 12% 22%, rgba(243,217,160,.8), transparent 60%),
+    radial-gradient(1.5px 1.5px at 82% 14%, rgba(243,217,160,.7), transparent 60%),
+    radial-gradient(1px 1px at 64% 78%, rgba(243,217,160,.7), transparent 60%),
+    radial-gradient(1px 1px at 28% 86%, rgba(243,217,160,.6), transparent 60%),
+    radial-gradient(1.5px 1.5px at 92% 62%, rgba(243,217,160,.6), transparent 60%),
+    linear-gradient(160deg, #2c1f0e 0%, #17110a 55%, #0f0b06 100%);
+}
+.finale-inner {
+  max-width: 820px; text-align: center;
+  opacity: 0; transform: translateY(24px) scale(.98);
+  transition: opacity .9s ease, transform .9s ease;
+}
+.finale.open .finale-inner { opacity: 1; transform: none; }
+.finale-mark { width: clamp(64px, 9vw, 96px); height: auto; margin-bottom: 8px; filter: drop-shadow(0 0 18px rgba(243,205,114,.45)); }
+.finale-label {
+  margin: 0 0 .6em;
+  font-family: var(--font-serif); font-size: .85rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold-light);
+}
+.finale h2 {
+  margin: 0 0 .45em;
+  font-family: var(--font-serif); font-style: italic; font-weight: 400;
+  font-size: clamp(2.2rem, 5.6vw, 4.4rem); line-height: 1.1;
+  background: linear-gradient(100deg, var(--gold-light), var(--gold) 55%, var(--gold-light));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.finale-text { max-width: 640px; margin: 0 auto 1.6em; font-size: clamp(1rem, 1.6vw, 1.15rem); color: rgba(251,246,236,.88); }
+.finale-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.btn-big { font-size: 1.1rem; padding: 1em 2.4em; box-shadow: 0 0 30px rgba(243,205,114,.35); }
+.finale-mail { margin-top: 1.4em; }
+.finale-mail a { color: var(--gold-light); }
+@media (max-width: 760px) {
+  .finale-actions .btn { width: 100%; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .finale-panel { clip-path: none; }
+  .finale-inner { opacity: 1; transform: none; transition: none; }
+}

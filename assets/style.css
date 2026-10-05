@@ -515,20 +515,8 @@ html.intro-done .hero-cue.reveal { transform: translateX(-50%); }
 /* ── Splot i finał „Zgłoś szkołę” ─────────────────────────────────────── */
 /* po karcie o partnerach mapa jeszcze chwilę zostaje (sieć z logo), a finał wjeżdża na nią od środka kuli */
 .journey { padding-bottom: 0; }
-.journey-tail { height: 200vh; height: 200svh; }   /* nie padding – przypięta mapa nie sięga w padding sekcji */
-.finale {
-  position: relative; z-index: 3;
-  height: 200vh; height: 200svh;
-  margin-top: -200vh; margin-top: -200svh;
-  scroll-margin-top: -90vh;            /* link „Kontakt” przewija od razu do otwartej karty */
-}
+.journey-tail { height: 300vh; height: 300svh; }   /* nie padding – przypięta mapa nie sięga w padding sekcji */
 .finale-panel {
-  position: sticky; top: 0;
-  height: 100vh; height: 100svh;
-  display: flex; align-items: center; justify-content: center;
-  padding: 24px clamp(16px, 5vw, 64px);
-  clip-path: circle(var(--iris, 0px) at var(--ix, 70%) var(--iy, 50%));
-  color: var(--cream);
   background:
     radial-gradient(circle at var(--ix, 70%) var(--iy, 50%), rgba(226,182,92,.38) 0, rgba(226,182,92,0) 38%),
     radial-gradient(1.5px 1.5px at 12% 22%, rgba(243,217,160,.8), transparent 60%),
@@ -538,19 +526,14 @@ html.intro-done .hero-cue.reveal { transform: translateX(-50%); }
     radial-gradient(1.5px 1.5px at 92% 62%, rgba(243,217,160,.6), transparent 60%),
     linear-gradient(160deg, #2c1f0e 0%, #17110a 55%, #0f0b06 100%);
 }
-.finale-inner {
-  max-width: 820px; text-align: center;
-  opacity: 0; transform: translateY(24px) scale(.98);
-  transition: opacity .9s ease, transform .9s ease;
-}
-.finale.open .finale-inner { opacity: 1; transform: none; }
+.finale-inner { max-width: 820px; text-align: center; }
 .finale-mark { width: clamp(64px, 9vw, 96px); height: auto; margin-bottom: 8px; filter: drop-shadow(0 0 18px rgba(243,205,114,.45)); }
 .finale-label {
   margin: 0 0 .6em;
   font-family: var(--font-serif); font-size: .85rem; letter-spacing: .22em; text-transform: uppercase;
   color: var(--gold-light);
 }
-.finale h2 {
+.full h2 {
   margin: 0 0 .45em;
   font-family: var(--font-serif); font-style: italic; font-weight: 400;
   font-size: clamp(2.2rem, 5.6vw, 4.4rem); line-height: 1.1;
@@ -565,7 +548,57 @@ html.intro-done .hero-cue.reveal { transform: translateX(-50%); }
 @media (max-width: 760px) {
   .finale-actions .btn { width: 100%; text-align: center; }
 }
+
+/* ── Pełnoekranowe karty (partnerzy, „Zgłoś szkołę”) ───────────────────── */
+/* Każda karta wjeżdża na poprzednią, póki ta jest jeszcze przypięta: złote światło (koło)
+   rozszerza się z punktu --ix/--iy (ciało neuronu). Wysokości/marginesy dają czas na przejście. */
+.full { position: relative; z-index: 3; }
+.full-panel {
+  position: sticky; top: 0;
+  height: 100vh; height: 100svh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px clamp(16px, 5vw, 64px);
+  overflow: hidden;
+  clip-path: circle(var(--iris, 0px) at var(--ix, 70%) var(--iy, 50%));
+  color: var(--cream);
+}
+.full-inner {
+  position: relative;
+  opacity: 0; transform: translateY(24px) scale(.98);
+  transition: opacity .9s ease, transform .9s ease;
+}
+.full.open .full-inner { opacity: 1; transform: none; }
+.full-text { margin: 0 0 1em; font-size: clamp(1rem, 1.5vw, 1.12rem); color: rgba(251,246,236,.88); line-height: 1.6; }
+
+/* partnerzy: neuron w tle, tekst po lewej */
+.partners-full {
+  height: 360vh; height: 360svh;
+  margin-top: -200vh; margin-top: -200svh;   /* wjeżdża na koniec mapy (przypiętej jeszcze przez .journey-tail) */
+  scroll-margin-top: -90vh;
+}
+.partners-full .full-panel { justify-content: flex-start; background: #0c0805; }
+.neuron {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: 72% 50%;
+}
+.partners-shade {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(10,7,4,.9) 0, rgba(10,7,4,.65) 34%, rgba(10,7,4,0) 60%);
+}
+.partners-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.partners-inner { max-width: 560px; }
+.partners-inner .btn { margin-top: .6em; }
+.finale {
+  height: 200vh; height: 200svh;
+  margin-top: -200vh; margin-top: -200svh;   /* wjeżdża na kartę partnerów, póki ta jest przypięta */
+  scroll-margin-top: -90vh;
+}
+@media (max-width: 760px) {
+  .partners-full .full-panel { align-items: flex-end; padding-bottom: 32px; }
+  .partners-shade { background: linear-gradient(0deg, rgba(10,7,4,.95) 0, rgba(10,7,4,.8) 45%, rgba(10,7,4,0) 75%); }
+  .partners-inner .btn { width: 100%; text-align: center; }
+}
 @media (prefers-reduced-motion: reduce) {
-  .finale-panel { clip-path: none; }
-  .finale-inner { opacity: 1; transform: none; transition: none; }
+  .full-panel { clip-path: none; }
+  .full-inner { opacity: 1; transform: none; transition: none; }
 }

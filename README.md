@@ -4,7 +4,7 @@ fundacja dla dzieci szansa ai
 ## Strony
 | Plik | Zawartość |
 |---|---|
-| `index.html` | intro → hero (slogan „Każde dziecko zasługuje na swoją szansę”) → mapa drogi z przystankami: Dlaczego to ważne, Misja, Program szkolenia, Bezpieczeństwo dzieci (SOM), Skala misji (liczniki), Mapa rozwoju, Dla sponsorów (zaproszenie, bez pakietów i kwot) → pełnoekranowe „Zgłoś szkołę”; stopka z danymi formalnymi |
+| `index.html` | intro → hero (slogan „Każde dziecko zasługuje na swoją szansę”) → mapa drogi z przystankami: Dlaczego to ważne, Misja, Program szkolenia, Bezpieczeństwo dzieci (SOM), Skala misji (liczniki), Mapa rozwoju, → pełnoekranowa karta partnerów ze złotym neuronem (zaproszenie, bez pakietów i kwot) → pełnoekranowe „Zgłoś szkołę”; stopka z danymi formalnymi |
 | `polityka-prywatnosci.html` | polityka prywatności (RODO) w stylu strony |
 
 Treści pochodzą z wcześniejszej wersji strony (index/misja/sponsorzy/polityka). Strony „Wesprzyj nas”
@@ -54,11 +54,12 @@ Myślenice → Paczków → Karpacz (ok. 1 600 km). Mapa jest przypięta do ekra
 - start – zbliżenie na wieś z intro (kościół z zegarem na 16:00), potem oddalenie do regionu,
 - każdy przystanek (`<section class="stop">`) to kolejna miejscowość na trasie; mijane miejscowości się zapalają,
 - „Skala misji” i meta – widok całej Polski, zapalają się wszystkie miejscowości w zasięgu misji.
-Na końcu – **„Złoty splot”**: gdy wjeżdża karta o partnerach (`.stop-partners`), mapa gaśnie, a iskry
-wszystkich miejscowości zlatują się w sieć z logo; przy dalszym przewijaniu do sieci dołączają węzły
-partnerów, w tym pusty, pulsujący „Miejsce dla Twojej firmy”. Potem środkowa kula rozszerza się złotym
-światłem i odsłania pełnoekranowe **„Zgłoś szkołę”** (`<section class="finale">`), które zostaje chwilę
-przypięte. Link „Kontakt” prowadzi prosto do otwartej karty.
+Na końcu – **„Złoty neuron”**: za ostatnim przystankiem mapa gaśnie, a iskry wszystkich miejscowości
+zlatują się w jeden świecący punkt – ciało złotego neuronu. Z tego punktu złote światło otwiera
+pełnoekranową kartę **partnerów** (`<section class="full partners-full">`) z żywym neuronem w tle
+(wideo z Higgsfield) i pulsującym węzłem „Miejsce dla Twojej firmy”; potem z neuronu rozlewa się kolejne
+światło i otwiera pełnoekranowe **„Zgłoś szkołę”** (`<section class="full finale">`). Obie karty zostają
+chwilę przypięte; linki „Dla sponsorów” i „Kontakt” prowadzą prosto do otwartych kart.
 
 Trasa jest **poglądowa** (droga, którą chcemy przejechać), a nie lista zrealizowanych szkoleń – mówi o tym
 podpis na mapie. Po pierwszych szkoleniach można dodać prawdziwe pinezki odwiedzonych szkół.
@@ -75,3 +76,4 @@ Aktualne pliki leżą na serwerze Higgsfield i strona pobiera je stamtąd, dopó
 - film: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/066752e0-ed92-4616-bfc1-0bf4977d9107.mp4 → `assets/intro.mp4`
 - tło hero: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/86142dc1-a586-47ff-b3b1-a3292b330e32.jpg → `assets/hero-bg.jpg`
 - żywe tło hero: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/47ab909b-e615-4aca-afcf-b0c98034ac0e.mp4 → `assets/hero-loop.mp4`
+- złoty neuron (Higgsfield: obraz gpt_image_2_5 + pętla Kling 3.0, ta sama klatka na początku i końcu): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/1883651d-7223-4e5f-881f-27d9a01fb32d.mp4 → `assets/neuron.mp4`

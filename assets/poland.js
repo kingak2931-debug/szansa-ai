@@ -13,16 +13,15 @@
   const ctx = canvas.getContext('2d');
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const stopsEl = [...journey.querySelectorAll('.stop:not(.stop-partners)')];
-  const partners = journey.querySelector('.stop-partners');      // karta o partnerach – tu Polska się chowa
-  const finale = document.querySelector('.finale');               // pełnoekranowe „Zgłoś szkołę”
-
-  // sieć z logo (środek = duża kula); współrzędne jak w logo, skalowane do ekranu
-  const NET = [[0, 0, 9.6], [2.2, -30.8, 5.7], [-19.5, -18.9, 4.4], [-26.5, 6.8, 4], [23.2, -12, 4.9],
-    [27.6, 13.6, 4.1], [-17.1, 26.4, 5.3], [13, 29.9, 3.8]];
-  const NET_E = [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [2, 3], [4, 5], [6, 7]];
-  // węzły partnerów dołączające do sieci: [x, y, do której kuli, podpis]
-  const PARTNERS = [[46, -40, 4, ''], [-50, 40, 6, ''], [40, 46, 5, 'Miejsce dla Twojej firmy']];
-  let sTop = 0, net = { x: 0, y: 0, k: 1 };
+  const tail = journey.querySelector('.journey-tail');           // tu iskry zlatują się w jeden punkt
+  const partners = document.querySelector('.partners-full');       // partnerzy na cały ekran (złoty neuron)
+  const finale = document.querySelector('.finale');               // „Zgłoś szkołę” na cały ekran
+  const neuron = partners && partners.querySelector('.neuron');
+  const overlay = partners && partners.querySelector('.partners-overlay');
+  const octx = overlay && overlay.getContext('2d');
+  // ciało neuronu na wideo (ułamki kadru) – zmierzone na klatce z Higgsfield
+  const SOMA = [0.757, 0.472];
+  let tTop = 0, soma = { x: 0, y: 0 };
 
   let D = null, W = 0, H = 0, dpr = 1, mobile = false;
   let keys = [], center = [0, 0], fullZoom = 1;
@@ -51,9 +50,10 @@
     D.places.forEach((p, i) => {
       p.r = 1.1 + Math.sqrt(p[2]) * 0.55;
       // dokąd leci iskra tej miejscowości przy „splocie”: do jednej z kul sieci
-      p.t = i % NET.length; p.ang = Math.random() * 6.283; p.rad = Math.random() * 0.8; p.del = Math.random() * 0.35;
+      p.ang = Math.random() * 6.283; p.rad = Math.random(); p.del = Math.random() * 0.35;
     });
     layout();
+    if (neuron) neuron.addEventListener('loadedmetadata', () => { soma = somaPoint(); schedule(); });
     addEventListener('scroll', schedule, { passive: true });
     addEventListener('resize', () => { layout(); schedule(); });
     if (window.ResizeObserver) new ResizeObserver(() => { layout(); schedule(); }).observe(journey);
@@ -82,12 +82,12 @@
       keys.push([y, s.at, wide ? fullZoom : region, el.dataset.side === 'right' ? 1 : -1]);
       s.el = el;
     });
-    // przed kartą o partnerach: cała trasa przejechana, widok całej Polski
-    if (partners) {
-      sTop = partners.getBoundingClientRect().top + scrollY;
-      keys.push([sTop - H * 0.2, D.routeLen[D.routeLen.length - 1], fullZoom, 0]);
+    // za ostatnim przystankiem: cała trasa przejechana, widok całej Polski
+    if (tail) {
+      tTop = tail.getBoundingClientRect().top + scrollY;
+      keys.push([tTop - H * 0.6, D.routeLen[D.routeLen.length - 1], fullZoom, 0]);
     }
-    net = mobile ? { x: W * 0.5, y: H * 0.22, k: Math.min(W, H) / 160 } : { x: W * 0.7, y: H * 0.47, k: Math.min(W, H) / 132 };
+    soma = somaPoint();
   }
 
   const lerp = (a, b, t) => a + (b - a) * t;
@@ -139,7 +139,7 @@
 
     // „splot”: gdy wjeżdża karta o partnerach, Polska gaśnie, a iskry miejscowości lecą do sieci z logo
     const clamp = (v) => Math.max(0, Math.min(1, v));
-    const c = partners && !reduceMotion ? clamp((scrollY - (sTop - H)) / (H * 0.9)) : (partners && reduceMotion && scrollY > sTop - H * 0.5 ? 1 : 0);
+    const c = tail && !reduceMotion ? clamp((scrollY - (tTop - H * 0.3)) / (H * 1.1)) : 0;
     const mapA = clamp(1 - c * 1.7);
     ctx.globalAlpha = mapA;
 
@@ -185,9 +185,9 @@
       if (c > 0) {
         const cc = smooth(clamp((c - p.del) / 0.6));
         if (cc >= 1) continue;                        // już wtopiona w kulę
-        const n = NET[p.t];
-        const tx = net.x + n[0] * net.k + Math.cos(p.ang) * n[2] * net.k * p.rad;
-        const ty = net.y + n[1] * net.k + Math.sin(p.ang) * n[2] * net.k * p.rad;
+        const spread = 26 * (1 - cc);                // im bliżej, tym ciaśniej wokół ciała neuronu
+        const tx = soma.x + Math.cos(p.ang) * spread * p.rad;
+        const ty = soma.y + Math.sin(p.ang) * spread * p.rad;
         px = lerp(px, tx, cc); py = lerp(py, ty, cc);
       }
       if (px < -10 || py < -10 || px > W + 10 || py > H + 10) continue;
@@ -267,72 +267,79 @@
     }
     ctx.globalAlpha = 1;
 
-    // sieć z logo, która powstaje ze „splotu”, i węzły partnerów
-    if (c > 0.45) animating = drawNetwork(clamp((c - 0.45) / 0.55), now) || animating;
-    if (partners) partners.classList.toggle('reached', c > 0.5);
-    updateFinale();
+    // zebrane iskry świecą coraz mocniej w jednym punkcie – z niego otworzy się karta partnerów
+    if (c > 0.3) {
+      const g = clamp((c - 0.3) / 0.7), R = 10 + 70 * g;
+      const gr = ctx.createRadialGradient(soma.x, soma.y, 0, soma.x, soma.y, R);
+      gr.addColorStop(0, `rgba(255,248,222,${0.95 * g})`); gr.addColorStop(0.3, `rgba(245,205,114,${0.7 * g})`);
+      gr.addColorStop(1, 'rgba(245,205,114,0)');
+      ctx.fillStyle = gr; ctx.beginPath(); ctx.arc(soma.x, soma.y, R, 0, 7); ctx.fill();
+    }
+    updateFull();
 
     if (st.len !== lastLen) { lastLen = st.len; animUntil = now + 900; }
     if (animating || now < animUntil) schedule();
   }
 
-  function sphere(x, y, r, a) {
-    const g = ctx.createRadialGradient(x - r * 0.3, y - r * 0.35, 0, x, y, r);
-    g.addColorStop(0, '#fff8de'); g.addColorStop(0.28, '#f5cd72'); g.addColorStop(0.72, '#cf922f'); g.addColorStop(1, '#94601a');
-    ctx.globalAlpha = a * 0.35; ctx.fillStyle = '#f3cd72';
-    ctx.beginPath(); ctx.arc(x, y, r * 2, 0, 7); ctx.fill();
-    ctx.globalAlpha = a; ctx.fillStyle = g;
-    ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill();
+  // położenie ciała neuronu na ekranie (wideo jak object-fit: cover, object-position: 72% 50%)
+  function somaPoint() {
+    const vw = (neuron && neuron.videoWidth) || 1920, vh = (neuron && neuron.videoHeight) || 1080;
+    const s = Math.max(W / vw, H / vh);
+    return { x: (W - vw * s) * 0.72 + SOMA[0] * vw * s, y: (H - vh * s) * 0.5 + SOMA[1] * vh * s };
   }
 
-  function drawNetwork(a, now) {
-    const { x, y, k } = net;
-    const P = NET.map(([nx, ny, r]) => [x + nx * k, y + ny * k, r * k]);
-    // linie rysują się od środka
-    ctx.lineWidth = Math.max(1.5, k * 0.45); ctx.strokeStyle = '#d6b176';
-    NET_E.forEach(([i, j]) => {
-      ctx.globalAlpha = a;
-      ctx.beginPath(); ctx.moveTo(P[i][0], P[i][1]);
-      ctx.lineTo(lerp(P[i][0], P[j][0], a), lerp(P[i][1], P[j][1], a)); ctx.stroke();
-    });
-    P.forEach(([px, py, r]) => sphere(px, py, r * (0.6 + 0.4 * a), a));
-    // partnerzy dołączają przy dalszym przewijaniu (gdy karta o partnerach jest na ekranie)
-    const pp = Math.max(0, Math.min(1, (scrollY - (sTop - H * 0.15)) / (H * 0.55)));
-    let pulsing = false;
-    PARTNERS.forEach(([nx, ny, to, label], i) => {
-      const t = Math.max(0, Math.min(1, (pp - i / 3) * 3)) * a;
-      if (t <= 0) return;
-      const px = x + nx * k, py = y + ny * k, [fx, fy] = P[to];
-      ctx.globalAlpha = t; ctx.setLineDash([3, 5]); ctx.lineWidth = 1.5; ctx.strokeStyle = '#c8953f';
-      ctx.beginPath(); ctx.moveTo(fx, fy); ctx.lineTo(lerp(fx, px, t), lerp(fy, py, t)); ctx.stroke(); ctx.setLineDash([]);
-      const r = 4.2 * k;
-      if (label) {
-        // pusty, pulsujący węzeł czeka na partnera
-        const pulse = 0.5 + 0.5 * Math.sin(now / 420);
-        ctx.globalAlpha = t * (0.35 + 0.4 * pulse); ctx.strokeStyle = '#e2b65c'; ctx.lineWidth = 2;
-        ctx.beginPath(); ctx.arc(px, py, r * (1.25 + 0.35 * pulse), 0, 7); ctx.stroke();
-        ctx.globalAlpha = t; ctx.fillStyle = 'rgba(251,246,236,.9)'; ctx.strokeStyle = '#c8953f'; ctx.setLineDash([3, 3]);
-        ctx.beginPath(); ctx.arc(px, py, r, 0, 7); ctx.fill(); ctx.stroke(); ctx.setLineDash([]);
-        ctx.font = `italic ${mobile ? 13 : 16}px Georgia, serif`; ctx.fillStyle = '#7a4e17';
-        const w = ctx.measureText(label).width;
-        ctx.fillText(label, Math.min(W - w - 12, px - w / 2), py + r + 22);
-        pulsing = true;
-      } else sphere(px, py, r * 0.85, t);
-    });
-    ctx.globalAlpha = 1;
-    return pulsing && scrollY < sTop + H * 2;   // pulsujemy tylko, gdy sieć jest jeszcze widoczna
-  }
-
-  // pełnoekranowe „Zgłoś szkołę”: złote światło rozszerza się ze środkowej kuli sieci
-  function updateFinale() {
-    if (!finale) return;
-    const r = finale.getBoundingClientRect();
-    const k = reduceMotion ? 1 : Math.max(0, Math.min(1, -r.top / (H * 0.85)));
+  // pełnoekranowe karty: złote światło rozszerza się z ciała neuronu, gdy karta się przypnie
+  function iris(section) {
+    if (!section) return 0;
+    const r = section.getBoundingClientRect();
+    const k = reduceMotion ? 1 : Math.max(0, Math.min(1, -r.top / (H * 0.8)));
     const e = k * k * (3 - 2 * k);
-    finale.style.setProperty('--ix', `${net.x}px`);
-    finale.style.setProperty('--iy', `${net.y}px`);
-    finale.style.setProperty('--iris', `${(e * Math.hypot(W, H) * 1.05).toFixed(1)}px`);
-    finale.classList.toggle('open', k > 0.65);
+    section.style.setProperty('--ix', `${soma.x}px`);
+    section.style.setProperty('--iy', `${soma.y}px`);
+    section.style.setProperty('--iris', `${(e * Math.hypot(W, H) * 1.05).toFixed(1)}px`);
+    section.classList.toggle('open', k > 0.65);
+    return r.top < H && r.bottom > 0 ? k : -1;
+  }
+
+  let ovRaf = 0;
+  function updateFull() {
+    const kp = iris(partners);
+    iris(finale);
+    if (neuron) {
+      if (kp > 0) { if (neuron.paused) neuron.play().catch(() => {}); } else if (!neuron.paused) neuron.pause();
+    }
+    if (octx && kp > 0.3 && !ovRaf) ovRaf = requestAnimationFrame(drawOverlay);
+  }
+
+  // nad neuronem: złota nić do pustego, pulsującego węzła „Miejsce dla Twojej firmy”
+  function drawOverlay(now) {
+    ovRaf = 0;
+    const r = partners.getBoundingClientRect();
+    if (r.bottom <= 0 || r.top >= H) return;
+    const w = overlay.clientWidth, h = overlay.clientHeight;
+    if (overlay.width !== Math.round(w * dpr)) { overlay.width = Math.round(w * dpr); overlay.height = Math.round(h * dpr); }
+    octx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    octx.clearRect(0, 0, w, h);
+    const k = Math.max(0, Math.min(1, (-r.top / H - 0.55) / 0.5));     // pojawia się po otwarciu karty
+    if (k > 0) {
+      const nx = mobile ? soma.x - w * 0.18 : Math.min(w - 120, soma.x + w * 0.11);
+      const ny = mobile ? soma.y - h * 0.24 : soma.y + h * 0.27;
+      const ex = soma.x + (nx - soma.x) * k, ey = soma.y + (ny - soma.y) * k;
+      octx.globalAlpha = k; octx.setLineDash([4, 6]); octx.lineWidth = 1.6; octx.strokeStyle = '#e2b65c';
+      octx.beginPath(); octx.moveTo(soma.x, soma.y); octx.quadraticCurveTo((soma.x + ex) / 2 + 30, (soma.y + ey) / 2, ex, ey); octx.stroke();
+      octx.setLineDash([]);
+      if (k >= 1) {
+        const pulse = 0.5 + 0.5 * Math.sin(now / 420), R = mobile ? 14 : 18;
+        octx.globalAlpha = 0.35 + 0.4 * pulse; octx.lineWidth = 2;
+        octx.beginPath(); octx.arc(nx, ny, R * (1.3 + 0.4 * pulse), 0, 7); octx.stroke();
+        octx.globalAlpha = 1; octx.fillStyle = 'rgba(20,14,8,.75)'; octx.setLineDash([3, 3]);
+        octx.beginPath(); octx.arc(nx, ny, R, 0, 7); octx.fill(); octx.stroke(); octx.setLineDash([]);
+        octx.font = `italic ${mobile ? 14 : 17}px Georgia, serif`; octx.fillStyle = '#f3d9a0';
+        const label = 'Miejsce dla Twojej firmy', tw = octx.measureText(label).width;
+        octx.fillText(label, Math.max(12, Math.min(w - tw - 12, nx - tw / 2)), ny + R + 28);
+      }
+    }
+    ovRaf = requestAnimationFrame(drawOverlay);
   }
 
   // liczniki („Skala misji”) zliczają się od zera, gdy iskra dojedzie do przystanku

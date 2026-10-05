@@ -36,7 +36,17 @@ a logo odpływa na swoje miejsce w nagłówku (`assets/intro.js`).
 5. potem opis, przyciski i menu.
 Przy ponownej wizycie (bez intro) konstelacja i treść po prostu łagodnie się pojawiają.
 
-Zatwierdzona wersja i wszystko, co potrzebne do jej odtworzenia: `tools/intro/README.md`.
+### Mapa drogi – tło strony pod hero (`assets/map.js`)
+Pod hero zaczyna się kreskowa, złota mapa okolicy: na horyzoncie wieś z kościołem (zegar na 16:00),
+dalej pola, zagajniki, rzędy topoli, zagrody i bociany. Przez mapę wije się droga od wsi, przez
+świetlicę, do przyszłości (sieć z logo). Sekcje to przystanki (`<section class="stop">`):
+- droga rysuje się złotem przy przewijaniu, a na jej czubku idzie iskra (start: „Ruszamy w drogę” na dole hero),
+- węzeł przystanku zapala się, gdy dotrze do niego iskra, i wtedy karta przystanku się wyostrza,
+- elementy mapy „rysują się”, gdy iskra je mija.
+Mapa liczy się od układu strony – nowy przystanek wystarczy dodać w HTML (`data-side="left|right"`,
+opcjonalnie `data-place="swietlica|przyszlosc"`). Na telefonie droga biegnie wzdłuż lewej krawędzi.
+
+Zatwierdzona wersja intro i wszystko, co potrzebne do jej odtworzenia: `tools/intro/README.md`.
 
 Montaż: `tools/make_intro.sh materiał.mp4 assets` → `intro.mp4`, `intro-poster.jpg`, `hero-bg.jpg`.
 

@@ -209,9 +209,154 @@ html.intro-done .reveal {
 
 .site-footer {
   text-align: center;
-  padding: 48px 16px;
-  background: var(--white);
-  border-top: 1px solid var(--gold-light);
+  padding: 40px 16px 48px;
+  background: var(--cream);
+  border-top: 1px dashed rgba(184,135,62,.45);   /* „brzeg mapy” */
 }
 .site-footer img { width: 220px; height: auto; }
 .site-footer p { margin: .5em 0 0; color: var(--gold-dark); font-size: .9rem; }
+
+/* ── Początek drogi na dole hero ──────────────────────────────────────── */
+.hero-cue {
+  position: absolute;
+  left: 50%; bottom: 0;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: var(--gold-light);
+  text-decoration: none;
+  font-family: var(--font-serif);
+  font-size: .78rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0,0,0,.6);
+  z-index: 2;
+}
+html.intro-done .hero-cue.reveal { transform: translateX(-50%); }
+.hero-cue-road {
+  position: relative;
+  width: 2px; height: 64px;
+  background: linear-gradient(rgba(243,217,160,0), rgba(243,217,160,.55));
+}
+.hero-cue-spark {
+  position: absolute; left: 50%; top: 0;
+  width: 9px; height: 9px; margin-left: -4.5px;
+  border-radius: 50%;
+  background: #fff4d6;
+  box-shadow: 0 0 10px 4px rgba(243,217,160,.75);
+  animation: cue 2.2s cubic-bezier(.5,0,.5,1) infinite;
+}
+@keyframes cue {
+  0%   { top: 0;    opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { top: 60px; opacity: 0; }
+}
+@media (max-width: 760px) {
+  .hero-cue { left: 30px; transform: none; align-items: flex-start; }
+  html.intro-done .hero-cue.reveal { transform: none; }
+  .hero-cue-text { display: none; }
+  .hero-cue-road { margin-left: -1px; }
+}
+
+/* ── Mapa drogi: tło strony pod hero ──────────────────────────────────── */
+.journey {
+  position: relative;
+  padding: 300px 0 120px;        /* 300 px = pas „horyzontu” (TOP w assets/map.js) */
+  overflow: hidden;
+  color: var(--ink);
+  background-color: var(--cream);
+  /* z ciemnego hero w ciepły papier + delikatne ziarno papieru */
+  background-image:
+    linear-gradient(180deg, #120d07 0, #3a2915 70px, rgba(200,149,63,.28) 170px, rgba(251,246,236,0) 280px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .42 0 0 0 0 .22 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 20% 40%, rgba(226,182,92,.10), transparent 60%),
+    radial-gradient(ellipse at 85% 75%, rgba(226,182,92,.10), transparent 60%);
+  background-repeat: no-repeat, repeat, no-repeat, no-repeat;
+}
+.journey-map {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* droga */
+.road-trail { fill: none; stroke: rgba(138,90,28,.35); stroke-width: 2; stroke-dasharray: 1 9; stroke-linecap: round; }
+.road-band  { fill: none; stroke: rgba(226,182,92,.22); stroke-width: 18; stroke-linecap: round; }
+.road-gold  { fill: none; stroke-width: 3.5; stroke-linecap: round; }
+
+/* rysunki mapy: kreska „rysuje się”, gdy iskra je mija */
+.decos { color: #b8873e; }
+.deco path, .deco circle, .deco rect {
+  fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1 1; stroke-dashoffset: 1;
+  opacity: .55;
+  transition: stroke-dashoffset 1.6s ease, opacity 1.6s ease;
+}
+.deco.on path, .deco.on circle, .deco.on rect { stroke-dashoffset: 0; }
+.deco-place path, .deco-place circle, .deco-place rect { opacity: .85; stroke-width: 1.7; color: #a87631; }
+.deco .glow { fill: rgba(243,205,114,0); transition: fill 1.2s ease 1s; }
+.deco.on .glow { fill: rgba(243,205,114,.55); }
+.deco-future .node { fill: rgba(245,205,114,0); transition: fill 1s ease 1.2s; }
+.deco-future.on .node { fill: url(#node-gold); }
+
+/* węzły przystanków (kule jak w logo) */
+.stop-branch { stroke: rgba(184,135,62,.6); stroke-width: 1.4; stroke-dasharray: 2 6; stroke-linecap: round; }
+.stop-node .ring { fill: var(--cream); stroke: #c8953f; stroke-width: 1.5; }
+.stop-node .ball { fill: url(#node-gold); transform: scale(0); transition: transform .6s cubic-bezier(.3,1.6,.5,1); }
+.stop-node.on .ball { transform: scale(1); }
+.stop-node.on .ring { animation: ring 2.4s ease-out 1; }
+@keyframes ring { 0% { stroke-width: 6; stroke-opacity: .9; } 100% { stroke-width: 1.5; stroke-opacity: 1; } }
+
+/* iskra na czubku drogi */
+.walker-glow { fill: rgba(243,217,160,.9); }
+.walker-core { fill: #fff6dc; }
+.walker { transition: opacity .3s; }
+.walker.hidden { opacity: 0; }
+
+/* przystanki */
+.stop {
+  position: relative;
+  min-height: 72vh;
+  display: flex; align-items: center;
+  padding: 40px 7vw;
+}
+.stop[data-side="right"] { justify-content: flex-end; }
+.stop-card {
+  position: relative;
+  max-width: 440px;
+  padding: 28px 32px;
+  background: rgba(251,246,236,.88);
+  border: 1px solid rgba(200,149,63,.35);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(90,60,20,.10);
+  opacity: .35;
+  transform: translateY(18px);
+  transition: opacity .8s ease, transform .8s ease, box-shadow .8s ease;
+}
+.stop.reached .stop-card { opacity: 1; transform: none; box-shadow: 0 14px 40px rgba(90,60,20,.16); }
+.stop-label {
+  margin: 0 0 .4em;
+  font-family: var(--font-serif);
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+.stop-card h2 { font-family: var(--font-serif); color: var(--gold-dark); font-size: 2rem; margin: 0 0 .4em; }
+.stop-card p:last-child { margin-bottom: 0; }
+.stop-final { min-height: 60vh; }
+
+@media (max-width: 760px) {
+  .journey { padding-top: 260px; }
+  .stop, .stop[data-side="right"] { justify-content: flex-start; min-height: auto; padding: 36px 16px 36px 64px; }
+  .stop-card { padding: 22px 20px; }
+  .stop-card h2 { font-size: 1.6rem; }
+  .stop[data-place] { padding-top: 104px; }   /* miejsce na świetlicę / sieć nad kartą */
+}
+@media (prefers-reduced-motion: reduce) {
+  .stop-card { opacity: 1; transform: none; transition: none; }
+  .hero-cue-spark { animation: none; top: 30px; }
+  .deco path, .deco circle, .deco rect { transition: none; }
+}

@@ -68,25 +68,50 @@
         <button class="btn btn-ghost" type="button" id="intro-replay">▶ Obejrzyj intro</button>
       </div>
     </div>
+    <!-- Początek drogi: iskra zaprasza do przewinięcia, potem idzie dalej po mapie (assets/map.js) -->
+    <a class="hero-cue reveal" style="--d: 1.6s" href="#droga" aria-label="Przewiń – ruszamy w drogę">
+      <span class="hero-cue-text">Ruszamy w&nbsp;drogę</span>
+      <span class="hero-cue-road" aria-hidden="true"><span class="hero-cue-spark"></span></span>
+    </a>
   </section>
 
-  <main>
-    <section id="o-nas" class="section">
-      <h2>O nas</h2>
-      <p>Fundacja Szansa AI przybliża nowe technologie dzieciom z&nbsp;małych miejscowości. Uczymy obsługi komputera, programowania i&nbsp;mądrego korzystania ze sztucznej inteligencji.</p>
+  <!-- Mapa drogi: od wsi, przez świetlicę, do przyszłości. Sekcje to przystanki na drodze;
+       droga rysuje się przy przewijaniu, a mapa (pola, domy, drzewa) pojawia się po drodze. -->
+  <main id="droga" class="journey">
+    <svg class="journey-map" aria-hidden="true"></svg>
+
+    <section id="o-nas" class="stop" data-side="left">
+      <div class="stop-card">
+        <p class="stop-label">Przystanek 1 · Wieś</p>
+        <h2>O nas</h2>
+        <p>Fundacja Szansa AI przybliża nowe technologie dzieciom z&nbsp;małych miejscowości. Uczymy obsługi komputera, programowania i&nbsp;mądrego korzystania ze sztucznej inteligencji.</p>
+      </div>
     </section>
-    <section id="zajecia" class="section alt">
-      <h2>Zajęcia</h2>
-      <p>Spotykamy się w&nbsp;świetlicach wiejskich, gdzie czekają na dzieci komputery i&nbsp;nasi prowadzący.</p>
+
+    <section id="zajecia" class="stop" data-side="right" data-place="swietlica">
+      <div class="stop-card">
+        <p class="stop-label">Przystanek 2 · Świetlica, 16:00</p>
+        <h2>Zajęcia</h2>
+        <p>Spotykamy się w&nbsp;świetlicach wiejskich, gdzie czekają na dzieci komputery i&nbsp;nasi prowadzący.</p>
+      </div>
+    </section>
+
+    <section id="kontakt" class="stop stop-final" data-side="left" data-place="przyszlosc">
+      <div class="stop-card">
+        <p class="stop-label">Meta · Przyszłość</p>
+        <h2>Dołącz do drogi</h2>
+        <p>Chcesz pomóc albo zaprosić nas do swojej miejscowości? Napisz do nas – razem wytyczymy kolejną drogę.</p>
+      </div>
     </section>
   </main>
 
-  <footer id="kontakt" class="site-footer">
+  <footer class="site-footer">
     <img src="assets/logo.svg" alt="Fundacja Szansa AI" width="220" height="73">
     <p>&copy; <span id="year">2026</span> Fundacja Szansa AI</p>
   </footer>
 
   <script src="assets/sparks.js"></script>
   <script src="assets/intro.js"></script>
+  <script src="assets/map.js"></script>
 </body>
 </html>

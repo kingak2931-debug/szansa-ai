@@ -602,3 +602,19 @@ html.intro-done .hero-cue.reveal { transform: translateX(-50%); }
   .full-panel { clip-path: none; }
   .full-inner { opacity: 1; transform: none; transition: none; }
 }
+
+/* ── Przejście partnerzy → „Zgłoś szkołę”: neuron odpala i rozpływa się w światło ── */
+.neuron-fire { opacity: 0; }
+.finale .full-panel {
+  clip-path: none;                       /* bez koła – karta wyłania się z tła identycznego jak ostatnia klatka */
+  opacity: var(--fade, 0);
+  pointer-events: none;
+  background: #0c0805;
+}
+.finale.open .full-panel { pointer-events: auto; }
+.finale-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 50%; }
+.finale-shade {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(10,7,4,.72) 0, rgba(10,7,4,.45) 55%, rgba(10,7,4,.15) 100%);
+}
+@media (prefers-reduced-motion: reduce) { .finale .full-panel { opacity: 1; } }

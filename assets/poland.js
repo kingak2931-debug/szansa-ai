@@ -301,12 +301,31 @@
     return r.top < H && r.bottom > 0 ? k : -1;
   }
 
-  let ovRaf = 0;
+  let ovRaf = 0, fireT = -1;
+  const fire = partners && partners.querySelector('.neuron-fire');
+  const pInner = partners && partners.querySelector('.partners-inner');
+  if (fire) fire.addEventListener('loadedmetadata', () => { fireT = -1; schedule(); });
   function updateFull() {
     const kp = iris(partners);
-    iris(finale);
+    // przejście do „Zgłoś szkołę”: wideo „odpalenia” neuronu przewija się razem ze stroną
+    let t = 0;
+    if (finale) {
+      const fr = finale.getBoundingClientRect();
+      t = reduceMotion ? (fr.top < H ? 1 : 0) : Math.max(0, Math.min(1, (H * 0.55 - fr.top) / (H * 0.75)));
+      finale.style.setProperty('--fade', Math.max(0, Math.min(1, (t - 0.88) / 0.12)).toFixed(3));
+      finale.classList.toggle('open', t > 0.97);
+    }
+    if (fire) {
+      fire.style.opacity = Math.min(1, t * 25).toFixed(3);
+      if (fire.readyState >= 1 && fire.duration && Math.abs(t - fireT) > 0.004) {
+        fireT = t;
+        fire.currentTime = Math.min(fire.duration - 0.05, t * fire.duration);
+      }
+    }
+    if (pInner) pInner.style.opacity = (1 - Math.max(0, Math.min(1, t * 2.5))).toFixed(3);
+    if (overlay) overlay.style.opacity = (1 - Math.max(0, Math.min(1, t * 3))).toFixed(3);
     if (neuron) {
-      if (kp > 0) { if (neuron.paused) neuron.play().catch(() => {}); } else if (!neuron.paused) neuron.pause();
+      if (kp > 0 && t === 0) { if (neuron.paused) neuron.play().catch(() => {}); } else if (!neuron.paused) neuron.pause();
     }
     if (octx && kp > 0.3 && !ovRaf) ovRaf = requestAnimationFrame(drawOverlay);
   }

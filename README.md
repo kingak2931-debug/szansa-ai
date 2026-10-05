@@ -59,7 +59,10 @@ zlatują się w jeden świecący punkt – ciało złotego neuronu. Z tego punkt
 pełnoekranową kartę **partnerów** (`<section class="full partners-full">`) z żywym neuronem w tle
 (wideo z Higgsfield) i pulsującym węzłem „Miejsce dla Twojej firmy”; potem z neuronu rozlewa się kolejne
 światło i otwiera pełnoekranowe **„Zgłoś szkołę”** (`<section class="full finale">`). Obie karty zostają
-chwilę przypięte; linki „Dla sponsorów” i „Kontakt” prowadzą prosto do otwartych kart.
+chwilę przypięte. Przejście do „Zgłoś szkołę” to drugi film z Higgsfield (Kling 3.0, klatka startowa = neuron,
+końcowa = złota poświata): przy przewijaniu neuron „odpala” – impuls biegnie po dendrytach, a potem neuron
+rozsypuje się w złoty pył. Film przewija się razem ze stroną, a tło karty „Zgłoś szkołę” to jego ostatnia klatka,
+więc karta wyłania się z poświaty bez żadnej krawędzi. Linki „Dla sponsorów” i „Kontakt” prowadzą prosto do otwartych kart.
 
 Trasa jest **poglądowa** (droga, którą chcemy przejechać), a nie lista zrealizowanych szkoleń – mówi o tym
 podpis na mapie. Po pierwszych szkoleniach można dodać prawdziwe pinezki odwiedzonych szkół.
@@ -77,3 +80,5 @@ Aktualne pliki leżą na serwerze Higgsfield i strona pobiera je stamtąd, dopó
 - tło hero: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/86142dc1-a586-47ff-b3b1-a3292b330e32.jpg → `assets/hero-bg.jpg`
 - żywe tło hero: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/47ab909b-e615-4aca-afcf-b0c98034ac0e.mp4 → `assets/hero-loop.mp4`
 - złoty neuron (Higgsfield: obraz gpt_image_2_5 + pętla Kling 3.0, ta sama klatka na początku i końcu): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/1883651d-7223-4e5f-881f-27d9a01fb32d.mp4 → `assets/neuron.mp4`
+- odpalenie neuronu (przejście do „Zgłoś szkołę”, każda klatka kluczowa – płynne przewijanie): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/57631362-ed94-4ca8-bbb2-400c07b8afb1.mp4 → `assets/neuron-fire.mp4`
+- tło „Zgłoś szkołę” (ostatnia klatka filmu): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/f8c53d78-c635-4cc3-b220-69e4cb7e3f34.jpg

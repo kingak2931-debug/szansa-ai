@@ -49,11 +49,18 @@
   }
 
   // W trakcie intro: logo w rogu, potem przejazd na środek – zsynchronizowane z czasem filmu.
-  let raf = 0, liveStarted = false;
-  function tick() {
+  // Strażnik: intro nigdy nie może zatrzymać strony. Jeśli film nie rusza (8 s), stoi w miejscu
+  // (wolne łącze – 4 s bez postępu) albo trwa za długo (24 s), pokazujemy stronę od razu.
+  const STALL_MS = 4000, NO_START_MS = 8000, MAX_MS = 24000;
+  let raf = 0, liveStarted = false, t0 = 0, lastT = -1, lastMove = 0;
+  function tick(now) {
     raf = 0;
     if (finished) return;
     const t = video.currentTime;
+    if (!t0) { t0 = lastMove = now; }
+    if (t !== lastT) { lastT = t; lastMove = now; }
+    if (now - t0 > MAX_MS || (t === 0 && now - t0 > NO_START_MS) ||
+        (t > 0 && !video.paused && now - lastMove > STALL_MS)) { finish(); return; }
     const p = clamp((t - MOVE[0]) / MOVE[1], 0, 1), e = p * p * (3 - 2 * p);
     const a = cornerRect(), b = centerRect();
     place({
@@ -63,12 +70,14 @@
     });
     fly.style.opacity = clamp((t - SHOW[0]) / SHOW[1], 0, 1).toFixed(3);
     if (shade) shade.style.opacity = (1 - e).toFixed(3);
-    // żywe tło hero ruszy wcześniej (pod intro), żeby w chwili przejścia nic się nie zacięło
+    // żywe tło hero: pobieramy w połowie intro, rusza wcześniej (pod intro), żeby przejście się nie zacięło
+    if (t > 5 && live.preload === 'none') warm(live);
     if (!liveStarted && t > 9) { liveStarted = true; playLive(); }
     if (t >= END_AT) { finish(); return; }
     raf = requestAnimationFrame(tick);
   }
   function startTicking() {
+    t0 = 0; lastT = -1;
     fly.style.transition = 'none';
     fly.hidden = false;
     fly.classList.add('in-intro');
@@ -122,6 +131,22 @@
     Sparks.burst(from);
 
     setTimeout(() => { intro.hidden = true; }, 900);
+    loadRest();
+  }
+
+  function warm(v) {
+    v.preload = 'auto';
+    if (v.readyState === 0) v.load();
+  }
+
+  // Filmy dalszych sekcji (neuron w karcie partnerów) pobieramy dopiero po intro.
+  let restLoaded = false;
+  function loadRest() {
+    if (restLoaded) return;
+    restLoaded = true;
+    setTimeout(() => {
+      document.querySelectorAll('video.neuron').forEach(warm);
+    }, 2500);
   }
 
   function start() {
@@ -135,6 +160,7 @@
     landed();
     scrollTo(0, 0);
     video.preload = 'auto';
+    if (!video.getAttribute('src')) video.src = window.szansaIntroSrc();
     video.currentTime = 0;
     liveStarted = false;
     startTicking();
@@ -147,17 +173,15 @@
     video.removeAttribute('autoplay');
     video.preload = 'none';
     root.classList.add('intro-done');
+    warm(live);
     playLive();
     Sparks.show();
+    loadRest();
   } else {
-    // Błąd dopiero ostatniego źródła oznacza, że filmu nie da się odtworzyć.
-    const sources = video.querySelectorAll('source');
-    sources[sources.length - 1].addEventListener('error', () => finish());
+    video.addEventListener('error', () => finish());
     startTicking();
     // Zablokowane autoodtwarzanie – od razu pokaż stronę.
     video.play().catch(() => finish());
-    // Awaryjnie: jeśli film w ogóle nie ruszył (np. bardzo wolne łącze).
-    setTimeout(() => { if (video.currentTime === 0) finish(); }, 20000);
   }
 
   document.getElementById('intro-skip').addEventListener('click', () => finish());

@@ -26,9 +26,20 @@
   <div id="intro" class="intro" aria-label="Film intro Fundacji Szansa AI">
     <video id="intro-video" class="intro-video" autoplay muted playsinline preload="auto"
            poster="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/2442dca2-f005-4ee7-9ecb-2f756d6f2d48.jpg">
-      <source src="assets/intro.mp4" type="video/mp4">
-      <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/73e3c367-e5e3-49ab-8aef-499c576ddf50.mp4" type="video/mp4">
     </video>
+    <script>
+      // Plik intro dobrany do ekranu i łącza: 1080p (ok. 4 MB) albo 720p na telefony i wolne łącza.
+      // Bez intro (powtórna wizyta) film w ogóle się nie pobiera.
+      window.szansaIntroSrc = function () {
+        var c = navigator.connection || {};
+        var small = innerWidth < 900 || c.saveData || /(^|-)(2g|3g)$/.test(c.effectiveType || '');
+        return small ? 'https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/4e6ec182-b114-49fe-80bd-124f63304c49.mp4'
+                     : 'https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/02d34c36-601d-46c3-9aeb-fd65a4e5e983.mp4';
+      };
+      if (!document.documentElement.classList.contains('no-intro')) {
+        document.getElementById('intro-video').src = szansaIntroSrc();
+      }
+    </script>
     <div class="intro-shade" aria-hidden="true"></div>
     <div class="intro-controls">
       <button type="button" id="intro-sound" class="btn btn-ghost btn-small" aria-pressed="false">🔈 Włącz dźwięk</button>
@@ -54,8 +65,7 @@
 
   <section class="hero">
     <!-- Żywe tło: zwolniona pętla z końcówki intro (tools/make_hero_loop.sh) -->
-    <video id="hero-live" class="hero-live" muted loop playsinline preload="auto" aria-hidden="true">
-      <source src="assets/hero-loop.mp4" type="video/mp4">
+    <video id="hero-live" class="hero-live" muted loop playsinline preload="none" aria-hidden="true">
       <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/47ab909b-e615-4aca-afcf-b0c98034ac0e.mp4" type="video/mp4">
     </video>
     <div class="hero-shade" aria-hidden="true"></div>
@@ -179,13 +189,11 @@
        (wideo z Higgsfield), z którego złote światło otwiera kartę (assets/poland.js → updateFull). -->
   <section id="sponsorzy" class="full partners-full" aria-labelledby="partners-title">
     <div class="full-panel">
-      <video class="neuron" muted loop playsinline preload="metadata" aria-hidden="true" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/1b3206b5-da45-4c2c-bec2-8ba7453c4f3e.jpg">
-        <source src="assets/neuron.mp4" type="video/mp4">
+      <video class="neuron" muted loop playsinline preload="none" aria-hidden="true" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/1b3206b5-da45-4c2c-bec2-8ba7453c4f3e.jpg">
         <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/1883651d-7223-4e5f-881f-27d9a01fb32d.mp4" type="video/mp4">
       </video>
       <!-- przejście do „Zgłoś szkołę”: neuron odpala i rozpływa się w złote światło (wideo sterowane przewijaniem) -->
-      <video class="neuron neuron-fire" muted playsinline preload="auto" aria-hidden="true">
-        <source src="assets/neuron-fire.mp4" type="video/mp4">
+      <video class="neuron neuron-fire" muted playsinline preload="none" aria-hidden="true">
         <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/57631362-ed94-4ca8-bbb2-400c07b8afb1.mp4" type="video/mp4">
       </video>
       <div class="partners-shade" aria-hidden="true"></div>

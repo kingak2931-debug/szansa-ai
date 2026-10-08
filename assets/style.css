@@ -48,7 +48,7 @@ body {
   .site-header nav a { font-size: .7rem; letter-spacing: .08em; }
 }
 
-/* Tło hero = ostatnia klatka filmu intro (bez logo). Lokalny plik, a gdy go brak – kopia z serwera. */
+/* Tło hero = ostatnia klatka filmu intro (bez logo). */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -58,7 +58,6 @@ body {
   overflow: hidden;
   background-color: #2a1f12;
   background-image:
-    url("hero-bg.jpg"),
     url("https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/86142dc1-a586-47ff-b3b1-a3292b330e32.jpg");
   background-size: cover;
   background-position: center;

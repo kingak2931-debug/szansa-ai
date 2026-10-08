@@ -87,8 +87,14 @@ Zatwierdzona wersja intro i wszystko, co potrzebne do jej odtworzenia: `tools/in
 
 Montaż: `tools/make_intro.sh materiał.mp4 assets` → `intro.mp4`, `intro-poster.jpg`, `hero-bg.jpg`.
 
-Aktualne pliki leżą na serwerze Higgsfield i strona pobiera je stamtąd, dopóki w `assets/` nie ma kopii lokalnych:
-- film (v7, bez logo): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/73e3c367-e5e3-49ab-8aef-499c576ddf50.mp4 → `assets/intro.mp4`
+Pliki leżą na serwerze Higgsfield i strona pobiera je stamtąd. Kolejność pobierania: najpierw tylko intro,
+w połowie intro żywe tło hero, a filmy neuronu dopiero po intro – żeby nic nie konkurowało z intro o łącze.
+Intro nigdy nie blokuje strony: gdy film nie rusza (8 s), zacina się (4 s bez postępu) albo trwa za długo
+(24 s), strona pokazuje się od razu (`assets/intro.js`).
+- film (v7, bez logo) – strona wybiera wersję wg ekranu i łącza (`szansaIntroSrc` w `index.html`):
+  1080p, 4,2 MB: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/02d34c36-601d-46c3-9aeb-fd65a4e5e983.mp4 ·
+  720p, 2,2 MB (telefony, wolne łącza): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/4e6ec182-b114-49fe-80bd-124f63304c49.mp4 ·
+  wzorzec 10 MB (montaż `tools/make_intro.sh`): https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/73e3c367-e5e3-49ab-8aef-499c576ddf50.mp4
 - pierwsza klatka: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/2442dca2-f005-4ee7-9ecb-2f756d6f2d48.jpg → `assets/intro-poster.jpg`
 - tło hero: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/86142dc1-a586-47ff-b3b1-a3292b330e32.jpg → `assets/hero-bg.jpg`
 - żywe tło hero: https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/47ab909b-e615-4aca-afcf-b0c98034ac0e.mp4 → `assets/hero-loop.mp4`

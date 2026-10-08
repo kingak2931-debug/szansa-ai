@@ -6,13 +6,13 @@ fundacja dla dzieci szansa ai
 |---|---|
 | `index.html` | intro → hero (slogan „Każde dziecko zasługuje na swoją szansę”) → mapa drogi z przystankami: Dlaczego to ważne, Misja, Program szkolenia, Bezpieczeństwo dzieci (SOM), Skala misji (liczniki), Mapa rozwoju, → pełnoekranowa karta partnerów ze złotym neuronem (zaproszenie, bez pakietów i kwot) → pełnoekranowe „Zgłoś szkołę”; stopka z danymi formalnymi |
 | `polityka-prywatnosci.html` | polityka prywatności (RODO) w stylu strony |
+| `wesprzyj.html` | „Wesprzyj nas”: dane do przelewu i tytuły przelewów z przyciskami „Kopiuj” (numer konta do uzupełnienia w jednym miejscu – `<code class="iban">` i `data-copy` obok) |
 
-Treści pochodzą z wcześniejszej wersji strony (index/misja/sponsorzy/polityka). Strony „Wesprzyj nas”
-(dane do przelewu, PayU) i „Zgłoś szkołę” (formularz) nie zostały jeszcze przeniesione – przyciski
-prowadzą na razie do e-maila kontakt@szansaai.pl z gotowym tematem.
+Treści pochodzą z wcześniejszej wersji strony (index/misja/sponsorzy/polityka). 
 
-## Formularz partnerstwa
-Przycisk „Porozmawiajmy o partnerstwie” otwiera okno z formularzem (`assets/partner-form.js`).
+## Formularze (partnerstwo, zgłoszenie szkoły)
+Przyciski „Porozmawiajmy o partnerstwie”, „Zostań partnerem” i „Zgłoś szkołę” otwierają okna z formularzami (`assets/forms.js`,
+przycisk ma `data-open-form="id-okna"`, pola wysyłane pod etykietą z `data-label`).
 Strona nie ma własnego serwera, więc wiadomość wysyła usługa FormSubmit (formsubmit.co) na kontakt@szansaai.pl.
 **Przy pierwszym zgłoszeniu FormSubmit przyśle na kontakt@szansaai.pl e-mail z linkiem aktywacyjnym – trzeba go raz kliknąć.**
 Do tego czasu (i gdy usługa nie odpowiada) formularz otwiera pocztę z gotową, wypełnioną wiadomością – nic nie ginie.

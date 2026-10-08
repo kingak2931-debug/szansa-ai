@@ -203,7 +203,7 @@
         <h2 id="partners-title">Twoja firma może dać dzieciom szansę.</h2>
         <p class="full-text">Zapraszamy firmy i&nbsp;instytucje do współpracy. Dzięki sponsorom docieramy do kolejnych szkół, a&nbsp;udział dzieci pozostaje bezpłatny. Partnerom zapewniamy mierzalny wpływ społeczny z&nbsp;raportem do CSR/ESG, możliwość wolontariatu pracowniczego na szkoleniach oraz autentyczną historię dla marki. Chętnie przyjmiemy też darowiznę rzeczową — sprzęt pod przyszłe mobilne pracownie AI.</p>
         <p class="full-text">Formę współpracy dobierzemy wspólnie — porozmawiajmy.</p>
-        <a class="btn btn-gold btn-big" href="mailto:kontakt@szansaai.pl?subject=Partnerstwo%20z%20Fundacj%C4%85%20Szansa%20AI" data-partner-form>Porozmawiajmy o&nbsp;partnerstwie</a>
+        <a class="btn btn-gold btn-big" href="mailto:kontakt@szansaai.pl?subject=Partnerstwo%20z%20Fundacj%C4%85%20Szansa%20AI" data-open-form="partner-dialog">Porozmawiajmy o&nbsp;partnerstwie</a>
       </div>
     </div>
   </section>
@@ -221,9 +221,9 @@
         <h2 id="finale-title">Pomóż nam dotrzeć do kolejnej szkoły.</h2>
         <p class="finale-text">Zaproś nas do swojej szkoły, wesprzyj fundację albo zostań partnerem biznesowym z&nbsp;mierzalnym raportem wpływu. Odpowiadamy w&nbsp;ciągu 2&nbsp;dni roboczych i&nbsp;chętnie przyjedziemy z&nbsp;prezentacją programu.</p>
         <div class="finale-actions">
-          <a class="btn btn-gold btn-big" href="mailto:kontakt@szansaai.pl?subject=Zg%C5%82oszenie%20szko%C5%82y">Zgłoś szkołę</a>
-          <a class="btn btn-ghost" href="mailto:kontakt@szansaai.pl?subject=Partnerstwo%20z%20Fundacj%C4%85%20Szansa%20AI">Zostań partnerem</a>
-          <a class="btn btn-ghost" href="mailto:kontakt@szansaai.pl?subject=Wsparcie%20Fundacji%20Szansa%20AI">Wesprzyj nas</a>
+          <a class="btn btn-gold btn-big" href="mailto:kontakt@szansaai.pl?subject=Zg%C5%82oszenie%20szko%C5%82y" data-open-form="school-dialog">Zgłoś szkołę</a>
+          <a class="btn btn-ghost" href="mailto:kontakt@szansaai.pl?subject=Partnerstwo%20z%20Fundacj%C4%85%20Szansa%20AI" data-open-form="partner-dialog">Zostań partnerem</a>
+          <a class="btn btn-ghost" href="wesprzyj.html">Wesprzyj nas</a>
         </div>
         <p class="finale-mail"><a href="mailto:kontakt@szansaai.pl">kontakt@szansaai.pl</a></p>
       </div>
@@ -255,8 +255,8 @@
     <p class="copyright">&copy; <span id="year">2026</span> Fundacja „Szansa AI”. Wszystkie prawa zastrzeżone. · <a href="polityka-prywatnosci.html">Polityka prywatności</a> · <a href="#" data-cookie-settings>Ustawienia cookies</a></p>
   </footer>
 
-  <!-- Formularz partnerstwa (assets/partner-form.js) – otwiera się z karty „Dla sponsorów” -->
-  <dialog id="partner-dialog" class="form-dialog" aria-labelledby="partner-dialog-title">
+  <!-- Formularze w oknach (assets/forms.js): partnerstwo i zgłoszenie szkoły -->
+  <dialog id="partner-dialog" class="form-dialog" aria-labelledby="partner-dialog-title" data-subject="Partnerstwo" data-subject-field="company">
     <div class="form-card">
       <button type="button" class="form-close" data-close aria-label="Zamknij">×</button>
       <div class="form-body">
@@ -266,16 +266,16 @@
         <form novalidate>
           <div class="form-grid">
             <label><span>Imię i&nbsp;nazwisko <span class="req" aria-hidden="true">*</span></span>
-              <input name="name" type="text" autocomplete="name" required></label>
+              <input name="name" type="text" autocomplete="name" required data-label="Imię i nazwisko"></label>
             <label>Firma / instytucja
-              <input name="company" type="text" autocomplete="organization"></label>
+              <input name="company" type="text" autocomplete="organization" data-label="Firma / instytucja"></label>
             <label><span>E-mail <span class="req" aria-hidden="true">*</span></span>
-              <input name="email" type="email" autocomplete="email" required></label>
+              <input name="email" type="email" autocomplete="email" required data-label="E-mail"></label>
             <label>Telefon
-              <input name="phone" type="tel" autocomplete="tel"></label>
+              <input name="phone" type="tel" autocomplete="tel" data-label="Telefon"></label>
           </div>
           <label>Forma współpracy
-            <select name="type">
+            <select name="type" data-label="Forma współpracy">
               <option>Jeszcze nie wiem – porozmawiajmy</option>
               <option>Wsparcie finansowe</option>
               <option>Darowizna rzeczowa (np. sprzęt)</option>
@@ -283,7 +283,7 @@
               <option>Inna</option>
             </select></label>
           <label>Wiadomość
-            <textarea name="message" rows="4" placeholder="Np. czym zajmuje się firma, co chcielibyście wspólnie zrobić…"></textarea></label>
+            <textarea name="message" rows="4" data-label="Wiadomość" placeholder="Np. czym zajmuje się firma, co chcielibyście wspólnie zrobić…"></textarea></label>
           <input name="_honey" type="text" tabindex="-1" autocomplete="off" class="form-honey" aria-hidden="true">
           <label class="form-consent"><input type="checkbox" name="consent" required>
             <span>Wyrażam zgodę na kontakt w&nbsp;sprawie współpracy. Administratorem danych jest Fundacja Szansa AI — szczegóły w&nbsp;<a href="polityka-prywatnosci.html" target="_blank" rel="noopener">polityce prywatności</a>. <span aria-hidden="true">*</span></span></label>
@@ -302,10 +302,64 @@
     </div>
   </dialog>
 
+  <dialog id="school-dialog" class="form-dialog" aria-labelledby="school-dialog-title" data-subject="Zgłoszenie szkoły" data-subject-field="school">
+    <div class="form-card">
+      <button type="button" class="form-close" data-close aria-label="Zamknij">×</button>
+      <div class="form-body">
+        <p class="finale-label">Zgłoś szkołę</p>
+        <h2 id="school-dialog-title">Zaproś nas do swojej szkoły</h2>
+        <p class="form-intro">Napisz, skąd jesteś i&nbsp;kogo chcielibyście zaprosić na zajęcia — skontaktujemy się, żeby omówić szczegóły i&nbsp;termin.</p>
+        <form novalidate>
+          <div class="form-grid">
+            <label><span>Imię i&nbsp;nazwisko <span class="req" aria-hidden="true">*</span></span>
+              <input name="name" type="text" autocomplete="name" required data-label="Imię i nazwisko"></label>
+            <label>Kim jesteś dla szkoły?
+              <select name="role" data-label="Rola">
+                <option>Dyrekcja</option>
+                <option>Nauczyciel / nauczycielka</option>
+                <option>Rodzic / opiekun</option>
+                <option>Samorząd / gmina</option>
+                <option>Inna osoba</option>
+              </select></label>
+            <label><span>Nazwa szkoły <span class="req" aria-hidden="true">*</span></span>
+              <input name="school" type="text" required data-label="Szkoła"></label>
+            <label><span>Miejscowość <span class="req" aria-hidden="true">*</span></span>
+              <input name="town" type="text" autocomplete="address-level2" required data-label="Miejscowość"></label>
+            <label><span>E-mail <span class="req" aria-hidden="true">*</span></span>
+              <input name="email" type="email" autocomplete="email" required data-label="E-mail"></label>
+            <label>Telefon
+              <input name="phone" type="tel" autocomplete="tel" data-label="Telefon"></label>
+          </div>
+          <label>Dla kogo zajęcia?
+            <select name="level" data-label="Uczniowie">
+              <option>Klasy 4–8 szkoły podstawowej</option>
+              <option>Szkoła średnia</option>
+              <option>Różne klasy – do ustalenia</option>
+            </select></label>
+          <label>Wiadomość
+            <textarea name="message" rows="3" data-label="Wiadomość" placeholder="Np. ilu uczniów, jaka sala lub pracownia, preferowany termin…"></textarea></label>
+          <input name="_honey" type="text" tabindex="-1" autocomplete="off" class="form-honey" aria-hidden="true">
+          <label class="form-consent"><input type="checkbox" name="consent" required>
+            <span>Wyrażam zgodę na kontakt w&nbsp;sprawie zgłoszenia. Administratorem danych jest Fundacja Szansa AI — szczegóły w&nbsp;<a href="polityka-prywatnosci.html" target="_blank" rel="noopener">polityce prywatności</a>. <span aria-hidden="true">*</span></span></label>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-gold btn-big">Wyślij zgłoszenie</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+      <div class="form-done" role="status">
+        <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/3c5cd802-3fe2-4ea1-bb2b-ce4b34f1106e.webp" alt="" width="84" height="84">
+        <h2>Dziękujemy za zgłoszenie!</h2>
+        <p>Odezwiemy się wkrótce, żeby porozmawiać o&nbsp;zajęciach w&nbsp;Twojej szkole.</p>
+        <button type="button" class="btn btn-ghost" data-close>Zamknij</button>
+      </div>
+    </div>
+  </dialog>
+
   <script src="assets/sparks.js"></script>
   <script src="assets/intro.js"></script>
   <script src="assets/poland.js"></script>
   <script src="assets/cookies.js"></script>
-  <script src="assets/partner-form.js"></script>
+  <script src="assets/forms.js"></script>
 </body>
 </html>

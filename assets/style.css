@@ -613,6 +613,9 @@ html.intro-done .hero-cue.reveal { transform: translateX(-50%); }
   pointer-events: none;
   background: #0c0805;
 }
+/* Sekcja „Zgłoś szkołę” nachodzi na kartę partnerów (ujemny margines) – dopóki jest przezroczysta,
+   nie może przechwytywać kliknięć, inaczej przycisk „Porozmawiajmy o partnerstwie” nie działa. */
+.finale { pointer-events: none; }
 .finale.open .full-panel { pointer-events: auto; }
 .finale-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 50%; }
 .finale-shade {

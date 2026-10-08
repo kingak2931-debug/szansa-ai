@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="assets/style.css">
   <script>
     // Intro pokazujemy raz na wizytę; pomijamy przy "ogranicz ruch".
+    document.documentElement.classList.add('has-intro');
     try {
       if (sessionStorage.getItem('szansa-intro-seen') ||
           matchMedia('(prefers-reduced-motion: reduce)').matches) {

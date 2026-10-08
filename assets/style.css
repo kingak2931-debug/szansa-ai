@@ -82,7 +82,8 @@ body {
 }
 .btn-small { padding: .5em 1.1em; font-size: .85rem; white-space: nowrap; }
 html.no-intro .intro { display: none; }
-html:not(.intro-done) body { overflow: hidden; }
+/* blokada przewijania tylko na stronie głównej, póki trwa intro (podstrony nie mają intro) */
+html.has-intro:not(.intro-done) body { overflow: hidden; }
 
 /* ── Przejście intro → hero („Złota iskra” z żywym tłem) ──────────────────
    --t0: kiedy po zakończeniu intro zaczyna się pojawiać treść hero.

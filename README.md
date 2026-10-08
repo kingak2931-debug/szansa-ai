@@ -4,7 +4,7 @@ fundacja dla dzieci szansa ai
 ## Strony
 | Plik | Zawartość |
 |---|---|
-| `index.html` | intro → hero (slogan „Każde dziecko zasługuje na szansę.”) → mapa drogi z przystankami: O nas, Nasza misja, Program szkolenia, Bezpieczeństwo dzieci (SOM), Skala misji (liczniki), Mapa rozwoju, → pełnoekranowa karta partnerów ze złotym neuronem (zaproszenie, bez pakietów i kwot) → pełnoekranowe „Zgłoś szkołę”; stopka z danymi formalnymi |
+| `index.html` | intro → hero (slogan „Każde dziecko zasługuje na swoją szansę”) → mapa drogi z przystankami: Dlaczego to ważne, Misja, Program szkolenia, Bezpieczeństwo dzieci (SOM), Skala misji (liczniki), Mapa rozwoju, → pełnoekranowa karta partnerów ze złotym neuronem (zaproszenie, bez pakietów i kwot) → pełnoekranowe „Zgłoś szkołę”; stopka z danymi formalnymi |
 | `polityka-prywatnosci.html` | polityka prywatności (RODO) w stylu strony |
 
 Treści pochodzą z wcześniejszej wersji strony (index/misja/sponsorzy/polityka). Strony „Wesprzyj nas”

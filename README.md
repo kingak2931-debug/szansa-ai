@@ -11,6 +11,13 @@ Treści pochodzą z wcześniejszej wersji strony (index/misja/sponsorzy/polityka
 (dane do przelewu, PayU) i „Zgłoś szkołę” (formularz) nie zostały jeszcze przeniesione – przyciski
 prowadzą na razie do e-maila kontakt@szansaai.pl z gotowym tematem.
 
+## Formularz partnerstwa
+Przycisk „Porozmawiajmy o partnerstwie” otwiera okno z formularzem (`assets/partner-form.js`).
+Strona nie ma własnego serwera, więc wiadomość wysyła usługa FormSubmit (formsubmit.co) na kontakt@szansaai.pl.
+**Przy pierwszym zgłoszeniu FormSubmit przyśle na kontakt@szansaai.pl e-mail z linkiem aktywacyjnym – trzeba go raz kliknąć.**
+Do tego czasu (i gdy usługa nie odpowiada) formularz otwiera pocztę z gotową, wypełnioną wiadomością – nic nie ginie.
+FormSubmit jest wymieniony w polityce prywatności jako odbiorca danych.
+
 ## Zgoda na cookies
 `assets/cookies.js` (na obu stronach): baner „Akceptuję wszystkie / Tylko niezbędne / Ustawienia”, pojawia się
 po intro; wybór w `localStorage` na 12 miesięcy; link „Ustawienia cookies” w stopce otwiera go ponownie.

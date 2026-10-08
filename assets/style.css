@@ -724,3 +724,4 @@ html.modal-open { overflow: hidden; }
   .form-grid { grid-template-columns: 1fr; }
   .form-actions .btn { width: 100%; text-align: center; }
 }
+.form-card .req { color: var(--gold); }

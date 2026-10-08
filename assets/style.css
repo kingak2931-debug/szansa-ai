@@ -652,3 +652,72 @@ html.intro-done .hero-cue.reveal { transform: translateX(-50%); }
   .cookies { left: 10px; right: 10px; bottom: 10px; padding: 16px; }
   .cookies-actions .btn { flex: 1 1 auto; text-align: center; }
 }
+
+/* ── Formularz partnerstwa (assets/partner-form.js) ───────────────────── */
+html.modal-open { overflow: hidden; }
+.form-dialog {
+  width: min(640px, calc(100vw - 24px));
+  max-height: calc(100dvh - 24px);
+  padding: 0; border: 0; background: transparent; color: rgba(255,255,255,.9);
+  overflow: visible;
+}
+.form-dialog::backdrop {
+  background: radial-gradient(ellipse at 50% 40%, rgba(40,26,8,.55), rgba(5,3,1,.85));
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  opacity: 0; transition: opacity .25s ease;
+}
+.form-dialog.is-open::backdrop { opacity: 1; }
+.form-card {
+  position: relative;
+  max-height: calc(100dvh - 24px); overflow-y: auto;
+  padding: clamp(24px, 4vw, 40px);
+  background: linear-gradient(160deg, rgba(34,25,13,.97), rgba(16,11,6,.98));
+  border: 1px solid rgba(243,217,160,.3);
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 60px rgba(243,205,114,.12);
+  opacity: 0; transform: translateY(18px) scale(.98);
+  transition: opacity .25s ease, transform .25s ease;
+}
+.form-dialog.is-open .form-card { opacity: 1; transform: none; }
+.form-card h2 { margin: 0 0 .3em; font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(1.6rem, 3.4vw, 2.1rem); color: var(--gold-light); }
+.form-intro { margin: 0 0 1.4em; color: rgba(255,255,255,.75); }
+.form-close {
+  position: absolute; top: 12px; right: 14px;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid rgba(243,217,160,.3); background: transparent; color: var(--gold-light);
+  font-size: 1.5rem; line-height: 1; cursor: pointer;
+}
+.form-close:hover { background: rgba(243,217,160,.1); }
+.form-card form { display: grid; gap: 14px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-card label { display: grid; gap: 6px; font-size: .85rem; letter-spacing: .02em; color: rgba(243,217,160,.9); }
+.form-card input:not([type="checkbox"]), .form-card select, .form-card textarea {
+  width: 100%; padding: .75em .9em;
+  font: inherit; font-size: 1rem; color: #fff;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(243,217,160,.25); border-radius: 10px;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+.form-card select option { color: #1d1a16; }
+.form-card textarea { resize: vertical; min-height: 96px; }
+.form-card input:focus, .form-card select:focus, .form-card textarea:focus {
+  outline: none; border-color: var(--gold); background: rgba(255,255,255,.08);
+  box-shadow: 0 0 0 3px rgba(243,205,114,.18);
+}
+.form-card input:user-invalid, .form-card textarea:user-invalid { border-color: #e0876a; }
+.form-consent { grid-template-columns: auto 1fr !important; align-items: start; font-size: .8rem !important; color: rgba(255,255,255,.7) !important; }
+.form-consent input { margin-top: .2em; accent-color: var(--gold); width: 18px; height: 18px; }
+.form-consent a { color: var(--gold-light); }
+.form-honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 6px; }
+.form-actions .btn[disabled] { opacity: .6; cursor: wait; }
+.form-status { margin: 0; font-size: .9rem; color: rgba(255,255,255,.75); }
+.form-done { display: none; text-align: center; padding: 20px 0 8px; }
+.form-done img { filter: drop-shadow(0 0 18px rgba(243,205,114,.45)); }
+.form-done p { color: rgba(255,255,255,.8); margin: 0 0 1.4em; }
+.form-dialog.is-sent .form-body { display: none; }
+.form-dialog.is-sent .form-done { display: block; }
+@media (max-width: 560px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .form-actions .btn { width: 100%; text-align: center; }
+}

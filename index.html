@@ -203,7 +203,7 @@
         <h2 id="partners-title">Twoja firma może dać dzieciom szansę.</h2>
         <p class="full-text">Zapraszamy firmy i&nbsp;instytucje do współpracy. Dzięki sponsorom docieramy do kolejnych szkół, a&nbsp;udział dzieci pozostaje bezpłatny. Partnerom zapewniamy mierzalny wpływ społeczny z&nbsp;raportem do CSR/ESG, możliwość wolontariatu pracowniczego na szkoleniach oraz autentyczną historię dla marki. Chętnie przyjmiemy też darowiznę rzeczową — sprzęt pod przyszłe mobilne pracownie AI.</p>
         <p class="full-text">Formę współpracy dobierzemy wspólnie — porozmawiajmy.</p>
-        <a class="btn btn-gold btn-big" href="mailto:kontakt@szansaai.pl?subject=Partnerstwo%20z%20Fundacj%C4%85%20Szansa%20AI">Porozmawiajmy o&nbsp;partnerstwie</a>
+        <a class="btn btn-gold btn-big" href="mailto:kontakt@szansaai.pl?subject=Partnerstwo%20z%20Fundacj%C4%85%20Szansa%20AI" data-partner-form>Porozmawiajmy o&nbsp;partnerstwie</a>
       </div>
     </div>
   </section>
@@ -255,9 +255,57 @@
     <p class="copyright">&copy; <span id="year">2026</span> Fundacja „Szansa AI”. Wszystkie prawa zastrzeżone. · <a href="polityka-prywatnosci.html">Polityka prywatności</a> · <a href="#" data-cookie-settings>Ustawienia cookies</a></p>
   </footer>
 
+  <!-- Formularz partnerstwa (assets/partner-form.js) – otwiera się z karty „Dla sponsorów” -->
+  <dialog id="partner-dialog" class="form-dialog" aria-labelledby="partner-dialog-title">
+    <div class="form-card">
+      <button type="button" class="form-close" data-close aria-label="Zamknij">×</button>
+      <div class="form-body">
+        <p class="finale-label">Dla sponsorów</p>
+        <h2 id="partner-dialog-title">Porozmawiajmy o&nbsp;partnerstwie</h2>
+        <p class="form-intro">Zostaw kilka słów o&nbsp;sobie i&nbsp;swojej firmie — odezwiemy się, żeby wspólnie dobrać formę współpracy.</p>
+        <form novalidate>
+          <div class="form-grid">
+            <label>Imię i&nbsp;nazwisko <span aria-hidden="true">*</span>
+              <input name="name" type="text" autocomplete="name" required></label>
+            <label>Firma / instytucja
+              <input name="company" type="text" autocomplete="organization"></label>
+            <label>E-mail <span aria-hidden="true">*</span>
+              <input name="email" type="email" autocomplete="email" required></label>
+            <label>Telefon
+              <input name="phone" type="tel" autocomplete="tel"></label>
+          </div>
+          <label>Forma współpracy
+            <select name="type">
+              <option>Jeszcze nie wiem – porozmawiajmy</option>
+              <option>Wsparcie finansowe</option>
+              <option>Darowizna rzeczowa (np. sprzęt)</option>
+              <option>Wolontariat pracowniczy</option>
+              <option>Inna</option>
+            </select></label>
+          <label>Wiadomość
+            <textarea name="message" rows="4" placeholder="Np. czym zajmuje się firma, co chcielibyście wspólnie zrobić…"></textarea></label>
+          <input name="_honey" type="text" tabindex="-1" autocomplete="off" class="form-honey" aria-hidden="true">
+          <label class="form-consent"><input type="checkbox" name="consent" required>
+            <span>Wyrażam zgodę na kontakt w&nbsp;sprawie współpracy. Administratorem danych jest Fundacja Szansa AI — szczegóły w&nbsp;<a href="polityka-prywatnosci.html" target="_blank" rel="noopener">polityce prywatności</a>. <span aria-hidden="true">*</span></span></label>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-gold btn-big">Wyślij</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+      <div class="form-done" role="status">
+        <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmGFYMjjLnYQeEkZz82lLJXtxL/3c5cd802-3fe2-4ea1-bb2b-ce4b34f1106e.webp" alt="" width="84" height="84">
+        <h2>Dziękujemy!</h2>
+        <p>Wiadomość dotarła do fundacji. Odezwiemy się wkrótce, żeby porozmawiać o&nbsp;współpracy.</p>
+        <button type="button" class="btn btn-ghost" data-close>Zamknij</button>
+      </div>
+    </div>
+  </dialog>
+
   <script src="assets/sparks.js"></script>
   <script src="assets/intro.js"></script>
   <script src="assets/poland.js"></script>
   <script src="assets/cookies.js"></script>
+  <script src="assets/partner-form.js"></script>
 </body>
 </html>
